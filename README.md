@@ -1,7 +1,7 @@
 # LiteClinic
 LiteClinic is a healthcare notification service designed to keep doctors and patients efficiently informed.   It provides timely alerts, reminders, and updates to improve communication and streamline healthcare workflows.
 ## Features
--**Appointment Notifications** – Remind patients of upcoming visits and notify doctors of schedule changes.  
+**Appointment Notifications** – Remind patients of upcoming visits and notify doctors of schedule changes.  
 - **Real-Time Sync** – Background task support ensures notifications are delivered promptly.  
 - **Secure Data Handling** – Built with SQLite for local storage and designed with privacy in mind.  
 
