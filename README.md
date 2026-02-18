@@ -1,6 +1,6 @@
 # LiteClinic
 
-[![Microsoft Store](https://img.shields.io/badge/Available%20on-Microsoft%20Store-blue)](https://apps.microsoft.com/detail/9NS9GSM55RLJ)
+[![Get it from Microsoft Store](https://img.shields.io/badge/Get%20it-Microsoft%20Store-blue)](https://apps.microsoft.com/detail/9ns9gsm55rlj?hl=en-US&gl=US)
 
 LiteClinic is a healthcare notification service designed to keep doctors and patients efficiently informed.  
 It provides timely alerts, reminders, and updates to improve communication and streamline healthcare workflows.
@@ -17,9 +17,13 @@ It provides timely alerts, reminders, and updates to improve communication and s
 - **Platform:** Windows 10/11  
 
 ## 🚀 Installation
-Download directly from the [Microsoft Store](https://apps.microsoft.com/detail/9NS9GSM55RLJ).  
-Or open directly in the Microsoft Store app:  
-[ms-windows-store://pdp/?productid=9NS9GSM55RLJ](ms-windows-store://pdp/?productid=9NS9GSM55RLJ)
+Download directly from the [Microsoft Store](https://apps.microsoft.com/detail/9ns9gsm55rlj?hl=en-US&gl=US).  
+
+Or open directly in the Microsoft Store app (Windows only):  
+`ms-windows-store://pdp/?productid=9NS9GSM55RLJ`
+
+⚠️ **Note:** LiteClinic is currently available in **English (United States)** only.  
+Localization for other languages/regions will be added in future updates.
 
 ## 📬 Feedback & Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you’d like to change.  
