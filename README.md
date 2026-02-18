@@ -19,7 +19,7 @@ It provides timely alerts, reminders, and updates to improve communication and s
 ## 🚀 Installation
 Download directly from the [Microsoft Store](https://apps.microsoft.com/detail/9NS9GSM55RLJ).  
 Or open directly in the Microsoft Store app:  
-[ms-windows-store://pdp/?productid=9NS9GSM55RLJ](ms-windows-store://pdp/?productid=9NS9GSM55RLJ)
+`ms-windows-store://pdp/?productid=9NS9GSM55RLJ`
 
 ## 📬 Feedback & Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you’d like to change.  
