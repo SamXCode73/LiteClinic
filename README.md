@@ -31,3 +31,7 @@ If you encounter bugs or have suggestions, please open an issue or contact me.
 
 ## 📄 License
 This project is licensed under the MIT License.
+
+<a href="https://get.microsoft.com/installer/download/9ns9gsm55rlj?referrer=appbadge" target="_self" >
+	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
+</a>
