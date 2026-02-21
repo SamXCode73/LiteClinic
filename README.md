@@ -10,11 +10,11 @@ It provides timely alerts, reminders, and updates to improve communication and s
 - **Real-Time Sync** – Background task support ensures notifications are delivered promptly.  
 - **Secure Data Handling** – Built with SQLite for local storage and designed with privacy in mind.  
 
-## 🛠️ Technology Stack
-- **Language:** C#  
-- **Framework:** WinUI 3 (Windows App SDK)  
-- **Database:** SQLite  
-- **Platform:** Windows 10/11  
+### 🛠 Technical Stack
+* **Framework:** WinUI 3 (Windows App SDK)
+* **Language:** C# / .NET
+* **Database:** SQLite (Local-first for reliability)
+* **Platform:** Windows 10 & 11 (Native)
 
 ## 🚀 Installation
 Download directly from the [Microsoft Store](https://apps.microsoft.com/detail/9ns9gsm55rlj?hl=en-US&gl=US).  
