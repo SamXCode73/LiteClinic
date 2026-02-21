@@ -35,3 +35,7 @@ This project is licensed under the MIT License.
 <a href="https://get.microsoft.com/installer/download/9ns9gsm55rlj?referrer=appbadge" target="_self" >
 	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
 </a>
+
+
+## Disclaimer: 
+LiteClinic is an independent project developed by [Samer Hmouda]. This software is not affiliated with, endorsed by, or associated with any other companies or websites operating under the "LiteClinic" name.
