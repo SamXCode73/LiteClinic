@@ -36,5 +36,7 @@ This project is licensed under the MIT License.
 </a>
 
 
-## Disclaimer: 
-LiteClinic is an independent project developed by [Samer Hmouda]. This software is not affiliated with, endorsed by, or associated with any other companies or websites operating under the "LiteClinic" name.
+## 📜 Disclaimer
+**LiteClinic** is an independent, open-source project developed by [Samer Hmouda] to solve real-world scheduling problems in healthcare. This software is a native Windows application built with WinUI 3 and is **not** affiliated with, endorsed by, or associated with any other companies, websites, or services operating under the "Lite Clinic" name (including liteclinic.com).
+
+This project is part of a journey to provide free, lightweight, and modern tools for the clinical community.
