@@ -20,7 +20,6 @@ It provides timely alerts, reminders, and updates to improve communication and s
 Download directly from the [Microsoft Store](https://apps.microsoft.com/detail/9ns9gsm55rlj?hl=en-US&gl=US).  
 
 Or open directly in the Microsoft Store app (Windows only):  
-`ms-windows-store://pdp/?productid=9NS9GSM55RLJ`
 
 ⚠️ **Note:** LiteClinic is currently available in **English (United States)** only.  
 Localization for other languages/regions will be added in future updates.
