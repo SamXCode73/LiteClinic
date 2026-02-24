@@ -21,6 +21,9 @@ Download directly from the [Microsoft Store](https://apps.microsoft.com/detail/9
 
 Or open directly in the Microsoft Store app (Windows only):  
 
+## Documentation
+📖 [Help Guide](docs/Help.md)
+
 ⚠️ **Note:** LiteClinic is currently available in **English (United States)** only.  
 Localization for other languages/regions will be added in future updates.
 
