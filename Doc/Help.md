@@ -1,100 +1,101 @@
 # LiteClinic Help Guide
 
+Welcome to the LiteClinic Help section. This guide is designed to help you quickly understand the app’s features, configure your clinic, and make the most of LiteClinic.
+
+LiteClinic helps doctors and patients stay connected and organized.  
+With simple reminders and timely updates, it makes managing appointments and clinic tasks easier than ever.  
+Built with privacy in mind, LiteClinic keeps your data safe while keeping your healthcare workflow smooth.
+
+
 ## Getting Started
-- The main dashboard provides access to all core features using the left-side menu (collapsible or expandable).
-- First step: personalize LiteClinic by renaming your clinic in **Settings** → change clinic name → click **Apply**.
-- Add doctor and patient data from the dashboard. Double-tap to view and manage patient records.
-- Configure Telegram notifications in **Settings** → click **Go to Configuration Page Helper**.
+- **Dashboard**: This is the main dashboard of LiteClinic. From here, you can access all core features using the left-side menu, which can be collapsed or fully expanded.  
+- **Clinic Name**: The first step is to personalize LiteClinic by renaming your clinic. Go to Settings, change the clinic name, and click Apply.  
+- **Doctors & Patients**: Add doctor and patient data from the main dashboard. You can double-tap to view and manage patient records easily.  
+- **Telegram Setup**: Use the Telegram bot setup in Settings to enable notifications. To configure your bot, click on *Go to Configuration Page Helper*.  
 
 ---
 
 ## Menu Overview
+The left-side menu can be collapsed or fully expanded. Here's what each item does:
 
 ### Dashboard
-- Displays today’s summary and appointment calendar.
-- Double-tap a doctor’s name to view their appointments.
-- Appointment statuses:
-  - **Attending** – Patient is currently with the doctor.
-  - **Attended** – Patient has already seen the doctor.
-  - **Missed** – Patient did not come to the clinic.
+Displays today's summary and the calendar of appointments. By double-tapping a doctor's name in the calendar, you can view their appointments for the day on the right side. Each appointment can be updated with one of the following statuses:
+- **Attending** – The patient is currently with the doctor.  
+- **Attended** – The patient has already seen the doctor and left.  
+- **Missed** – The patient did not come to the clinic.  
 
 ### Doctors
-- Add, edit, deactivate, or clear doctor profiles.
-- Shortcuts: **F1 Add**, **F2 Edit**, **F3 Deactivate**, **F4 Clear**.
-- ⚠️ Mandatory fields (marked with a red circle) must be filled, or notifications may fail.
-- ⚠️ **IMPORTANT:** After adding a doctor, go to the **Open Scheduled Page** to set the doctor’s schedule.  
-  This page shows which days of the month the doctor will attend.  
-
-  **Why this matters:**  
-  The appointment filtering system depends on the doctor’s schedule.  
-  For example, if you have 100 doctors and you select an appointment date (e.g., the 14th, which is a Monday),  
-  only doctors who are scheduled to attend the clinic on Mondays will appear in the appointment list.  
-  Without setting the schedule, doctors will not be properly filtered and may not show up for appointments.
+- Add, edit, deactivate, or clear doctor profiles.  
+- Shortcuts: Add (F1), Edit (F2), Deactivate (F3), Clear (F4).  
+- ⚠️ Mandatory fields marked with a red circle must be filled. Notifications may fail if left empty.  
 
 ### Patients
-- Manage patient records and view visit history.
-- Shortcuts: **F1 Add**, **F2 Edit**, **F3 Deactivate**, **F4 Clear**.
-- ⚠️ Mandatory fields must be filled for notifications to work properly.
+- Manage patient records and view visit history.  
+- Shortcuts: Add (F1), Edit (F2), Deactivate (F3), Clear (F4).  
+- ⚠️ Mandatory fields marked with a red circle must be filled.  
 
 ### Appointments
-- Schedule and control upcoming visits.
-- Shortcuts: **F1 Add**, **F2 Edit**, **F3 Deactivate**, **F4 Clear**.
-- Patient search supported by:
-  - Name (first, middle, last, full)
-  - Patient ID or code (e.g., PT000001)
-  - Email, mobile number
-  - Age or date of birth (dd/MM/yyyy)
-- Double-click patient’s name to quickly add appointments.
+- Schedule and control upcoming visits.  
+- Shortcuts: Add (F1), Edit (F2), Deactivate (F3), Clear (F4).  
+- **Search Options**: You can search by name, patient ID, patient code (e.g., PT000001), email, phone, age, or date of birth (dd/MM/yyyy).  
+- **Quick Add**: Double-click/tap on the patient’s name to add a new appointment.  
 
 ### Reports
-- Provides statistics for:
-  - Total doctors (daily, weekly, monthly, yearly)
-  - Total patients (daily, weekly, monthly, yearly)
-  - Missed appointments (daily, weekly, monthly, yearly)
-- Helps track clinic performance and trends.
+View visit statistics and performance summaries:
+- **Total doctors** – stats for today, week, month, year.  
+- **Total patients** – stats for today, week, month, year.  
+- **Missed appointments** – stats for today, week, month, year.  
+- **Insights** – track clinic performance, identify trends, and plan resources.  
 
 ### Users
-- **User Management** → Add, update, deactivate, clear users. Shortcuts: F1–F4.
-- **User Roles** → Manage predefined roles and permissions. Recommended to keep defaults unchanged.
-- Default accounts:
-  - Admin → `admin / admin1234`
-  - User → `user / user1234`
-- ⚠️ Change default passwords immediately after first login.
+The Users section contains two main pages:  
+- **User Management** – Add, update, deactivate, or clear users. Shortcuts: F1–F4.  
+- **User Roles** – Manage predefined roles and permissions. Recommended to keep defaults unchanged.  
+
+#### Default Accounts
+- **Admin** – Username: `admin`, Password: `admin1234`  
+- **User** – Username: `user`, Password: `user1234`  
+- ⚠️ For security, change these default passwords immediately after first login.  
 
 ### Settings
-- Change themes
-- Manage notifications
-- Configure Telegram bot
-- Backup database
-- Open log files for diagnostics
+Configure and personalize LiteClinic:  
+- **Themes** – Switch between available visual themes.  
+- **Notifications** – Adjust preferences for alerts.  
+- **Telegram Bot** – Set up and manage appointment notifications.  
+- **Backup** – Save clinic data securely.  
+- **Logs** – Access diagnostic logs for troubleshooting.  
 
 ### About
-- View version details and terms of use.
+Learn more about LiteClinic, version details, and terms of use.  
 
 ### Logout
-- Exit securely to prevent unauthorized access.
+Exit the application securely. Logging out ensures your session is closed properly and prevents unauthorized access.  
 
 ---
 
 ## Troubleshooting
-- Check internet connection and Windows notification settings.
-- Ensure doctors/patients are added and not deactivated.
-- Verify appointment dates/times are correct.
-- Ensure Telegram app is installed and accessible.
+- Check internet connection and Windows notification settings.  
+- Ensure doctors and patients are correctly added and not deactivated.  
+- Verify appointment dates and times.  
+- Make sure Telegram is installed and accessible.  
 
 ---
 
 ## Support
-- Contact: **samer.hmouda@outlook.com**
-- Visit the Configuration Page Helper in Settings.
+For assistance, contact support at: **samer.hmouda@outlook.com**  
+Or visit the *Configuration Page Helper* in Settings.  
 
 ---
 
 ## Credits
-- Developed by **Samer Hmouda**  
-- Art Director: **Mohammad Hmouda**  
-- Built with **.NET, WinUI 3, Telegram Bot API**  
-- Icons: Google Icons  
-- Images: Free resources credited to creators  
-- Logo: Mohammad Hmouda  
-- Special thanks to contributors and feedback providers
+- **Developer**: LiteClinic was developed by Samer Hmouda.  
+- **Acknowledgements**: Thanks to open-source libraries/frameworks like .NET, WinUI 3, and Telegram Bot API.  
+- **Icons**: Google Icons.
+
+---
+
+## Download LiteClinic
+You can download LiteClinic directly from the Microsoft Store:  
+  <a href="https://get.microsoft.com/installer/download/9ns9gsm55rlj?referrer=appbadge" target="_self" >
+	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
+</a>
