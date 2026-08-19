@@ -1,0 +1,3020 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+	
+	English Text
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Patients.Text" xml:space="preserve">
+    <value>Patients</value>
+    <comment>Patients Menu Item</comment>
+  </data>
+  <data name="Reports.Text" xml:space="preserve">
+    <value>Reports</value>
+    <comment>Reports Menu Item</comment>
+  </data>
+  <data name="Settings.Text" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Settings Menu Item</comment>
+  </data>
+  <data name="Users.Text" xml:space="preserve">
+    <value>Users</value>
+    <comment>Users Menu Item</comment>
+  </data>
+  <data name="WelcomeSpalshScreen.Text" xml:space="preserve">
+    <value>LiteClinic</value>
+    <comment>Welcome on Splash screen</comment>
+  </data>
+  <data name="Appointments.Text" xml:space="preserve">
+    <value>Appointments</value>
+    <comment>Appointments Menu Item</comment>
+  </data>
+  <data name="About.Text" xml:space="preserve">
+    <value>About</value>
+    <comment>About this ApplicaTION</comment>
+  </data>
+  <data name="AppTitle.Text" xml:space="preserve">
+    <value>LiteClinic</value>
+    <comment>Lite Clinic App Name</comment>
+  </data>
+  <data name="AppSubtitle.Text" xml:space="preserve">
+    <value>AppSubtitle</value>
+    <comment>AppSubtitle</comment>
+  </data>
+  <data name="ChooseAppTheme.Text" xml:space="preserve">
+    <value>Choose App Theme</value>
+    <comment>Choose App Theme</comment>
+  </data>
+  <data name="DiagnosticsandLogs.Text" xml:space="preserve">
+    <value>Diagnostics and Logs</value>
+    <comment>Diagnostics and Logs</comment>
+  </data>
+  <data name="LanguagePreferences.Text" xml:space="preserve">
+    <value>Language Preferences</value>
+    <comment>Language Preferences</comment>
+  </data>
+  <data name="NotificationsSettings.Text" xml:space="preserve">
+    <value>Notifications Settings</value>
+    <comment>Notifications Settings</comment>
+  </data>
+  <data name="OpenLogFolderButton.Content" xml:space="preserve">
+    <value>Open Log Folder</value>
+    <comment>Open Log Folder</comment>
+  </data>
+  <data name="NotifyPatient24hCheckBox.Content" xml:space="preserve">
+    <value>Send patient notification 24 hours before appointment</value>
+    <comment>Notify Patient 24h Check Box</comment>
+  </data>
+  <data name="NotifyPatient2hCheckBox.Content" xml:space="preserve">
+    <value>Send patient notification 2 hours before appointment</value>
+    <comment>Notify Patient 2h CheckBox</comment>
+  </data>
+  <data name="NotifyDoctorCheckBox.Content" xml:space="preserve">
+    <value>Enable doctor notifications for scheduled clinic days</value>
+    <comment>Notify Doctor CheckBox</comment>
+  </data>
+  <data name="SendViaTelegramCheckBox.Content" xml:space="preserve">
+    <value>Send notifications via Telegram</value>
+    <comment>Send Via Telegram CheckBox.</comment>
+  </data>
+  <data name="UseTelegramnotifications.Text" xml:space="preserve">
+    <value>⚠️ To use Telegram notifications, you must create and configure your own Telegram bot.</value>
+    <comment> use Telegram notifications</comment>
+  </data>
+  <data name="Logout.Text" xml:space="preserve">
+    <value>Logout</value>
+    <comment>Log Out the app</comment>
+  </data>
+  <data name="DoctorsMenu.Text" xml:space="preserve">
+    <value>Doctors</value>
+    <comment>Doctors Menu</comment>
+  </data>
+  <data name="TestKey.Text" xml:space="preserve">
+    <value>Test Key</value>
+    <comment>Test Key</comment>
+  </data>
+  <data name="AddDoctorScheduled.Text" xml:space="preserve">
+    <value>Doctor / Add Scheduled</value>
+    <comment>Doctor  Add Scheduled</comment>
+  </data>
+  <data name="DoctorAddService.Text" xml:space="preserve">
+    <value>Doctor / Add Service</value>
+    <comment>Doctor Add Service</comment>
+  </data>
+  <data name="PatientAddService" xml:space="preserve">
+    <value>Patient / Add Service</value>
+    <comment>Patient Add Service</comment>
+  </data>
+  <data name="AP_OverviewTitle.Text" xml:space="preserve">
+    <value>Overview</value>
+    <comment>Overview</comment>
+  </data>
+  <data name="AP_OverviewDescription.Text" xml:space="preserve">
+    <value>LiteClinic is a compact healthcare notification service built to keep doctors and patients connected.</value>
+    <comment>OverviewDescription</comment>
+  </data>
+  <data name="AP_CommunicationTitle.Text" xml:space="preserve">
+    <value>Communication</value>
+    <comment>Communication</comment>
+  </data>
+  <data name="AP_CommunicationDescription.Text" xml:space="preserve">
+    <value>The app uses Telegram as its communication channel, since it is free of charge and widely accessible.</value>
+    <comment>AP_CommunicationDescription</comment>
+  </data>
+  <data name="AP_CommunicationHelper.Text" xml:space="preserve">
+    <value>You can connect LiteClinic with a free Telegram bot. To learn how to create and configure your bot, go to the Settings page and click on 'Go to Configuration Page Helper'.</value>
+    <comment>AP_CommunicationHelper</comment>
+  </data>
+  <data name="AP_DoctorDataTitle.Text" xml:space="preserve">
+    <value>Doctor Data</value>
+    <comment>AP_DoctorDataTitle</comment>
+  </data>
+  <data name="AP_DoctorDataDescription.Text" xml:space="preserve">
+    <value>Doctors can be added with their essential details such as name, specialization, and mobile number.</value>
+    <comment>AP_DoctorDataDescription</comment>
+  </data>
+  <data name="AP_PatientDataTitle.Text" xml:space="preserve">
+    <value>Patient Data</value>
+    <comment>AP_PatientDataTitle</comment>
+  </data>
+  <data name="AP_PatientDataDescription.Text" xml:space="preserve">
+    <value>Patients can also be registered, allowing you to know your patient and keep their information organized.</value>
+    <comment>AP_PatientDataDescription</comment>
+  </data>
+  <data name="AP_AppointmentsDescription1.Text" xml:space="preserve">
+    <value>Appointments can be scheduled with specific dates and times, ensuring timely reminders for both sides.</value>
+    <comment>AP_AppointmentsDescription1</comment>
+  </data>
+  <data name="AP_AppointmentsDescription2.Text" xml:space="preserve">
+    <value>It is easy to add, edit, or deactivate appointments, doctor data, and patient data with just one click.</value>
+    <comment>AP_AppointmentsDescription</comment>
+  </data>
+  <data name="AP_NotificationsTitle.Text" xml:space="preserve">
+    <value>Notifications</value>
+    <comment>AP_NotificationsTitle</comment>
+  </data>
+  <data name="AP_NotificationsDescription1.Text" xml:space="preserve">
+    <value>Notifications are automatically sent to doctors and patients through Telegram when cycles begin.</value>
+    <comment>AP_NotificationsDescription1</comment>
+  </data>
+  <data name="AP_NotificationsDescription2.Text" xml:space="preserve">
+    <value>If a doctor is deactivated, they will no longer receive notifications from the system.</value>
+    <comment>AP_NotificationsDescription2</comment>
+  </data>
+  <data name="AP_NotificationsDescription3.Text" xml:space="preserve">
+    <value>Similarly, deactivated patients will be excluded from future reminders.</value>
+    <comment>AP_NotificationsDescription3</comment>
+  </data>
+  <data name="AP_UserControlTitle.Text" xml:space="preserve">
+    <value>User Control and Permissions</value>
+    <comment>AP_UserControlTitle</comment>
+  </data>
+  <data name="AP_UserControlDescription.Text" xml:space="preserve">
+    <value>LiteClinic also provides useful user control and permission features, such as adding admin users to manage the system.</value>
+    <comment>AP_UserControlDescription</comment>
+  </data>
+  <data name="AP_ClosingDescription.Text" xml:space="preserve">
+    <value>Overall, LiteClinic provides a simple, reliable way to streamline healthcare communication without extra cost.</value>
+    <comment>AP_ClosingDescription</comment>
+  </data>
+  <data name="AP_Version106Title.Text" xml:space="preserve">
+  <value>Version 1.0.6.0</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_DashboardSeparated.Text" xml:space="preserve">
+  <value>• Dashboard separated into two pages</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_DashboardClinicCalendar.Text" xml:space="preserve">
+  <value>- Clinic Calendar</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_DashboardDoctorDirectory.Text" xml:space="preserve">
+  <value>- Doctor Directory</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_DoctorDirectoryFilters.Text" xml:space="preserve">
+  <value>• Doctor Directory now includes filters:</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_FilterToday.Text" xml:space="preserve">
+  <value>- Today’s availability</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_FilterSlots.Text" xml:space="preserve">
+  <value>- Morning / Afternoon / Evening slots</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_FilterSpecialty.Text" xml:space="preserve">
+  <value>- Specialty filter</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_AppointmentTabs.Text" xml:space="preserve">
+  <value>• Appointment page separated into two tabs:</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_TabPatients.Text" xml:space="preserve">
+  <value>- Patients</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_TabAppointments.Text" xml:space="preserve">
+  <value>- Appointments (with filters per appointment)</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_Version105Title.Text" xml:space="preserve">
+  <value>Version 1.0.5.0</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_AddArabicLocalization.Text" xml:space="preserve">
+  <value>• Added full Arabic localization (UI, messages, notifications)</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_AddFrenchLocalization.Text" xml:space="preserve">
+  <value>• Added full French localization (UI, messages, notifications)</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_ImprovedResourceHandling.Text" xml:space="preserve">
+  <value>• Improved resource handling for multi-language support</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_UpdatedCopyrightMessage.Text" xml:space="preserve">
+  <value>• Updated copyright message to reflect selected language</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_UIAdjustmentsSettings.Text" xml:space="preserve">
+  <value>• UI adjustments for the settings page</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_FixedTelegramNotifications.Text" xml:space="preserve">
+  <value>• Fixed Telegram bot not sending notifications</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_NotificationsReliability.Text" xml:space="preserve">
+  <value>• Notifications now work reliably in English, French, and Arabic</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_BuildsSupported.Text" xml:space="preserve">
+  <value>• Builds supported on x86, x64, and ARM64</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_LocalizationWorks.Text" xml:space="preserve">
+  <value>• Localization works across Windows 10 and 11 devices</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_Version104Title.Text" xml:space="preserve">
+  <value>Version 1.0.4.0</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP104_AddArabicLocalization.Text" xml:space="preserve">
+  <value>• Added full Arabic localization (UI, messages, notifications)</value>
+  <comment>AboutPage What's New section v1.0.4.0 - en-US</comment>
+</data>
+<data name="AP104_AddFrenchLocalization.Text" xml:space="preserve">
+  <value>• Added full French localization (UI, messages, notifications)</value>
+  <comment>AboutPage What's New section v1.0.4.0 - en-US</comment>
+</data>
+<data name="AP104_ImprovedResourceHandling.Text" xml:space="preserve">
+  <value>• Improved resource handling for multi-language support</value>
+  <comment>AboutPage What's New section v1.0.4.0 - en-US</comment>
+</data>
+<data name="AP104_UpdatedCopyrightMessage.Text" xml:space="preserve">
+  <value>• Updated copyright message to reflect selected language</value>
+  <comment>AboutPage What's New section v1.0.4.0 - en-US</comment>
+</data>
+<data name="AP104_UIRenderingIssues.Text" xml:space="preserve">
+  <value>• Fixed minor UI rendering issues in Arabic/French layouts</value>
+  <comment>AboutPage What's New section v1.0.4.0 - en-US</comment>
+</data>
+<data name="AP104_RTLLanguageAlignment.Text" xml:space="preserve">
+  <value>• Corrected alignment for right-to-left (RTL) languages</value>
+  <comment>AboutPage What's New section v1.0.4.0 - en-US</comment>
+</data>
+<data name="AP104_BuildsSupported.Text" xml:space="preserve">
+  <value>• Builds supported on x86, x64, and ARM64</value>
+  <comment>AboutPage What's New section v1.0.4.0 - en-US</comment>
+</data>
+<data name="AP104_LocalizationWorks.Text" xml:space="preserve">
+  <value>• Localization works across Windows 10 and 11 devices</value>
+  <comment>AboutPage What's New section v1.0.4.0 - en-US</comment>
+</data>
+<data name="AP103_VersionTitle.Text" xml:space="preserve">
+  <value>Version 1.0.3.0</value>
+  <comment>AboutPage What's New section v1.0.3.0 - en-US</comment>
+</data>
+<data name="AP103_NewDateOptions.Text" xml:space="preserve">
+  <value>• New date display options (Gregorian and Hijri)</value>
+  <comment>AboutPage What's New section v1.0.3.0 - en-US</comment>
+</data>
+<data name="AP103_ImprovedMigration.Text" xml:space="preserve">
+  <value>• Improved database migration — safer upgrades</value>
+  <comment>AboutPage What's New section v1.0.3.0 - en-US</comment>
+</data>
+<data name="AP103_FixedDOBIssue.Text" xml:space="preserve">
+  <value>• Fixed Date of Birth issue (year-only defaults to 01/01/yyyy)</value>
+  <comment>AboutPage What's New section v1.0.3.0 - en-US</comment>
+</data>
+<data name="AP103_EnhancedFiltering.Text" xml:space="preserve">
+  <value>• Enhanced appointment filtering and overall stability</value>
+  <comment>AboutPage What's New section v1.0.3.0 - en-US</comment>
+</data>
+  <data name="TU_Tab.Header" xml:space="preserve">
+    <value>Terms of Use</value>
+    <comment>TU_Tab</comment>
+  </data>
+  <data name="TU_FreeTitle.Text" xml:space="preserve">
+    <value>Free of Charge</value>
+    <comment>TU_FreeTitle</comment>
+  </data>
+  <data name="AP_Tab.Header" xml:space="preserve">
+    <value>About LiteClinic</value>
+    <comment>AP_Tab</comment>
+  </data>
+  <data name="TU_FreeDescription.Text" xml:space="preserve">
+    <value>LiteClinic is provided free of charge and intended for healthcare communication support.</value>
+    <comment>TU_FreeDescription</comment>
+  </data>
+  <data name="TU_DisclaimerTitle.Text" xml:space="preserve">
+    <value> Medical Disclaimer</value>
+    <comment>TU_DisclaimerTitle</comment>
+  </data>
+  <data name="TU_DisclaimerDescription.Text" xml:space="preserve">
+    <value>Notifications are informational only and should not be considered medical advice.</value>
+    <comment>TU_DisclaimerDescription</comment>
+  </data>
+  <data name="TU_ResponsibilityTitle.Text" xml:space="preserve">
+    <value>Users are responsible for the accuracy of the data they enter, including doctor and patient details.</value>
+    <comment>TU_ResponsibilityTitle</comment>
+  </data>
+  <data name="TU_LimitationsTitle.Text" xml:space="preserve">
+    <value>Delivery Limitations</value>
+    <comment>TU_LimitationsTitle</comment>
+  </data>
+  <data name="TU_LimitationsDescription.Text" xml:space="preserve">
+    <value>LiteClinic does not guarantee delivery of notifications in cases of internet or system failure, or if Telegram services are unavailable or misconfigured.</value>
+    <comment>TU_LimitationsDescription</comment>
+  </data>
+  <data name="TU_AgreementTitle.Text" xml:space="preserve">
+    <value>Agreement</value>
+    <comment>TU_AgreementTitle</comment>
+  </data>
+  <data name="TU_AgreementDescription.Text" xml:space="preserve">
+    <value>By using LiteClinic, you agree that the app is provided 'as is' without warranties.</value>
+    <comment>TU_AgreementDescription</comment>
+  </data>
+  <data name="TU_PrivacyTitle.Text" xml:space="preserve">
+    <value>Privacy and Security</value>
+    <comment>TU_PrivacyTitle</comment>
+  </data>
+  <data name="TU_PrivacyDescription1.Text" xml:space="preserve">
+    <value>LiteClinic uses SQLite as its local database, which does not include built-in user authentication or password protection. Users are fully responsible for safeguarding their data and ensuring it remains secure.</value>
+    <comment>TU_PrivacyDescription1</comment>
+  </data>
+  <data name="TU_PrivacyDescription2.Text" xml:space="preserve">
+    <value>We strongly recommend maintaining proper security on your device, such as using antivirus software, firewalls, and regular system updates.</value>
+    <comment>TU_PrivacyDescription2</comment>
+  </data>
+  <data name="TU_PrivacyDescription3.Text" xml:space="preserve">
+    <value>LiteClinic uses a Telegram bot only for sending notifications; the bot token must never be shared or exposed to others. For additional safety, the Telegram bot token is encrypted inside the app.</value>
+    <comment>TU_PrivacyDescription3</comment>
+  </data>
+  <data name="TU_PrivacyDescription4.Text" xml:space="preserve">
+    <value>Users are responsible for keeping their system environment secure, restricting access to their PC, and backing up their data regularly to prevent unauthorized access or data loss.</value>
+    <comment>TU_PrivacyDescription4</comment>
+  </data>
+  <data name="HP_Tab.Header" xml:space="preserve">
+    <value>Help</value>
+    <comment>HP_Tab</comment>
+  </data>
+  <data name="HP_GettingStartedTitle.Text" xml:space="preserve">
+    <value>Getting Started</value>
+    <comment>HP_GettingStartedTitle</comment>
+  </data>
+  <data name="HP_DashboardDescription.Text" xml:space="preserve">
+    <value>This is the main dashboard of LiteClinic. From here, you can access all core features using the left-side menu, which can be collapsed or fully expanded.</value>
+    <comment>HP_DashboardDescription</comment>
+  </data>
+  <data name="HP_ClinicNameDescription.Text" xml:space="preserve">
+    <value>The first step is to personalize LiteClinic by renaming your clinic. Go to Settings, change the clinic name, and click Apply.</value>
+    <comment>HP_ClinicNameDescription</comment>
+  </data>
+  <data name="HP_DoctorPatientDescription.Text" xml:space="preserve">
+    <value>Next, add doctor and patient data from the main dashboard. You can double-tap to view and manage patient records easily.</value>
+    <comment>HP_DoctorPatientDescription</comment>
+  </data>
+  <data name="HP_TelegramDescription.Text" xml:space="preserve">
+    <value>Use the Telegram bot setup in Settings to enable notifications. To configure your bot, click on 'Go to Configuration Page Helper'.</value>
+    <comment>HP_TelegramDescription</comment>
+  </data>
+  <data name="HP_MenuOverviewTitle.Text" xml:space="preserve">
+    <value>Menu Overview</value>
+    <comment>HP_MenuOverviewTitle</comment>
+  </data>
+  <data name="HP_MenuOverviewDescription.Text" xml:space="preserve">
+    <value>The left-side menu can be collapsed or fully expanded. Here's what each item does:</value>
+    <comment>HP_MenuOverviewDescription.Text</comment>
+  </data>
+  <data name="HP_DashboardTitle.Text" xml:space="preserve">
+    <value>• Dashboard</value>
+    <comment>HP_DashboardTitle</comment>
+  </data>
+  <data name="HP_DashboardDescription1.Text" xml:space="preserve">
+    <value>Displays today's summary and the calendar of appointments. By double-tapping a doctor's name in the calendar, you can view their appointments for the day on the right side. Each appointment can be updated with one of the following statuses:</value>
+    <comment>HP_DashboardDescription1</comment>
+  </data>
+  <data name="HP_DashboardStatusAttending.Text" xml:space="preserve">
+    <value>• Attending – The patient is currently with the doctor.</value>
+    <comment>HP_DashboardStatusAttending.Text</comment>
+  </data>
+  <data name="HP_DashboardStatusAttended.Text" xml:space="preserve">
+    <value>• Attended – The patient has already seen the doctor and left.</value>
+    <comment>HP_DashboardStatusAttended</comment>
+  </data>
+  <data name="HP_DashboardStatusMissed.Text" xml:space="preserve">
+    <value>• Missed – The patient did not come to the clinic.</value>
+    <comment>HP_DashboardStatusMissed</comment>
+  </data>
+  <data name="HP_DoctorsTitle.Text" xml:space="preserve">
+    <value>• Doctors</value>
+    <comment>HP_DoctorsTitle</comment>
+  </data>
+  <data name="HP_DoctorsDescription.Text" xml:space="preserve">
+    <value>Add, edit, deactivate, or clear doctor profiles. You can use the following shortcuts: Add (F1), Edit (F2), Deactivate (F3), or Clear all data with Clear (F4).</value>
+    <comment>HP_DoctorsDescription</comment>
+  </data>
+  <data name="HP_DoctorsWarning.Text" xml:space="preserve">
+    <value>Important: The field marked with a red circle is mandatory. Notifications may not work properly if this field is left empty, even if no validation warning appears.</value>
+    <comment>HP_DoctorsWarning</comment>
+  </data>
+  <data name="HP_PatientsTitle.Text" xml:space="preserve">
+    <value>• Patients</value>
+    <comment>HP_PatientsTitle</comment>
+  </data>
+  <data name="HP_PatientsDescription.Text" xml:space="preserve">
+    <value>Manage patient records and view visit history. You can use the following shortcuts: Add (F1), Edit (F2), Deactivate (F3), or Clear all data with Clear (F4).</value>
+    <comment>HP_PatientsDescription</comment>
+  </data>
+  <data name="HP_PatientsWarning.Text" xml:space="preserve">
+    <value>Important: The field marked with a red circle is mandatory. Notifications may not work properly if this field is left empty, even if no validation warning appears.</value>
+    <comment>HP_PatientsWarning</comment>
+  </data>
+  <data name="HP_AppointmentsTitle.Text" xml:space="preserve">
+    <value>• Appointments</value>
+    <comment>HP_AppointmentsTitle.Text</comment>
+  </data>
+  <data name="HP_AppointmentsDescription.Text" xml:space="preserve">
+    <value>Schedule and control upcoming visits. You can use the following shortcuts: Add (F1), Edit (F2), Deactivate (F3), or Clear all data with Clear (F4).</value>
+    <comment>HP_AppointmentsDescription</comment>
+  </data>
+  <data name="HP_AppointmentsSearch.Text" xml:space="preserve">
+    <value>When adding a patient to an appointment, you can search using multiple fields: first name, middle name, last name, or full name; patient ID; patient code (e.g., PT000001); email address; mobile phone number; age (e.g., 35, 45...); or date of birth (in dd/MM/yyyy format, e.g., 01/01/2000).</value>
+    <comment>HP_AppointmentsSearch</comment>
+  </data>
+  <data name="HP_AppointmentsAdd.Text" xml:space="preserve">
+    <value>After searching, you can double-click (or tap) on the patient’s name to quickly add a new appointment.</value>
+    <comment>HP_AppointmentsAdd</comment>
+  </data>
+  <data name="HP_ReportsTitle.Text" xml:space="preserve">
+    <value>• Reports</value>
+    <comment>HP_ReportsTitle</comment>
+  </data>
+  <data name="HP_ReportsDescription.Text" xml:space="preserve">
+    <value>View visit statistics and performance summaries. Reports provide detailed counts and insights for:</value>
+    <comment>HP_ReportsDescription</comment>
+  </data>
+  <data name="HP_ReportsTotalDoctors.Text" xml:space="preserve">
+    <value>• Total doctors – statistics available for today, this week, this month, and this year.</value>
+    <comment>HP_ReportsTotalDoctors</comment>
+  </data>
+  <data name="HP_ReportsTotalPatients.Text" xml:space="preserve">
+    <value>• Total patients – statistics available for today, this week, this month, and this year.</value>
+    <comment>HP_ReportsTotalPatients</comment>
+  </data>
+  <data name="HP_ReportsMissedAppointments.Text" xml:space="preserve">
+    <value>• Missed appointments – statistics available for today, this week, this month, and this year.</value>
+    <comment>HP_ReportsMissedAppointments</comment>
+  </data>
+  <data name="HP_ReportsInsights.Text" xml:space="preserve">
+    <value>These reports help track clinic performance, identify trends, and ensure better planning for resources.</value>
+    <comment>HP_ReportsInsights</comment>
+  </data>
+  <data name="HP_UsersTitle.Text" xml:space="preserve">
+    <value>• Users</value>
+    <comment>HP_UsersTitle</comment>
+  </data>
+  <data name="HP_UsersDescription.Text" xml:space="preserve">
+    <value>The Users section contains two main pages: User Management and User Roles.</value>
+    <comment>HP_UsersDescription</comment>
+  </data>
+  <data name="HP_UserManagement.Text" xml:space="preserve">
+    <value>• User Management – Add new users, update existing ones, deactivate accounts, or clear all data. Shortcuts: Add (F1), Update (F2), Deactivate (F3), Clear (F4).</value>
+    <comment>HP_UserManagement</comment>
+  </data>
+  <data name="HP_UserRoles.Text" xml:space="preserve">
+    <value>• User Roles – Manage predefined roles and permissions. We recommend keeping the default roles unchanged for stability. Shortcuts: Add (F1), Update (F2), Deactivate (F3), Clear (F4).</value>
+    <comment>HP_UserRoles</comment>
+  </data>
+  <data name="HP_DefaultAccountsTitle.Text" xml:space="preserve">
+    <value>Default Accounts:</value>
+    <comment>HP_DefaultAccountsTitle</comment>
+  </data>
+  <data name="HP_DefaultAdmin.Text" xml:space="preserve">
+    <value>• Admin – Username: admin, Password: admin1234</value>
+    <comment>HP_DefaultAdmin</comment>
+  </data>
+  <data name="HP_DefaultUser.Text" xml:space="preserve">
+    <value>• User – Username: user, Password: user1234</value>
+    <comment>HP_DefaultUser</comment>
+  </data>
+  <data name="HP_DefaultWarning.Text" xml:space="preserve">
+    <value>⚠️ For security, please change these default passwords immediately after first login.</value>
+    <comment>HP_DefaultWarning</comment>
+  </data>
+  <data name="HP_SettingsTitle.Text" xml:space="preserve">
+    <value>• Settings</value>
+    <comment>HP_SettingsTitle</comment>
+  </data>
+  <data name="HP_SettingsDescription.Text" xml:space="preserve">
+    <value>The Settings section allows you to configure and personalize LiteClinic. Available options include:</value>
+    <comment>HP_SettingsDescription</comment>
+  </data>
+  <data name="HP_SettingsThemes.Text" xml:space="preserve">
+    <value>• Change themes – Switch between available visual themes to customize the look and feel.</value>
+    <comment>HP_SettingsThemes</comment>
+  </data>
+  <data name="HP_SettingsNotifications.Text" xml:space="preserve">
+    <value>• Manage notifications – Adjust notification preferences to control how alerts are delivered.</value>
+    <comment>HP_SettingsNotifications</comment>
+  </data>
+  <data name="HP_SettingsTelegram.Text" xml:space="preserve">
+    <value>• Configure Telegram bot – Set up and manage the Telegram bot for appointment notifications.</value>
+    <comment>HP_SettingsTelegram</comment>
+  </data>
+  <data name="HP_SettingsBackup.Text" xml:space="preserve">
+    <value>• Backup database – Save your clinic data securely in a safe location for recovery purposes.</value>
+    <comment>HP_SettingsBackup</comment>
+  </data>
+  <data name="HP_SettingsLogs.Text" xml:space="preserve">
+    <value>• Open log files – Access diagnostic logs to help identify issues. These logs can be shared with support if you encounter problems.</value>
+    <comment>HP_SettingsLogs</comment>
+  </data>
+  <data name="HP_AboutTitle.Text" xml:space="preserve">
+    <value>• About</value>
+    <comment>HP_AboutTitle</comment>
+  </data>
+  <data name="HP_AboutDescription.Text" xml:space="preserve">
+    <value>Learn more about LiteClinic, its version details, and review the terms of use.</value>
+    <comment>HP_AboutDescription</comment>
+  </data>
+  <data name="HP_LogoutTitle.Text" xml:space="preserve">
+    <value>• Logout</value>
+    <comment>HP_LogoutTitle</comment>
+  </data>
+  <data name="HP_LogoutDescription.Text" xml:space="preserve">
+    <value>Exit the application securely. Logging out ensures that your session is closed properly and prevents unauthorized access to clinic data.</value>
+    <comment>HP_LogoutDescription</comment>
+  </data>
+  <data name="HP_TroubleshootingTitle.Text" xml:space="preserve">
+    <value>Troubleshooting</value>
+    <comment>HP_TroubleshootingTitle</comment>
+  </data>
+  <data name="HP_TroubleshootingInternet.Text" xml:space="preserve">
+    <value>If notifications don’t appear, check your internet connection and Windows notification settings.</value>
+    <comment>HP_TroubleshootingInternet</comment>
+  </data>
+  <data name="HP_TroubleshootingDoctors.Text" xml:space="preserve">
+    <value>Ensure that doctors and patients are correctly added and not deactivated.</value>
+    <comment>HP_TroubleshootingDoctors</comment>
+  </data>
+  <data name="HP_TroubleshootingAppointments.Text" xml:space="preserve">
+    <value>Verify that appointment dates and times are entered correctly.</value>
+    <comment>HP_TroubleshootingAppointments</comment>
+  </data>
+  <data name="HP_TroubleshootingTelegram.Text" xml:space="preserve">
+    <value>LiteClinic uses Telegram, so make sure the Telegram app is installed and accessible.</value>
+    <comment>HP_TroubleshootingTelegram</comment>
+  </data>
+  <data name="HP_SupportTitle.Text" xml:space="preserve">
+    <value>Support</value>
+    <comment>HP_SupportTitle</comment>
+  </data>
+  <data name="HP_SupportDescription.Text" xml:space="preserve">
+    <value>For further assistance, contact support at: samer.hmouda@outlook.com or visit the Configuration Page Helper in Settings.</value>
+    <comment>HP_SupportDescription</comment>
+  </data>
+  <data name="HP_CreditsTitle.Text" xml:space="preserve">
+    <value>Credits</value>
+    <comment>HP_CreditsTitle</comment>
+  </data>
+  <data name="HP_CreditsDeveloper.Text" xml:space="preserve">
+    <value>LiteClinic was developed by Samer Hmouda.</value>
+    <comment>HP_CreditsDeveloper</comment>
+  </data>
+  <data name="HP_CreditsAcknowledgements.Text" xml:space="preserve">
+    <value>Acknowledgements: Thanks to open-source libraries and frameworks such as .NET, WinUI 3, and Telegram Bot API.</value>
+    <comment>HP_CreditsAcknowledgements</comment>
+  </data>
+  <data name="HP_CreditsIcons.Text" xml:space="preserve">
+    <value>Icons used in the application are sourced from Google Icons.</value>
+    <comment>HP_CreditsIcons</comment>
+  </data>
+  <data name="HP_CreditsImages.Text" xml:space="preserve">
+    <value>Images used in the application are sourced from free resources and credited to their respective creators.</value>
+    <comment>HP_CreditsImages.Text</comment>
+  </data>
+  <data name="HP_CreditsLogo.Text" xml:space="preserve">
+    <value>The LiteClinic app logo was created by Mohammad Hmouda.</value>
+    <comment>HP_CreditsLogo</comment>
+  </data>
+  <data name="HP_CreditsThanks.Text" xml:space="preserve">
+    <value>Special thanks to everyone who provided feedback and support during development.</value>
+    <comment>HP_CreditsThanks</comment>
+  </data>
+  <data name="UF_Tab.Header" xml:space="preserve">
+    <value>Unlock the Future</value>
+    <comment>UF_Tab</comment>
+  </data>
+  <data name="UF_Title.Text" xml:space="preserve">
+    <value>🚀 What’s Next for LiteClinic</value>
+    <comment>UF_Title</comment>
+  </data>
+  <data name="UF_Section1Title.Text" xml:space="preserve">
+    <value>🔧 Easy Server Integration</value>
+    <comment>UF_Section1Title</comment>
+  </data>
+  <data name="UF_Section1Description.Text" xml:space="preserve">
+    <value>LiteClinic can be seamlessly integrated with independent servers (e.g., Ubuntu). You can set up your own server with .NET support and connect it to LiteClinic without hassle.</value>
+    <comment>UF_Section1Description</comment>
+  </data>
+  <data name="UF_Section2Title.Text" xml:space="preserve">
+    <value>💳 One-Time Server Integration Fee</value>
+    <comment>UF_Section2Title</comment>
+  </data>
+  <data name="UF_Section2Description.Text" xml:space="preserve">
+    <value>Request your version of server integration with a one-time fee. You’ll always receive updates without recurring costs.</value>
+    <comment>UF_Section2Description</comment>
+  </data>
+  <data name="UF_Section3Title.Text" xml:space="preserve">
+    <value>🌟 Coming Soon</value>
+    <comment>UF_Section3Title</comment>
+  </data>
+  <data name="UF_Section3LiteClinicPlus.Text" xml:space="preserve">
+    <value>• LiteClinic+ → Full medical history with calendar integration. Automatically activate working days and occasional yearly days off. (Paid version)</value>
+    <comment>UF_Section3LiteClinicPlus</comment>
+  </data>
+  <data name="UF_Section3ClinicAI.Text" xml:space="preserve">
+    <value>• Clinic+AI → All LiteClinic+ features plus text-to-voice and AI-powered integration. Smarter, faster, and more interactive. (Premium version)</value>
+    <comment>UF_Section3ClinicAI</comment>
+  </data>
+  <data name="UF_ClosingNote.Text" xml:space="preserve">
+    <value>✨ Stay tuned — the future of LiteClinic is just around the corner.</value>
+    <comment>UF_ClosingNote</comment>
+  </data>
+  <data name="UF_ContactTitle.Text" xml:space="preserve">
+    <value>📬 You can always reach us at:</value>
+    <comment>UF_ContactTitle</comment>
+  </data>
+  <data name="UF_DeveloperName.Text" xml:space="preserve">
+    <value>👨‍💻 Samer Hmouda (Developer)</value>
+  </data>
+  <data name="UF_DeveloperEmail.Text" xml:space="preserve">
+    <value>✉️ Email: samer.hmouda@outlook.com</value>
+  </data>
+  <data name="UF_DeveloperMobile.Text" xml:space="preserve">
+    <value>📱 Mobile: +961 3 24 73 41</value>
+    <comment>UF_DeveloperMobile</comment>
+  </data>
+  <data name="UF_ArtDirectorName.Text" xml:space="preserve">
+    <value>🎨 Mohamad Hmouda (Art Director | Designer)</value>
+    <comment>UF_ArtDirectorName</comment>
+  </data>
+  <data name="UF_ArtDirectorEmail.Text" xml:space="preserve">
+    <value>✉️ Email: arch.me17@gmail.com</value>
+    <comment>UF_ArtDirectorEmail</comment>
+  </data>
+  <data name="UF_ArtDirectorMobile.Text" xml:space="preserve">
+    <value>📱 Mobile: +961 71 08 16 23</value>
+    <comment>UF_ArtDirectorMobile</comment>
+  </data>
+  <data name="Status_CopyRight" xml:space="preserve">
+    <value>Displaying copyright...</value>
+  </data>
+  <data name="Status_LoadingDB" xml:space="preserve">
+    <value>Loading DB...</value>
+  </data>
+  <data name="Status_LoadingSettings" xml:space="preserve">
+    <value>Loading Settings...</value>
+  </data>
+  <data name="Status_LoadingClinic" xml:space="preserve">
+    <value>Loading Clinic Name...</value>
+  </data>
+  <data name="Status_ApplyingTheme" xml:space="preserve">
+    <value>Applying Theme and Language...</value>
+  </data>
+  <data name="Status_Complete" xml:space="preserve">
+    <value>Initialization Complete. Navigating...</value>
+  </data>
+  <data name="AppP_SearchPatientListLabel.Text" xml:space="preserve">
+    <value>Search Patient List</value>
+  </data>
+  <data name="AppP_SearchPatientBox.PlaceholderText" xml:space="preserve">
+    <value>Search Patient</value>
+  </data>
+  <data name="AppP_AppointmentListLabel.Text" xml:space="preserve">
+    <value>Appointment List</value>
+  </data>
+  <data name="AppP_DoctorFilterComboBox.PlaceholderText" xml:space="preserve">
+    <value>Filter by Doctor</value>
+  </data>
+  <data name="AppP_TodayAppointmentsCheckBox.Content" xml:space="preserve">
+    <value>Today's Appointments</value>
+  </data>
+  <data name="AppP_SearchAppointmentBox.PlaceholderText" xml:space="preserve">
+    <value>Search Appointment</value>
+  </data>
+  <data name="AppP_PatientAutoIdColumn.Header" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="AppP_PatientCodeColumn.Header" xml:space="preserve">
+    <value>Patient Code</value>
+  </data>
+  <data name="AppP_FullNameColumn.Header" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="AppP_FirstNameColumn.Header" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="AppP_MiddleNameColumn.Header" xml:space="preserve">
+    <value>Middle Name</value>
+  </data>
+  <data name="AppP_LastNameColumn.Header" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="AppP_MotherNameColumn.Header" xml:space="preserve">
+    <value>Mother's Name</value>
+  </data>
+  <data name="AppP_DOBColumn.Header" xml:space="preserve">
+    <value>DOB</value>
+  </data>
+  <data name="AppP_AgeColumn.Header" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="AppP_PatientNameColumn.Header" xml:space="preserve">
+    <value>Patient Name</value>
+  </data>
+  <data name="AppP_DateColumn.Header" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="AppP_TimeColumn.Header" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="AppP_DoctorNameColumn.Header" xml:space="preserve">
+    <value>Dr. Name</value>
+  </data>
+  <data name="AppP_SpecializationColumn.Header" xml:space="preserve">
+    <value>Specialization</value>
+  </data>
+  <data name="AppP_AppointmentTypeColumn.Header" xml:space="preserve">
+    <value>Appointment Type</value>
+  </data>
+  <data name="AppP_DoctorIdColumn.Header" xml:space="preserve">
+    <value>Dr. ID</value>
+  </data>
+  <data name="AppP_ScheduleIdColumn.Header" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="AppP_AppointmentIdColumn.Header" xml:space="preserve">
+    <value>Appointment ID</value>
+  </data>
+  <data name="AppP_PatientIdColumn.Header" xml:space="preserve">
+    <value>Patient ID</value>
+  </data>
+  <data name="AppP_PatientMotherNameColumn.Header" xml:space="preserve">
+    <value>Mother's Name</value>
+  </data>
+  <data name="AppP_PatientDOBColumn.Header" xml:space="preserve">
+    <value>DOB</value>
+  </data>
+  <data name="AppP_IsActiveColumn.Header" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="AppP_IsMissedColumn.Header" xml:space="preserve">
+    <value>Mark as missed</value>
+  </data>
+  <data name="AppV_Status_PatientDoctorRequired" xml:space="preserve">
+    <value>Patient and Doctor must be selected.</value>
+  </data>
+  <data name="AppV_Status_LoadedPatients" xml:space="preserve">
+    <value>Loaded {0} patients.</value>
+  </data>
+  <data name="AppV_Status_ErrorLoadingPatients" xml:space="preserve">
+    <value>Error loading patients: {0}</value>
+  </data>
+  <data name="AppV_Status_LoadedAppointments" xml:space="preserve">
+    <value>Loaded {0} Appointments</value>
+  </data>
+  <data name="AppV_Status_UnexpectedError" xml:space="preserve">
+    <value>Unexpected error occurred.</value>
+  </data>
+  <data name="AppV_Status_AppointmentAdded" xml:space="preserve">
+    <value>Appointment added successfully.</value>
+  </data>
+  <data name="AppV_Status_AppointmentAddedError" xml:space="preserve">
+    <value>Error adding appointment.</value>
+  </data>
+  <data name="AppV_Status_ErrorLoadingAppointments" xml:space="preserve">
+    <value>Error loading appointments: {0}</value>
+  </data>
+  <data name="AppV_Status_DuplicateAppointment" xml:space="preserve">
+    <value>An appointment already exists for this patient and doctor on the selected date.</value>
+  </data>
+  <data name="AppV_Status_NoAppointmentSelectedToUpdate" xml:space="preserve">
+    <value>No appointment selected to update.</value>
+  </data>
+  <data name="AppV_Status_DuplicateAppointmentAlt" xml:space="preserve">
+    <value>Another appointment already exists for this patient and doctor on the selected date.</value>
+  </data>
+  <data name="AppV_Status_AppointmentUpdated" xml:space="preserve">
+    <value>Appointment updated successfully.</value>
+  </data>
+  <data name="AppV_Status_AppointmentUpdatedError" xml:space="preserve">
+    <value>Error updating appointment.</value>
+  </data>
+  <data name="AppV_Status_NoAppointmentSelectedToDeactivate" xml:space="preserve">
+    <value>No appointment selected to deactivate.</value>
+  </data>
+  <data name="AppV_Status_AppointmentDeactivated" xml:space="preserve">
+    <value>Appointment deactivated successfully.</value>
+  </data>
+  <data name="AppV_Status_AppointmentDeactivatedError" xml:space="preserve">
+    <value>Error deactivating appointment.</value>
+  </data>
+  <data name="AppV_Status_DoctorAppointmentsOnDate" xml:space="preserve">
+    <value>{0} has {1} appointments on {2}.</value>
+  </data>
+  <data name="AppV_Status_DoctorTotalAppointments" xml:space="preserve">
+    <value>{0} has a total of {1} appointments.</value>
+  </data>
+  <data name="AppV_Status_ShowingAppointments" xml:space="preserve">
+    <value>Showing {0} appointments.</value>
+  </data>
+  <data name="AppV_Status_DoctorAlreadyBooked" xml:space="preserve">
+  <value>Doctor is already booked at this time (Patient ID: {0}, Time: {1})</value>
+</data>
+  <data name="AppP_PatientNameLabel.Text" xml:space="preserve">
+    <value>Patient's Name</value>
+  </data>
+  <data name="AppP_DateOfBirthLabel.Text" xml:space="preserve">
+    <value>Date of Birth</value>
+  </data>
+  <data name="AppP_AppointmentDateLabel.Text" xml:space="preserve">
+    <value>Appointment Date</value>
+  </data>
+  <data name="AppP_AppointmentDatePicker.PlaceholderText" xml:space="preserve">
+    <value>Select appointment date</value>
+  </data>
+  <data name="AppP_DoctorNameLabel.Text" xml:space="preserve">
+    <value>Doctor Name</value>
+  </data>
+  <data name="AppP_AppointmentTimeLabel.Text" xml:space="preserve">
+    <value>Appointment Time</value>
+  </data>
+  <data name="AppP_AppointmentTypeLabel.Text" xml:space="preserve">
+    <value>Appointment Type</value>
+  </data>
+  <data name="AppP_NotesLabel.Text" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="AppP_IsActiveCheckBox.Content" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="AppP_IsMissedCheckBox.Content" xml:space="preserve">
+    <value>Mark as missed</value>
+  </data>
+  <data name="AppP_IsMissedCheckBox.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Check if the patient missed this appointment</value>
+  </data>
+  <data name="AppP_AddButton.Content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AppP_AddButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Save New Appointment</value>
+  </data>
+  <data name="AppP_EditButton.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="AppP_EditButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Update Appointment</value>
+  </data>
+  <data name="AppP_DeactivateButton.Content" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="AppP_DeactivateButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Deactivate Appointment</value>
+  </data>
+  <data name="AppP_ClearButton.Content" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="AppP_ClearButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Clear data (refresh)</value>
+  </data>
+  <data name="AppP_ReadOnlyLabel.Text" xml:space="preserve">
+    <value>Read Only Fields</value>
+  </data>
+  <data name="MDbP_Dashboard.Content" xml:space="preserve">
+  <value>Clinic Calendar</value>
+</data>
+<data name="MDbP_Dashboard.ToolTipService.ToolTip" xml:space="preserve">
+  <value>View clinic schedule</value>
+</data>
+<data name="MDbP_DoctorPage.Content" xml:space="preserve">
+  <value>Doctor Directory</value>
+</data>
+<data name="MDbP_DoctorPage.ToolTipService.ToolTip" xml:space="preserve">
+  <value>View doctor directory</value>
+</data>
+  <data name="Db_ClinicCalendarLabel.Text" xml:space="preserve">
+    <value>Clinic Calendar</value>
+  </data>
+  <data name="Db_SearchBox.PlaceholderText" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Db_DoctorSummaryStack.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Double tap to check Patients and control them</value>
+  </data>
+  <data name="Db_PatientsLabel.Text" xml:space="preserve">
+    <value>patients</value>
+  </data>
+  <data name="Db_RefreshCalendarButton.Content" xml:space="preserve">
+    <value>Refresh Calendar</value>
+  </data>
+  <data name="Db_AppointmentsLabel.Text" xml:space="preserve">
+    <value>Appointments</value>
+  </data>
+  <data name="Db_AttendingRadio.Content" xml:space="preserve">
+    <value>Attending</value>
+  </data>
+  <data name="Db_AttendedRadio.Content" xml:space="preserve">
+    <value>Attended</value>
+  </data>
+  <data name="Db_MissedRadio.Content" xml:space="preserve">
+    <value>Missed</value>
+  </data>
+  <data name="Db_TodaySummaryLabel.Text" xml:space="preserve">
+    <value>📊 Today Summary</value>
+  </data>
+  <data name="Db_DoctorsSummaryLabel.Text" xml:space="preserve">
+    <value>👥 Doctors:</value>
+  </data>
+  <data name="Db_TodaysVisitsSummaryLabel.Text" xml:space="preserve">
+    <value>🗓️ Today's Visits:</value>
+  </data>
+  <data name="Db_AttendingSummaryLabel.Text" xml:space="preserve">
+    <value>🩺 Attending:</value>
+  </data>
+  <data name="Db_AttendedSummaryLabel.Text" xml:space="preserve">
+    <value>✅ Attended:</value>
+  </data>
+  <data name="Db_MissedSummaryLabel.Text" xml:space="preserve">
+    <value>❌ Missed:</value>
+  </data>
+  <data name="Db_StatusErrorLoadingAppointments" xml:space="preserve">
+    <value>Error loading appointments: {0}</value>
+  </data>
+  <data name="Db_StatusErrorLoadingFullAppointments" xml:space="preserve">
+    <value>Error loading full appointments: {0}</value>
+  </data>
+  <data name="Db_StatusErrorLoadingDoctors" xml:space="preserve">
+    <value>Error loading doctors: {0}</value>
+  </data>
+  <data name="Db_StatusNoPatientSelected" xml:space="preserve">
+    <value>No patient selected.</value>
+  </data>
+  <data name="Db_StatusAppointmentUpdated" xml:space="preserve">
+    <value>Appointment updated successfully.</value>
+  </data>
+  <data name="Db_StatusAppointmentUpdatedError" xml:space="preserve">
+    <value>Error updating appointment.</value>
+  </data>
+  <data name="Db_StatusUnexpectedError" xml:space="preserve">
+    <value>Unexpected error occurred.</value>
+  </data>
+  <data name="Db_StatusGreetingMessage" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="DrP_AddimageforDoctor.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Add - Change picture. Only .PNG or .JPG</value>
+  </data>
+   <data name="DrP_GenderMale.Content" xml:space="preserve">
+	<value>Female</value>
+   </data>
+   <data name="Drp_GenderFemal.Content" xml:space="preserve">
+	 <value>Male</value>
+   </data>  
+  <data name="DrP_ColumnPhoto.Header" xml:space="preserve">
+  <value>Photo</value>
+</data>
+<data name="DrP_DoctorGender.Header" xml:space="preserve">
+  <value>Gender</value>
+</data>
+<data name="DrP_DoctorGender.PlaceholderText" xml:space="preserve">
+  <value>Select Gender</value>
+</data>
+  <data name="DrP_DoctorsControl.Text" xml:space="preserve">
+    <value>Doctor Control manager</value>
+  </data>
+  <data name="DrP_ImportantNote.Text" xml:space="preserve">
+    <value>IMPORTANT: After adding a doctor, go to the Open Scheduled Page to set the doctor’s schedule. This page shows which days of the month the doctor will attend.</value>
+  </data>
+  <data name="DrP_DoctorFullName.Header" xml:space="preserve">
+    <value>Doctor's Name</value>
+  </data>
+  <data name="DrP_SpecializationBox.Header" xml:space="preserve">
+    <value>Specialization</value>
+  </data>
+  <data name="DrP_PhoneBox.Header" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="DrP_LandLineBox.Header" xml:space="preserve">
+    <value>Landline Number</value>
+  </data>
+  <data name="DrP_IsActiveCheckBox.Content" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="DrP_AddButton.Content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="DrP_EditButton.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="DrP_DeactivateButton.Content" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="DrP_ClearButton.Content" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="DrP_RequiredFieldsNote.Text" xml:space="preserve">
+    <value>Required fields are marked with a red circle</value>
+  </data>
+  <data name="DrP_DoctorsManagerList.Text" xml:space="preserve">
+    <value>Doctors Manager List</value>
+  </data>
+  <data name="DrP_SearchBox.PlaceholderText" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="DrP_OpenScheduledPageButton.Content" xml:space="preserve">
+    <value>Open Scheduled Page</value>
+  </data>
+  <data name="DrP_AddServiceButton.Content" xml:space="preserve">
+    <value>Add Service</value>
+  </data>
+  <data name="DrP_ColumnAuto.Header" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="DrP_ColumnDoctorId.Header" xml:space="preserve">
+    <value>Dr. ID</value>
+  </data>
+  <data name="DrP_ColumnFullName.Header" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="DrP_ColumnSpecialization.Header" xml:space="preserve">
+    <value>Specialization</value>
+  </data>
+  <data name="DrP_ColumnMobilePhone.Header" xml:space="preserve">
+    <value>Mobile Phone</value>
+  </data>
+  <data name="DrP_ColumnLandLinePhone.Header" xml:space="preserve">
+    <value>Land Line Phone</value>
+  </data>
+  <data name="DrP_ColumnActive.Header" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="DrP_Status_LoadedUsers" xml:space="preserve">
+    <value>Loaded {0} Doctors.</value>
+  </data>
+  <data name="DrP_Status_DoctorNameRequired" xml:space="preserve">
+    <value>Doctor name is required.</value>
+  </data>
+  <data name="DrP_Status_DoctorAdded" xml:space="preserve">
+    <value>Doctor added successfully.</value>
+  </data>
+  <data name="DrP_Status_DoctorAddedError" xml:space="preserve">
+    <value>Error adding doctor.</value>
+  </data>
+  <data name="DrP_Status_DoctorUpdated" xml:space="preserve">
+    <value>Doctor updated successfully.</value>
+  </data>
+  <data name="DrP_Status_DoctorUpdatedError" xml:space="preserve">
+    <value>Error updating doctor.</value>
+  </data>
+  <data name="DrP_Status_DoctorDeactivated" xml:space="preserve">
+    <value>Doctor deactivated successfully.</value>
+  </data>
+  <data name="DrP_Status_DoctorDeactivatedError" xml:space="preserve">
+    <value>Error deactivating doctor.</value>
+  </data>
+  <data name="DrSp_PageTitle.Text" xml:space="preserve">
+    <value>Select Messaging Platform - Doctors</value>
+  </data>
+  <data name="DrSp_AddServiceTitle.Text" xml:space="preserve">
+    <value>Add Service</value>
+  </data>
+  <data name="DrSp_DoctorIdLabel.Text" xml:space="preserve">
+    <value>Doctor ID:</value>
+  </data>
+  <data name="DrSp_DoctorIdTextBox.PlaceholderText" xml:space="preserve">
+    <value>Enter Doctor ID</value>
+  </data>
+  <data name="DrSp_DoctorCodeLabel.Text" xml:space="preserve">
+    <value>Doctor Code:</value>
+  </data>
+  <data name="DrSp_DoctorCodeTextBox.PlaceholderText" xml:space="preserve">
+    <value>Enter Doctor Code</value>
+  </data>
+  <data name="DrSp_ServiceNameLabel.Text" xml:space="preserve">
+    <value>Service Name:</value>
+  </data>
+  <data name="DrSp_ServiceIdLabel.Text" xml:space="preserve">
+    <value>Service ID:</value>
+  </data>
+  <data name="DrSp_ServiceIdTextBox.PlaceholderText" xml:space="preserve">
+    <value>Enter Chat ID / Number</value>
+  </data>
+  <data name="DrSp_IsActiveLabel.Text" xml:space="preserve">
+    <value>Is Active:</value>
+  </data>
+  <data name="DrSp_NotificationTitle.Text" xml:space="preserve">
+    <value>Send Notification with</value>
+  </data>
+  <data name="DrSp_NotificationEnglishLabel.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="DrSp_NotificationFrenchLabel.Text" xml:space="preserve">
+  <value>French</value>
+</data>
+<data name="DrSp_NotificationFrenchCheckBox.Content" xml:space="preserve">
+  <value>French Notifications</value>
+</data>
+  <data name="DrSp_NotificationEnglishCheckBox.Content" xml:space="preserve">
+    <value>English Notifications</value>
+  </data>
+  <data name="DrSp_NotificationArabicLabel.Text" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="DrSp_NotificationArabicCheckBox.Content" xml:space="preserve">
+    <value>Arabic Notifications</value>
+  </data>
+  <data name="DrSp_ApplyDoctorServiceButton.Content" xml:space="preserve">
+    <value>Apply Doctor Service</value>
+  </data>
+  <data name="DrSp_ClearButton.Content" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="DrSp_SearchBox.PlaceholderText" xml:space="preserve">
+    <value>Search Service/Doctor Id</value>
+  </data>
+  <data name="DrSp_GridHeader_ServiceIdAuto.Header" xml:space="preserve">
+    <value>Service ID Auto</value>
+  </data>
+  <data name="DrSp_GridHeader_DoctorId.Header" xml:space="preserve">
+    <value>Doctor ID</value>
+  </data>
+  <data name="DrSp_GridHeader_Code.Header" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="DrSp_GridHeader_ServiceName.Header" xml:space="preserve">
+    <value>Service Name</value>
+  </data>
+  <data name="DrSp_GridHeader_ServiceId.Header" xml:space="preserve">
+    <value>Service ID</value>
+  </data>
+  <data name="DrSp_GridHeader_Active.Header" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="DrSp_GridHeader_EnNotify.Header" xml:space="preserve">
+    <value>En Notify</value>
+  </data>
+  <data name="DrSp_GridHeader_ArNotify.Header" xml:space="preserve">
+    <value>Ar Notify</value>
+  </data>
+    <data name="DrSp_GridHeader_FrNotify.Header" xml:space="preserve">
+    <value>Fr Notify</value>
+  </data>
+  <data name="DrSp_Status_DoctorIdServiceRequired" xml:space="preserve">
+    <value>Doctor ID and Service identifier are required.</value>
+  </data>
+  <data name="DrSp_Status_DoctorServiceAdded" xml:space="preserve">
+    <value>New doctor service added.</value>
+  </data>
+  <data name="DrSp_Status_DoctorServiceExists" xml:space="preserve">
+    <value>This service {0} already exists for Doctor ID: {1} - {2}</value>
+  </data>
+  <data name="DrSp_Status_DoctorServiceUpdated" xml:space="preserve">
+    <value>Doctor service updated.</value>
+  </data>
+  <data name="DrSp_Status_DoctorServiceSaveError" xml:space="preserve">
+    <value>Error saving doctor service.</value>
+  </data>
+  <data name="DrSp_Status_ClearingRefreshing" xml:space="preserve">
+    <value>Clearing and refreshing. Please wait...</value>
+  </data>
+  <data name="LgnP_AppName.Text" xml:space="preserve">
+    <value>LiteClinic</value>
+  </data>
+  <data name="LgnP_LoginTitle.Text" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LgnP_UsernameLabel.Text" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="LgnP_UsernameDefaultNote.Text" xml:space="preserve">
+    <value>(default: admin)</value>
+  </data>
+  <data name="LgnP_PasswordLabel.Text" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LgnP_PasswordDefaultNote.Text" xml:space="preserve">
+    <value>(default: admin1234)</value>
+  </data>
+  <data name="LgnP_LoginButton.Content" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LgnP_FeatureAppointments.Text" xml:space="preserve">
+    <value>Manage appointments with ease</value>
+  </data>
+  <data name="LgnP_FeatureRecords.Text" xml:space="preserve">
+    <value>Track patient records securely</value>
+  </data>
+  <data name="LgnP_FeatureAlerts.Text" xml:space="preserve">
+    <value>Real-time alerts and reminders</value>
+  </data>
+  <data name="LgnP_FooterMessage.Text" xml:space="preserve">
+    <value>Designed for doctors, nurses, and clinic staff to work smarter, faster, and safer.</value>
+  </data>
+  <data name="LgnP_StatusMessage.Text" xml:space="preserve">
+    <value>Status message here</value>
+  </data>
+  <data name="LgnP_LoginSuccessMessage" xml:space="preserve">
+    <value>Login successful — welcome back {0}</value>
+  </data>
+  <data name="LgnP_InvalidCredentialsMessage" xml:space="preserve">
+    <value>Invalid username or password.</value>
+  </data>
+  <data name="LoginStatrusMessageError" xml:space="preserve">
+    <value>Invalid username or password.</value>
+  </data>
+  <data name="LoginErrorWithDetails" xml:space="preserve">
+    <value>An error occurred: {0}</value>
+  </data>
+  <data name="Mpg_LoggedUserLabel.Text" xml:space="preserve">
+    <value>Logged user:</value>
+  </data>
+  <data name="MiP_TelegramTab.Header" xml:space="preserve">
+    <value>Telegram</value>
+  </data>
+  <data name="MiP_TelegramTitle.Text" xml:space="preserve">
+    <value>Telegram Bot Integration</value>
+  </data>
+  <data name="MiP_TelegramIntro.Text" xml:space="preserve">
+    <value>Follow these steps to create a Telegram bot and connect it to your account. This will allow the app to send you notifications directly in Telegram.</value>
+  </data>
+  <data name="MiP_TelegramStep1.Text" xml:space="preserve">
+    <value>Step 1: Open BotFather in Telegram and start a chat.</value>
+  </data>
+  <data name="MiP_TelegramStep2.Text" xml:space="preserve">
+    <value>Step 2: Send /newbot and follow prompts to create a bot.</value>
+  </data>
+  <data name="MiP_TelegramStep3.Text" xml:space="preserve">
+    <value>Step 3: Copy the API token provided by BotFather.</value>
+  </data>
+  <data name="MiP_TelegramStep4.Text" xml:space="preserve">
+    <value>Step 4: Start your bot, send a message, then call getUpdates to find your chat ID.</value>
+  </data>
+  <data name="MiP_TelegramStep5.Text" xml:space="preserve">
+    <value>Step 5: Test sending a message using sendMessage with your token and chat ID.</value>
+  </data>
+  <data name="MiP_TelegramStep6.Text" xml:space="preserve">
+    <value>Step 6: Add the token and chat ID into the app settings to enable notifications.</value>
+  </data>
+  <data name="MiP_TelegramStep7.Text" xml:space="preserve">
+    <value>Step 7: Use the following custom commands to register users with the bot.</value>
+  </data>
+  <data name="MiP_TelegramCmdAdmin.Text" xml:space="preserve">
+    <value>• /admin – Assigns the admin role to the bot creator (usually the owner).</value>
+  </data>
+  <data name="MiP_TelegramCmdDoctor.Text" xml:space="preserve">
+    <value>• /doctor – Retrieves the doctor ID from the TelegramLog file in the Logs folder.</value>
+  </data>
+  <data name="MiP_TelegramCmdStart.Text" xml:space="preserve">
+    <value>• /start – Retrieves the patient ID from the same TelegramLog file.</value>
+  </data>
+  <data name="MiP_TelegramBotToken.PlaceholderText" xml:space="preserve">
+    <value>Bot token (required)</value>
+  </data>
+  <data name="MiP_TelegramBotToken.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Enter your Telegram bot token to connect the application with your bot.</value>
+  </data>
+  <data name="MiP_TelegramBotDisplayName.PlaceholderText" xml:space="preserve">
+    <value>Bot display name (optional)</value>
+  </data>
+  <data name="MiP_TelegramBotDisplayName.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Provide a friendly name for your bot. This is shown to patients for easier recognition.</value>
+  </data>
+  <data name="MiP_TelegramAdminChatId.PlaceholderText" xml:space="preserve">
+    <value>Admin Chat ID (optional)</value>
+  </data>
+  <data name="MiP_TelegramAdminChatId.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Enter the admin's Telegram chat ID. The bot will send daily greetings here to confirm it is running.</value>
+  </data>
+  <data name="MiP_TelegramApplyButton.Content" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="MiP_TelegramTokenWarning.Text" xml:space="preserve">
+    <value>⚠️ Your Telegram bot token is sensitive. Keep it private and do not share.</value>
+  </data>
+  <data name="MiP_TelegramRiskWarning.Text" xml:space="preserve">
+    <value>🚨 Anyone who gains access to your token can take control of your bot. They may send unauthorized or inappropriate messages to clients or patients.</value>
+  </data>
+  <data name="MiP_TelegramDisclaimer.Text" xml:space="preserve">
+    <value>🔒 Disclaimer: For your safety, LiteClinic is not responsible for any token theft, misuse, or hacking that may occur on your PC or external systems.</value>
+  </data>
+  <data name="MiP_WhatsAppTab.Header" xml:space="preserve">
+    <value>WhatsApp</value>
+  </data>
+  <data name="MiP_WhatsAppTitle.Text" xml:space="preserve">
+    <value>WhatsApp Integration</value>
+  </data>
+  <data name="MiP_WhatsAppIntro.Text" xml:space="preserve">
+    <value>LiteClinic can integrate with WhatsApp to send notifications, reminders, and updates directly to your clients or patients.</value>
+  </data>
+  <data name="MiP_WhatsAppStepsTitle.Text" xml:space="preserve">
+    <value>Steps to connect WhatsApp:</value>
+  </data>
+  <data name="MiP_WhatsAppStep1.Text" xml:space="preserve">
+    <value>1. Register for WhatsApp Business API access.</value>
+  </data>
+  <data name="MiP_WhatsAppStep2.Text" xml:space="preserve">
+    <value>2. Obtain your API key and phone number ID.</value>
+  </data>
+  <data name="MiP_WhatsAppStep3.Text" xml:space="preserve">
+    <value>3. Configure LiteClinic with your credentials.</value>
+  </data>
+  <data name="MiP_WhatsAppStep4.Text" xml:space="preserve">
+    <value>4. Test sending a sample message to confirm integration.</value>
+  </data>
+  <data name="MiP_WhatsAppAccessToken.PlaceholderText" xml:space="preserve">
+    <value>Add WhatsApp Access Token</value>
+  </data>
+  <data name="MiP_WhatsAppAccessToken.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Enter your WhatsApp Business API access token here.</value>
+  </data>
+  <data name="MiP_WhatsAppApplyButton.Content" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="MiP_WhatsAppNote.Text" xml:space="preserve">
+    <value>ℹ️ For available feature tiers (Basic, Advanced, Maintenance), please see the Inquiry Instructions tab.</value>
+  </data>
+  <data name="MiP_WhatsAppDisclaimer.Text" xml:space="preserve">
+    <value>🔒 WhatsApp integration ensures secure, reliable communication with your clients. Please note that all messages must comply with WhatsApp Business API policies to protect both your practice and your patients.</value>
+  </data>
+  <data name="MiP_DiscordTab.Header" xml:space="preserve">
+    <value>Discord</value>
+  </data>
+  <data name="MiP_DiscordTitle.Text" xml:space="preserve">
+    <value>Discord Integration</value>
+  </data>
+  <data name="MiP_DiscordIntro.Text" xml:space="preserve">
+    <value>LiteClinic can integrate with Discord to send alerts, updates, or reminders directly into your server channels.</value>
+  </data>
+  <data name="MiP_DiscordStepsTitle.Text" xml:space="preserve">
+    <value>Steps to connect Discord:</value>
+  </data>
+  <data name="MiP_DiscordStep1.Text" xml:space="preserve">
+    <value>1. Create a new application in the Discord Developer Portal.</value>
+  </data>
+  <data name="MiP_DiscordStep2.Text" xml:space="preserve">
+    <value>2. Add a bot user to your application and copy the bot token.</value>
+  </data>
+  <data name="MiP_DiscordStep3.Text" xml:space="preserve">
+    <value>3. Invite the bot to your server with the correct permissions.</value>
+  </data>
+  <data name="MiP_DiscordStep4.Text" xml:space="preserve">
+    <value>4. Configure LiteClinic with your bot token and target channel ID.</value>
+  </data>
+  <data name="MiP_DiscordStep5.Text" xml:space="preserve">
+    <value>5. Test sending a sample message to confirm integration.</value>
+  </data>
+  <data name="MiP_DiscordAccessToken.PlaceholderText" xml:space="preserve">
+    <value>Add Discord Access Token</value>
+  </data>
+  <data name="MiP_DiscordAccessToken.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Enter your Discord bot token here.</value>
+  </data>
+  <data name="MiP_DiscordApplyButton.Content" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="MiP_DiscordNote.Text" xml:space="preserve">
+    <value>ℹ️ For available feature tiers (Basic, Advanced, Maintenance), please see the Inquiry Instructions tab.</value>
+  </data>
+  <data name="MiP_InquiryTab.Header" xml:space="preserve">
+    <value>Inquiry Instructions</value>
+  </data>
+  <data name="MiP_InquiryTitle.Text" xml:space="preserve">
+    <value>Integration Inquiry Instructions</value>
+  </data>
+  <data name="MiP_InquiryIntro.Text" xml:space="preserve">
+    <value>📧 To request integration for Telegram, WhatsApp, or Discord, please send us an email.</value>
+  </data>
+  <data name="MiP_InquirySubjectLines.Text" xml:space="preserve">
+    <value>Use the following subject lines:</value>
+  </data>
+  <data name="MiP_InquiryTelegramSubject.Text" xml:space="preserve">
+    <value>• Subject: Telegram Integration Inquiry</value>
+  </data>
+  <data name="MiP_InquiryTelegramSendMail.Content" xml:space="preserve">
+    <value>Send Mail Now</value>
+  </data>
+  <data name="MiP_InquiryWhatsAppSubject.Text" xml:space="preserve">
+    <value>• Subject: WhatsApp Integration Inquiry</value>
+  </data>
+  <data name="MiP_InquiryWhatsAppSendMail.Content" xml:space="preserve">
+    <value>Send Mail Now</value>
+  </data>
+  <data name="MiP_InquiryDiscordSubject.Text" xml:space="preserve">
+    <value>• Subject: Discord Integration Inquiry</value>
+  </data>
+  <data name="MiP_InquiryDiscordSendMail.Content" xml:space="preserve">
+    <value>Send Mail Now</value>
+  </data>
+  <data name="MiP_InquiryHelpText.Text" xml:space="preserve">
+    <value>This helps us quickly identify your request and respond with the right instructions.</value>
+  </data>
+  <data name="MiP_InquiryEmailBodyTitle.Text" xml:space="preserve">
+    <value>📄 Please include the following details in your email body:</value>
+  </data>
+  <data name="MiP_InquiryBasicTitle.Text" xml:space="preserve">
+    <value>BASIC OPTION</value>
+  </data>
+  <data name="MiP_InquiryBasicFeatures.Text" xml:space="preserve">
+    <value>Features:</value>
+  </data>
+  <data name="MiP_InquiryBasicFeature1.Text" xml:space="preserve">
+    <value>• Send messages via API</value>
+  </data>
+  <data name="MiP_InquiryBasicFeature2.Text" xml:space="preserve">
+    <value>• Simple DB loop (foreach customers)</value>
+  </data>
+  <data name="MiP_InquiryBasicFeature3.Text" xml:space="preserve">
+    <value>• Basic scheduling (date/time reminders)</value>
+  </data>
+  <data name="MiP_InquiryBasicFeature4.Text" xml:space="preserve">
+    <value>• Opt-in compliance check</value>
+  </data>
+  <data name="MiP_InquiryAdvancedTitle.Text" xml:space="preserve">
+    <value>ADVANCED OPTION</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeatures.Text" xml:space="preserve">
+    <value>Features:</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeature1.Text" xml:space="preserve">
+    <value>• All BASIC features</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeature2.Text" xml:space="preserve">
+    <value>• Approved template management</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeature3.Text" xml:space="preserve">
+    <value>• Rich media (images, PDFs, buttons)</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeature4.Text" xml:space="preserve">
+    <value>• Error handling and logging</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeature5.Text" xml:space="preserve">
+    <value>• Dashboard/analytics integration</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceTitle.Text" xml:space="preserve">
+    <value>OPTIONAL MAINTENANCE</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceFeature1.Text" xml:space="preserve">
+    <value>• Template updates</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceFeature2.Text" xml:space="preserve">
+    <value>• API version upgrades</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceFeature3.Text" xml:space="preserve">
+    <value>• Bug fixes and support</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceSupportText.Text" xml:space="preserve">
+    <value>For Maintenance support send us email</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceHelpText.Text" xml:space="preserve">
+    <value>Please describe your issue in detail so we can provide an accurate cost estimate.</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceSendMail.Content" xml:space="preserve">
+    <value>Send Mail Now</value>
+  </data>
+  <data name="MiP_StatusMessage_TokenEmpty" xml:space="preserve">
+    <value>⚠️ Token cannot be empty.</value>
+  </data>
+  <data name="MiP_StatusMessage_AdminOnly" xml:space="preserve">
+    <value>Only Admin can add chatbot tokens!</value>
+  </data>
+  <data name="MiP_StatusMessage_TokenInserted" xml:space="preserve">
+    <value>{0} token has been inserted.</value>
+  </data>
+  <data name="MiP_StatusMessage_TokenUpdated" xml:space="preserve">
+    <value>{0} token has been updated.</value>
+  </data>
+  <data name="MiP_StatusMessage_NoTelegramToken" xml:space="preserve">
+    <value>No Telegram token found.</value>
+  </data>
+  <data name="MiP_StatusMessage_TelegramBotValid" xml:space="preserve">
+    <value>Telegram bot is valid. Username: @{0}, ID: {1}</value>
+  </data>
+  <data name="MiP_StatusMessage_TelegramBotTestFailed" xml:space="preserve">
+    <value>Telegram bot test failed.</value>
+  </data>
+  <data name="MiP_TelegramStep8Title.Text" xml:space="preserve">
+    <value>Step 8: Add custom commands to your bot using BotFather.</value>
+  </data>
+  <data name="MiP_TelegramStep8Intro.Text" xml:space="preserve">
+    <value>If you want your bot to recognize /admin, /doctor, and /start, you must register them in BotFather:</value>
+  </data>
+  <data name="MiP_TelegramStep8_1.Text" xml:space="preserve">
+    <value>1. Open Telegram and start a chat with BotFather.</value>
+  </data>
+  <data name="MiP_TelegramStep8_2.Text" xml:space="preserve">
+    <value>2. Type /mybots and select your bot.</value>
+  </data>
+  <data name="MiP_TelegramStep8_3.Text" xml:space="preserve">
+    <value>3. Choose 'Edit Bot' → 'Edit Commands'.</value>
+  </data>
+  <data name="MiP_TelegramStep8_4.Text" xml:space="preserve">
+    <value>4. Enter the commands you want, one per line, with a short description:</value>
+  </data>
+  <data name="MiP_TelegramCmdAdminDesc.Text" xml:space="preserve">
+    <value>/admin - Assigns admin role (creator only)</value>
+  </data>
+  <data name="MiP_TelegramCmdDoctorDesc.Text" xml:space="preserve">
+    <value>/doctor - Retrieves doctor ID from TelegramLog file</value>
+  </data>
+  <data name="MiP_TelegramCmdStartDesc.Text" xml:space="preserve">
+    <value>/start - Default command for patients to register ID, also can be retrieved from TelegramLog file</value>
+  </data>
+  <data name="MiP_TelegramStep8_5.Text" xml:space="preserve">
+    <value>5. Save changes. Now your bot will officially recognize these commands.</value>
+  </data>
+  <data name="MiP_TelegramReminder.Text" xml:space="preserve">
+    <value>⚠️ Reminder: Each user (admin, doctor, patient) can use these commands only once per day to avoid flooding. The bot will not respond to other questions or any kind of message outside these commands.</value>
+  </data>
+  <data name="Ppg_PatientInfoTitle.Text" xml:space="preserve">
+    <value>Patient Information</value>
+  </data>
+  <data name="Ppg_FirstName.Header" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Ppg_FirstName.PlaceholderText" xml:space="preserve">
+    <value>Enter first name</value>
+  </data>
+  <data name="Ppg_MiddleName.Header" xml:space="preserve">
+    <value>Middle Name</value>
+  </data>
+  <data name="Ppg_MiddleName.PlaceholderText" xml:space="preserve">
+    <value>Enter middle name</value>
+  </data>
+  <data name="Ppg_LastName.Header" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Ppg_LastName.PlaceholderText" xml:space="preserve">
+    <value>Enter last name</value>
+  </data>
+  <data name="Ppg_MotherName.Header" xml:space="preserve">
+    <value>Full Mother's Name</value>
+  </data>
+  <data name="Ppg_MotherName.PlaceholderText" xml:space="preserve">
+    <value>Enter mother's full name</value>
+  </data>
+  <data name="Ppg_CivilRecord.Header" xml:space="preserve">
+    <value>Civil Record</value>
+  </data>
+  <data name="Ppg_CivilRecord.PlaceholderText" xml:space="preserve">
+    <value>Enter civil record</value>
+  </data>
+  <data name="Ppg_Gender.Header" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Ppg_GenderMale.Content" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Ppg_GenderFemale.Content" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Ppg_DateOfBirthLabel.Text" xml:space="preserve">
+    <value>Date Of Birth</value>
+  </data>
+  <data name="Ppg_Day.PlaceholderText" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="Ppg_Month.PlaceholderText" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="Ppg_Year.PlaceholderText" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="Ppg_ContactInfoTitle.Text" xml:space="preserve">
+    <value>Contact Information</value>
+  </data>
+  <data name="Ppg_PhoneNumber.Header" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="Ppg_PhoneNumber.PlaceholderText" xml:space="preserve">
+    <value>Enter phone number</value>
+  </data>
+  <data name="Ppg_Email.Header" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Ppg_Email.PlaceholderText" xml:space="preserve">
+    <value>Enter email</value>
+  </data>
+  <data name="Ppg_Address.Header" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Ppg_Address.PlaceholderText" xml:space="preserve">
+    <value>Enter address</value>
+  </data>
+  <data name="Ppg_City.Header" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Ppg_City.PlaceholderText" xml:space="preserve">
+    <value>Enter city</value>
+  </data>
+  <data name="Ppg_Country.Header" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Ppg_Country.PlaceholderText" xml:space="preserve">
+    <value>Enter country</value>
+  </data>
+  <data name="Ppg_MedicalInfoTitle.Text" xml:space="preserve">
+    <value>Medical Information</value>
+  </data>
+  <data name="Ppg_BloodType.Header" xml:space="preserve">
+    <value>Blood Type</value>
+  </data>
+  <data name="Ppg_BloodTypeAPlus.Content" xml:space="preserve">
+    <value>A+</value>
+  </data>
+  <data name="Ppg_BloodTypeAMinus.Content" xml:space="preserve">
+    <value>A-</value>
+  </data>
+  <data name="Ppg_BloodTypeBPlus.Content" xml:space="preserve">
+    <value>B+</value>
+  </data>
+  <data name="Ppg_BloodTypeBMinus.Content" xml:space="preserve">
+    <value>B-</value>
+  </data>
+  <data name="Ppg_BloodTypeABPlus.Content" xml:space="preserve">
+    <value>AB+</value>
+  </data>
+  <data name="Ppg_BloodTypeABMinus.Content" xml:space="preserve">
+    <value>AB-</value>
+  </data>
+  <data name="Ppg_BloodTypeOPlus.Content" xml:space="preserve">
+    <value>O+</value>
+  </data>
+  <data name="Ppg_BloodTypeOMinus.Content" xml:space="preserve">
+    <value>O-</value>
+  </data>
+  <data name="Ppg_Allergies.Header" xml:space="preserve">
+    <value>Allergies</value>
+  </data>
+  <data name="Ppg_Allergies.PlaceholderText" xml:space="preserve">
+    <value>Enter allergies</value>
+  </data>
+  <data name="Ppg_MedicalHistory.Header" xml:space="preserve">
+    <value>Medical History</value>
+  </data>
+  <data name="Ppg_MedicalHistory.PlaceholderText" xml:space="preserve">
+    <value>Enter medical history</value>
+  </data>
+  <data name="Ppg_InsuranceTitle.Text" xml:space="preserve">
+    <value>Insurance and NSN</value>
+  </data>
+  <data name="Ppg_HasInsurance.Header" xml:space="preserve">
+    <value>Has Insurance?</value>
+  </data>
+  <data name="Ppg_InsuranceName.Header" xml:space="preserve">
+    <value>Insurance Name</value>
+  </data>
+  <data name="Ppg_InsuranceName.PlaceholderText" xml:space="preserve">
+    <value>Enter insurance name</value>
+  </data>
+  <data name="Ppg_InsuranceNumber.Header" xml:space="preserve">
+    <value>Insurance Number</value>
+  </data>
+  <data name="Ppg_InsuranceNumber.PlaceholderText" xml:space="preserve">
+    <value>Enter insurance number</value>
+  </data>
+  <data name="Ppg_HasNSN.Header" xml:space="preserve">
+    <value>Has NSN?</value>
+  </data>
+  <data name="Ppg_NSNName.Header" xml:space="preserve">
+    <value>NSN Name(s)</value>
+  </data>
+  <data name="Ppg_NSNName.PlaceholderText" xml:space="preserve">
+    <value>Enter NSN names</value>
+  </data>
+  <data name="Ppg_NSNNumber.Header" xml:space="preserve">
+    <value>NSN Number</value>
+  </data>
+  <data name="Ppg_NSNNumber.PlaceholderText" xml:space="preserve">
+    <value>Enter NSN number</value>
+  </data>
+  <data name="Ppg_Language.Header" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Ppg_LanguageEnglish.Content" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Ppg_LanguageFrench.Content" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="Ppg_LanguageArabic.Content" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="Ppg_IsActive.Content" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="Ppg_AddButton.Content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Ppg_AddButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Save/F1</value>
+  </data>
+  <data name="Ppg_EditButton.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Ppg_EditButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Update/F2</value>
+  </data>
+  <data name="Ppg_DeactivateButton.Content" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="Ppg_DeactivateButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Deactvate/F3</value>
+  </data>
+  <data name="Ppg_ClearButton.Content" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Ppg_ClearButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Clear Data (refresh)/F4</value>
+  </data>
+  <data name="Ppg_PatientsListTitle.Text" xml:space="preserve">
+    <value>Patients list</value>
+  </data>
+  <data name="Ppg_SearchBox.PlaceholderText" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Ppg_AddServiceButton.Content" xml:space="preserve">
+    <value>Add Service</value>
+  </data>
+  <data name="Ppg_ColumnAutoId.Header" xml:space="preserve">
+    <value>Auto ID</value>
+  </data>
+  <data name="Ppg_ColumnPatientId.Header" xml:space="preserve">
+    <value>Patient ID</value>
+  </data>
+  <data name="Ppg_ColumnFirstName.Header" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Ppg_ColumnMiddleName.Header" xml:space="preserve">
+    <value>Middle Name</value>
+  </data>
+  <data name="Ppg_ColumnLastName.Header" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Ppg_ColumnMotherName.Header" xml:space="preserve">
+    <value>Mother's Name</value>
+  </data>
+  <data name="Ppg_ColumnCivilRecord.Header" xml:space="preserve">
+    <value>Civil Record</value>
+  </data>
+  <data name="Ppg_ColumnGender.Header" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Ppg_ColumnDOB.Header" xml:space="preserve">
+    <value>DOB</value>
+  </data>
+  <data name="Ppg_ColumnAge.Header" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="Ppg_ColumnPhoneNumber.Header" xml:space="preserve">
+    <value>Mobile Phone</value>
+  </data>
+  <data name="Ppg_ColumnEmail.Header" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Ppg_ColumnAddress.Header" xml:space="preserve">
+    <value>Adddress</value>
+  </data>
+  <data name="Ppg_ColumnCity.Header" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Ppg_ColumnGotInsurance.Header" xml:space="preserve">
+    <value>GotInsurance</value>
+  </data>
+  <data name="Ppg_ColumnInsuranceName.Header" xml:space="preserve">
+    <value>Insurance Name</value>
+  </data>
+  <data name="Ppg_ColumnInsuranceNumber.Header" xml:space="preserve">
+    <value>Insurance #</value>
+  </data>
+  <data name="Ppg_ColumnGotNSN.Header" xml:space="preserve">
+    <value>GOTNSN</value>
+  </data>
+  <data name="Ppg_ColumnNSNName.Header" xml:space="preserve">
+    <value>NSN Name</value>
+  </data>
+  <data name="Ppg_ColumnNSNNumber.Header" xml:space="preserve">
+    <value>NSN #</value>
+  </data>
+  <data name="Ppg_ColumnBloodType.Header" xml:space="preserve">
+    <value>BloodType</value>
+  </data>
+  <data name="Ppg_ColumnAllergies.Header" xml:space="preserve">
+    <value>Allergies</value>
+  </data>
+  <data name="Ppg_ColumnMedicalHistory.Header" xml:space="preserve">
+    <value>Medical History</value>
+  </data>
+  <data name="Ppg_ColumnLanguage.Header" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Ppg_ColumnActive.Header" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Ppg_InfoAddShortcut.Text" xml:space="preserve">
+    <value>Add = F1</value>
+  </data>
+  <data name="Ppg_InfoEditShortcut.Text" xml:space="preserve">
+    <value>Edit = F2</value>
+  </data>
+  <data name="Ppg_InfoDeactivateShortcut.Text" xml:space="preserve">
+    <value>Deactivate = F3</value>
+  </data>
+  <data name="Ppg_InfoClearShortcut.Text" xml:space="preserve">
+    <value>Clear = F4</value>
+  </data>
+  <data name="Ppg_InfoDeactivatedUser.Text" xml:space="preserve">
+    <value>Deactivated User</value>
+  </data>
+  <data name="StatusMessageLoaded" xml:space="preserve">
+    <value>Loaded {0} patients.</value>
+  </data>
+  <data name="StatusMessageRequiredFields" xml:space="preserve">
+    <value>Required fields are marked with a red circle</value>
+  </data>
+  <data name="StatusMessagePatientAdded" xml:space="preserve">
+    <value>Patient added successfully.</value>
+  </data>
+  <data name="StatusMessagePatientAddedError" xml:space="preserve">
+    <value>Failed to add patient. Check LogError</value>
+  </data>
+  <data name="StatusMessagePatientUpdated" xml:space="preserve">
+    <value>Patient updated successfully.</value>
+  </data>
+  <data name="StatusMessagePatientUpdatedError" xml:space="preserve">
+    <value>Failed to update patient. Check LogError</value>
+  </data>
+  <data name="StatusMessagePatientDeactivated" xml:space="preserve">
+    <value>Patient deactivated successfully.</value>
+  </data>
+  <data name="StatusMessagePatientDeactivatedError" xml:space="preserve">
+    <value>Failed to deactivate patient. Check LogError</value>
+  </data>
+  <data name="StatusMessageErrorDate" xml:space="preserve">
+    <value>Invalid date entered. Check LogError</value>
+  </data>
+  <data name="HamburgerMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Mm_DashboardMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Mm_DoctorsMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Doctors</value>
+  </data>
+  <data name="Mm_PatientsMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="Mm_AppointmentsMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Appointments</value>
+  </data>
+  <data name="Mm_ReportsMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="Mm_UsersMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Mm_SettingsMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Mm_AboutMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Mm_LogoutMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Rpg_Title.Text" xml:space="preserve">
+    <value>Clinic Activity Report</value>
+  </data>
+  <data name="Rpg_ClinicSummary.Text" xml:space="preserve">
+    <value>Clinic Summary</value>
+  </data>
+  <data name="Rpg_NoteZeroCounts.Text" xml:space="preserve">
+    <value>Note: Counts will remain 0 until appointments are marked as Attended or Missed for patients and doctors.</value>
+  </data>
+  <data name="Rpg_TotalLabel.Text" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Rpg_DoctorsLabel.Text" xml:space="preserve">
+    <value>Doctors</value>
+  </data>
+  <data name="Rpg_TodayDoctors.Text" xml:space="preserve">
+    <value>Today:</value>
+  </data>
+  <data name="Rpg_WeekDoctors.Text" xml:space="preserve">
+    <value>This Week:</value>
+  </data>
+  <data name="Rpg_MonthDoctors.Text" xml:space="preserve">
+    <value>This Month:</value>
+  </data>
+  <data name="Rpg_YearDoctors.Text" xml:space="preserve">
+    <value>This Year:</value>
+  </data>
+  <data name="Rpg_TotalLabelPatients.Text" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Rpg_PatientsLabel.Text" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="Rpg_TodayPatients.Text" xml:space="preserve">
+    <value>Today:</value>
+  </data>
+  <data name="Rpg_WeekPatients.Text" xml:space="preserve">
+    <value>This Week:</value>
+  </data>
+  <data name="Rpg_MonthPatients.Text" xml:space="preserve">
+    <value>This Month:</value>
+  </data>
+  <data name="Rpg_YearPatients.Text" xml:space="preserve">
+    <value>This Year:</value>
+  </data>
+  <data name="Rpg_MissedLabel.Text" xml:space="preserve">
+    <value>Missed</value>
+  </data>
+  <data name="Rpg_AppointmentsLabel.Text" xml:space="preserve">
+    <value>Appointments</value>
+  </data>
+  <data name="Rpg_TodayMissed.Text" xml:space="preserve">
+    <value>Today:</value>
+  </data>
+  <data name="Rpg_WeekMissed.Text" xml:space="preserve">
+    <value>This Week:</value>
+  </data>
+  <data name="Rpg_MonthMissed.Text" xml:space="preserve">
+    <value>This Month:</value>
+  </data>
+  <data name="Rpg_YearMissed.Text" xml:space="preserve">
+    <value>This Year:</value>
+  </data>
+  <data name="Rpg_AuditSummary.Text" xml:space="preserve">
+    <value>Audit Summary</value>
+  </data>
+  <data name="Rpg_Administrator.Text" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="Rpg_HR.Text" xml:space="preserve">
+    <value>HR</value>
+  </data>
+  <data name="Rpg_Moderator.Text" xml:space="preserve">
+    <value>Moderator</value>
+  </data>
+  <data name="Rpg_DoctorRole.Text" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="Rpg_Pharmacist.Text" xml:space="preserve">
+    <value>Pharmacist</value>
+  </data>
+  <data name="Rpg_Nurse.Text" xml:space="preserve">
+    <value>Nurse</value>
+  </data>
+  <data name="Rpg_Receptionist.Text" xml:space="preserve">
+    <value>Receptionist</value>
+  </data>
+  <data name="Rpg_Guest.Text" xml:space="preserve">
+    <value>Guest</value>
+  </data>
+  <data name="Rpg_MostCommonRole.Text" xml:space="preserve">
+    <value>Most Common Role</value>
+  </data>
+  <data name="Rpg_PatientsLabelCard.Text" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="Rpg_TopDoctorTitle.Text" xml:space="preserve">
+    <value>Top Doctors of {0}</value>
+  </data>
+  <data name="Rpg_TopSpecializationsTitle.Text" xml:space="preserve">
+    <value>Top Specializations of {0}</value>
+  </data>
+  <data name="Rpg_DoctorsAxis.Header" xml:space="preserve">
+    <value>Doctors</value>
+  </data>
+  <data name="Rpg_PatientsAxis.Header" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="Rpg_SpecializationsAxis.Header" xml:space="preserve">
+    <value>Specializations</value>
+  </data>
+  <data name="Rpg_PatientsAxisSpecializations.Header" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="SchDp_TimeStampCannotBeNull" xml:space="preserve">
+    <value>Time stamp cannot be null. Value: {0}</value>
+</data>
+<data name="SchDp_TimeStampIsSameOrInvalid" xml:space="preserve">
+    <value>The time stamp is the same or invalid. Value: From:  {0} To: {1}</value>
+</data>
+<data name="SchDp_TimePickerFrom.Header" xml:space="preserve">
+    <value>From:</value>
+</data>
+<data name="SchDp_TimePickerTo.Header" xml:space="preserve">
+    <value>To:</value>
+</data>
+  <data name="SchDp_AddDoctorScheduled.Text" xml:space="preserve">
+    <value>Add Doctor's Scheduled</value>
+  </data>
+  <data name="SchDp_ChooseDoctor.Header" xml:space="preserve">
+    <value>Choose doctor</value>
+  </data>
+  <data name="SchDp_DayOfWeek.Header" xml:space="preserve">
+    <value>Day of Week</value>
+  </data>
+  <data name="SchDp_Monday.Content" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="SchDp_Tuesday.Content" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="SchDp_Wednesday.Content" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="SchDp_Thursday.Content" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="SchDp_Friday.Content" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="SchDp_Saturday.Content" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="SchDp_Week1.Content" xml:space="preserve">
+    <value>Week 1</value>
+  </data>
+  <data name="SchDp_Week2.Content" xml:space="preserve">
+    <value>Week 2</value>
+  </data>
+  <data name="SchDp_Week3.Content" xml:space="preserve">
+    <value>Week 3</value>
+  </data>
+  <data name="SchDp_Week4.Content" xml:space="preserve">
+    <value>Week 4</value>
+  </data>
+  <data name="SchDp_Week5.Content" xml:space="preserve">
+    <value>Week 5 (if available)</value>
+  </data>
+  <data name="SchDp_Week5Note.Text" xml:space="preserve">
+    <value>Week 5 notifications are only sent if selected and the month contains a fifth weekday.To avoid conflicts where notifications may not be sent in week 5, please always check week 5 if available.</value>
+  </data>
+  <data name="SchDp_NotifyClinic.Content" xml:space="preserve">
+    <value>Notify for Clinic</value>
+  </data>
+  <data name="SchDp_IsActive.Content" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="SchDp_AddButton.Content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="SchDp_EditButton.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="SchDp_DeactivateButton.Content" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="SchDp_ClearButton.Content" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="SchDp_BackButton.Content" xml:space="preserve">
+    <value>Back to Doctor's Page</value>
+  </data>
+  <data name="SchDp_AutoColumn.Header" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="SchDp_ScheduledIdColumn.Header" xml:space="preserve">
+    <value>Schdled Id</value>
+  </data>
+  <data name="SchDp_DoctorIdColumn.Header" xml:space="preserve">
+    <value>Doctor's ID</value>
+  </data>
+  <data name="SchDp_DoctorNameColumn.Header" xml:space="preserve">
+    <value>Doctor's Name</value>
+  </data>
+  <data name="SchDp_SpecializationColumn.Header" xml:space="preserve">
+    <value>Specialization</value>
+  </data>
+  <data name="SchDp_PhoneColumn.Header" xml:space="preserve">
+    <value>Mobile Phone</value>
+  </data>
+  <data name="SchDp_DayOfWeekColumn.Header" xml:space="preserve">
+    <value>Day Of the Week</value>
+  </data>
+  <data name="SchDp_TimePickerFrom.Header" xml:space="preserve">
+    <value>From:</value>
+</data>
+<data name="SchDp_TimePickerTo.Header" xml:space="preserve">
+    <value>To:</value>
+</data>
+  <data name="SchDp_NotifyColumn.Header" xml:space="preserve">
+    <value>Notify</value>
+  </data>
+  <data name="SchDp_ActiveColumn.Header" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="SchDp_WeeksColumn.Header" xml:space="preserve">
+    <value>Weeks of Month</value>
+  </data>
+  <data name="SchDp_AddLegend.Text" xml:space="preserve">
+    <value>Add = F1</value>
+  </data>
+  <data name="SchDp_EditLegend.Text" xml:space="preserve">
+    <value>Edit = F2</value>
+  </data>
+  <data name="SchDp_DeactivateLegend.Text" xml:space="preserve">
+    <value>Deactivate = F3</value>
+  </data>
+  <data name="SchDp_ClearLegend.Text" xml:space="preserve">
+    <value>Clear = F4</value>
+  </data>
+  <data name="SchDp_DeactivatedUserLegend.Text" xml:space="preserve">
+    <value>Deactivated User</value>
+  </data>
+  <data name="SchDp_RequiredFieldsNote.Text" xml:space="preserve">
+    <value>Required fields are marked with a red circle</value>
+  </data>
+  <data name="SchDp_StatusMessageSch" xml:space="preserve">
+    <value>Error loading Scheduled: {0}</value>
+  </data>
+  <data name="SchDp_StatusMessageSchLoaded" xml:space="preserve">
+    <value>Loaded {0} Scheduled.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchLoadedDisplay" xml:space="preserve">
+    <value>Loaded {0} Scheduled.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchDoctorsError" xml:space="preserve">
+    <value>Error loading Doctors: {0}</value>
+  </data>
+  <data name="SchDp_StatusMessageSchDoctorDayRequired" xml:space="preserve">
+    <value>Doctor and day of week are required.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleAdded" xml:space="preserve">
+    <value>Schedule has been added successfully.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleAddedError" xml:space="preserve">
+    <value>Failed to add schedule.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchNoScheduleForUpdate" xml:space="preserve">
+    <value>No schedule selected for update.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchWeekRequired" xml:space="preserve">
+    <value>Please select at least one week (Week 1–4).</value>
+  </data>
+  <data name="SchDp_StatusMessageSchOverlap" xml:space="preserve">
+    <value>This doctor is already scheduled for that day in overlapping week(s). Scheduled ID {0}</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleUpdated" xml:space="preserve">
+    <value>Schedule has been updated successfully.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleUpdatedError" xml:space="preserve">
+    <value>Failed to update schedule.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchNoScheduleForDeactivation" xml:space="preserve">
+    <value>No schedule selected for deactivation.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleDeactivated" xml:space="preserve">
+    <value>Schedule has been deactivated successfully.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleDeactivatedError" xml:space="preserve">
+    <value>Failed to deactivate schedule.</value>
+  </data>
+  <data name="SchDp_ScheduleDoctorNameBox.Header" xml:space="preserve">
+    <value>Choose doctor</value>
+  </data>
+  <data name="SchDp_ScheduleDayOfWeekBox.Header" xml:space="preserve">
+    <value>Day of Week</value>
+  </data>
+  <data name="SchDp_DoctorsManagerListTextBlock.Text" xml:space="preserve">
+    <value>Doctors Manager List</value>
+  </data>
+  <data name="SchDp_ScheduleSearchBox.PlaceholderText" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SchDp_Week5Ellipse.Margin" xml:space="preserve">
+    <value>18,0,0,0</value>
+  </data>
+  <data name="SIDp_SelectMessagingPlatformPatients.Text" xml:space="preserve">
+    <value>Select Messaging Platform - Patients</value>
+  </data>
+  <data name="SIDp_AddServiceTitle.Text" xml:space="preserve">
+    <value>Add Service</value>
+  </data>
+  <data name="SIDp_PatientIdLabel.Text" xml:space="preserve">
+    <value>Patient ID:</value>
+  </data>
+  <data name="SIDp_PatientIdTextBox.PlaceholderText" xml:space="preserve">
+    <value>Enter Patient ID</value>
+  </data>
+  <data name="SIDp_PatientCodeLabel.Text" xml:space="preserve">
+    <value>Patient Code/Text:</value>
+  </data>
+  <data name="SIDp_PatientCodeTextBox.PlaceholderText" xml:space="preserve">
+    <value>Enter Patient Code</value>
+  </data>
+  <data name="SIDp_ServiceNameLabel.Text" xml:space="preserve">
+    <value>Service Name:</value>
+  </data>
+  <data name="SIDp_ServiceNameTelegram.Content" xml:space="preserve">
+    <value>Telegram</value>
+  </data>
+  <data name="SIDp_ServiceNameWhatsApp.Content" xml:space="preserve">
+    <value>WhatsApp</value>
+  </data>
+  <data name="SIDp_ServiceNameDiscord.Content" xml:space="preserve">
+    <value>Discord</value>
+  </data>
+  <data name="SIDp_ServiceNameEmail.Content" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="SIDp_ServiceNameSms.Content" xml:space="preserve">
+    <value>Sms</value>
+  </data>
+  <data name="SIDp_ServiceNameSlack.Content" xml:space="preserve">
+    <value>Slack</value>
+  </data>
+  <data name="SIDp_ServiceNameViber.Content" xml:space="preserve">
+    <value>Viber</value>
+  </data>
+  <data name="SIDp_ServiceNameTeams.Content" xml:space="preserve">
+    <value>MicrosoftTeams</value>
+  </data>
+  <data name="SIDp_ServiceNameMessenger.Content" xml:space="preserve">
+    <value>FacebookMessenger</value>
+  </data>
+  <data name="SIDp_ServiceIdLabel.Text" xml:space="preserve">
+    <value>Service ID:</value>
+  </data>
+  <data name="SIDp_ServiceIdTextBox.PlaceholderText" xml:space="preserve">
+    <value>Enter Chat ID / Number</value>
+  </data>
+  <data name="SIDp_IsActiveLabel.Text" xml:space="preserve">
+    <value>Is Active:</value>
+  </data>
+  <data name="SIDp_SendNotificationLabel.Text" xml:space="preserve">
+    <value>Send Notification with</value>
+  </data>
+  <data name="SIDp_NotifyEnglishLabel.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="SIDp_NotifyArabicLabel.Text" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="SIDp_ApplyPatientServiceButton.Content" xml:space="preserve">
+    <value>Apply Patient Service</value>
+  </data>
+  <data name="SIDp_ClearButton.Content" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="SIDp_SearchBox.PlaceholderText" xml:space="preserve">
+    <value>Search Service/Patient Id</value>
+  </data>
+  <data name="SIDp_HeaderServiceIdAuto.Header" xml:space="preserve">
+    <value>Service ID Auto</value>
+  </data>
+  <data name="SIDp_HeaderPatientId.Header" xml:space="preserve">
+    <value>Patient ID</value>
+  </data>
+  <data name="SIDp_HeaderCode.Header" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="SIDp_HeaderServiceName.Header" xml:space="preserve">
+    <value>Service Name</value>
+  </data>
+  <data name="SIDp_HeaderServiceId.Header" xml:space="preserve">
+    <value>Service ID</value>
+  </data>
+  <data name="SIDp_HeaderActive.Header" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="SIDp_HeaderNotifyEn.Header" xml:space="preserve">
+    <value>Notify En</value>
+  </data>
+  <data name="SIDp_HeaderNotifyAr.Header" xml:space="preserve">
+    <value>Notify Ar</value>
+  </data>
+  <data name="SIDp_HeaderNotifyFr.Header" xml:space="preserve">
+  <value>Notify Fr</value>
+</data>
+  <data name="SIDp_ApplyPatientServiceButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Save/Update - F1</value>
+  </data>
+  <data name="SIDp_ClearButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Clear Fields - F4</value>
+  </data>
+  <data name="SIDp_StatusMessagePatientIdServiceRequired" xml:space="preserve">
+    <value>Patient ID and Service identifier are required.</value>
+  </data>
+  <data name="SIDp_StatusMessageNewPatientServiceAdded" xml:space="preserve">
+    <value>New patient service added.</value>
+  </data>
+  <data name="SIDp_StatusMessageServiceAlreadyExists" xml:space="preserve">
+    <value>This service {0} already exists for patient ID: {1} - {2}</value>
+  </data>
+  <data name="SIDp_StatusMessagePatientServiceUpdated" xml:space="preserve">
+    <value>Patient service updated.</value>
+  </data>
+  <data name="SIDp_StatusMessageErrorSavingPatientService" xml:space="preserve">
+    <value>Error saving patient service.</value>
+  </data>
+  <data name="SIDp_StatusMessageClearingAndRefreshing" xml:space="preserve">
+    <value>Clearing and refreshing. Please wait...</value>
+  </data>
+  <data name="SIDp_StatusMessageWarningWrongIdOrDeactivated" xml:space="preserve">
+    <value>WARNING!! Wrong ID or Patient {0} is deactivated.</value>
+  </data>
+  <data name="SIDp_StatusMessageWarningPatientIdNotFound" xml:space="preserve">
+    <value>WARNING! Patient ID not found.</value>
+  </data>
+  <data name="SIDp_NotifyFrenchLabel.Text" xml:space="preserve">
+  <value>French</value>
+</data>
+  <data name="Stp_ThemeSelectionTitle.Text" xml:space="preserve">
+    <value>Theme Selection</value>
+  </data>
+  <data name="Stp_ThemeSelectionItemText.Text" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="Stp_ShowGregorianDateCheckBox.Content" xml:space="preserve">
+    <value>Show Gregorian Date</value>
+  </data>
+  <data name="Stp_ShowHijriDateCheckBox.Content" xml:space="preserve">
+    <value>Show Hijri Date</value>
+  </data>
+  <data name="Stp_LanguageSelectionComboBox.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Stp_LanguageSelectionItemText.Text" xml:space="preserve">
+    <value>Language Option</value>
+  </data>
+  <data name="Stp_WorkingDaysTitle.Text" xml:space="preserve">
+    <value>Working Days</value>
+  </data>
+  <data name="Stp_WorkingDaysMonday.Content" xml:space="preserve">
+    <value>Mon</value>
+  </data>
+  <data name="Stp_WorkingDaysTuesday.Content" xml:space="preserve">
+    <value>Tue</value>
+  </data>
+  <data name="Stp_WorkingDaysWednesday.Content" xml:space="preserve">
+    <value>Wed</value>
+  </data>
+  <data name="Stp_WorkingDaysThursday.Content" xml:space="preserve">
+    <value>Thu</value>
+  </data>
+  <data name="Stp_WorkingDaysFriday.Content" xml:space="preserve">
+    <value>Fri</value>
+  </data>
+  <data name="Stp_WorkingDaysSaturday.Content" xml:space="preserve">
+    <value>Sat</value>
+  </data>
+  <data name="Stp_WorkingDaysSunday.Content" xml:space="preserve">
+    <value>Sun</value>
+  </data>
+  <data name="Stp_WorkingDaysApplyButton.Content" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Stp_NotificationsTitle.Text" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="Stp_NotifyPatient24hCheckBox.Content" xml:space="preserve">
+    <value>Send patient notification 24h before appointment</value>
+  </data>
+  <data name="Stp_NotifyPatient2hCheckBox.Content" xml:space="preserve">
+    <value>Send patient notification 2h before appointment</value>
+  </data>
+  <data name="Stp_NotifyDoctorCheckBox.Content" xml:space="preserve">
+    <value>Enable doctor notifications</value>
+  </data>
+  <data name="Stp_SendViaTelegramCheckBox.Content" xml:space="preserve">
+    <value>Send via Telegram</value>
+  </data>
+  <data name="Stp_NavigateConfigPageButton.Content" xml:space="preserve">
+    <value>Go to Configuration Page Helper</value>
+  </data>
+  <data name="Stp_BackupTitle.Text" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="Stp_BackupLocationTextBox.PlaceholderText" xml:space="preserve">
+    <value>Select backup folder</value>
+  </data>
+  <data name="Stp_BrowseBackupButton.Content" xml:space="preserve">
+    <value>Browse...</value>
+  </data>
+  <data name="Stp_BackupDatabaseButton.Content" xml:space="preserve">
+    <value>Backup Database</value>
+  </data>
+  <data name="Stp_ClinicNameTitle.Text" xml:space="preserve">
+    <value>Clinic Name</value>
+  </data>
+  <data name="Stp_ClinicNameTextBox.PlaceholderText" xml:space="preserve">
+    <value>Enter Clinic Name</value>
+  </data>
+  <data name="Stp_ClinicNameApplyButton.Content" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Stp_LogsTitle.Text" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="Stp_LogsDescription.Text" xml:space="preserve">
+    <value>View diagnostic and error logs</value>
+  </data>
+  <data name="Stp_OpenLogFolderButton.Content" xml:space="preserve">
+    <value>Open Log Folder</value>
+  </data>
+  <data name="Stp_StatusMessageThemeChangeSaved" xml:space="preserve">
+    <value>Theme change saved. It will apply after you log out and back in, or the next time you open the app.</value>
+  </data>
+  <data name="Stp_StatusMessageThemeSaveFailed" xml:space="preserve">
+    <value>Failed to save theme due to database error.</value>
+  </data>
+  <data name="Stp_StatusMessageApplyingChanges" xml:space="preserve">
+    <value>Please wait, applying changes...</value>
+  </data>
+  <data name="Stp_StatusMessageChangesAppliedSuccessfully" xml:space="preserve">
+    <value>Changes applied successfully.</value>
+  </data>
+  <data name="Stp_StatusMessageErrorLogCheck" xml:space="preserve">
+    <value>Error. Please check the error.log file and search for {0}.</value>
+  </data>
+  <data name="Stp_StatusMessageDatabaseFileNotFound" xml:space="preserve">
+    <value>Database file not found.</value>
+  </data>
+  <data name="Stp_StatusMessageBackupFolderInvalid" xml:space="preserve">
+    <value>Backup folder not set or invalid.</value>
+  </data>
+  <data name="Stp_StatusMessageBackupGenerating" xml:space="preserve">
+    <value>Generating backup, please wait...</value>
+  </data>
+  <data name="Stp_StatusMessageBackupCreatedZipped" xml:space="preserve">
+    <value>Backup created and zipped: {0}</value>
+  </data>
+  <data name="Stp_StatusMessageBackupFailed" xml:space="preserve">
+    <value>Backup failed! Check Error Log</value>
+  </data>
+  <data name="Stp_StatusMessageClinicNameAdminOnly" xml:space="preserve">
+    <value>Only Admin can change clinic name!</value>
+  </data>
+  <data name="Stp_StatusMessageClinicNameEmpty" xml:space="preserve">
+    <value>Clinic name cannot be empty.</value>
+  </data>
+  <data name="Stp_StatusMessageClinicNameUpdated" xml:space="preserve">
+    <value>Clinic Name has been Updated</value>
+  </data>
+  <data name="Stp_StatusMessageErrorLogCheckGeneral" xml:space="preserve">
+    <value>An error occurred, check the error log!</value>
+  </data>
+  <data name="Stp_StatusMessageDateSettingsUpdated" xml:space="preserve">
+    <value>Date display settings have been updated.</value>
+  </data>
+  <data name="Stp_StatusMessageErrorOccurredCheckLog" xml:space="preserve">
+    <value>An error occurred, check the error log!</value>
+  </data>
+  <data name="Stp_StatusMessageLanguageUpdated" xml:space="preserve">
+    <value>Language setting has been updated. Changes will apply after you close and reopen the app.</value>
+  </data>
+<data name="Stp_CalendarSelectionTitle" xml:space="preserve">
+  <value>Calendar</value>
+</data>  
+<data name="Stp_StatusMessageLogFolderOpenFailed" xml:space="preserve">
+  <value>Failed to open log folder</value>
+</data>
+  <data name="SPNV_Theme.Content" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="SPNV_Theme.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Change application theme</value>
+  </data>
+  <data name="SPNV_Language.Content" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="SPNV_Language.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Change application language</value>
+  </data>
+  <data name="SPNV_Calendar.Content" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
+  <data name="SPNV_Calendar.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Manage calendar settings</value>
+  </data>
+  <data name="SPNV_WorkingDays.Content" xml:space="preserve">
+    <value>Working Days</value>
+  </data>
+  <data name="SPNV_WorkingDays.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Configure clinic working days</value>
+  </data>
+  <data name="SPNV_Notifications.Content" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="SPNV_Notifications.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Manage notification preferences</value>
+  </data>
+  <data name="SPNV_ClinicName.Content" xml:space="preserve">
+    <value>Clinic Name</value>
+  </data>
+  <data name="SPNV_ClinicName.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Edit clinic name and details</value>
+  </data>
+  <data name="SPNV_Backup.Content" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="SPNV_Backup.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Backup clinic data</value>
+  </data>
+  <data name="SPNV_Logs.Content" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="SPNV_Logs.ToolTipService.ToolTip" xml:space="preserve">
+    <value>View system logs and activity history</value>
+  </data>
+  <data name="UrLp_AddNewRole.Text" xml:space="preserve">
+    <value>Add New Role</value>
+  </data>
+  <data name="UrLp_RoleNameLabel.Text" xml:space="preserve">
+    <value>Role Name:</value>
+  </data>
+  <data name="UrLp_RoleNameBox.PlaceholderText" xml:space="preserve">
+    <value>Enter New Role Name</value>
+  </data>
+  <data name="UrLp_PermissionsLabel.Text" xml:space="preserve">
+    <value>Permissions:</value>
+  </data>
+  <data name="UrLp_CanManageDoctors.Content" xml:space="preserve">
+    <value>Can Manage Doctors</value>
+  </data>
+  <data name="UrLp_CanManageUsers.Content" xml:space="preserve">
+    <value>Can Manage Users</value>
+  </data>
+  <data name="UrLp_UserAdd.Content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="UrLp_UserEdit.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="UrLp_UserDeactivate.Content" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="UrLp_CanAccessDashboard.Content" xml:space="preserve">
+    <value>Can Access Dashboard</value>
+  </data>
+  <data name="UrLp_CanViewAppointments.Content" xml:space="preserve">
+    <value>Can View Appointments</value>
+  </data>
+  <data name="UrLp_CanManageRecords.Content" xml:space="preserve">
+    <value>Can Manage Records</value>
+  </data>
+  <data name="UrLp_CanEditRecords.Content" xml:space="preserve">
+    <value>Can Edit Records</value>
+  </data>
+  <data name="UrLp_Deactivated.Content" xml:space="preserve">
+    <value>Deactivated</value>
+  </data>
+  <data name="UrLp_ReportSectionLabel.Text" xml:space="preserve">
+    <value>Report section:</value>
+  </data>
+  <data name="UrLp_CanManageReports.Content" xml:space="preserve">
+    <value>Can Manage Reports</value>
+  </data>
+  <data name="UrLp_CanViewReports.Content" xml:space="preserve">
+    <value>Can View Reports</value>
+  </data>
+  <data name="UrLp_SettingsLabel.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="UrLp_CanManageSettings.Content" xml:space="preserve">
+    <value>Can Manage Settings</value>
+  </data>
+  <data name="UrLp_CanViewSettings.Content" xml:space="preserve">
+    <value>Can View Settings</value>
+  </data>
+  <data name="UrLp_AddButton.Content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="UrLp_EditButton.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="UrLp_DeactivateButton.Content" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="UrLp_ClearButton.Content" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="UrLp_BackToUserPageButton.Content" xml:space="preserve">
+    <value>Back to User Page</value>
+  </data>
+  <data name="UrLp_ExistingRolesLabel.Text" xml:space="preserve">
+    <value>Existing Roles</value>
+  </data>
+  <data name="UrLp_HeaderId.Text" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="UrLp_HeaderRoleName.Text" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="UrLp_HeaderPermissions.Text" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+  <data name="UrLp_AddShortcut.Text" xml:space="preserve">
+    <value>Add = F1</value>
+  </data>
+  <data name="UrLp_EditShortcut.Text" xml:space="preserve">
+    <value>Edit = F2</value>
+  </data>
+  <data name="UrLp_DeactivateShortcut.Text" xml:space="preserve">
+    <value>Deactivate = F3</value>
+  </data>
+  <data name="UrLp_ClearShortcut.Text" xml:space="preserve">
+    <value>Clear = F4</value>
+  </data>
+  <data name="UrLp_DeactivatedUserLabel.Text" xml:space="preserve">
+    <value>Deactivated User = </value>
+  </data>
+  <data name="UrLp_BackShortcut.Text" xml:space="preserve">
+    <value>Back to User Page = F5</value>
+  </data>
+  <data name="UrLp_RolesHeader.Text" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="UrLp_CanViewSettings.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Only View, cannot change</value>
+  </data>
+  <data name="UrLp_CanManageSettings.ToolTipService.ToolTip" xml:space="preserve">
+    <value>View and change Settings</value>
+  </data>
+  <data name="UrLp_CanManageRecords.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Manage Record Only: ADD</value>
+  </data>
+  <data name="UrLp_CanEditRecords.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Manage Records: EDIT/DEACTIVATE</value>
+  </data>
+  <data name="UrLp_StatusMessageFormat" xml:space="preserve">
+    <value>Loaded {0} Roles.</value>
+  </data>
+  <data name="UrLp_NoPrivilegedRoleMessage" xml:space="preserve">
+    <value>You do not have permission to create a fully privileged role.</value>
+  </data>
+  <data name="UrLp_AdminManageUsersMessage" xml:space="preserve">
+    <value>Only Admin can manage who can manage users.</value>
+  </data>
+  <data name="UrLp_RoleNameRequiredMessage" xml:space="preserve">
+    <value>Role name is required.</value>
+  </data>
+  <data name="UrLp_RoleAddedMessage" xml:space="preserve">
+    <value>Role added successfully.</value>
+  </data>
+  <data name="UrLp_NoRoleSelectedtoUpdateMessage" xml:space="preserve">
+    <value>No role selected to update.</value>
+  </data>
+  <data name="UrLp_RoleUpdatedMessage" xml:space="preserve">
+    <value>Role updated successfully.</value>
+  </data>
+  <data name="UrLp_AdminDeactivateRoleMessage" xml:space="preserve">
+    <value>Only Admin can deactivate Admin's role.</value>
+  </data>
+  <data name="UrLp_NoRoleSelectedMessage" xml:space="preserve">
+    <value>No role selected.</value>
+  </data>
+  <data name="UrLp_RoleActivatedMessage" xml:space="preserve">
+    <value>Role activated successfully.</value>
+  </data>
+  <data name="UrLp_RoleDeactivatedMessage" xml:space="preserve">
+    <value>Role deactivated successfully.</value>
+  </data>
+  <data name="UrLp_AdminEditRoleMessage" xml:space="preserve">
+    <value>Only Admin can edit Admin's role.</value>
+  </data>
+  <data name="Usrp_UserManager.Text" xml:space="preserve">
+    <value>User Manager</value>
+  </data>
+  <data name="Usrp_UsernameBox.Header" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Usrp_PasswordBox.Header" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Usrp_ConfirmPasswordBox.Header" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="Usrp_FullNameBox.Header" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="Usrp_EmailBox.Header" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Usrp_PhoneBox.Header" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="Usrp_LandLineBox.Header" xml:space="preserve">
+    <value>Landline Number</value>
+  </data>
+  <data name="Usrp_LanguageBox.Header" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Usrp_Language_enUS.Content" xml:space="preserve">
+    <value>English (US)</value>
+  </data>
+  <data name="Usrp_Language_ar.Content" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="Usrp_PermissionsLabel.Text" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+  <data name="Usrp_RoleNameBox.Header" xml:space="preserve">
+    <value>Select Role</value>
+  </data>
+  <data name="Usrp_IsActiveCheckBox.Content" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="Usrp_AddButton.Content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Usrp_AddButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Save/F1</value>
+  </data>
+  <data name="Usrp_EditButton.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Usrp_EditButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Update/F2</value>
+  </data>
+  <data name="Usrp_DeactivateButton.Content" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="Usrp_DeactivateButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Deactivate/F3</value>
+  </data>
+  <data name="Usrp_ClearButton.Content" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Usrp_ClearButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Clear Data (refresh)/F4</value>
+  </data>
+  <data name="Usrp_UsersManagerListLabel.Text" xml:space="preserve">
+    <value>Users Manager List</value>
+  </data>
+  <data name="Usrp_AddUserRoleButton.Content" xml:space="preserve">
+    <value>Add User's Role</value>
+  </data>
+  <data name="Usrp_Column_Auto.Header" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="Usrp_Column_UserId.Header" xml:space="preserve">
+    <value>User ID</value>
+  </data>
+  <data name="Usrp_Column_Username.Header" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Usrp_Column_FullName.Header" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="Usrp_Column_Email.Header" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Usrp_Column_PhoneNumber.Header" xml:space="preserve">
+    <value>Mobile Phone</value>
+  </data>
+  <data name="Usrp_Column_LandLineNumber.Header" xml:space="preserve">
+    <value>Land Line Phone</value>
+  </data>
+  <data name="Usrp_Column_Language.Header" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Usrp_Column_Role.Header" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Usrp_Column_RoleName.Header" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="Usrp_Column_IsActive.Header" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Usrp_Cell_IsActiveCheckBox.Content" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Usrp_Cell_UserAutoId.Header" xml:space="preserve">
+    <value>User ID</value>
+  </data>
+  <data name="Usrp_UsernameBox.PlaceholderText" xml:space="preserve">
+    <value>Enter New Username</value>
+  </data>
+  <data name="Usrp_PasswordBox.PlaceholderText" xml:space="preserve">
+    <value>Enter Password</value>
+  </data>
+  <data name="Usrp_ConfirmPasswordBox.PlaceholderText" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="LoadedUsersMessage" xml:space="preserve">
+    <value>{0} users loaded successfully.</value>
+  </data>
+  <data name="CopyRightMessage" xml:space="preserve">
+    <value>2025 - {0} LiteClinic Version {1} © Developed by Samer Hmouda. All rights reserved.</value>
+  </data>
+  <data name="DDP_DoctorDirectory.Text" xml:space="preserve">
+  <value>Doctor Directory</value>
+</data>
+<data name="DDP_SearchBox.PlaceholderText" xml:space="preserve">
+  <value>Search by name or specialty</value>
+</data>
+<data name="DDP_SpecialtyComboBox.PlaceholderText" xml:space="preserve">
+  <value>Specialty</value>
+</data>
+<data name="DDP_TimeSlots.Text" xml:space="preserve">
+  <value>Time Slots:</value>
+</data>
+<data name="DDP_MorningToggle.Content" xml:space="preserve">
+  <value>Morning</value>
+</data>
+<data name="DDP_AfternoonToggle.Content" xml:space="preserve">
+  <value>Afternoon</value>
+</data>
+<data name="DDP_EveningToggle.Content" xml:space="preserve">
+  <value>Evening</value>
+</data>
+<data name="DDP_AvailableTodayToggle.Content" xml:space="preserve">
+  <value>Available Today</value>
+</data>
+<data name="DDP_ViewProfileButton.Content" xml:space="preserve">
+  <value>View Profile</value>
+</data>
+<data name="DDP_BookAppointmentButton.Content" xml:space="preserve">
+  <value>Book Appointment</value>
+</data>
+<data name="DDP_RefreshButton.Content" xml:space="preserve">
+  <value>Refresh</value>
+</data>
+<data name="DDP_TodayDoctorsLegend.Text" xml:space="preserve">
+  <value>Today’s Doctors</value>
+</data>
+<data name="DDP_FilteredDoctorsLegend.Text" xml:space="preserve">
+  <value>Filtered Doctors</value>
+</data>
+  <data name="DoctorsScheduled.Text" xml:space="preserve">
+    <value>Doctors/Scheduled</value>
+    <comment>Go to Scheduled Doctor Page</comment>
+  </data>
+    <data name="DrServiceIdsPage.Text" xml:space="preserve">
+    <value>Doctors/Service ID</value>
+    <comment>Go to Doctor ServiceIds Page</comment>
+  </data>
+      <data name="MainDashboardDocotrDirectory.Text" xml:space="preserve">
+    <value>Dashboard/Doctor Directory</value>
+    <comment>Dashboard Menu Item</comment>
+  </data>
+      <data name="DashboardMenu.Text" xml:space="preserve">
+    <value>Dashboard</value>
+    <comment>Dashboard Menu Item</comment>
+  </data>
+      <data name="Dashboard.Text" xml:space="preserve">
+    <value>Dashboard/Clinic Calendar</value>
+    <comment>Dashboard Menu Item</comment>
+	
+  </data>
+</root>

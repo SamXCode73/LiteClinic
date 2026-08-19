@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LiteClinic.Views.WorkingDaysPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiteClinic.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:LiteClinic.ViewModels"
+    xmlns:models="using:LiteClinic.Models"
+    d:DataContext="{d:DesignInstance Type=viewmodels:WorkingDaysPageViewModel, IsDesignTimeCreatable=True}"        
+    mc:Ignorable="d">
+
+    <Grid>
+
+        <!-- Working Days -->
+        <StackPanel Margin="20" HorizontalAlignment="Center">
+
+
+            <TextBlock x:Uid="Stp_WorkingDaysTitle"
+                                   Text="Working Days"
+                                   FontSize="18"
+                                   FontFamily="{StaticResource CurrentAppFont}"
+                                   FontWeight="Bold"
+                                   Margin="20"/>
+
+            <!-- Vertical container -->
+            <Border BorderBrush="#CCC" BorderThickness="3" CornerRadius="3" Padding="10">
+                <StackPanel Orientation="Vertical" Spacing="10" HorizontalAlignment="Center">
+
+                    <!-- First row: 3 days -->
+                    <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+                        <ToggleButton x:Uid="Stp_WorkingDaysMonday"
+                                              Content="Mon" IsChecked="{Binding NotifyOnMonday, Mode=TwoWay}" Width="70"/>
+                        <ToggleButton x:Uid="Stp_WorkingDaysTuesday"
+                                              Content="Tue" IsChecked="{Binding NotifyOnTuesday, Mode=TwoWay}" Width="70"/>
+                        <ToggleButton x:Uid="Stp_WorkingDaysWednesday"
+                                              Content="Wed" IsChecked="{Binding NotifyOnWednesday, Mode=TwoWay}" Width="70"/>
+                    </StackPanel>
+
+                    <!-- Second row: 4 days -->
+                    <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+                        <ToggleButton x:Uid="Stp_WorkingDaysThursday"
+                                              Content="Thu" IsChecked="{Binding NotifyOnThursday, Mode=TwoWay}" Width="70"/>
+                        <ToggleButton x:Uid="Stp_WorkingDaysFriday"
+                                              Content="Fri" IsChecked="{Binding NotifyOnFriday, Mode=TwoWay}" Width="70"/>
+                        <ToggleButton x:Uid="Stp_WorkingDaysSaturday"
+                                              Content="Sat" IsChecked="{Binding NotifyOnSaturday, Mode=TwoWay}" Width="70"/>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+                        <ToggleButton x:Uid="Stp_WorkingDaysSunday"
+                                              Content="Sun" IsChecked="{Binding NotifyOnSunday, Mode=TwoWay}" Width="70"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Button x:Uid="Stp_WorkingDaysApplyButton"
+                    Content="Apply"
+                    Margin="10,15,0,0"
+                    HorizontalAlignment="Center"
+                    Background="Teal"
+                    Foreground="AntiqueWhite"
+                    FontFamily="{StaticResource CurrentAppFont}"
+                    FontWeight="Bold"
+                    IsEnabled="{Binding CanViewSettingsMenu}"
+                    Command="{Binding ApplyWorkingDaysCommand}"
+                    Width="70"/>
+        </StackPanel>
+            
+        
+    </Grid>
+</Page>

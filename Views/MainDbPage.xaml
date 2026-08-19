@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LiteClinic.Views.MainDbPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiteClinic.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:LiteClinic.ViewModels"
+    xmlns:models="using:LiteClinic.Models"    
+    mc:Ignorable="d"
+    Background="#f1f1f1">
+
+    <!-- This page has noe viemodel -->
+    <Page.DataContext>
+        <d:DesignInstance Type="viewmodels:AppState" IsDesignTimeCreatable="True"/>
+    </Page.DataContext>
+
+
+        <!-- Main content grid (Row 0 of the Page) -->
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Top navigation -->
+                <RowDefinition Height="*"/>
+                <!-- Content frame -->
+            </Grid.RowDefinitions>
+
+            <!-- Top Navigation Menu -->
+            <NavigationView Grid.Row="0"
+                            PaneDisplayMode="Top"
+                            IsSettingsVisible="False"
+                            SelectionChanged="MDbPNavView_SelectionChanged"
+                            BackRequested="MDbPNavView_BackRequested"                            
+                            IsBackButtonVisible="Visible"
+                            Background="#f1f1f1"
+                            IsPaneToggleButtonVisible="True"
+                            x:Name="MDbPNavView">
+
+                <NavigationView.MenuItems>
+
+                    <NavigationViewItem x:Uid="MDbP_Dashboard"
+                                        Content="Dashboard" ToolTipService.ToolTip="View application dashboard"
+                                        Tag="Dashboard"
+                                        FontWeight="Bold">
+                        <NavigationViewItem.Icon>
+                            <FontIcon Glyph="&#xE787;" FontFamily="Segoe Fluent Icons"/>
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+
+                    <NavigationViewItem x:Uid="MDbP_DoctorPage"
+                                        Content="Doctor Directory" ToolTipService.ToolTip="View doctor directory"
+                                        Tag="DoctorPage"
+                                        FontWeight="Bold">
+                        <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE716;" FontFamily="Segoe Fluent Icons"/>
+                    </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+
+                </NavigationView.MenuItems>
+            </NavigationView>
+
+            <!-- Content Frame -->
+            <Frame x:Name="MDbPFrame" Grid.Row="1"/>
+        </Grid>
+
+</Page>

@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LiteClinic.Views.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiteClinic.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:LiteClinic.ViewModels"    
+    d:DataContext="{d:DesignInstance Type=viewmodels:AboutPageViewModel, IsDesignTimeCreatable=True}"    
+    mc:Ignorable="d"
+    Background="#f1f1f1">
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!-- Main content -->
+            <RowDefinition Height="40" />
+            <!-- Info bar -->
+        </Grid.RowDefinitions>
+
+        <!-- Main content -->
+        <Grid Grid.Row="0" Padding="20">
+
+            <TabView IsAddTabButtonVisible="False">
+                <!-- About LiteClinic tab -->
+                <TabViewItem x:Uid="AP_Tab"
+                             Background="Silver"
+                             Foreground="Black"
+                             IsClosable="False">
+                    <ScrollViewer>
+
+                        <StackPanel Margin="10">
+                            
+                            <!--App Title -->    
+                            <TextBlock Text="{Binding AppVersion}" 
+                                       FontSize="26" 
+                                       FontWeight="Bold"
+                                       FontFamily="{StaticResource CurrentAppFontItalic}"
+                                       Margin="7,0,0,10"
+                                       Padding="10,0,0,0"
+                                       HorizontalAlignment="Center"/>
+
+                            <!-- Intro -->
+                            <TextBlock x:Uid="AP_OverviewTitle"
+                                       FontSize="18" FontWeight="Bold" Margin="0,0,0,5"/>
+                            <TextBlock x:Uid="AP_OverviewDescription"
+                                       TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- What's New -->
+                            <TextBlock x:Uid="AP_WhatsNewTitle"
+                                       Text="What's New" 
+                                       FontSize="18" 
+                                       FontWeight="Bold" 
+                                       Margin="0,20,0,5"/>
+
+
+                            <StackPanel>
+
+                                <TextBlock x:Uid="AP_Version106Title"
+                                           Text="Version 1.0.6.0" 
+                                           FontSize="16" 
+                                           FontWeight="SemiBold" 
+                                           Margin="0,10,0,2"/>
+
+                                <!-- Dashboard -->
+                                <TextBlock x:Uid="AP_DashboardSeparated"
+                                           Text="• Dashboard separated into two pages" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP_DashboardClinicCalendar"
+                                           Text="   - Clinic Calendar" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+                                <TextBlock x:Uid="AP_DashboardDoctorDirectory"
+                                           Text="   - Doctor Directory" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+
+                                <!-- Doctor Directory -->
+                                <TextBlock x:Uid="AP_DoctorDirectoryFilters"
+                                           Text="• Doctor Directory now includes filters:" 
+                                           FontSize="16" 
+                                           Margin="0,5,0,2"/>
+                                <TextBlock x:Uid="AP_FilterToday"
+                                           Text="   - Today’s availability" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+                                <TextBlock x:Uid="AP_FilterSlots"
+                                           Text="   - Morning / Afternoon / Evening slots" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+                                <TextBlock x:Uid="AP_FilterSpecialty"
+                                           Text="   - Specialty filter" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+
+                                <!-- Appointment Page -->
+                                <TextBlock x:Uid="AP_AppointmentTabs"
+                                           Text="• Appointment page separated into two tabs:" 
+                                           FontSize="16" 
+                                           Margin="0,5,0,2"/>
+                                <TextBlock x:Uid="AP_TabPatients"
+                                           Text="   - Patients" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+                                <TextBlock x:Uid="AP_TabAppointments"
+                                           Text="   - Appointments (with filters per appointment)" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+
+
+                                <!-- Version 1.0.5.0 -->
+                                <TextBlock x:Uid="AP_Version105Title"
+                                           Text="Version 1.0.5.0" 
+                                           FontSize="16" 
+                                           FontWeight="SemiBold" 
+                                           Margin="0,10,0,2"/>
+
+                                <!-- New Features & Improvements -->
+                                <TextBlock x:Uid="AP_AddArabicLocalization"
+                                           Text="• Added full Arabic localization (UI, messages, notifications)" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP_AddFrenchLocalization"
+                                           Text="• Added full French localization (UI, messages, notifications)" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP_ImprovedResourceHandling"
+                                           Text="• Improved resource handling for multi-language support" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP_UpdatedCopyrightMessage"
+                                           Text="• Updated copyright message to reflect selected language" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+
+
+                                <!-- Bug Fixes -->
+                                <TextBlock x:Uid="AP_UIAdjustmentsSettings"
+                                           Text="• UI adjustments for the settings page" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP_FixedTelegramNotifications"
+                                           Text="• Fixed Telegram bot not sending notifications" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP_NotificationsReliability"
+                                           Text="• Notifications now work reliably in English, French, and Arabic" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+
+
+                                <!-- Compatibility -->
+                                <TextBlock x:Uid="AP_BuildsSupported"
+                                           Text="• Builds supported on x86, x64, and ARM64" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP_LocalizationWorks"
+                                           Text="• Localization works across Windows 10 and 11 devices" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP_Version104Title"
+                                           Text="Version 1.0.4.0" 
+                                           FontSize="16" 
+                                           FontWeight="SemiBold" 
+                                           Margin="0,10,0,2"/>
+
+                                <!-- New Features & Improvements -->
+                                <TextBlock x:Uid="AP104_AddArabicLocalization"
+                                           Text="• Added full Arabic localization (UI, messages, notifications)" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP104_AddFrenchLocalization"
+                                           Text="• Added full French localization (UI, messages, notifications)" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP104_ImprovedResourceHandling"
+                                           Text="• Improved resource handling for multi-language support" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP104_UpdatedCopyrightMessage"
+                                           Text="• Updated copyright message to reflect selected language" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+
+                                <!-- Bug Fixes -->
+                                <TextBlock x:Uid="AP104_UIRenderingIssues"
+                                           Text="• Fixed minor UI rendering issues in Arabic/French layouts" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP104_RTLLanguageAlignment"
+                                           Text="• Corrected alignment for right-to-left (RTL) languages" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+
+                                <!-- Compatibility -->
+                                <TextBlock x:Uid="AP104_BuildsSupported"
+                                           Text="• Builds supported on x86, x64, and ARM64" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP104_LocalizationWorks"
+                                           Text="• Localization works across Windows 10 and 11 devices" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+
+
+                                <!-- Version 1.0.3.0 -->
+                                <TextBlock x:Uid="AP103_VersionTitle"
+                                           Text="Version 1.0.3.0" 
+                                           FontSize="16" 
+                                           FontWeight="SemiBold" 
+                                           Margin="0,10,0,2"/>
+                                <TextBlock x:Uid="AP103_NewDateOptions"
+                                           Text="• New date display options (Gregorian and Hijri)" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP103_ImprovedMigration"
+                                           Text="• Improved database migration — safer upgrades" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP103_FixedDOBIssue"
+                                           Text="• Fixed Date of Birth issue (year-only defaults to 01/01/yyyy)" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP103_EnhancedFiltering"
+                                           Text="• Enhanced appointment filtering and overall stability" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+
+                            </StackPanel>
+
+
+                            <!-- Telegram -->
+                            <TextBlock x:Uid="AP_CommunicationTitle"
+                                       FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="AP_CommunicationDescription"
+                                       TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="AP_CommunicationHelper"
+                                       TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Doctor Data -->
+                            <TextBlock x:Uid="AP_DoctorDataTitle"
+                                       FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="AP_DoctorDataDescription"
+                                       TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Patient Data -->
+                            <TextBlock x:Uid="AP_PatientDataTitle"
+                                       FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="AP_PatientDataDescription"
+                                       TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Appointments -->
+                            <TextBlock x:Uid="AP_AppointmentsTitle"
+                                       FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="AP_AppointmentsDescription1"
+                                       TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="AP_AppointmentsDescription2"
+                                       TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Notifications -->
+                            <TextBlock x:Uid="AP_NotificationsTitle"
+                                       FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="AP_NotificationsDescription1"
+                       TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="AP_NotificationsDescription2"
+                       TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="AP_NotificationsDescription3"
+                       TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- User Control -->
+                            <TextBlock x:Uid="AP_UserControlTitle"
+                       FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="AP_UserControlDescription"
+                       TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Closing -->
+                            <TextBlock x:Uid="AP_ClosingDescription"
+                       TextWrapping="Wrap" FontSize="16"/>
+                        </StackPanel>
+
+                    </ScrollViewer>
+                </TabViewItem>
+
+                <!-- Terms of Use tab -->
+                <TabViewItem x:Uid="TU_Tab"
+                             Background="Silver"
+                             Foreground="Black"
+                             IsClosable="False">        
+                    <ScrollViewer>
+                        <StackPanel Margin="10">
+
+                            <!-- Free of Charge -->
+                            <TextBlock x:Uid="TU_FreeTitle" FontSize="18" FontWeight="Bold" Margin="0,0,0,5"/>
+                            <TextBlock x:Uid="TU_FreeDescription" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Medical Disclaimer -->
+                            <TextBlock x:Uid="TU_DisclaimerTitle" FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="TU_DisclaimerDescription" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- User Responsibility -->
+                            <TextBlock x:Uid="TU_ResponsibilityTitle" FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="TU_ResponsibilityDescription" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Delivery Limitations -->
+                            <TextBlock x:Uid="TU_LimitationsTitle" FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="TU_LimitationsDescription" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Agreement -->
+                            <TextBlock x:Uid="TU_AgreementTitle" FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="TU_AgreementDescription" TextWrapping="Wrap" FontSize="16"/>
+
+                            <!-- Privacy & Security -->
+                            <TextBlock x:Uid="TU_PrivacyTitle" FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="TU_PrivacyDescription1" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="TU_PrivacyDescription2" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="TU_PrivacyDescription3" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="TU_PrivacyDescription4" TextWrapping="Wrap" FontSize="16"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabViewItem>
+
+                <!-- Help tab -->
+                <TabViewItem x:Uid="HP_Tab"
+						 Background="Silver"
+						 Foreground="Black"
+						 IsClosable="False">
+                    <ScrollViewer>
+                        <StackPanel Margin="10">
+
+                            <!-- Getting Started -->
+                            <TextBlock x:Uid="HP_GettingStartedTitle" FontSize="18" FontWeight="Bold" Margin="0,0,0,5"/>
+
+                            <!-- Home Page Image -->
+                            <Image Source="/Assets/images/help/homepage.png"
+								   Stretch="Uniform"
+								   Height="250"
+								   Margin="0,0,0,10"/>
+
+                            <TextBlock x:Uid="HP_DashboardDescription" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="HP_ClinicNameDescription" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="HP_DoctorPatientDescription" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="HP_TelegramDescription" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Menu Overview -->
+                            <TextBlock x:Uid="HP_MenuOverviewTitle" FontSize="18" FontWeight="Bold" Margin="0,20,0,5"/>
+                            <TextBlock x:Uid="HP_MenuOverviewDescription" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Dashboard -->
+                            <TextBlock x:Uid="HP_DashboardTitle" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
+                            <TextBlock x:Uid="HP_DashboardDescription1" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+                            <TextBlock x:Uid="HP_DashboardStatusAttending" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,5"/>
+                            <TextBlock x:Uid="HP_DashboardStatusAttended" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,5"/>
+                            <TextBlock x:Uid="HP_DashboardStatusMissed" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,10"/>
+
+                            <!-- Doctors -->
+                            <TextBlock x:Uid="HP_DoctorsTitle" FontSize="16" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="HP_DoctorsDescription" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+                            <TextBlock x:Uid="HP_DoctorsWarning" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+
+                            <!-- Patients -->
+                            <TextBlock x:Uid="HP_PatientsTitle" FontSize="16" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="HP_PatientsDescription" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+                            <TextBlock x:Uid="HP_PatientsWarning" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+
+                            <!-- Appointments -->
+                            <TextBlock x:Uid="HP_AppointmentsTitle" FontSize="16" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="HP_AppointmentsDescription" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+                            <TextBlock x:Uid="HP_AppointmentsSearch" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+                            <TextBlock x:Uid="HP_AppointmentsAdd" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+
+                            <!-- Reports -->
+                            <TextBlock x:Uid="HP_ReportsTitle" FontSize="16" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="HP_ReportsDescription" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+                            <TextBlock x:Uid="HP_ReportsTotalDoctors" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,5"/>
+                            <TextBlock x:Uid="HP_ReportsTotalPatients" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,5"/>
+                            <TextBlock x:Uid="HP_ReportsMissedAppointments" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,10"/>
+                            <TextBlock x:Uid="HP_ReportsInsights" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+
+                            <!-- Users -->
+                            <TextBlock x:Uid="HP_UsersTitle" FontSize="16" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="HP_UsersDescription" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+
+                            <!-- User Management -->
+                            <TextBlock x:Uid="HP_UserManagement" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,5"/>
+
+                            <!-- User Roles -->
+                            <TextBlock x:Uid="HP_UserRoles" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,10"/>
+
+                            <!-- Default Accounts -->
+                            <TextBlock x:Uid="HP_DefaultAccountsTitle" FontSize="16" FontWeight="Bold" Margin="20,10,0,5"/>
+                            <TextBlock x:Uid="HP_DefaultAdmin" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,5"/>
+                            <TextBlock x:Uid="HP_DefaultUser" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,5"/>
+                            <TextBlock x:Uid="HP_DefaultWarning" TextWrapping="Wrap" FontSize="16" Foreground="DarkRed" Margin="40,5,0,10"/>
+
+                            <!-- Settings -->
+                            <TextBlock x:Uid="HP_SettingsTitle" FontSize="16" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="HP_SettingsDescription" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+                            <TextBlock x:Uid="HP_SettingsThemes" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,5"/>
+                            <TextBlock x:Uid="HP_SettingsNotifications" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,5"/>
+                            <TextBlock x:Uid="HP_SettingsTelegram" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,5"/>
+                            <TextBlock x:Uid="HP_SettingsBackup" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,5"/>
+                            <TextBlock x:Uid="HP_SettingsLogs" TextWrapping="Wrap" FontSize="16" Margin="40,0,0,10"/>
+
+                            <!-- About -->
+                            <TextBlock x:Uid="HP_AboutTitle" FontSize="16" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="HP_AboutDescription" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+
+                            <!-- Logout -->
+                            <TextBlock x:Uid="HP_LogoutTitle" FontSize="16" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="HP_LogoutDescription" TextWrapping="Wrap" FontSize="16" Margin="20,0,0,10"/>
+
+
+                            <!-- Troubleshooting -->
+                            <TextBlock x:Uid="HP_TroubleshootingTitle" FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="HP_TroubleshootingInternet" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="HP_TroubleshootingDoctors" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="HP_TroubleshootingAppointments" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock x:Uid="HP_TroubleshootingTelegram" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Support -->
+                            <TextBlock x:Uid="HP_SupportTitle" FontSize="18" FontWeight="Bold" Margin="0,10,0,5"/>
+                            <TextBlock x:Uid="HP_SupportDescription" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+                            <!-- Credits -->
+                            <TextBlock x:Uid="HP_CreditsTitle" FontSize="18" FontWeight="Bold" Margin="0,20,0,5"/>
+                            <TextBlock x:Uid="HP_CreditsDeveloper" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,5"/>
+                            <TextBlock x:Uid="HP_CreditsAcknowledgements" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,5"/>
+                            <TextBlock x:Uid="HP_CreditsIcons" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,5"/>
+                            <TextBlock x:Uid="HP_CreditsImages" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,5"/>
+                            <TextBlock x:Uid="HP_CreditsLogo" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,5"/>
+                            <TextBlock x:Uid="HP_CreditsThanks" TextWrapping="Wrap" FontSize="16" Margin="0,0,0,10"/>
+
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabViewItem>
+
+                <!-- Unlock the Future -->
+                <TabViewItem x:Uid="UF_Tab"
+             Background="#ff3c3c3c"
+             Foreground="AntiqueWhite"
+             IsClosable="False">
+                    <TabViewItem.IconSource>
+                        <SymbolIconSource Symbol="PreviewLink"/>
+                    </TabViewItem.IconSource>
+
+                    <ScrollViewer>
+                    <StackPanel>
+
+                        <!-- Title -->
+                        <TextBlock x:Uid="UF_Title" FontSize="20" FontWeight="Bold" Margin="25,25,0,12"/>
+
+                        <!-- Section 1 -->
+                        <TextBlock x:Uid="UF_Section1Title" FontSize="16" FontWeight="SemiBold" Margin="50,15,0,8"/>
+                        <TextBlock x:Uid="UF_Section1Description" TextWrapping="Wrap" Margin="70,0,10,15"/>
+
+                        <!-- Section 2 -->
+                        <TextBlock x:Uid="UF_Section2Title" FontSize="16" FontWeight="SemiBold" Margin="50,15,0,8"/>
+                        <TextBlock x:Uid="UF_Section2Description" TextWrapping="Wrap" Margin="70,0,10,15"/>
+
+                        <!-- Section 3 -->
+                        <TextBlock x:Uid="UF_Section3Title" FontSize="16" FontWeight="SemiBold" Margin="50,15,0,8" Visibility="Collapsed"/>
+                        <TextBlock x:Uid="UF_Section3LiteClinicPlus" TextWrapping="Wrap" Margin="70,0,10,8" Visibility="Collapsed"/>
+                        <TextBlock x:Uid="UF_Section3ClinicAI" TextWrapping="Wrap" Margin="70,0,10,15" Visibility="Collapsed"/>
+
+                        <!-- Closing Note -->
+                        <TextBlock x:Uid="UF_ClosingNote" Foreground="Teal" FontSize="14" FontStyle="Italic" Margin="70,20,0,20" TextWrapping="Wrap"/>
+
+                        <!-- Contact Section -->
+                        <TextBlock x:Uid="UF_ContactTitle" FontSize="16" FontWeight="Bold" Margin="50,20,0,10"/>
+
+                        <Grid Margin="70,0,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Developer -->
+                            <StackPanel Grid.Column="0" Spacing="5">
+                                <TextBlock x:Uid="UF_DeveloperName" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                                <TextBlock x:Uid="UF_DeveloperEmail" FontSize="14" TextWrapping="Wrap"/>
+                                <TextBlock x:Uid="UF_DeveloperMobile" FontSize="14" TextWrapping="Wrap"/>
+                            </StackPanel>
+
+                            <!-- Art Director -->
+                            <StackPanel Grid.Column="1" Spacing="5">
+                                <TextBlock x:Uid="UF_ArtDirectorName" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                                <TextBlock x:Uid="UF_ArtDirectorEmail" FontSize="14" TextWrapping="Wrap"/>
+                                <TextBlock x:Uid="UF_ArtDirectorMobile" FontSize="14" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </Grid>
+
+                    </StackPanel>
+                    </ScrollViewer>
+                </TabViewItem>
+
+
+            </TabView>
+
+        </Grid>
+
+        <!-- Info bar -->
+        <Border Grid.Row="1"
+        Background="#dcdcdc"
+        Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Left-aligned Roman date -->
+                <TextBlock Text="{Binding RomanDate}"
+                           Grid.Column="0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource InfoTextBottomBar}"
+                           Foreground="Gray"
+                           x:Name="RomanDateText"
+                           Visibility="{Binding GregorianDateVisibility}"/>
+
+                <!-- Centered system status
+                <TextBlock Text="{Binding StatusMessage}"
+                           Foreground="{Binding StatusColor}"
+                           Grid.Column="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource TextBlockFontItalic}"
+                           x:Name="StatusInfoText"/>  -->
+
+                <!-- Right-aligned Hijri date -->
+                <TextBlock Text="{Binding HijriDate}"
+                           Grid.Column="2"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontFamily="{StaticResource ArabicFont}"
+                           FontWeight="SemiBold"
+                           FontSize="18"
+                           Foreground="Gray"
+                           x:Name="HijriDateText"
+                           Visibility="{Binding HijriDateVisibility}"/>
+            </Grid>
+        </Border>
+
+
+    </Grid>
+</Page>

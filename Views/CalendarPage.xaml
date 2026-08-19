@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LiteClinic.Views.CalendarPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiteClinic.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:LiteClinic.ViewModels"
+    xmlns:models="using:LiteClinic.Models"
+    d:DataContext="{d:DesignInstance Type=viewmodels:CalendarPageViewModel, IsDesignTimeCreatable=True}"
+    mc:Ignorable="d">
+
+    <Grid>
+
+        <!-- Column 0: Calendar Page -->
+        <StackPanel Margin="20" Spacing="10" HorizontalAlignment="Center">
+            <TextBlock x:Uid="Stp_CalendarSelectionTitle"
+                                   Text="Calendar"
+                                   FontSize="18"
+                                   FontFamily="{StaticResource CurrentAppFont}"
+                                   FontWeight="Bold"
+                                   Margin="20"/>
+
+            <Border BorderBrush="#CCC" BorderThickness="3" CornerRadius="3" Padding="10">
+                <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+                    <CheckBox x:Uid="Stp_ShowGregorianDateCheckBox"
+                                          Content="Show Gregorian Date" 
+                                          IsEnabled="True" 
+                                          IsChecked="{Binding ShowGregorianDate, Mode=TwoWay}"/>
+                    <CheckBox x:Uid="Stp_ShowHijriDateCheckBox"
+                                          Content="Show Hijri Date" 
+                                          IsEnabled="True" 
+                                          IsChecked="{Binding ShowHijriDate, Mode=TwoWay}"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+
+    </Grid>
+</Page>

@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LiteClinic.Views.PatientsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiteClinic.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:services="using:LiteClinic.Services"
+    xmlns:viewmodels="using:LiteClinic.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:PatientsViewModel, IsDesignTimeCreatable=True}"
+    mc:Ignorable="d"
+    Background="#f1f1f1">
+
+    <Page.Resources>
+        
+        <!-- DastaGrid Style -->
+        <Style x:Key="CustomColumnHeaderStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="{StaticResource CurrentAppFont}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+        </Style>
+        
+        <!-- DastaGrid Cell Style -->
+        <Style x:Key="CustomCellStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="{StaticResource CurrentAppFont}"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+        </Style>
+
+        <services:BoolToBrushConverter x:Key="BoolToBrushConverter"/>
+        <services:DateOnlyConverter x:Key="DateOnlyConverter"/>
+        <services:StringToDateTimeConverter x:Key="StringToDateTimeConverter"/>
+        
+    </Page.Resources>
+
+    <Page.KeyboardAccelerators>
+        <KeyboardAccelerator Key="F1" Invoked="UserPageKeyboardAccelerator_Invoked" />
+        <KeyboardAccelerator Key="F2" Invoked="UserPageKeyboardAccelerator_Invoked" />
+        <KeyboardAccelerator Key="F3" Invoked="UserPageKeyboardAccelerator_Invoked" />
+        <KeyboardAccelerator Key="F4" Invoked="UserPageKeyboardAccelerator_Invoked" />
+    </Page.KeyboardAccelerators>
+
+    <Grid>
+        <!-- Define two rows: main content and bottom info bar -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!-- Main content -->
+            <RowDefinition Height="40" />
+            <!-- Info bar -->
+        </Grid.RowDefinitions>
+
+        <!-- Main content -->
+
+        <!-- Column 0 User Role Data / Column 1 Virtical Border   /  Column 2 User Role lIst-->
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollMode="Auto"
+                          Grid.Column="0"
+                                  >
+
+                <StackPanel Grid.Column="0" Margin="16" Spacing="12">
+
+                    <TextBlock x:Uid="Ppg_PatientInfoTitle"
+                               Text="Patient Information" FontSize="20" FontWeight="Bold" FontFamily="{StaticResource CurrentAppFont}"/>
+                    
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBox x:Uid="Ppg_FirstName"
+                                 Header="First Name"
+                                 PlaceholderText="Enter first name" 
+                                 HorizontalAlignment="Left" 
+                                 Width="270"
+                                 Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        
+                        <Ellipse Width="7" Height="7" Fill="#FFFF0000" HorizontalAlignment="Right" Margin="10, 25, 10, 0"/>
+                    </StackPanel>
+
+                    <!-- Middle Name -->
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBox x:Uid="Ppg_MiddleName" 
+                                 Header="Middle Name" 
+                                 PlaceholderText="Enter middle name" 
+                                 Width="270"
+                                 Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        
+                        <Ellipse Width="7" Height="7" Fill="#FFFF0000" Margin="10,25,0,0"/>
+                    </StackPanel>
+
+                    <!-- Last Name -->
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBox x:Uid="Ppg_LastName"
+                                 Header="Last Name" 
+                                 PlaceholderText="Enter last name" 
+                                 Width="270"
+                                 Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Ellipse Width="7" Height="7" Fill="#FFFF0000" Margin="10,25,0,0"/>
+                    </StackPanel>
+
+                    <!-- Full Mother's Name -->
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBox x:Uid="Ppg_MotherName"
+                                 Header="Full Mother's Name" 
+                                 PlaceholderText="Enter mother's full name" 
+                                 Width="270"
+                                 Text="{Binding FullMotherName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Ellipse Width="7" Height="7" Fill="#FFFF0000" Margin="10,25,0,0"/>
+                    </StackPanel>
+
+                    <!-- Civil Record -->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Uid="Ppg_CivilRecord"
+                                 Header="Civil Record" 
+                                 PlaceholderText="Enter civil record" 
+                                 Width="270"
+                                 Text="{Binding CivilRecord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Ellipse Width="7" Height="7" Fill="#FFFF0000" Margin="10,25,0,0"/>
+                    </StackPanel>
+
+                    <!-- Gender -->
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox x:Uid="Ppg_Gender"
+                                  Header="Gender" Width="270"
+                                  SelectedValue="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedValuePath="Content">
+                            <ComboBoxItem x:Uid="Ppg_GenderMale" Content="Male"/>
+                            <ComboBoxItem x:Uid="Ppg_GenderFemale" Content="Female"/>
+                        </ComboBox>
+                        <Ellipse Width="7" Height="7" Fill="#FFFF0000" Margin="10,25,0,0"/>
+                    </StackPanel>
+
+                    <!-- Date of Birth -->
+                    <StackPanel Orientation="Vertical" Spacing="5">
+                        <TextBlock x:Uid="Ppg_DateOfBirthLabel"
+                                   Text="Date Of Birth"/>
+                        <StackPanel Orientation="Horizontal" Spacing="5" VerticalAlignment="Center">
+
+                            <TextBox x:Uid="Ppg_Day" 
+                                     PlaceholderText="Day" 
+                                     Width="80"                                 
+                                     Text="{Binding StringDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <TextBox x:Uid="Ppg_Month"
+                                     PlaceholderText="Month" 
+                                     Width="80"                                 
+                                     Text="{Binding StringMonth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            
+                            <TextBox x:Uid="Ppg_Year" 
+                                     PlaceholderText="Year" 
+                                     Width="80"                            
+                                     Text="{Binding StringYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <!--
+                            <DatePicker Header="Date of Birth" 
+                                        Width="270"
+                                        Date="{Binding DateOfBirth, Mode=TwoWay}"
+                                        DateChanged="DatePicker_Control_DateChanged"
+                                        x:Name="DatePicker_Control"/>-->
+                            <Ellipse Width="7" Height="7" Fill="#FFFF0000" Margin="10,5,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock x:Uid="Ppg_ContactInfoTitle"
+                               Text="Contact Information" 
+                               FontSize="16" FontWeight="Bold" 
+                               FontFamily="{StaticResource CurrentAppFontItalic}"/>
+
+                    <TextBox x:Uid="Ppg_PhoneNumber"
+                             Header="Phone Number" 
+                             PlaceholderText="Enter phone number"
+                             Text="{Binding PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBox x:Uid="Ppg_Email"
+                             Header="Email" 
+                             PlaceholderText="Enter email"
+                             Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBox x:Uid="Ppg_Address"
+                             Header="Address" 
+                             PlaceholderText="Enter address"
+                             Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBox x:Uid="Ppg_City"
+                             Header="City" 
+                             PlaceholderText="Enter city"
+                             Text="{Binding City, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBox x:Uid="Ppg_Country"
+                             Header="Country" 
+                             PlaceholderText="Enter country"
+                             Text="{Binding Country, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock x:Uid="Ppg_MedicalInfoTitle"
+                               Text="Medical Information" 
+                               FontSize="16" FontFamily="{StaticResource CurrentAppFontItalic}"/>
+                    
+                    <!-- Boold Type -->
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox x:Uid="Ppg_BloodType"
+                                  Header="Blood Type" Width="270"
+                                  SelectedValue="{Binding BloodType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedValuePath="Content">
+                            <ComboBoxItem x:Uid="Ppg_BloodTypeAPlus" Content="A+"/>
+                            <ComboBoxItem x:Uid="Ppg_BloodTypeAMinus" Content="A-"/>
+                            <ComboBoxItem x:Uid="Ppg_BloodTypeBPlus" Content="B+"/>
+                            <ComboBoxItem x:Uid="Ppg_BloodTypeBMinus" Content="B-"/>
+                            <ComboBoxItem x:Uid="Ppg_BloodTypeABPlus" Content="AB+"/>
+                            <ComboBoxItem x:Uid="Ppg_BloodTypeABMinus" Content="AB-"/>
+                            <ComboBoxItem x:Uid="Ppg_BloodTypeOPlus" Content="O+"/>
+                            <ComboBoxItem x:Uid="Ppg_BloodTypeOMinus" Content="O-"/>
+                        </ComboBox>
+                        <Ellipse Width="7" Height="7" Fill="#FFFF0000" Margin="10,25,0,0"/>
+                    </StackPanel>
+                    <!-- Allergies -->
+                    <TextBox x:Uid="Ppg_Allergies"
+                             Header="Allergies" 
+                             PlaceholderText="Enter allergies"
+                             Text="{Binding Allergies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBox x:Uid="Ppg_MedicalHistory"
+                             Header="Medical History" 
+                             AcceptsReturn="True" 
+                             TextWrapping="Wrap" PlaceholderText="Enter medical history"
+                             Text="{Binding MedicalHistory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             Height="250"/>
+
+
+                    <TextBlock x:Uid="Ppg_InsuranceTitle"
+                               Text="Insurance and NSN" 
+                               FontSize="16" FontFamily="{StaticResource CurrentAppFontItalic}"/>
+
+                    <ToggleSwitch x:Uid="Ppg_HasInsurance"
+                                  Header="Has Insurance?"
+                                  IsOn="{Binding GotInsurance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBox x:Uid="Ppg_InsuranceName"
+                             Header="Insurance Name" 
+                             PlaceholderText="Enter insurance Name"
+                             Text="{Binding InsuranceName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBox x:Uid="Ppg_InsuranceNumber"
+                             Header="Insurance Number" 
+                             PlaceholderText="Enter insurance number"
+                             Text="{Binding InsuranceNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <ToggleSwitch x:Uid="Ppg_HasNSN"
+                                  Header="Has NSN?"
+                                  IsOn="{Binding GotNSN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBox x:Uid="Ppg_NSNName"
+                             Header="NSN Name(s)" 
+                             PlaceholderText="Enter NSN names"
+                             Text="{Binding NSNName, Mode=TwoWay}"/>
+
+                    <TextBox x:Uid="Ppg_NSNNumber"
+                             Header="NSN Number" 
+                             PlaceholderText="Enter NSN Number"
+                             Text="{Binding NSNNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             MaxLength="22"/>
+
+                    <ComboBox x:Uid="Ppg_Language"
+                              Header="Language" Width="270"
+                              SelectedValue="{Binding Language, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              SelectedValuePath="Content">
+                        <ComboBoxItem x:Uid="Ppg_LanguageEnglish" Content="English" Tag="en"/>
+                        <ComboBoxItem x:Uid="Ppg_LanguageFrench" Content="French" Tag="fr"/>
+                        <ComboBoxItem x:Uid="Ppg_LanguageArabic" Content="Arabic" Tag="ar"/>
+                    </ComboBox>
+
+                    <CheckBox x:Uid="Ppg_IsActive"
+                              Content="Is Active" 
+                              Margin="0,2" 
+                              IsChecked="{Binding IsActive, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+                    <!--Operation Buttons-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button x:Uid="Ppg_AddButton"
+                                Content="Add" 
+                                Width="90" 
+                                Background="Teal" 
+                                Foreground="White"
+                                IsEnabled="{Binding CanAddPatient}"
+                                Command="{Binding Btn_SavePatientCommand}"
+                                ToolTipService.ToolTip="Save/F1"/>
+                        <Button x:Uid="Ppg_EditButton"
+                                Content="Edit" 
+                                Width="90" 
+                                Background="RoyalBlue" 
+                                Foreground="White"
+                                IsEnabled="{Binding CanEditPatient}"
+                                Command="{Binding Btn_UpdatePatientCommand}"
+                                ToolTipService.ToolTip="Update/F2"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button x:Uid="Ppg_DeactivateButton"
+                                Content="Deactivate" 
+                                Width="90" 
+                                Background="Red" 
+                                Foreground="White"
+                                IsEnabled="{Binding CanDeactivatePatient}"
+                                Command="{Binding Btn_DeactivatePatientCommand}"
+                                ToolTipService.ToolTip="Deactvate/F3"/>
+                        <Button x:Uid="Ppg_ClearButton"
+                                Content="Clear" 
+                                Width="90" 
+                                Background="LightGray" 
+                                Foreground="Black"
+                                Command="{Binding Btn_ClearCommand}"
+                                ToolTipService.ToolTip="Clear Data (refresh)/F4"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </ScrollViewer>
+
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+
+                <Border Width="1" Background="Gray" Margin="5"/>
+
+            </StackPanel>
+
+            <!-- Existing Roles List -->
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <!-- For the TextBlock -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- For the ScrollViewer -->
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Uid="Ppg_PatientsListTitle"
+                                   Text="Patients list"
+                                   FontSize="16"
+                                   FontFamily="{StaticResource CurrentAppFont}"
+                                   Margin="15"
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
+                        <TextBox x:Uid="Ppg_SearchBox"
+                                 HorizontalAlignment="Center"
+                                 Width="250"
+                                 Height="27"
+                                 Margin="0, 5, 15, 5"
+                                 PlaceholderForeground="Gray"                             
+                                 PlaceholderText="Search"
+                                 Grid.Row="0"
+                                 Grid.Column="1"
+                                 x:Name="SearchBox"
+                                 Text="{Binding SearchQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <Button x:Uid="Ppg_AddServiceButton"
+                                Grid.Column="2"
+                                Content="Add Service"
+                                HorizontalAlignment="Right"
+                                Background="RoyalBlue"
+                                Foreground="AntiqueWhite"
+                                Margin="0,0,10,0"
+                                Width="160"
+                                Click="Button_ClickGotoServicePage"
+                                FontFamily="{StaticResource CurrentAppFont}"
+                                FontWeight="Bold"/>
+
+
+
+                    </Grid>
+
+                    <!-- Patients ListView -->
+                    <ListView x:Name="ListViewPatients"
+                              Grid.Row="1"
+                              Margin="10"
+                              SelectionMode="Single"
+                              ItemsSource="{Binding PatientsList}"
+                              SelectedItem="{Binding SelectedPatient, Mode=TwoWay}"
+                              DoubleTapped="DataGrid_DoubleTapped"
+                              ScrollViewer.HorizontalScrollMode="Enabled"
+                              ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                              ScrollViewer.VerticalScrollMode="Enabled"
+                              ScrollViewer.VerticalScrollBarVisibility="Auto"
+                              HorizontalContentAlignment="Left">
+
+                        <!-- Column headers -->
+                        <ListView.Header>
+                            <Grid ColumnDefinitions="120,150,200,200,200,200,200,200,200,200,150,250,250,100,120,120,120,120,120,120,120,200,130,100"
+                                  Background="LightGray" Height="30">
+                                <TextBlock Text="Auto ID" Grid.Column="0" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Patient ID" Grid.Column="1" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="First Name" Grid.Column="2" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Middle Name" Grid.Column="3" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Last Name" Grid.Column="4" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Mother's Name" Grid.Column="5" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Civil Record" Grid.Column="6" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Gender" Grid.Column="7" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="DOB" Grid.Column="8" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Age" Grid.Column="9" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Mobile Phone" Grid.Column="10" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Email" Grid.Column="11" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Address" Grid.Column="12" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="City" Grid.Column="13" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="GotInsurance" Grid.Column="14" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Insurance Name" Grid.Column="15" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Insurance #" Grid.Column="16" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="GOTNSN" Grid.Column="17" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="NSN Name" Grid.Column="18" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="NSN #" Grid.Column="19" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="BloodType" Grid.Column="20" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Allergies" Grid.Column="21" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="MedicalHistory" Grid.Column="22" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Language" Grid.Column="23" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Active" Grid.Column="24" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                            </Grid>
+                        </ListView.Header>
+
+                        <!-- Row template -->
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="120,150,200,200,200,200,200,200,200,200,150,
+                                      250,250,100,120,120,120,120,120,120,120,200,130,100" Height="35">
+                                    <!-- Auto ID -->
+                                    <TextBlock Text="{Binding PatientAutoId}" Grid.Column="0"
+                                               Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Patient ID -->
+                                    <TextBlock Text="{Binding PatientId}" Grid.Column="1"
+                                               Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- First Name -->
+                                    <TextBlock Text="{Binding FirstName}" Grid.Column="2"
+                                               Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Middle Name -->
+                                    <TextBlock Text="{Binding MiddleName}" Grid.Column="3"
+                                               Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Last Name -->
+                                    <TextBlock Text="{Binding LastName}" Grid.Column="4"
+                                               Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Mother's Name -->
+                                    <TextBlock Text="{Binding FullMotherName}" Grid.Column="5"
+                                               Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
+                                               FontWeight="Bold" Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Civil Record -->
+                                    <TextBlock Text="{Binding CivilRecord}" Grid.Column="6" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Gender -->
+                                    <TextBlock Text="{Binding Gender}" Grid.Column="7" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- DOB -->
+                                    <TextBlock Text="{Binding DateOfBirth}" Grid.Column="8" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Age -->
+                                    <TextBlock Text="{Binding PatientAge}" Grid.Column="9" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Mobile Phone -->
+                                    <TextBlock Text="{Binding PhoneNumber}" Grid.Column="10" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Email -->
+                                    <TextBlock Text="{Binding Email}" Grid.Column="11" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Address -->
+                                    <TextBlock Text="{Binding Address}" Grid.Column="12" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- City -->
+                                    <TextBlock Text="{Binding City}" Grid.Column="13" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- GotInsurance -->
+                                    <TextBlock Text="{Binding GotInsurance}" Grid.Column="14"
+                                               Style="{StaticResource CustomCellStyle}" Visibility="Collapsed"/>
+
+                                    <!-- Insurance Name -->
+                                    <TextBlock Text="{Binding InsuranceName}" Grid.Column="15" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Insurance # -->
+                                    <TextBlock Text="{Binding InsuranceNumber}" Grid.Column="16" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- GOTNSN -->
+                                    <TextBlock Text="{Binding GotNSN}" Grid.Column="17"
+                                               Style="{StaticResource CustomCellStyle}" Visibility="Collapsed"/>
+
+                                    <!-- NSN Name -->
+                                    <TextBlock Text="{Binding NSNName}" Grid.Column="18" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- NSN # -->
+                                    <TextBlock Text="{Binding NSNNumber}" Grid.Column="19" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- BloodType -->
+                                    <TextBlock Text="{Binding BloodType}" Grid.Column="20" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Allergies -->
+                                    <TextBlock Text="{Binding Allergies}" Grid.Column="21" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- MedicalHistory -->
+                                    <TextBlock Text="{Binding MedicalHistory}" Grid.Column="22" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Language -->
+                                    <TextBlock Text="{Binding Language}" Grid.Column="23" 
+                                               Style="{StaticResource CustomCellStyle}"/>
+
+                                    <!-- Active -->
+                                    <CheckBox IsChecked="{Binding IsActive}" Grid.Column="24"
+                                              Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
+                                              FontWeight="Bold"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+
+
+                </Grid>
+                <ScrollViewer Grid.Row="2"  HorizontalScrollBarVisibility="Auto" Margin="15"
+                                  VerticalScrollBarVisibility="Disabled"
+                                  HorizontalScrollMode="Enabled">
+                    <Grid Margin="3" HorizontalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Spacing="30">
+                            <!-- Add -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Rectangle Width="16" Height="16" Fill="#FF008080" Stroke="#FF808080" Margin="0,0,5,0"/>
+                                <TextBlock x:Uid="Ppg_InfoAddShortcut" Text="Add = F1" FontSize="14" FontWeight="Bold"/>
+                            </StackPanel>
+
+                            <!-- Edit -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Rectangle Width="16" Height="16" Fill="#FF4169E1" Stroke="#FF808080" Margin="0,0,5,0"/>
+                                <TextBlock x:Uid="Ppg_InfoEditShortcut" Text="Edit = F2" FontSize="14" FontWeight="Bold"/>
+                            </StackPanel>
+
+                            <!-- Deactivate -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Rectangle Width="16" Height="16" Fill="#FFFF0000" Stroke="#FF808080" Margin="0,0,5,0"/>
+                                <TextBlock x:Uid="Ppg_InfoDeactivateShortcut" Text="Deactivate = F3" FontSize="14" FontWeight="Bold"/>
+                            </StackPanel>
+
+                            <!-- Clear -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Rectangle Width="16" Height="16" Fill="#FFD3D3D3" Stroke="#FF808080" Margin="0,0,5,0"/>
+                                <TextBlock x:Uid="Ppg_InfoClearShortcut" Text="Clear = F4" FontSize="14" FontWeight="Bold"/>
+                            </StackPanel>
+
+                            <!-- Deactivate Row Color -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Rectangle Width="16" Height="16" Fill="#FFCD5C5C" Stroke="#FF808080" Margin="0,0,5,0"/>
+                                <TextBlock x:Uid="Ppg_InfoDeactivatedUser"  Text="Deactivated User" FontSize="14" FontWeight="Bold"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="30" Margin="15">
+                            <!-- Add somthign if you want -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <!-- Add you code here -->
+                                <Ellipse Width="14" Height="14" Fill="#FFFF0000" Stroke="Gray" Margin="0,0,5,0"/>
+                                <TextBlock Text="Required fields are marked with a red circle" FontSize="14" FontWeight="Bold"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                </ScrollViewer>
+
+            </Grid>
+
+
+        </Grid>
+
+
+        <!-- Info bar -->
+
+        <Border Grid.Row="1"
+        Background="#dcdcdc"
+        Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Left-aligned Roman date -->
+                <TextBlock Text="{Binding RomanDate}"
+                           Grid.Column="0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource InfoTextBottomBar}"
+                           Foreground="Gray"
+                           x:Name="RomanDateText"
+                           Visibility="{Binding GregorianDateVisibility}"/>
+
+                <!-- Centered system status -->
+                <TextBlock Text="{Binding StatusMessage}"
+                           Grid.Column="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource TextBlockFontItalic}"
+                           Foreground="{Binding StatusColor}"
+                           FontFamily="{StaticResource CurrentAppFont}"
+                           x:Name="StatusInfoText"/>
+
+                <!-- Right-aligned Hijri date -->
+                <TextBlock Text="{Binding HijriDate}"
+                           Grid.Column="2"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontFamily="{StaticResource ArabicFont}"
+                           FontWeight="SemiBold"
+                           FontSize="18"
+                           Foreground="Gray"
+                           x:Name="HijriDateText"
+                           Visibility="{Binding HijriDateVisibility}"/>
+            </Grid>
+        </Border>
+    </Grid>
+
+</Page>

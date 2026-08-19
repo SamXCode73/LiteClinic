@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LiteClinic.Views.MessagingIntegrationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiteClinic.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:services="using:LiteClinic.Services"
+    xmlns:viewmodels="using:LiteClinic.ViewModels"   
+    d:DataContext="{d:DesignInstance Type=viewmodels:MessagingIntegrationPageViewModel, IsDesignTimeCreatable=True}"
+    mc:Ignorable="d" 
+    Background="#f1f1f1">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!-- Main content -->
+            <RowDefinition Height="40" />
+            <!-- Info bar -->
+        </Grid.RowDefinitions>
+
+        <!-- Main content -->
+
+        <Grid Grid.Row="0">
+
+            <TabView x:Name="InfoTabView"
+                     IsAddTabButtonVisible="False">
+
+                <!-- Telegram Tab -->
+                <TabViewItem x:Uid="MiP_TelegramTab"
+                             Header="Telegram" 
+                             Background="#ff2ca6e2" 
+                             Foreground="AntiqueWhite"
+                             IsClosable="False">
+                    <TabViewItem.IconSource>
+                        <SymbolIconSource Symbol="Send"/>
+                    </TabViewItem.IconSource>
+
+                    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                  HorizontalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <!-- Title -->
+                            <TextBlock x:Uid="MiP_TelegramTitle"
+                                       Text="Telegram Bot Integration"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Margin="25,25,0,12"
+                                       FontFamily="{StaticResource CurrentAppFont}"/>
+
+                            <!-- Introduction -->
+                            <TextBlock x:Uid="MiP_TelegramIntro"
+                                       Text="Follow these steps to create a Telegram bot and connect it to your account. This will allow the app to send you notifications directly in Telegram."
+                                       TextWrapping="Wrap"
+                                       Margin="50,15,0,20"/>
+
+                            <!-- Step-by-step instructions -->
+                            <TextBlock x:Uid="MiP_TelegramStep1"
+                                       Text="Step 1: Open BotFather in Telegram and start a chat."
+                                       TextWrapping="Wrap" Margin="60,0,10,8"/>
+                            <TextBlock x:Uid="MiP_TelegramStep2"
+                                       Text="Step 2: Send /newbot and follow prompts to create a bot."
+                                       TextWrapping="Wrap" Margin="60,0,10,8"/>
+                            <TextBlock x:Uid="MiP_TelegramStep3"
+                                       Text="Step 3: Copy the API token provided by BotFather."
+                                       TextWrapping="Wrap" Margin="60,0,10,8"/>
+                            <TextBlock x:Uid="MiP_TelegramStep4"
+                                       Text="Step 4: Start your bot, send a message, then call getUpdates to find your chat ID."
+                                       TextWrapping="Wrap" Margin="60,0,10,8"/>
+                            <TextBlock x:Uid="MiP_TelegramStep5"
+                                       Text="Step 5: Test sending a message using sendMessage with your token and chat ID."
+                                       TextWrapping="Wrap" Margin="60,0,10,8"/>
+                            <TextBlock x:Uid="MiP_TelegramStep6"
+                                       Text="Step 6: Add the token and chat ID into the app settings to enable notifications."
+                                       TextWrapping="Wrap" Margin="60,0,10,8"/>
+                            <!-- Step 7: Custom bot commands -->
+                            <TextBlock x:Uid="MiP_TelegramStep7"
+                                       Text="Step 7: Use the following custom commands to register users with the bot."
+                                       TextWrapping="Wrap" Margin="60,0,10,8"/>
+
+                            <TextBlock x:Uid="MiP_TelegramCmdAdmin"
+                                       Text="• /admin – Assigns the admin role to the bot creator (usually the owner)."
+                                       TextWrapping="Wrap" Margin="80,0,10,5"/>
+
+                            <TextBlock x:Uid="MiP_TelegramCmdDoctor"
+                                       Text="• /doctor – Retrieves the doctor ID from the TelegramLog file in the Logs folder."
+                                       TextWrapping="Wrap" Margin="80,0,10,5"/>
+
+                            <TextBlock x:Uid="MiP_TelegramCmdStart"
+                                       Text="• /start – Retrieves the patient ID from the same TelegramLog file."
+                               TextWrapping="Wrap" Margin="80,0,10,15"/>
+
+                            <!-- Step 8: Adding custom commands in BotFather -->
+
+                            <TextBlock x:Uid="MiP_TelegramStep8Title"
+                                       Text="Step 8: Add custom commands to your bot using BotFather."
+                                       FontSize="16"
+                                       FontWeight="Bold"
+                                       Margin="60,10,10,8"
+                                       FontFamily="{StaticResource CurrentAppFont}"/>
+
+                            <TextBlock x:Uid="MiP_TelegramStep8Intro"
+                                       Text="If you want your bot to recognize /admin, /doctor, and /start, you must register them in BotFather:"
+                                       TextWrapping="Wrap"
+                                       Margin="70,0,10,8"/>
+
+                            <TextBlock x:Uid="MiP_TelegramStep8_1"
+                                       Text="1. Open Telegram and start a chat with BotFather."
+                                       TextWrapping="Wrap"
+                                       Margin="80,0,10,5"/>
+
+                            <TextBlock x:Uid="MiP_TelegramStep8_2"
+                                       Text="2. Type /mybots and select your bot."
+                                       TextWrapping="Wrap"
+                                       Margin="80,0,10,5"/>
+
+                            <TextBlock x:Uid="MiP_TelegramStep8_3"
+                                       Text="3. Choose 'Edit Bot' → 'Edit Commands'."
+                                       TextWrapping="Wrap"
+                                       Margin="80,0,10,5"/>
+
+                            <TextBlock x:Uid="MiP_TelegramStep8_4"
+                                       Text="4. Enter the commands you want, one per line, with a short description:"
+                                       TextWrapping="Wrap"
+                                       Margin="80,0,10,5"/>
+
+                            <TextBlock x:Uid="MiP_TelegramCmdAdminDesc"
+                                       Text="/admin - Assigns admin role (creator only)"
+                                       TextWrapping="Wrap"
+                                       Margin="100,0,10,2"/>
+
+                            <TextBlock x:Uid="MiP_TelegramCmdDoctorDesc"
+                                       Text="/doctor - Retrieves doctor ID from TelegramLog file"
+                                       TextWrapping="Wrap"
+                                       Margin="100,0,10,2"/>
+
+                            <TextBlock x:Uid="MiP_TelegramCmdStartDesc"
+                                       Text="/start - Default command for patients to register ID, also can be retrievesfrom TelegramLog file"
+                                       TextWrapping="Wrap"
+                                       Margin="100,0,10,10"/>
+
+                            <TextBlock x:Uid="MiP_TelegramStep8_5"
+                                       Text="5. Save changes. Now your bot will officially recognize these commands."
+                                       TextWrapping="Wrap"
+                                       Margin="80,0,10,15"/>
+
+                            <!-- Reminder about usage limits -->
+                            <TextBlock x:Uid="MiP_TelegramReminder"
+                                       Text="⚠️ Reminder: Each user (admin, doctor, patient) can use these commands only once per day to avoid flooding. The bot will not respond to other questions or any kind of message outside these commands."
+                                       Foreground="DarkRed"
+                                       FontSize="16"
+                                       FontWeight="Bold"
+                                       Margin="70,0,10,15"
+                                       TextWrapping="Wrap"
+                                       MaxWidth="600"
+                                       HorizontalAlignment="Left"
+                                       FontFamily="{StaticResource CurrentAppFont}"/>
+
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+                                    <TextBox x:Uid="MiP_TelegramBotToken"
+                                             PlaceholderText="Bot token (required)"
+                                             Width="400"
+                                             Text="{Binding TokenName, Mode=TwoWay}"
+                                             Margin="15"
+                                             ToolTipService.ToolTip="Enter your Telegram bot token to connect the application with your bot." />
+
+                                    <TextBox x:Uid="MiP_TelegramBotDisplayName"
+                                             PlaceholderText="Bot display name (optional)"
+                                             Width="250"
+                                             Text="{Binding FriendlyTelegramName, Mode=TwoWay}"
+                                             Margin="15"
+                                             ToolTipService.ToolTip="Provide a friendly name for your bot. This is shown to patients for easier recognition." />
+
+                                    <TextBox x:Uid="MiP_TelegramAdminChatId"
+                                             PlaceholderText="Admin Chat ID (optional)"
+                                             Width="200"
+                                             Text="{Binding AdminChatId, Mode=TwoWay}"
+                                             Margin="15"
+                                             ToolTipService.ToolTip="Enter the admin's Telegram chat ID. The bot will send daily greetings here to confirm it is running." />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+                                    <Button x:Uid="MiP_TelegramApplyButton"
+                                            Content="Apply"
+                                            Background="Teal"
+                                            Foreground="AntiqueWhite"
+                                            Width="300"
+                                            Margin="10"
+                                            HorizontalAlignment="Center"
+                                            Command="{Binding ApplyTelegramCommand}"
+                                            FontFamily="{StaticResource CurrentAppFont}"
+                                            FontWeight="Bold"/>
+
+
+                                </StackPanel>
+
+
+                            </StackPanel>
+
+                            <!-- Sensitive token warning -->
+                            <TextBlock x:Uid="MiP_TelegramTokenWarning"
+                                       Text="⚠️ Your Telegram bot token is sensitive. Keep it private and do not share."
+                                       Foreground="IndianRed"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Margin="15"
+                                       TextWrapping="Wrap"
+                                       HorizontalAlignment="Center"
+                                       FontFamily="{StaticResource CurrentAppFont}"/>
+
+                            <!-- Serious risk warning -->
+                            <TextBlock x:Uid="MiP_TelegramRiskWarning"
+                                       Text="🚨 Anyone who gains access to your token can take control of your bot. They may send unauthorized or inappropriate messages to clients or patients."
+                                       Foreground="Firebrick"
+                                       FontSize="14"
+                                       FontWeight="Bold"
+                                       Margin="60,0,10,15"
+                                       TextWrapping="Wrap"
+                                       FontFamily="{StaticResource CurrentAppFont}"
+                                       HorizontalAlignment="Center"/>
+
+                            <!-- Disclaimer -->
+                            <TextBlock x:Uid="MiP_TelegramDisclaimer"
+                                       Text="🔒 Disclaimer: For your safety, LiteClinic is not responsible for any token theft, misuse, or hacking that may occur on your PC or external systems."
+                                       Foreground="Gray"
+                                       FontSize="12"
+                                       Margin="60,0,10,15"
+                                       TextWrapping="Wrap"
+                                       HorizontalAlignment="Center"
+                                       FontFamily="{StaticResource CurrentAppFont}"
+                                       FontWeight="Bold"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabViewItem>
+
+                <!-- WhatsApp Tab -->
+                <TabViewItem x:Uid="MiP_WhatsAppTab"
+                             Header="WhatsApp" 
+                             Background="#ff4eca5c" 
+                             Foreground="AntiqueWhite"
+                             IsClosable="False">
+                    
+                    <TabViewItem.IconSource>
+                        <SymbolIconSource Symbol="Send"/>
+                    </TabViewItem.IconSource>
+
+                    <StackPanel>
+                        <!-- Title -->
+                        <TextBlock x:Uid="MiP_WhatsAppTitle"
+                                   Text="WhatsApp Integration"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Margin="25,25,0,12"
+                                   FontFamily="{StaticResource CurrentAppFont}"/>
+
+                        <!-- Introduction -->
+                        <TextBlock x:Uid="MiP_WhatsAppIntro"
+                                   Text="LiteClinic can integrate with WhatsApp to send notifications, reminders, and updates directly to your clients or patients."
+                                   TextWrapping="Wrap"
+                                   Margin="50,15,0,20"/>
+
+                        <!-- Setup Instructions -->
+                        <TextBlock x:Uid="MiP_WhatsAppStepsTitle"
+                                   Text="Steps to connect WhatsApp:"
+                                   FontWeight="Bold"
+                                   Margin="40,10,0,5"
+                                   FontFamily="{StaticResource CurrentAppFont}"/>
+
+                        <TextBlock x:Uid="MiP_WhatsAppStep1"
+                                   Text="1. Register for WhatsApp Business API access."
+                                   Margin="60,0,0,2"/>
+
+                        <TextBlock x:Uid="MiP_WhatsAppStep2"
+                                   Text="2. Obtain your API key and phone number ID."
+                                   Margin="60,0,0,2"/>
+
+                        <TextBlock x:Uid="MiP_WhatsAppStep3"
+                                   Text="3. Configure LiteClinic with your credentials."
+                                   Margin="60,0,0,2"/>
+
+                        <TextBlock x:Uid="MiP_WhatsAppStep4"
+                                   Text="4. Test sending a sample message to confirm integration."
+                                   Margin="60,0,0,10"/>
+
+                        <!-- Whatsapp Access Token -->
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+                                <TextBox x:Uid="MiP_WhatsAppAccessToken"
+                                         PlaceholderText="Add WhatsApp Access Token"
+                                         Width="500" 
+                                         Text=""
+                                         Margin="15"
+                                         IsEnabled="False"/>
+                            </StackPanel>
+
+                            <Button x:Uid="MiP_WhatsAppApplyButton"
+                                    Content="Apply"
+                                    Background="Teal"
+                                    Foreground="AntiqueWhite"
+                                    Width="300"
+                                    Margin="10"
+                                    HorizontalAlignment="Center"
+                                    FontFamily="{StaticResource CurrentAppFont}"
+                                    FontWeight="Bold"
+                                    IsEnabled="False"/>  
+                        </StackPanel>
+
+
+                        <!-- Note -->
+                        <TextBlock x:Uid="MiP_WhatsAppNote"
+                                   Text="ℹ️ For available feature tiers (Basic, Advanced, Maintenance), please see the Inquiry Instructions tab."
+                                   TextWrapping="Wrap"
+                                   Foreground="Gray"
+                                   FontStyle="Italic"
+                                   Margin="50,20,0,20"
+                                   HorizontalAlignment="Center"/>
+
+                        <!-- Nice Statement / Disclaimer -->
+                        <TextBlock x:Uid="MiP_WhatsAppDisclaimer"
+                                   Text="🔒 WhatsApp integration ensures secure, reliable communication with your clients. Please note that all messages must comply with WhatsApp Business API policies to protect both your practice and your patients."
+                                   TextWrapping="Wrap"
+                                   Foreground="Gray"
+                                   FontStyle="Italic"
+                                   Margin="50,15,50,20"
+                                   HorizontalAlignment="Center"/>
+
+                    </StackPanel>
+                </TabViewItem>
+
+
+                <!-- Discord Tab -->
+                <TabViewItem x:Uid="MiP_DiscordTab"
+                             Header="Discord" 
+                             Background="#ff5d6af2" 
+                             Foreground="AntiqueWhite"
+                             IsClosable="False">
+                    <TabViewItem.IconSource>
+                        <SymbolIconSource Symbol="Send"/>
+                    </TabViewItem.IconSource>
+
+                    <StackPanel>
+                        <!-- Title -->
+                        <TextBlock x:Uid="MiP_DiscordTitle"
+                                   Text="Discord Integration"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Margin="25,25,0,12"
+                                   FontFamily="{StaticResource CurrentAppFont}"/>
+
+                        <!-- Introduction -->
+                        <TextBlock x:Uid="MiP_DiscordIntro"
+                                   Text="LiteClinic can integrate with Discord to send alerts, updates, or reminders directly into your server channels."
+                                   TextWrapping="Wrap"
+                                   Margin="50,15,0,20"/>
+
+                        <!-- Setup Instructions -->
+                        <TextBlock x:Uid="MiP_DiscordStepsTitle"
+                                   Text="Steps to connect Discord:"
+                                   FontWeight="Bold"
+                                   Margin="40,10,0,5"
+                                   FontFamily="{StaticResource CurrentAppFont}"/>
+
+                        <TextBlock x:Uid="MiP_DiscordStep1"
+                                   Text="1. Create a new application in the Discord Developer Portal."
+                                   Margin="60,0,0,2"/>
+
+                        <TextBlock x:Uid="MiP_DiscordStep2"
+                                   Text="2. Add a bot user to your application and copy the bot token."
+                                   Margin="60,0,0,2"/>
+
+                        <TextBlock x:Uid="MiP_DiscordStep3"
+                                   Text="3. Invite the bot to your server with the correct permissions."
+                                   Margin="60,0,0,2"/>
+
+                        <TextBlock x:Uid="MiP_DiscordStep4"
+                                   Text="4. Configure LiteClinic with your bot token and target channel ID."
+                                   Margin="60,0,0,2"/>
+
+                        <TextBlock x:Uid="MiP_DiscordStep5"
+                                   Text="5. Test sending a sample message to confirm integration."
+                                   Margin="60,0,0,10"/>
+
+                        <!-- Discord Token-->
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+                                <TextBox x:Uid="MiP_DiscordAccessToken"
+                                         PlaceholderText="Add Discord Access Token"
+                                         Width="500" 
+                                         Text=""
+                                         Margin="15"
+                                         IsEnabled="False"/>
+                            </StackPanel>
+
+                            <Button x:Uid="MiP_DiscordApplyButton"
+                                    Content="Apply"
+                                    Background="Teal"
+                                    Foreground="AntiqueWhite"
+                                    Width="300"
+                                    Margin="10"
+                                    HorizontalAlignment="Center"
+                                    FontFamily="{StaticResource CurrentAppFont}"
+                                    FontWeight="Bold"
+                                    IsEnabled="False"/>
+                            
+                        </StackPanel>
+
+
+                        <!-- Note -->
+                        <TextBlock x:Uid="MiP_DiscordNote"
+                                   Text="ℹ️ For available feature tiers (Basic, Advanced, Maintenance), please see the Inquiry Instructions tab."
+                                   TextWrapping="Wrap"
+                                   Foreground="Gray"
+                                   FontStyle="Italic"
+                                   Margin="50,20,0,20"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </TabViewItem>
+
+                <!-- Inquiry Instructions Tab -->
+                <TabViewItem x:Uid="MiP_InquiryTab"
+                             Header="Inquiry Instructions"
+                             Background="#ff8c8c8c"
+                             Foreground="AntiqueWhite"
+                             IsClosable="False">
+                    <TabViewItem.IconSource>
+                        <SymbolIconSource Symbol="Help"/>
+                    </TabViewItem.IconSource>
+
+                    <ScrollViewer>
+                        <StackPanel>
+                            <!-- Title -->
+                            <TextBlock x:Uid="MiP_InquiryTitle"
+                                       Text="Integration Inquiry Instructions"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Margin="25,25,0,12"
+                                       FontFamily="{StaticResource CurrentAppFont}"/>
+
+                            <!-- Intro -->
+                            <TextBlock x:Uid="MiP_InquiryIntro"
+                                       Text="📧 To request integration for Telegram, WhatsApp, or Discord, please send us an email."
+                                       TextWrapping="Wrap"
+                                       Margin="50,15,0,20"/>
+
+                            <TextBlock x:Uid="MiP_InquirySubjectLines"
+                                       Text="Use the following subject lines:"
+                                       FontWeight="Bold"
+                                       Margin="50,0,0,10"
+                                       FontFamily="{StaticResource CurrentAppFont}"/>
+
+                            <!-- Telegram -->
+                            <StackPanel Orientation="Horizontal" Margin="70,0,0,5">
+                                <TextBlock x:Uid="MiP_InquiryTelegramSubject"
+                                           Text="• Subject: Telegram Integration Inquiry"
+                                           VerticalAlignment="Center"/>
+
+                                <HyperlinkButton x:Uid="MiP_InquiryTelegramSendMail"
+                                                 Content="Send Mail Now"
+                                                 NavigateUri="mailto:samer.hmouda@outlook.com?subject=Telegram_Integration_Inquiry"
+                                                 Margin="15,0,0,0"
+                                                 Foreground="Teal"
+                                                 FontWeight="Bold"/>
+                            </StackPanel>
+
+                            <!-- WhatsApp -->
+                            <StackPanel Orientation="Horizontal" Margin="70,0,0,5">
+                                <TextBlock x:Uid="MiP_InquiryWhatsAppSubject"
+                                           Text="• Subject: WhatsApp Integration Inquiry"
+                                           VerticalAlignment="Center"/>
+
+                                <HyperlinkButton x:Uid="MiP_InquiryWhatsAppSendMail"
+                                                 Content="Send Mail Now"
+                                                 NavigateUri="mailto:samer.hmouda@outlook.com?subject=WhatsApp_Integration_Inquiry"
+                                                 Margin="15,0,0,0"
+                                                 Foreground="Teal"
+                                                 FontWeight="Bold"/>
+                            </StackPanel>
+
+                            <!-- Discord -->
+                            <StackPanel Orientation="Horizontal" Margin="70,0,0,5">
+                                <TextBlock x:Uid="MiP_InquiryDiscordSubject"
+                                           Text="• Subject: Discord Integration Inquiry"                                           
+                                           VerticalAlignment="Center"/>
+
+                                <HyperlinkButton x:Uid="MiP_InquiryDiscordSendMail"
+                                                 Content="Send Mail Now"
+                                                 NavigateUri="mailto:samer.hmouda@outlook.com?subject=Discord_Integration_Inquiry"
+                                                 Margin="15,0,0,0"
+                                                 Foreground="Teal"
+                                                 FontWeight="Bold"/>
+                                
+                            </StackPanel>
+
+                            <TextBlock x:Uid="MiP_InquiryHelpText"
+                                       Text="This helps us quickly identify your request and respond with the right instructions."
+                                       TextWrapping="Wrap"
+                                       Margin="50,15,0,20"
+                                       Foreground="Gray"
+                                       FontStyle="Italic"/>
+
+                            <!-- Email Body Instructions -->
+                            <TextBlock x:Uid="MiP_InquiryEmailBodyTitle"
+                                       Text="📄 Please include the following details in your email body:"
+                                       FontWeight="Bold"
+                                       Margin="50,20,0,10"
+                                       FontFamily="{StaticResource CurrentAppFont}"
+                                       FontSize="16"/>
+
+                            <!-- BASIC Option -->
+                            <TextBlock x:Uid="MiP_InquiryBasicTitle"
+                                       Text="BASIC OPTION"
+                                       FontSize="14"
+                                       FontWeight="Bold"
+                                       Foreground="Teal"
+                                       Margin="60,0,0,5"
+                                       FontFamily="{StaticResource CurrentAppFont}"/>
+
+                            <TextBlock x:Uid="MiP_InquiryBasicFeatures"
+                                       Text="Features:"
+                                       Margin="70,0,0,2"/>
+
+                            <TextBlock x:Uid="MiP_InquiryBasicFeature1"
+                                       Text="• Send messages via API"
+                                       Margin="80,0,0,2"/>
+                            <TextBlock x:Uid="MiP_InquiryBasicFeature2"
+                                       Text="• Simple DB loop (foreach customers)"
+                                       Margin="80,0,0,2"/>
+                            <TextBlock x:Uid="MiP_InquiryBasicFeature3"
+                                       Text="• Basic scheduling (date/time reminders)"
+                                       Margin="80,0,0,2"/>
+                            <TextBlock x:Uid="MiP_InquiryBasicFeature4"
+                                       Text="• Opt-in compliance check"
+                                       Margin="80,0,0,10"/>
+
+                            <!-- Advanced Option -->
+                            <TextBlock x:Uid="MiP_InquiryAdvancedTitle"
+                                       Text="ADVANCED OPTION"
+                                       FontSize="14"
+                                       FontWeight="Bold"
+                                       Foreground="DarkRed"
+                                       Margin="60,0,0,5"
+                                       FontFamily="{StaticResource CurrentAppFont}"/>
+                            
+                            <TextBlock x:Uid="MiP_InquiryAdvancedFeatures"
+                                       Text="Features:"
+                                       Margin="70,0,0,2"/>
+                            <TextBlock x:Uid="MiP_InquiryAdvancedFeature1"
+                                       Text="• All BASIC features"
+                                       Margin="80,0,0,2"/>
+
+                            <TextBlock x:Uid="MiP_InquiryAdvancedFeature2"
+                                       Text="• Approved template management"
+                                       Margin="80,0,0,2"/>
+
+                            <TextBlock x:Uid="MiP_InquiryAdvancedFeature3"
+                                       Text="• Rich media (images, PDFs, buttons)"
+                                       Margin="80,0,0,2"/>
+
+                            <TextBlock x:Uid="MiP_InquiryAdvancedFeature4"
+                                       Text="• Error handling and logging"
+                                       Margin="80,0,0,2"/>
+
+                            <TextBlock x:Uid="MiP_InquiryAdvancedFeature5"
+                                       Text="• Dashboard/analytics integration"
+                                       Margin="80,0,0,10"/>
+
+                            <!-- Maintenance -->
+                            <TextBlock x:Uid="MiP_InquiryMaintenanceTitle"
+                                       Text="OPTIONAL MAINTENANCE"
+                                       FontSize="14"
+                                       FontWeight="Bold"
+                                       Foreground="RoyalBlue"
+                                       Margin="60,0,0,5"
+                                       FontFamily="{StaticResource CurrentAppFont}"/>
+
+                            <TextBlock x:Uid="MiP_InquiryMaintenanceFeature1"
+                                       Text="• Template updates"
+                                       Margin="80,0,0,2"/>
+
+                            <TextBlock x:Uid="MiP_InquiryMaintenanceFeature2"
+                                       Text="• API version upgrades"
+                                       Margin="80,0,0,2"/>
+
+                            <TextBlock x:Uid="MiP_InquiryMaintenanceFeature3"
+                                       Text="• Bug fixes and support"
+                                       Margin="80,0,0,10"/>
+
+                            <TextBlock x:Uid="MiP_InquiryMaintenanceSupportText"
+                                       Text="For Maintinance support send us email "
+                                       Margin="70,0,0,0"/>
+
+
+                            <!-- Send Mail for Maintenance -->
+                            <StackPanel Orientation="Horizontal" Margin="80,0,0,5">
+                                <TextBlock x:Uid="MiP_InquiryMaintenanceHelpText"
+                                           Text="Please describe your issue in detail so we can provide an accurate cost estimate."
+                                           Foreground="Gray"
+                                           FontStyle="Italic"
+                                           Padding="11,5,11,6"
+                                           FontWeight="Bold"/>
+
+                                <HyperlinkButton x:Uid="MiP_InquiryMaintenanceSendMail"
+                                                 Content="Send Mail Now"
+                                                 NavigateUri="mailto:samer.hmouda@outlook.com?subject=Maintenance_Inquiry"
+                                                 Foreground="RoyalBlue"
+                                                 FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabViewItem>
+
+
+            </TabView>
+
+        </Grid>
+
+        <!-- Info bar -->
+        <Border Grid.Row="1"
+        Background="#dcdcdc"
+        Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Left-aligned Roman date -->
+                <TextBlock Text="{Binding RomanDate}"
+                   Grid.Column="0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontFamily="{StaticResource EnglishFont}"                        
+                   Style="{StaticResource TextBlockFont}"
+                   Foreground="Gray"
+                   x:Name="RomanDateText"/>
+
+                <!-- Centered system status -->
+                <TextBlock Text="{Binding StatusMessage}"
+                   Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource TextBlockFontItalic}"
+                   Foreground="{Binding StatusColor}"
+                   x:Name="StatusInfoText"/>
+
+                <!-- Right-aligned Hijri date -->
+                <TextBlock Text="{Binding HijriDate}"
+                   Grid.Column="2"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   FontFamily="{StaticResource ArabicFont}"                        
+                   Style="{StaticResource TextBlockDateAr}"
+                   FontSize="14"
+                   Foreground="Gray"
+                   x:Name="HijriDateText"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Page>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LiteClinic.Views.ClinicNamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiteClinic.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:LiteClinic.ViewModels"
+    xmlns:models="using:LiteClinic.Models"
+    d:DataContext="{d:DesignInstance Type=viewmodels:ClinicNameViewModel, IsDesignTimeCreatable=True}"
+    mc:Ignorable="d">
+
+    <Grid>
+
+        <!-- Clinic Name -->
+        <StackPanel Margin="20" HorizontalAlignment="Center">
+            <TextBlock x:Uid="Stp_ClinicNameTitle"
+                       Text="Clinic Name"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Margin="20"
+                       FontFamily="{StaticResource CurrentAppFont}"/>
+            <Border BorderBrush="#CCC" BorderThickness="3" CornerRadius="3" Padding="10">
+                <TextBox x:Uid="Stp_ClinicNameTextBox"
+                         Text="{Binding ClinicName, Mode=TwoWay}"
+                         PlaceholderText="Enter Clinic Name"
+                         Margin="0,0,0,10"
+                         Height="33"
+                         Width="220"/>
+            </Border>
+
+            <Button x:Uid="Stp_ClinicNameApplyButton"
+                    Content="Apply"
+                    Width="230"
+                    Background="RoyalBlue"
+                    Foreground="AntiqueWhite"
+                    FontFamily="{StaticResource CurrentAppFont}"
+                    FontWeight="Bold"
+                    IsEnabled="{Binding CanManageSettingsMenu}"
+                    Command="{Binding ApplyClinicNameCommand}"
+                    Margin="10"/>
+        </StackPanel>
+
+
+    </Grid>
+</Page>

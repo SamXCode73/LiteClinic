@@ -1,0 +1,2884 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+	Arabic Translation - الترجمة العربية
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Patients.Text" xml:space="preserve">
+    <value>المرضى</value>
+    <comment>Patients Menu Item</comment>
+  </data>
+  <data name="Reports.Text" xml:space="preserve">
+    <value>التقارير</value>
+    <comment>Reports Menu Item</comment>
+  </data>
+  <data name="Settings.Text" xml:space="preserve">
+    <value>الإعدادات</value>
+    <comment>Settings Menu Item</comment>
+  </data>
+  <data name="Users.Text" xml:space="preserve">
+    <value>المستخدمون</value>
+    <comment>Users Menu Item</comment>
+  </data>
+  <data name="WelcomeSpalshScreen.Text" xml:space="preserve">
+    <value>لايت كلينك</value>
+    <comment>welcome Doe SplashScreen</comment>
+  </data>
+  <data name="Appointments.Text" xml:space="preserve">
+    <value>المواعيد</value>
+    <comment>Appointments Menu Item</comment>
+  </data>
+  <data name="About.Text" xml:space="preserve">
+    <value>حول البرنامج</value>
+  </data>
+  <data name="AppTitle.Text" xml:space="preserve">
+    <value>لايت كلينك</value>
+  </data>
+  <data name="AppSubtitle.Text" xml:space="preserve">
+    <value>عنوان فرعي</value>
+  </data>
+  <data name="ChooseAppTheme.Text" xml:space="preserve">
+    <value>اختر نمط التطبيق</value>
+  </data>
+  <data name="DiagnosticsandLogs.Text" xml:space="preserve">
+    <value>سجلات التطبيق</value>
+  </data>
+  <data name="LanguagePreferences.Text" xml:space="preserve">
+    <value>إعدادات اللغة </value>
+  </data>
+  <data name="NotificationsSettings.Text" xml:space="preserve">
+    <value>إعدادات الإشعارات</value>
+  </data>
+  <data name="OpenLogFolderButton.Content" xml:space="preserve">
+    <value>فتح مجلد السجلات</value>
+  </data>
+  <data name="NotifyPatient24hCheckBox.Content" xml:space="preserve">
+    <value>رسال إشعار للمريض قبل الموعد بـ 24 ساعة</value>
+  </data>
+  <data name="NotifyPatient2hCheckBox.Content" xml:space="preserve">
+    <value>إرسال إشعار للمريض قبل الموعد بـ 2 ساعة</value>
+  </data>
+  <data name="NotifyDoctorCheckBox.Content" xml:space="preserve">
+    <value>تفعيل إشعارات الطبيب لأيام الحضور المجدولة</value>
+  </data>
+  <data name="SendViaTelegramCheckBox.Content" xml:space="preserve">
+    <value>إرسال الإشعارات عبر تيليجرام</value>
+  </data>
+  <data name="UseTelegramnotifications.Text" xml:space="preserve">
+    <value> ⚠️ لاستخدام إشعارات تيليجرام، يجب إنشاء وتكوين بوت خاص بك.</value>
+  </data>
+  <data name="Logout.Text" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
+  <data name="DoctorsMenu.Text" xml:space="preserve">
+    <value>لائحة الأطباء</value>
+  </data>
+  <data name="TestKey.Text" xml:space="preserve">
+    <value>مفتاح اختبار</value>
+  </data>
+  <data name="AddDoctorScheduled.Text" xml:space="preserve">
+    <value>تحديد مواعيد الأطباء</value>
+  </data>
+  <data name="DoctorAddService.Text" xml:space="preserve">
+    <value>إضافة خدمة \ طبيب</value>
+  </data>
+  <data name="PatientAddService" xml:space="preserve">
+    <value>إضافة خدمة \ مريض</value>
+  </data>
+  <data name="AP_OverviewTitle.Text" xml:space="preserve">
+    <value>نظرة عامة</value>
+  </data>
+  <data name="AP_OverviewDescription.Text" xml:space="preserve">
+    <value>لايت كلينك هو تطبيق صحي صغير يهدف إلى إبقاء الأطباء والمرضى على اتصال دائم.</value>
+  </data>
+  <data name="AP_CommunicationTitle.Text" xml:space="preserve">
+    <value>التواصل</value>
+  </data>
+  <data name="AP_CommunicationDescription.Text" xml:space="preserve">
+    <value>يستخدم التطبيق تيليجرام كقناة للتواصل لأنه مجاني ومتاح على نطاق واسع.</value>
+  </data>
+  <data name="AP_CommunicationHelper.Text" xml:space="preserve">
+    <value>يمكنك ربط لايت كلينك مع بوت تيليجرام مجاني. لمعرفة كيفية إنشاء وضبط البوت، انتقل إلى صفحة الإعدادات واضغط على "الانتقال إلى صفحة المساعدة في الإعداد".</value>
+  </data>
+  <data name="AP_DoctorDataTitle.Text" xml:space="preserve">
+    <value>بيانات الطبيب</value>
+  </data>
+  <data name="AP_DoctorDataDescription.Text" xml:space="preserve">
+    <value>يمكن إضافة الأطباء مع تفاصيلهم الأساسية مثل الاسم، التخصص، ورقم الهاتف المحمول.</value>
+  </data>
+  <data name="AP_PatientDataTitle.Text" xml:space="preserve">
+    <value>بيانات المريض</value>
+  </data>
+  <data name="AP_PatientDataDescription.Text" xml:space="preserve">
+    <value>يمكن أيضًا تسجيل المرضى مما يتيح لك معرفة المريض والحفاظ على بياناته منظمة.</value>
+  </data>
+  <data name="AP_AppointmentsDescription1.Text" xml:space="preserve">
+    <value>يمكن جدولة المواعيد بتواريخ وأوقات محددة لضمان التذكير في الوقت المناسب للطرفين.</value>
+  </data>
+  <data name="AP_AppointmentsDescription2.Text" xml:space="preserve">
+    <value>من السهل إضافة أو تعديل أو إلغاء تفعيل المواعيد وبيانات الأطباء والمرضى بنقرة واحدة فقط.</value>
+  </data>
+  <data name="AP_NotificationsTitle.Text" xml:space="preserve">
+    <value>الإشعارات</value>
+  </data>
+  <data name="AP_NotificationsDescription1.Text" xml:space="preserve">
+    <value>يتم إرسال الإشعارات تلقائيًا إلى الأطباء والمرضى عبر تيليجرام عند بدء الدورات.</value>
+  </data>
+  <data name="AP_NotificationsDescription2.Text" xml:space="preserve">
+    <value>إذا تم إلغاء تفعيل الطبيب فلن يتلقى إشعارات من النظام.</value>
+  </data>
+  <data name="AP_NotificationsDescription3.Text" xml:space="preserve">
+    <value>وبالمثل، المرضى غير المفعّلين لن يتم تضمينهم في التذكيرات المستقبلية.</value>
+  </data>
+  <data name="AP_UserControlTitle.Text" xml:space="preserve">
+    <value>لتحكم بالمستخدمين والصلاحيات</value>
+  </data>
+  <data name="AP_UserControlDescription.Text" xml:space="preserve">
+    <value>يوفر لايت كلينك ميزات مفيدة للتحكم بالمستخدمين والصلاحيات مثل إضافة مستخدمين إداريين لإدارة النظام.</value>
+  </data>
+  <data name="AP_ClosingDescription.Text" xml:space="preserve">
+    <value>بشكل عام، يقدم لايت كلينك طريقة بسيطة وموثوقة لتبسيط التواصل الصحي بدون تكلفة إضافية.</value>
+  </data>
+  <data name="AP_Version106Title.Text" xml:space="preserve">
+  <value>الإصدار 1.0.6.0</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_DashboardSeparated.Text" xml:space="preserve">
+  <value>• تم فصل لوحة التحكم إلى صفحتين</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_DashboardClinicCalendar.Text" xml:space="preserve">
+  <value>- تقويم العيادة</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_DashboardDoctorDirectory.Text" xml:space="preserve">
+  <value>- دليل الأطباء</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_DoctorDirectoryFilters.Text" xml:space="preserve">
+  <value>• دليل الأطباء يتضمن الآن عوامل تصفية:</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_FilterToday.Text" xml:space="preserve">
+  <value>- التوفر اليوم</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_FilterSlots.Text" xml:space="preserve">
+  <value>- الفترات الصباحية / بعد الظهر / المسائية</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_FilterSpecialty.Text" xml:space="preserve">
+  <value>- عامل تصفية التخصص</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_AppointmentTabs.Text" xml:space="preserve">
+  <value>• تم فصل صفحة المواعيد إلى علامتي تبويب:</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_TabPatients.Text" xml:space="preserve">
+  <value>- المرضى</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_TabAppointments.Text" xml:space="preserve">
+  <value>- المواعيد (مع عوامل تصفية لكل موعد)</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_Version105Title.Text" xml:space="preserve">
+  <value>الإصدار 1.0.5.0</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_AddArabicLocalization.Text" xml:space="preserve">
+  <value>• تمت إضافة الترجمة الكاملة للعربية (واجهة المستخدم، الرسائل، الإشعارات)</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_AddFrenchLocalization.Text" xml:space="preserve">
+  <value>• تمت إضافة الترجمة الكاملة للفرنسية (واجهة المستخدم، الرسائل، الإشعارات)</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_ImprovedResourceHandling.Text" xml:space="preserve">
+  <value>• تحسين معالجة الموارد لدعم متعدد اللغات</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_UpdatedCopyrightMessage.Text" xml:space="preserve">
+  <value>• تحديث رسالة حقوق النشر لتعكس اللغة المحددة</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_UIAdjustmentsSettings.Text" xml:space="preserve">
+  <value>• تعديلات واجهة المستخدم لصفحة الإعدادات</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_FixedTelegramNotifications.Text" xml:space="preserve">
+  <value>• تم إصلاح مشكلة عدم إرسال إشعارات بوت تيليجرام</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_NotificationsReliability.Text" xml:space="preserve">
+  <value>• أصبحت الإشعارات تعمل بشكل موثوق باللغات الإنجليزية والفرنسية والعربية</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_BuildsSupported.Text" xml:space="preserve">
+  <value>• الإصدارات مدعومة على x86 و x64 و ARM64</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_LocalizationWorks.Text" xml:space="preserve">
+  <value>• تعمل الترجمة عبر أجهزة ويندوز 10 و 11</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_Version104Title.Text" xml:space="preserve">
+  <value>الإصدار 1.0.4.0</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP104_AddArabicLocalization.Text" xml:space="preserve">
+  <value>• تمت إضافة الترجمة الكاملة للعربية (واجهة المستخدم، الرسائل، الإشعارات)</value>
+  <comment>AboutPage What's New section v1.0.4.0 - Arabic</comment>
+</data>
+<data name="AP104_AddFrenchLocalization.Text" xml:space="preserve">
+  <value>• تمت إضافة الترجمة الكاملة للفرنسية (واجهة المستخدم، الرسائل، الإشعارات)</value>
+  <comment>AboutPage What's New section v1.0.4.0 - Arabic</comment>
+</data>
+<data name="AP104_ImprovedResourceHandling.Text" xml:space="preserve">
+  <value>• تحسين معالجة الموارد لدعم متعدد اللغات</value>
+  <comment>AboutPage What's New section v1.0.4.0 - Arabic</comment>
+</data>
+<data name="AP104_UpdatedCopyrightMessage.Text" xml:space="preserve">
+  <value>• تحديث رسالة حقوق النشر لتعكس اللغة المحددة</value>
+  <comment>AboutPage What's New section v1.0.4.0 - Arabic</comment>
+</data>
+<data name="AP104_UIRenderingIssues.Text" xml:space="preserve">
+  <value>• تم إصلاح مشاكل بسيطة في عرض واجهة المستخدم في التخطيطات العربية/الفرنسية</value>
+  <comment>AboutPage What's New section v1.0.4.0 - Arabic</comment>
+</data>
+<data name="AP104_RTLLanguageAlignment.Text" xml:space="preserve">
+  <value>• تصحيح المحاذاة للغات من اليمين إلى اليسار (RTL)</value>
+  <comment>AboutPage What's New section v1.0.4.0 - Arabic</comment>
+</data>
+<data name="AP104_BuildsSupported.Text" xml:space="preserve">
+  <value>• الإصدارات مدعومة على x86 و x64 و ARM64</value>
+  <comment>AboutPage What's New section v1.0.4.0 - Arabic</comment>
+</data>
+<data name="AP104_LocalizationWorks.Text" xml:space="preserve">
+  <value>• تعمل الترجمة عبر أجهزة ويندوز 10 و 11</value>
+  <comment>AboutPage What's New section v1.0.4.0 - Arabic</comment>
+</data>
+<data name="AP103_VersionTitle.Text" xml:space="preserve">
+  <value>الإصدار 1.0.3.0</value>
+  <comment>AboutPage What's New section v1.0.3.0 - Arabic</comment>
+</data>
+<data name="AP103_NewDateOptions.Text" xml:space="preserve">
+  <value>• خيارات عرض التاريخ الجديدة (ميلادي وهجري)</value>
+  <comment>AboutPage What's New section v1.0.3.0 - Arabic</comment>
+</data>
+<data name="AP103_ImprovedMigration.Text" xml:space="preserve">
+  <value>• تحسين ترحيل قاعدة البيانات — ترقيات أكثر أمانًا</value>
+  <comment>AboutPage What's New section v1.0.3.0 - Arabic</comment>
+</data>
+<data name="AP103_FixedDOBIssue.Text" xml:space="preserve">
+  <value>• إصلاح مشكلة تاريخ الميلاد (السنة فقط تُعيّن افتراضيًا إلى 01/01/yyyy)</value>
+  <comment>AboutPage What's New section v1.0.3.0 - Arabic</comment>
+</data>
+<data name="AP103_EnhancedFiltering.Text" xml:space="preserve">
+  <value>• تحسين تصفية المواعيد وزيادة الاستقرار العام</value>
+  <comment>AboutPage What's New section v1.0.3.0 - Arabic</comment>
+</data>
+  <data name="TU_Tab.Header" xml:space="preserve">
+    <value>شروط الاستخدام</value>
+  </data>
+  <data name="TU_FreeTitle.Text" xml:space="preserve">
+    <value>مجاني</value>
+  </data>
+  <data name="AP_Tab.Header" xml:space="preserve">
+    <value>حول لايت كلينك</value>
+  </data>
+  <data name="TU_FreeDescription.Text" xml:space="preserve">
+    <value>يتم توفير لايت كلينك مجانًا ومخصص لدعم التواصل الصحي.</value>
+  </data>
+  <data name="TU_DisclaimerTitle.Text" xml:space="preserve">
+    <value>خلاء المسؤولية الطبية</value>
+  </data>
+  <data name="TU_DisclaimerDescription.Text" xml:space="preserve">
+    <value>الإشعارات هي معلومات فقط ولا ينبغي اعتبارها نصيحة طبية.</value>
+  </data>
+  <data name="TU_ResponsibilityTitle.Text" xml:space="preserve">
+    <value>المستخدمون مسؤولون عن دقة البيانات التي يدخلونها، بما في ذلك تفاصيل الأطباء والمرضى.</value>
+  </data>
+  <data name="TU_LimitationsTitle.Text" xml:space="preserve">
+    <value>قيود التسليم</value>
+  </data>
+  <data name="TU_LimitationsDescription.Text" xml:space="preserve">
+    <value>لا يضمن لايت كلينك تسليم الإشعارات في حالات فشل الإنترنت أو النظام، أو إذا كانت خدمات تيليجرام غير متاحة أو غير مهيأة بشكل صحيح.</value>
+  </data>
+  <data name="TU_AgreementTitle.Text" xml:space="preserve">
+    <value>الاتفاقية</value>
+  </data>
+  <data name="TU_AgreementDescription.Text" xml:space="preserve">
+    <value>باستخدام لايت كلينك، فإنك توافق على أن التطبيق مقدم "كما هو" بدون أي ضمانات.</value>
+  </data>
+  <data name="TU_PrivacyTitle.Text" xml:space="preserve">
+    <value>الخصوصية والأمان</value>
+  </data>
+  <data name="TU_PrivacyDescription1.Text" xml:space="preserve">
+    <value>يستخدم لايت كلينك قاعدة بيانات SQLite المحلية، والتي لا تتضمن مصادقة مستخدم مدمجة أو حماية بكلمة مرور. المستخدمون مسؤولون بالكامل عن حماية بياناتهم وضمان بقائها آمنة.</value>
+  </data>
+  <data name="TU_PrivacyDescription2.Text" xml:space="preserve">
+    <value>نوصي بشدة بالحفاظ على أمان جهازك، مثل استخدام برامج مكافحة الفيروسات، الجدران النارية، والتحديثات المنتظمة للنظام.</value>
+  </data>
+  <data name="TU_PrivacyDescription3.Text" xml:space="preserve">
+    <value>يستخدم لايت كلينك بوت تيليجرام فقط لإرسال الإشعارات؛ يجب ألا تتم مشاركة رمز البوت أو كشفه للآخرين. لمزيد من الأمان، يتم تشفير رمز البوت داخل التطبيق.</value>
+  </data>
+  <data name="TU_PrivacyDescription4.Text" xml:space="preserve">
+    <value>المستخدمون مسؤولون عن الحفاظ على بيئة نظامهم آمنة، وتقييد الوصول إلى جهاز الكمبيوتر الخاص بهم، والنسخ الاحتياطي لبياناتهم بانتظام لمنع الوصول غير المصرح به أو فقدان البيانات.</value>
+  </data>
+  <data name="HP_Tab.Header" xml:space="preserve">
+    <value>المساعدة</value>
+  </data>
+  <data name="HP_GettingStartedTitle.Text" xml:space="preserve">
+    <value>البدء</value>
+  </data>
+  <data name="HP_DashboardDescription.Text" xml:space="preserve">
+    <value>هذه هي لوحة التحكم الرئيسية في لايت كلينك. من هنا يمكنك الوصول إلى جميع الميزات الأساسية باستخدام القائمة الجانبية التي يمكن تصغيرها أو توسيعها بالكامل.</value>
+  </data>
+  <data name="HP_ClinicNameDescription.Text" xml:space="preserve">
+    <value>الخطوة الأولى هي تخصيص لايت كلينك عن طريق إعادة تسمية العيادة. انتقل إلى الإعدادات، غيّر اسم العيادة، ثم اضغط تطبيق.</value>
+  </data>
+  <data name="HP_DoctorPatientDescription.Text" xml:space="preserve">
+    <value>بعد ذلك، أضف بيانات الأطباء والمرضى من لوحة التحكم الرئيسية. يمكنك النقر المزدوج لعرض وإدارة سجلات المرضى بسهولة.</value>
+  </data>
+  <data name="HP_TelegramDescription.Text" xml:space="preserve">
+    <value>استخدم إعداد بوت تيليجرام في الإعدادات لتمكين الإشعارات. لإعداد البوت، اضغط على "انتقل إلى صفحة المساعدة في الإعدادات".</value>
+  </data>
+  <data name="HP_MenuOverviewTitle.Text" xml:space="preserve">
+    <value>نظرة عامة على القائمة</value>
+  </data>
+  <data name="HP_MenuOverviewDescription.Text" xml:space="preserve">
+    <value>يمكن تصغير القائمة الجانبية أو توسيعها بالكامل. إليك وظيفة كل عنصر:</value>
+  </data>
+  <data name="HP_DashboardTitle.Text" xml:space="preserve">
+    <value>• لوحة التحكم</value>
+  </data>
+  <data name="HP_DashboardDescription1.Text" xml:space="preserve">
+    <value>يعرض ملخص اليوم وتقويم المواعيد. بالنقر المزدوج على اسم الطبيب في التقويم، يمكنك عرض مواعيده لليوم على الجانب الأيمن. يمكن تحديث كل موعد بأحد الحالات التالية:</value>
+  </data>
+  <data name="HP_DashboardStatusAttending.Text" xml:space="preserve">
+    <value>• قيد الحضور – المريض موجود حاليًا مع الطبيب.</value>
+  </data>
+  <data name="HP_DashboardStatusAttended.Text" xml:space="preserve">
+    <value>• تمت الزيارة – المريض قد رأى الطبيب بالفعل وغادر.</value>
+  </data>
+  <data name="HP_DashboardStatusMissed.Text" xml:space="preserve">
+    <value>• لم يحضر – المريض لم يأتِ إلى العيادة.</value>
+  </data>
+  <data name="HP_DoctorsTitle.Text" xml:space="preserve">
+    <value>• الأطباء</value>
+  </data>
+  <data name="HP_DoctorsDescription.Text" xml:space="preserve">
+    <value>أضف أو عدّل أو عطّل أو امسح ملفات الأطباء. يمكنك استخدام الاختصارات التالية: إضافة (F1)، تعديل (F2)، تعطيل (F3)، أو مسح جميع البيانات باستخدام (F4).</value>
+  </data>
+  <data name="HP_DoctorsWarning.Text" xml:space="preserve">
+    <value>مهم: الحقل المميز بدائرة حمراء إلزامي. قد لا تعمل الإشعارات بشكل صحيح إذا تُرك هذا الحقل فارغًا، حتى إذا لم يظهر تحذير التحقق.</value>
+  </data>
+  <data name="HP_PatientsTitle.Text" xml:space="preserve">
+    <value>• المرضى</value>
+  </data>
+  <data name="HP_PatientsDescription.Text" xml:space="preserve">
+    <value>إدارة سجلات المرضى وعرض تاريخ الزيارات. يمكنك استخدام الاختصارات التالية: إضافة (F1)، تعديل (F2)، تعطيل (F3)، أو مسح جميع البيانات باستخدام (F4).</value>
+  </data>
+  <data name="HP_PatientsWarning.Text" xml:space="preserve">
+    <value>مهم: الحقل المميز بدائرة حمراء إلزامي. قد لا تعمل الإشعارات بشكل صحيح إذا تُرك هذا الحقل فارغًا، حتى إذا لم يظهر تحذير التحقق.</value>
+  </data>
+  <data name="HP_AppointmentsTitle.Text" xml:space="preserve">
+    <value>• المواعيد</value>
+  </data>
+  <data name="HP_AppointmentsDescription.Text" xml:space="preserve">
+    <value>جدولة والتحكم في الزيارات القادمة. يمكنك استخدام الاختصارات التالية: إضافة (F1)، تعديل (F2)، تعطيل (F3)، أو مسح جميع البيانات باستخدام (F4).</value>
+  </data>
+  <data name="HP_AppointmentsSearch.Text" xml:space="preserve">
+    <value>عند إضافة مريض إلى موعد، يمكنك البحث باستخدام عدة حقول: الاسم الأول، الاسم الأوسط، الاسم الأخير، أو الاسم الكامل؛ رقم المريض؛ رمز المريض (مثل PT000001)؛ البريد الإلكتروني؛ رقم الهاتف المحمول؛ العمر (مثل 35، 45...)؛ أو تاريخ الميلاد (بصيغة dd/MM/yyyy مثل 01/01/2000).</value>
+  </data>
+  <data name="HP_AppointmentsAdd.Text" xml:space="preserve">
+    <value>بعد البحث، يمكنك النقر المزدوج (أو الضغط) على اسم المريض لإضافة موعد جديد بسرعة.</value>
+  </data>
+  <data name="HP_ReportsTitle.Text" xml:space="preserve">
+    <value>• التقارير</value>
+  </data>
+  <data name="HP_ReportsDescription.Text" xml:space="preserve">
+    <value>عرض إحصائيات الزيارات وملخصات الأداء. توفر التقارير أعدادًا تفصيلية ورؤى لـ:</value>
+  </data>
+  <data name="HP_ReportsTotalDoctors.Text" xml:space="preserve">
+    <value>• إجمالي الأطباء – إحصائيات متاحة لليوم، هذا الأسبوع، هذا الشهر، وهذه السنة.</value>
+  </data>
+  <data name="HP_ReportsTotalPatients.Text" xml:space="preserve">
+    <value>• إجمالي المرضى – إحصائيات متاحة لليوم، هذا الأسبوع، هذا الشهر، وهذه السنة.</value>
+  </data>
+  <data name="HP_ReportsMissedAppointments.Text" xml:space="preserve">
+    <value>• المواعيد الفائتة – إحصائيات متاحة لليوم، هذا الأسبوع، هذا الشهر، وهذه السنة.</value>
+  </data>
+  <data name="HP_ReportsInsights.Text" xml:space="preserve">
+    <value>تساعد هذه التقارير في تتبع أداء العيادة، وتحديد الاتجاهات، وضمان تخطيط أفضل للموارد.</value>
+  </data>
+  <data name="HP_UsersTitle.Text" xml:space="preserve">
+    <value>• المستخدمون</value>
+  </data>
+  <data name="HP_UsersDescription.Text" xml:space="preserve">
+    <value>يحتوي قسم المستخدمين على صفحتين رئيسيتين: إدارة المستخدمين وأدوار المستخدمين.</value>
+  </data>
+  <data name="HP_UserManagement.Text" xml:space="preserve">
+    <value>• إدارة المستخدمين – إضافة مستخدمين جدد، تحديث الموجودين، تعطيل الحسابات، أو مسح جميع البيانات. الاختصارات: إضافة (F1)، تحديث (F2)، تعطيل (F3)، مسح (F4).</value>
+  </data>
+  <data name="HP_UserRoles.Text" xml:space="preserve">
+    <value>• أدوار المستخدمين – إدارة الأدوار والصلاحيات المحددة مسبقًا. نوصي بالحفاظ على الأدوار الافتراضية دون تغيير لضمان الاستقرار. الاختصارات: إضافة (F1)، تحديث (F2)، تعطيل (F3)، مسح (F4).</value>
+  </data>
+  <data name="HP_DefaultAccountsTitle.Text" xml:space="preserve">
+    <value>الحسابات الافتراضية:</value>
+  </data>
+  <data name="HP_DefaultAdmin.Text" xml:space="preserve">
+    <value>• المدير – اسم المستخدم: admin، كلمة المرور: admin1234</value>
+  </data>
+  <data name="HP_DefaultUser.Text" xml:space="preserve">
+    <value>• المستخدم – اسم المستخدم: user، كلمة المرور: user1234</value>
+  </data>
+  <data name="HP_DefaultWarning.Text" xml:space="preserve">
+    <value>⚠️ من أجل الأمان، يرجى تغيير كلمات المرور الافتراضية فور تسجيل الدخول الأول.</value>
+  </data>
+  <data name="HP_SettingsTitle.Text" xml:space="preserve">
+    <value>• الإعدادات</value>
+  </data>
+  <data name="HP_SettingsDescription.Text" xml:space="preserve">
+    <value>يتيح لك قسم الإعدادات تكوين وتخصيص لايت كلينك. تشمل الخيارات المتاحة:</value>
+  </data>
+  <data name="HP_SettingsThemes.Text" xml:space="preserve">
+    <value>• تغيير السمات – التبديل بين السمات المرئية المتاحة لتخصيص المظهر والإحساس.</value>
+  </data>
+  <data name="HP_SettingsNotifications.Text" xml:space="preserve">
+    <value>• إدارة الإشعارات – ضبط تفضيلات الإشعارات للتحكم في كيفية تسليم التنبيهات.</value>
+  </data>
+  <data name="HP_SettingsTelegram.Text" xml:space="preserve">
+    <value>• إعداد بوت تيليجرام – إعداد وإدارة بوت تيليجرام لإشعارات المواعيد.</value>
+  </data>
+  <data name="HP_SettingsBackup.Text" xml:space="preserve">
+    <value>• نسخ احتياطي لقاعدة البيانات – حفظ بيانات العيادة بأمان في موقع آمن لأغراض الاستعادة.</value>
+  </data>
+  <data name="HP_SettingsLogs.Text" xml:space="preserve">
+    <value>• فتح ملفات السجل – الوصول إلى سجلات التشخيص للمساعدة في تحديد المشكلات. يمكن مشاركة هذه السجلات مع الدعم إذا واجهت مشاكل.</value>
+  </data>
+  <data name="HP_AboutTitle.Text" xml:space="preserve">
+    <value>• حول</value>
+  </data>
+  <data name="HP_AboutDescription.Text" xml:space="preserve">
+    <value>تعرف على المزيد حول لايت كلينك، تفاصيل الإصدار، وراجع شروط الاستخدام.</value>
+  </data>
+  <data name="HP_LogoutTitle.Text" xml:space="preserve">
+    <value>• تسجيل الخروج</value>
+  </data>
+  <data name="HP_LogoutDescription.Text" xml:space="preserve">
+    <value>الخروج من التطبيق بأمان. يضمن تسجيل الخروج إغلاق جلستك بشكل صحيح ويمنع الوصول غير المصرح به إلى بيانات العيادة.</value>
+  </data>
+  <data name="HP_TroubleshootingTitle.Text" xml:space="preserve">
+    <value>استكشاف الأخطاء وإصلاحها</value>
+  </data>
+  <data name="HP_TroubleshootingInternet.Text" xml:space="preserve">
+    <value>إذا لم تظهر الإشعارات، تحقق من اتصال الإنترنت وإعدادات إشعارات ويندوز.</value>
+  </data>
+  <data name="HP_TroubleshootingDoctors.Text" xml:space="preserve">
+    <value>تأكد من إضافة الأطباء والمرضى بشكل صحيح وعدم تعطيلهم.</value>
+  </data>
+  <data name="HP_TroubleshootingAppointments.Text" xml:space="preserve">
+    <value>تحقق من إدخال تواريخ وأوقات المواعيد بشكل صحيح.</value>
+  </data>
+  <data name="HP_TroubleshootingTelegram.Text" xml:space="preserve">
+    <value>يستخدم لايت كلينك تطبيق تيليجرام، لذا تأكد من تثبيت التطبيق وأنه متاح.</value>
+  </data>
+  <data name="HP_SupportTitle.Text" xml:space="preserve">
+    <value>الدعم</value>
+  </data>
+  <data name="HP_SupportDescription.Text" xml:space="preserve">
+    <value>للحصول على مزيد من المساعدة، تواصل مع الدعم عبر: samer.hmouda@outlook.com أو قم بزيارة صفحة المساعدة في الإعدادات.</value>
+  </data>
+  <data name="HP_CreditsTitle.Text" xml:space="preserve">
+    <value>الشكر والتقدير</value>
+  </data>
+  <data name="HP_CreditsDeveloper.Text" xml:space="preserve">
+    <value>تم تطوير لايت كلينك بواسطة سامر حموضة.</value>
+  </data>
+  <data name="HP_CreditsAcknowledgements.Text" xml:space="preserve">
+    <value>الشكر: بفضل المكتبات والأطر مفتوحة المصدر مثل .NET، WinUI 3، وواجهة برمجة تطبيقات بوت تيليجرام.</value>
+  </data>
+  <data name="HP_CreditsIcons.Text" xml:space="preserve">
+    <value>الأيقونات المستخدمة في التطبيق مأخوذة من أيقونات جوجل.</value>
+  </data>
+  <data name="HP_CreditsImages.Text" xml:space="preserve">
+    <value>الصور المستخدمة في التطبيق مأخوذة من موارد مجانية ومنسوبة إلى منشئيها.</value>
+  </data>
+  <data name="HP_CreditsLogo.Text" xml:space="preserve">
+    <value>تم إنشاء شعار تطبيق لايت كلينك بواسطة محمد حموضة.</value>
+  </data>
+  <data name="HP_CreditsThanks.Text" xml:space="preserve">
+    <value>شكر خاص لكل من قدم الملاحظات والدعم أثناء التطوير.</value>
+  </data>
+  <data name="UF_Tab.Header" xml:space="preserve">
+    <value>استكشف المستقبل</value>
+  </data>
+  <data name="UF_Title.Text" xml:space="preserve">
+    <value>🚀 ما هو التالي للايت كلينك</value>
+  </data>
+  <data name="UF_Section1Title.Text" xml:space="preserve">
+    <value>🔧 تكامل سلس مع الخادم</value>
+  </data>
+  <data name="UF_Section1Description.Text" xml:space="preserve">
+    <value>يمكن دمج لايت كلينك بسهولة مع الخوادم المستقلة (مثل أوبونتو). يمكنك إعداد خادمك الخاص بدعم .NET وربطه بلايت كلينك دون عناء.</value>
+  </data>
+  <data name="UF_Section2Title.Text" xml:space="preserve">
+    <value>💳 رسوم دمج الخادم لمرة واحدة</value>
+  </data>
+  <data name="UF_Section2Description.Text" xml:space="preserve">
+    <value>اطلب نسختك من دمج الخادم برسوم لمرة واحدة. ستحصل دائمًا على التحديثات بدون تكاليف متكررة.</value>
+  </data>
+  <data name="UF_Section3Title.Text" xml:space="preserve">
+    <value>🌟 قريبًا</value>
+  </data>
+  <data name="UF_Section3LiteClinicPlus.Text" xml:space="preserve">
+    <value>• لايت كلينك+ → سجل طبي كامل مع تكامل التقويم. تفعيل أيام العمل تلقائيًا وأيام العطل السنوية العرضية. (نسخة مدفوعة)</value>
+  </data>
+  <data name="UF_Section3ClinicAI.Text" xml:space="preserve">
+    <value>• كلينك+AI → جميع ميزات لايت كلينك+ بالإضافة إلى تحويل النص إلى صوت وتكامل مدعوم بالذكاء الاصطناعي. أكثر ذكاءً وسرعة وتفاعلية. (نسخة مميزة)</value>
+  </data>
+  <data name="UF_ClosingNote.Text" xml:space="preserve">
+    <value>✨ ترقبوا — مستقبل لايت كلينك على وشك الوصول.</value>
+  </data>
+  <data name="UF_ContactTitle.Text" xml:space="preserve">
+    <value>📬 يمكنك دائمًا التواصل معنا عبر:</value>
+  </data>
+  <data name="UF_DeveloperName.Text" xml:space="preserve">
+    <value>👨‍💻 سامر حموضة (المطور)</value>
+  </data>
+  <data name="UF_DeveloperEmail.Text" xml:space="preserve">
+    <value>✉️ البريد الإلكتروني: samer.hmouda@outlook.com</value>
+  </data>
+  <data name="UF_DeveloperMobile.Text" xml:space="preserve">
+    <value>📱 الهاتف المحمول: +961 3 24 73 41</value>
+  </data>
+  <data name="UF_ArtDirectorName.Text" xml:space="preserve">
+    <value>🎨 محمد حموضة (مدير فني | مصمم)</value>
+  </data>
+  <data name="UF_ArtDirectorEmail.Text" xml:space="preserve">
+    <value>✉️ البريد الإلكتروني: arch.me17@gmail.com</value>
+  </data>
+  <data name="UF_ArtDirectorMobile.Text" xml:space="preserve">
+    <value>📱 الهاتف المحمول: +961 71 08 16 2</value>
+  </data>
+  <data name="Status_CopyRight" xml:space="preserve">
+    <value>عرض حقوق النشر...</value>
+  </data>
+  <data name="Status_LoadingDB" xml:space="preserve">
+    <value>جاري تحميل قاعدة البيانات...</value>
+  </data>
+  <data name="Status_LoadingSettings" xml:space="preserve">
+    <value>جاري تحميل الإعدادات...</value>
+  </data>
+  <data name="Status_LoadingClinic" xml:space="preserve">
+    <value>جاري تحميل اسم العيادة...</value>
+  </data>
+  <data name="Status_ApplyingTheme" xml:space="preserve">
+    <value>تطبيق السمة واللغة...</value>
+  </data>
+  <data name="Status_Complete" xml:space="preserve">
+    <value>اكتملت التهيئة. جاري الانتقال...</value>
+  </data>
+  <data name="AppP_SearchPatientListLabel.Text" xml:space="preserve">
+    <value>قائمة المرضى</value>
+  </data>
+  <data name="AppP_SearchPatientBox.PlaceholderText" xml:space="preserve">
+    <value>ابحث عن مريض</value>
+  </data>
+  <data name="AppP_AppointmentListLabel.Text" xml:space="preserve">
+    <value>قائمة المواعيد</value>
+  </data>
+  <data name="AppP_DoctorFilterComboBox.PlaceholderText" xml:space="preserve">
+    <value>تصفية حسب الطبيب</value>
+  </data>
+  <data name="AppP_TodayAppointmentsCheckBox.Content" xml:space="preserve">
+    <value>مواعيد اليوم</value>
+  </data>
+  <data name="AppP_SearchAppointmentBox.PlaceholderText" xml:space="preserve">
+    <value>ابحث عن موعد</value>
+  </data>
+  <data name="AppP_PatientAutoIdColumn.Header" xml:space="preserve">
+    <value>تلقائي</value>
+  </data>
+  <data name="AppP_PatientCodeColumn.Header" xml:space="preserve">
+    <value>رمز المريض</value>
+  </data>
+  <data name="AppP_FullNameColumn.Header" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="AppP_FirstNameColumn.Header" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="AppP_MiddleNameColumn.Header" xml:space="preserve">
+    <value>الاسم الأوسط</value>
+  </data>
+  <data name="AppP_LastNameColumn.Header" xml:space="preserve">
+    <value>اسم العائلة</value>
+  </data>
+  <data name="AppP_MotherNameColumn.Header" xml:space="preserve">
+    <value>اسم الأم</value>
+  </data>
+  <data name="AppP_DOBColumn.Header" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="AppP_AgeColumn.Header" xml:space="preserve">
+    <value>العمر</value>
+  </data>
+  <data name="AppP_PatientNameColumn.Header" xml:space="preserve">
+    <value>اسم المريض</value>
+  </data>
+  <data name="AppP_DateColumn.Header" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="AppP_TimeColumn.Header" xml:space="preserve">
+    <value>الوقت</value>
+  </data>
+  <data name="AppP_DoctorNameColumn.Header" xml:space="preserve">
+    <value>اسم الطبيب</value>
+  </data>
+  <data name="AppP_SpecializationColumn.Header" xml:space="preserve">
+    <value>الاختصاص</value>
+  </data>
+  <data name="AppP_AppointmentTypeColumn.Header" xml:space="preserve">
+    <value>نوع الموعد</value>
+  </data>
+  <data name="AppP_DoctorIdColumn.Header" xml:space="preserve">
+    <value>معرّف الطبيب</value>
+  </data>
+  <data name="AppP_ScheduleIdColumn.Header" xml:space="preserve">
+    <value>تلقائي</value>
+  </data>
+  <data name="AppP_AppointmentIdColumn.Header" xml:space="preserve">
+    <value>معرّف الموعد</value>
+  </data>
+  <data name="AppP_PatientIdColumn.Header" xml:space="preserve">
+    <value>معرّف المريض</value>
+  </data>
+  <data name="AppP_PatientMotherNameColumn.Header" xml:space="preserve">
+    <value>اسم الأم</value>
+  </data>
+  <data name="AppP_PatientDOBColumn.Header" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="AppP_IsActiveColumn.Header" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="AppP_IsMissedColumn.Header" xml:space="preserve">
+    <value>تم التغيب</value>
+  </data>
+  <data name="AppV_Status_PatientDoctorRequired" xml:space="preserve">
+    <value>يجب اختيار المريض والطبيب.</value>
+  </data>
+  <data name="AppV_Status_LoadedPatients" xml:space="preserve">
+    <value>تم تحميل {0} مريض.</value>
+  </data>
+  <data name="AppV_Status_ErrorLoadingPatients" xml:space="preserve">
+    <value>خطأ في تحميل المرضى: {0}</value>
+  </data>
+  <data name="AppV_Status_LoadedAppointments" xml:space="preserve">
+    <value>تم تحميل {0} موعد</value>
+  </data>
+  <data name="AppV_Status_UnexpectedError" xml:space="preserve">
+    <value>حدث خطأ غير متوقع.</value>
+  </data>
+  <data name="AppV_Status_AppointmentAdded" xml:space="preserve">
+    <value>تمت إضافة الموعد بنجاح.</value>
+  </data>
+  <data name="AppV_Status_AppointmentAddedError" xml:space="preserve">
+    <value>حدث خطأ أثناء إضافة الموعد.</value>
+  </data>
+  <data name="AppV_Status_ErrorLoadingAppointments" xml:space="preserve">
+    <value>خطأ في تحميل المواعيد: {0}</value>
+  </data>
+  <data name="AppV_Status_DuplicateAppointment" xml:space="preserve">
+    <value>يوجد بالفعل موعد لهذا المريض والطبيب في التاريخ المحدد.</value>
+  </data>
+  <data name="AppV_Status_NoAppointmentSelectedToUpdate" xml:space="preserve">
+    <value>لم يتم اختيار أي موعد للتحديث.</value>
+  </data>
+  <data name="AppV_Status_DuplicateAppointmentAlt" xml:space="preserve">
+    <value>يوجد موعد آخر بالفعل لهذا المريض والطبيب في التاريخ المحدد.</value>
+  </data>
+  <data name="AppV_Status_AppointmentUpdated" xml:space="preserve">
+    <value>تم تحديث الموعد بنجاح.</value>
+  </data>
+  <data name="AppV_Status_AppointmentUpdatedError" xml:space="preserve">
+    <value>حدث خطأ أثناء تحديث الموعد.</value>
+  </data>
+  <data name="AppV_Status_NoAppointmentSelectedToDeactivate" xml:space="preserve">
+    <value>لم يتم اختيار أي موعد للتعطيل.</value>
+  </data>
+  <data name="AppV_Status_AppointmentDeactivated" xml:space="preserve">
+    <value>تم تعطيل الموعد بنجاح.</value>
+  </data>
+  <data name="AppV_Status_AppointmentDeactivatedError" xml:space="preserve">
+    <value>حدث خطأ أثناء تعطيل الموعد.</value>
+  </data>
+  <data name="AppV_Status_DoctorAppointmentsOnDate" xml:space="preserve">
+    <value>{0} لديه {1} موعد في {2}.</value>
+  </data>
+  <data name="AppV_Status_DoctorTotalAppointments" xml:space="preserve">
+    <value>{0} لديه مجموع {1} موعد.</value>
+  </data>
+  <data name="AppV_Status_ShowingAppointments" xml:space="preserve">
+    <value>عرض {0} موعد.</value>
+  </data>
+  <data name="AppV_Status_DoctorAlreadyBooked" xml:space="preserve">
+  <value>تم حجز الطبيب بالفعل في هذا الوقت (معرف المريض: {0}، الوقت: {1})</value>
+</data>
+  <data name="AppP_PatientNameLabel.Text" xml:space="preserve">
+    <value>اسم المريض</value>
+  </data>
+  <data name="AppP_DateOfBirthLabel.Text" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="AppP_AppointmentDateLabel.Text" xml:space="preserve">
+    <value>تاريخ الموعد</value>
+  </data>
+  <data name="AppP_AppointmentDatePicker.PlaceholderText" xml:space="preserve">
+    <value>اختر تاريخ الموعد</value>
+  </data>
+  <data name="AppP_DoctorNameLabel.Text" xml:space="preserve">
+    <value>اسم الطبيب</value>
+  </data>
+  <data name="AppP_AppointmentTimeLabel.Text" xml:space="preserve">
+    <value>وقت الموعد</value>
+  </data>
+  <data name="AppP_AppointmentTypeLabel.Text" xml:space="preserve">
+    <value>نوع الموعد</value>
+  </data>
+  <data name="AppP_NotesLabel.Text" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="AppP_IsActiveCheckBox.Content" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="AppP_IsMissedCheckBox.Content" xml:space="preserve">
+    <value>وضع علامة كمفوّت</value>
+  </data>
+  <data name="AppP_IsMissedCheckBox.ToolTipService.ToolTip" xml:space="preserve">
+    <value>ضع علامة إذا فات المريض هذا الموعد</value>
+  </data>
+  <data name="AppP_AddButton.Content" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="AppP_AddButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>حفظ موعد جديد</value>
+  </data>
+  <data name="AppP_EditButton.Content" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="AppP_EditButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تحديث الموعد</value>
+  </data>
+  <data name="AppP_DeactivateButton.Content" xml:space="preserve">
+    <value>تعطيل</value>
+  </data>
+  <data name="AppP_DeactivateButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تعطيل الموعد</value>
+  </data>
+  <data name="AppP_ClearButton.Content" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="AppP_ClearButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>مسح البيانات (تحديث)</value>
+  </data>
+  <data name="AppP_ReadOnlyLabel.Text" xml:space="preserve">
+    <value>حقول للقراءة فقط</value>
+  </data>
+  <data name="MDbP_Dashboard.Content" xml:space="preserve">
+  <value>جدول العيادة</value>
+</data>
+<data name="MDbP_Dashboard.ToolTipService.ToolTip" xml:space="preserve">
+  <value>عرض جدول العيادة</value>
+</data>
+<data name="MDbP_DoctorPage.Content" xml:space="preserve">
+  <value>دليل الأطباء</value>
+</data>
+<data name="MDbP_DoctorPage.ToolTipService.ToolTip" xml:space="preserve">
+  <value>عرض دليل الأطباء</value>
+</data>
+  <data name="Db_ClinicCalendarLabel.Text" xml:space="preserve">
+    <value>تقويم العيادة</value>
+  </data>
+  <data name="Db_SearchBox.PlaceholderText" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="Db_DoctorSummaryStack.ToolTipService.ToolTip" xml:space="preserve">
+    <value>انقر مرتين لعرض المرضى والتحكم بهم</value>
+  </data>
+  <data name="Db_PatientsLabel.Text" xml:space="preserve">
+    <value>مرضى</value>
+  </data>
+  <data name="Db_RefreshCalendarButton.Content" xml:space="preserve">
+    <value>تحديث التقويم</value>
+  </data>
+  <data name="Db_AppointmentsLabel.Text" xml:space="preserve">
+    <value>المواعيد</value>
+  </data>
+  <data name="Db_AttendingRadio.Content" xml:space="preserve">
+    <value>حاضر</value>
+  </data>
+  <data name="Db_AttendedRadio.Content" xml:space="preserve">
+    <value>تم الحضور</value>
+  </data>
+  <data name="Db_MissedRadio.Content" xml:space="preserve">
+    <value>فات الموعد</value>
+  </data>
+  <data name="Db_TodaySummaryLabel.Text" xml:space="preserve">
+    <value>📊 ملخص اليوم</value>
+  </data>
+  <data name="Db_DoctorsSummaryLabel.Text" xml:space="preserve">
+    <value>👥 الأطباء:</value>
+  </data>
+  <data name="Db_TodaysVisitsSummaryLabel.Text" xml:space="preserve">
+    <value>🗓️ زيارات اليوم:</value>
+  </data>
+  <data name="Db_AttendingSummaryLabel.Text" xml:space="preserve">
+    <value>🩺 الحاضرون:</value>
+  </data>
+  <data name="Db_AttendedSummaryLabel.Text" xml:space="preserve">
+    <value>✅ تم الحضور:</value>
+  </data>
+  <data name="Db_MissedSummaryLabel.Text" xml:space="preserve">
+    <value>❌ فات الموعد:</value>
+  </data>
+  <data name="Db_StatusErrorLoadingAppointments" xml:space="preserve">
+    <value>خطأ في تحميل المواعيد: {0}</value>
+  </data>
+  <data name="Db_StatusErrorLoadingFullAppointments" xml:space="preserve">
+    <value>خطأ في تحميل جميع المواعيد: {0}</value>
+  </data>
+  <data name="Db_StatusErrorLoadingDoctors" xml:space="preserve">
+    <value>خطأ في تحميل بيانات الأطباء: {0}</value>
+  </data>
+  <data name="Db_StatusNoPatientSelected" xml:space="preserve">
+    <value>لم يتم اختيار أي مريض.</value>
+  </data>
+  <data name="Db_StatusAppointmentUpdated" xml:space="preserve">
+    <value>تم تحديث الموعد بنجاح.</value>
+  </data>
+  <data name="Db_StatusAppointmentUpdatedError" xml:space="preserve">
+    <value>خطأ في تحديث الموعد.</value>
+  </data>
+  <data name="Db_StatusUnexpectedError" xml:space="preserve">
+    <value>حدث خطأ غير متوقع.</value>
+  </data>
+  <data name="Db_StatusGreetingMessage" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="DrP_AddimageforDoctor.ToolTipService.ToolTip" xml:space="preserve">
+    <value>إضافة - تغيير الصورة. فقط .PNG أو .JPG</value>
+  </data>
+  <data name="DrP_GenderMale.Content" xml:space="preserve">
+	 <value>أنثى</value>
+  </data>
+  <data name="Drp_GenderFemal.Content" xml:space="preserve">
+	 <value>ذكر</value>
+   </data>  
+  <data name="DrP_ColumnPhoto.Header" xml:space="preserve">
+  <value>الصورة</value>
+</data>
+<data name="DrP_DoctorGender.Header" xml:space="preserve">
+  <value>الجنس</value>
+</data>
+<data name="DrP_DoctorGender.PlaceholderText" xml:space="preserve">
+  <value>اختر الجنس</value>
+</data>
+  <data name="DrP_DoctorsControl.Text" xml:space="preserve">
+    <value>إدارة الأطباء</value>
+  </data>
+  <data name="DrP_ImportantNote.Text" xml:space="preserve">
+    <value>مهم: بعد إضافة طبيب، انتقل إلى صفحة الجدول لتحديد مواعيد الطبيب. هذه الصفحة تعرض الأيام التي سيحضر فيها الطبيب.</value>
+  </data>
+  <data name="DrP_DoctorFullName.Header" xml:space="preserve">
+    <value>اسم الطبيب</value>
+  </data>
+  <data name="DrP_SpecializationBox.Header" xml:space="preserve">
+    <value>التخصص</value>
+  </data>
+  <data name="DrP_PhoneBox.Header" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="DrP_LandLineBox.Header" xml:space="preserve">
+    <value>رقم الهاتف الأرضي</value>
+  </data>
+  <data name="DrP_IsActiveCheckBox.Content" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="DrP_AddButton.Content" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="DrP_EditButton.Content" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="DrP_DeactivateButton.Content" xml:space="preserve">
+    <value>إلغاء التفعيل</value>
+  </data>
+  <data name="DrP_ClearButton.Content" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="DrP_RequiredFieldsNote.Text" xml:space="preserve">
+    <value>الحقول المطلوبة مميزة بدائرة حمراء</value>
+  </data>
+  <data name="DrP_DoctorsManagerList.Text" xml:space="preserve">
+    <value>قائمة إدارة الأطباء</value>
+  </data>
+  <data name="DrP_SearchBox.PlaceholderText" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="DrP_OpenScheduledPageButton.Content" xml:space="preserve">
+    <value>فتح صفحة الجدول</value>
+  </data>
+  <data name="DrP_AddServiceButton.Content" xml:space="preserve">
+    <value>إضافة خدمة</value>
+  </data>
+  <data name="DrP_ColumnAuto.Header" xml:space="preserve">
+    <value>تلقائي</value>
+  </data>
+  <data name="DrP_ColumnDoctorId.Header" xml:space="preserve">
+    <value>رقم الطبيب</value>
+  </data>
+  <data name="DrP_ColumnFullName.Header" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="DrP_ColumnSpecialization.Header" xml:space="preserve">
+    <value>التخصص</value>
+  </data>
+  <data name="DrP_ColumnMobilePhone.Header" xml:space="preserve">
+    <value>الهاتف المحمول</value>
+  </data>
+  <data name="DrP_ColumnLandLinePhone.Header" xml:space="preserve">
+    <value>الهاتف الأرضي</value>
+  </data>
+  <data name="DrP_ColumnActive.Header" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="DrP_Status_LoadedUsers" xml:space="preserve">
+    <value>تم تحميل ا {0} طبيب.</value>
+  </data>
+  <data name="DrP_Status_DoctorNameRequired" xml:space="preserve">
+    <value>اسم الطبيب مطلوب.</value>
+  </data>
+  <data name="DrP_Status_DoctorAdded" xml:space="preserve">
+    <value>تمت إضافة الطبيب بنجاح.</value>
+  </data>
+  <data name="DrP_Status_DoctorAddedError" xml:space="preserve">
+    <value>حدث خطأ أثناء إضافة الطبيب.</value>
+  </data>
+  <data name="DrP_Status_DoctorUpdated" xml:space="preserve">
+    <value>تم تعديل بيانات الطبيب بنجاح.</value>
+  </data>
+  <data name="DrP_Status_DoctorUpdatedError" xml:space="preserve">
+    <value>حدث خطأ أثناء تعديل بيانات الطبيب.</value>
+  </data>
+  <data name="DrP_Status_DoctorDeactivated" xml:space="preserve">
+    <value>تم إلغاء تفعيل الطبيب بنجاح.</value>
+  </data>
+  <data name="DrP_Status_DoctorDeactivatedError" xml:space="preserve">
+    <value>حدث خطأ أثناء إلغاء تفعيل الطبيب.</value>
+  </data>
+  <data name="DrSp_PageTitle.Text" xml:space="preserve">
+    <value>اختر منصة المراسلة - الأطباء</value>
+  </data>
+  <data name="DrSp_AddServiceTitle.Text" xml:space="preserve">
+    <value>إضافة خدمة</value>
+  </data>
+  <data name="DrSp_DoctorIdLabel.Text" xml:space="preserve">
+    <value>معرّف الطبيب:</value>
+  </data>
+  <data name="DrSp_DoctorIdTextBox.PlaceholderText" xml:space="preserve">
+    <value>أدخل معرّف الطبيب</value>
+  </data>
+  <data name="DrSp_DoctorCodeLabel.Text" xml:space="preserve">
+    <value>رمز الطبيب:</value>
+  </data>
+  <data name="DrSp_DoctorCodeTextBox.PlaceholderText" xml:space="preserve">
+    <value>أدخل رمز الطبيب</value>
+  </data>
+  <data name="DrSp_ServiceNameLabel.Text" xml:space="preserve">
+    <value>اسم الخدمة:</value>
+  </data>
+  <data name="DrSp_ServiceIdLabel.Text" xml:space="preserve">
+    <value>معرّف الخدمة:</value>
+  </data>
+  <data name="DrSp_ServiceIdTextBox.PlaceholderText" xml:space="preserve">
+    <value>أدخل رقم المحادثة / الهاتف</value>
+  </data>
+  <data name="DrSp_IsActiveLabel.Text" xml:space="preserve">
+    <value>نشط:</value>
+  </data>
+  <data name="DrSp_NotificationTitle.Text" xml:space="preserve">
+    <value>إرسال إشعار بـ</value>
+  </data>
+  <data name="DrSp_NotificationEnglishLabel.Text" xml:space="preserve">
+    <value>الإنجليزية</value>
+  </data>
+  <data name="DrSp_NotificationEnglishCheckBox.Content" xml:space="preserve">
+    <value>إشعارات باللغة الإنجليزية</value>
+  </data>
+  <data name="DrSp_NotificationArabicLabel.Text" xml:space="preserve">
+    <value>العربية</value>
+  </data>
+  <data name="DrSp_NotificationArabicCheckBox.Content" xml:space="preserve">
+    <value>إشعارات باللغة العربية</value>
+  </data>
+<data name="DrSp_NotificationFrenchLabel.Text" xml:space="preserve">
+  <value>الفرنسية</value>
+</data>
+<data name="DrSp_NotificationFrenchCheckBox.Content" xml:space="preserve">
+  <value>اشعارات باللغة الفرنسية</value>
+</data>
+  <data name="DrSp_ApplyDoctorServiceButton.Content" xml:space="preserve">
+    <value>تطبيق خدمة الطبيب</value>
+  </data>
+  <data name="DrSp_ClearButton.Content" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="DrSp_SearchBox.PlaceholderText" xml:space="preserve">
+    <value>ابحث عن الخدمة/معرّف الطبيب</value>
+  </data>
+  <data name="DrSp_GridHeader_ServiceIdAuto.Header" xml:space="preserve">
+    <value>معرّف الخدمة التلقائي</value>
+  </data>
+  <data name="DrSp_GridHeader_DoctorId.Header" xml:space="preserve">
+    <value>معرّف الطبيب</value>
+  </data>
+  <data name="DrSp_GridHeader_Code.Header" xml:space="preserve">
+    <value>الرمز</value>
+  </data>
+  <data name="DrSp_GridHeader_ServiceName.Header" xml:space="preserve">
+    <value>اسم الخدمة</value>
+  </data>
+  <data name="DrSp_GridHeader_ServiceId.Header" xml:space="preserve">
+    <value>معرّف الخدمة</value>
+  </data>
+  <data name="DrSp_GridHeader_Active.Header" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="DrSp_GridHeader_EnNotify.Header" xml:space="preserve">
+    <value>إشعار بالإنجليزية</value>
+  </data>
+  <data name="DrSp_GridHeader_ArNotify.Header" xml:space="preserve">
+    <value>إشعار بالعربية</value>
+  </data>
+  <data name="DrSp_GridHeader_FrNotify.Header" xml:space="preserve">
+  <value>إشعار بالفرنسية</value>
+</data>
+  <data name="DrSp_Status_DoctorIdServiceRequired" xml:space="preserve">
+    <value>معرّف الطبيب ومعرّف الخدمة مطلوبان.</value>
+  </data>
+  <data name="DrSp_Status_DoctorServiceAdded" xml:space="preserve">
+    <value>تمت إضافة خدمة جديدة للطبيب.</value>
+  </data>
+  <data name="DrSp_Status_DoctorServiceExists" xml:space="preserve">
+    <value>هذه الخدمة {0} موجودة بالفعل للطبيب بمعرّف: {1} - {2}</value>
+  </data>
+  <data name="DrSp_Status_DoctorServiceUpdated" xml:space="preserve">
+    <value>تم تحديث خدمة الطبيب.</value>
+  </data>
+  <data name="DrSp_Status_DoctorServiceSaveError" xml:space="preserve">
+    <value>حدث خطأ أثناء حفظ خدمة الطبيب.</value>
+  </data>
+  <data name="DrSp_Status_ClearingRefreshing" xml:space="preserve">
+    <value>جارٍ المسح والتحديث. يرجى الانتظار...</value>
+  </data>
+  <data name="LgnP_AppName.Text" xml:space="preserve">
+    <value>لايت كلينيك</value>
+  </data>
+  <data name="LgnP_LoginTitle.Text" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="LgnP_UsernameLabel.Text" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="LgnP_UsernameDefaultNote.Text" xml:space="preserve">
+    <value>(افتراضي: admin)</value>
+  </data>
+  <data name="LgnP_PasswordLabel.Text" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="LgnP_PasswordDefaultNote.Text" xml:space="preserve">
+    <value>(افتراضي: admin1234)</value>
+  </data>
+  <data name="LgnP_LoginButton.Content" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="LgnP_FeatureAppointments.Text" xml:space="preserve">
+    <value>إدارة المواعيد بسهولة</value>
+  </data>
+  <data name="LgnP_FeatureRecords.Text" xml:space="preserve">
+    <value>تتبع سجلات المرضى بأمان</value>
+  </data>
+  <data name="LgnP_FeatureAlerts.Text" xml:space="preserve">
+    <value>تنبيهات وتذكيرات فورية</value>
+  </data>
+  <data name="LgnP_FooterMessage.Text" xml:space="preserve">
+    <value>مصمم للأطباء والممرضين وموظفي العيادة للعمل بشكل أذكى وأسرع وأكثر أمانًا.</value>
+  </data>
+  <data name="LgnP_StatusMessage.Text" xml:space="preserve">
+    <value>رسالة الحالة هنا</value>
+  </data>
+  <data name="LgnP_LoginSuccessMessage" xml:space="preserve">
+    <value>تم تسجيل الدخول بنجاح — مرحبًا بعودتك {0}</value>
+  </data>
+  <data name="LgnP_InvalidCredentialsMessage" xml:space="preserve">
+    <value>اسم المستخدم أو كلمة المرور غير صحيحة.</value>
+  </data>
+  <data name="LoginStatrusMessageError" xml:space="preserve">
+    <value>اسم المستخدم أو كلمة المرور غير صحيحة.</value>
+  </data>
+  <data name="LoginErrorWithDetails" xml:space="preserve">
+    <value>حدث خطأ: {0}</value>
+  </data>
+  <data name="Mpg_LoggedUserLabel.Text" xml:space="preserve">
+    <value>المستخدم المسجل:</value>
+  </data>
+  <data name="MiP_TelegramTab.Header" xml:space="preserve">
+    <value>تيليجرام</value>
+  </data>
+  <data name="MiP_TelegramTitle.Text" xml:space="preserve">
+    <value>دمج بوت تيليجرام</value>
+  </data>
+  <data name="MiP_TelegramIntro.Text" xml:space="preserve">
+    <value>اتبع هذه الخطوات لإنشاء بوت تيليجرام وربطه بحسابك. سيسمح لك التطبيق بإرسال إشعارات مباشرة عبر تيليجرام.</value>
+  </data>
+  <data name="MiP_TelegramStep1.Text" xml:space="preserve">
+    <value>الخطوة 1: افتح BotFather في تيليجرام وابدأ محادثة.</value>
+  </data>
+  <data name="MiP_TelegramStep2.Text" xml:space="preserve">
+    <value>الخطوة 2: أرسل /newbot واتبع التعليمات لإنشاء بوت.</value>
+  </data>
+  <data name="MiP_TelegramStep3.Text" xml:space="preserve">
+    <value>الخطوة 3: انسخ رمز API الذي يوفره BotFather.</value>
+  </data>
+  <data name="MiP_TelegramStep4.Text" xml:space="preserve">
+    <value>الخطوة 4: شغّل البوت، أرسل رسالة، ثم نفّذ getUpdates للعثور على معرف المحادثة.</value>
+  </data>
+  <data name="MiP_TelegramStep5.Text" xml:space="preserve">
+    <value>الخطوة 5: اختبر إرسال رسالة باستخدام sendMessage مع الرمز ومعرف المحادثة.</value>
+  </data>
+  <data name="MiP_TelegramStep6.Text" xml:space="preserve">
+    <value>الخطوة 6: أضف الرمز ومعرف المحادثة في إعدادات التطبيق لتفعيل الإشعارات.</value>
+  </data>
+  <data name="MiP_TelegramStep7.Text" xml:space="preserve">
+    <value>الخطوة 7: استخدم الأوامر المخصصة التالية لتسجيل المستخدمين مع البوت.</value>
+  </data>
+  <data name="MiP_TelegramCmdAdmin.Text" xml:space="preserve">
+    <value>• /admin – يعين دور المدير لمنشئ البوت (عادةً المالك).</value>
+  </data>
+  <data name="MiP_TelegramCmdDoctor.Text" xml:space="preserve">
+    <value>• /doctor – يسترجع معرف الطبيب من ملف TelegramLog في مجلد السجلات.</value>
+  </data>
+  <data name="MiP_TelegramCmdStart.Text" xml:space="preserve">
+    <value>• /start – يسترجع معرف المريض من نفس ملف TelegramLog.</value>
+  </data>
+  <data name="MiP_TelegramBotToken.PlaceholderText" xml:space="preserve">
+    <value>رمز البوت (مطلوب)</value>
+  </data>
+  <data name="MiP_TelegramBotToken.ToolTipService.ToolTip" xml:space="preserve">
+    <value>أدخل رمز بوت تيليجرام الخاص بك لربط التطبيق بالبوت.</value>
+  </data>
+  <data name="MiP_TelegramBotDisplayName.PlaceholderText" xml:space="preserve">
+    <value>اسم العرض للبوت (اختياري)</value>
+  </data>
+  <data name="MiP_TelegramBotDisplayName.ToolTipService.ToolTip" xml:space="preserve">
+    <value>أدخل اسمًا وديًا للبوت. يظهر هذا الاسم للمرضى لسهولة التعرف عليه.</value>
+  </data>
+  <data name="MiP_TelegramAdminChatId.PlaceholderText" xml:space="preserve">
+    <value>معرف محادثة المدير (اختياري)</value>
+  </data>
+  <data name="MiP_TelegramAdminChatId.ToolTipService.ToolTip" xml:space="preserve">
+    <value>أدخل معرف محادثة المدير في تيليجرام. سيرسل البوت تحية يومية هنا لتأكيد أنه يعمل.</value>
+  </data>
+  <data name="MiP_TelegramApplyButton.Content" xml:space="preserve">
+    <value>تطبيق</value>
+  </data>
+  <data name="MiP_TelegramTokenWarning.Text" xml:space="preserve">
+    <value>⚠️ رمز بوت تيليجرام حساس. احتفظ به بشكل خاص ولا تشاركه.</value>
+  </data>
+  <data name="MiP_TelegramRiskWarning.Text" xml:space="preserve">
+    <value>🚨 أي شخص يحصل على الرمز يمكنه السيطرة على البوت. قد يرسل رسائل غير مصرح بها أو غير مناسبة للعملاء أو المرضى.</value>
+  </data>
+  <data name="MiP_TelegramDisclaimer.Text" xml:space="preserve">
+    <value>🔒 تنويه: من أجل سلامتك، لا تتحمل LiteClinic أي مسؤولية عن سرقة الرموز أو إساءة استخدامها أو اختراقها على جهاز الكمبيوتر الخاص بك أو الأنظمة الخارجية.</value>
+  </data>
+  <data name="MiP_WhatsAppTab.Header" xml:space="preserve">
+    <value>واتساب</value>
+  </data>
+  <data name="MiP_WhatsAppTitle.Text" xml:space="preserve">
+    <value>دمج واتساب</value>
+  </data>
+  <data name="MiP_WhatsAppIntro.Text" xml:space="preserve">
+    <value>يمكن لـ LiteClinic الدمج مع واتساب لإرسال الإشعارات والتذكيرات والتحديثات مباشرة إلى عملائك أو مرضاك.</value>
+  </data>
+  <data name="MiP_WhatsAppStepsTitle.Text" xml:space="preserve">
+    <value>خطوات ربط واتساب:</value>
+  </data>
+  <data name="MiP_WhatsAppStep1.Text" xml:space="preserve">
+    <value>1. سجّل للحصول على وصول إلى واجهة برمجة تطبيقات واتساب للأعمال.</value>
+  </data>
+  <data name="MiP_WhatsAppStep2.Text" xml:space="preserve">
+    <value>2. احصل على مفتاح API ومعرف رقم الهاتف الخاص بك.</value>
+  </data>
+  <data name="MiP_WhatsAppStep3.Text" xml:space="preserve">
+    <value>3. قم بتهيئة LiteClinic باستخدام بيانات الاعتماد الخاصة بك.</value>
+  </data>
+  <data name="MiP_WhatsAppStep4.Text" xml:space="preserve">
+    <value>4. اختبر إرسال رسالة تجريبية للتأكد من نجاح الدمج.</value>
+  </data>
+  <data name="MiP_WhatsAppAccessToken.PlaceholderText" xml:space="preserve">
+    <value>أضف رمز وصول واتساب</value>
+  </data>
+  <data name="MiP_WhatsAppAccessToken.ToolTipService.ToolTip" xml:space="preserve">
+    <value>أدخل رمز وصول واجهة برمجة تطبيقات واتساب للأعمال هنا.</value>
+  </data>
+  <data name="MiP_WhatsAppApplyButton.Content" xml:space="preserve">
+    <value>تطبيق</value>
+  </data>
+  <data name="MiP_WhatsAppNote.Text" xml:space="preserve">
+    <value>ℹ️ لمستويات الميزات المتاحة (أساسي، متقدم، صيانة)، يرجى مراجعة علامة تبويب تعليمات الاستفسار.</value>
+  </data>
+  <data name="MiP_WhatsAppDisclaimer.Text" xml:space="preserve">
+    <value>🔒 يضمن دمج واتساب اتصالًا آمنًا وموثوقًا مع عملائك. يرجى ملاحظة أن جميع الرسائل يجب أن تتوافق مع سياسات واجهة برمجة تطبيقات واتساب للأعمال لحماية ممارستك ومرضاك.</value>
+  </data>
+  <data name="MiP_DiscordTab.Header" xml:space="preserve">
+    <value>ديسكورد</value>
+  </data>
+  <data name="MiP_DiscordTitle.Text" xml:space="preserve">
+    <value>دمج ديسكورد</value>
+  </data>
+  <data name="MiP_DiscordIntro.Text" xml:space="preserve">
+    <value>يمكن لـ LiteClinic الدمج مع ديسكورد لإرسال التنبيهات والتحديثات أو التذكيرات مباشرة إلى قنوات الخادم الخاصة بك.</value>
+  </data>
+  <data name="MiP_DiscordStepsTitle.Text" xml:space="preserve">
+    <value>خطوات ربط ديسكورد:</value>
+  </data>
+  <data name="MiP_DiscordStep1.Text" xml:space="preserve">
+    <value>1. أنشئ تطبيقًا جديدًا في بوابة مطوري ديسكورد.</value>
+  </data>
+  <data name="MiP_DiscordStep2.Text" xml:space="preserve">
+    <value>2. أضف مستخدم بوت إلى تطبيقك وانسخ رمز البوت.</value>
+  </data>
+  <data name="MiP_DiscordStep3.Text" xml:space="preserve">
+    <value>3. قم بدعوة البوت إلى خادمك مع الأذونات الصحيحة.</value>
+  </data>
+  <data name="MiP_DiscordStep4.Text" xml:space="preserve">
+    <value>4. قم بتهيئة LiteClinic باستخدام رمز البوت ومعرف القناة المستهدفة.</value>
+  </data>
+  <data name="MiP_DiscordStep5.Text" xml:space="preserve">
+    <value>5. اختبر إرسال رسالة تجريبية للتأكد من نجاح الدمج.</value>
+  </data>
+  <data name="MiP_DiscordAccessToken.PlaceholderText" xml:space="preserve">
+    <value>أضف رمز وصول ديسكورد</value>
+  </data>
+  <data name="MiP_DiscordAccessToken.ToolTipService.ToolTip" xml:space="preserve">
+    <value>أدخل رمز بوت ديسكورد هنا.</value>
+  </data>
+  <data name="MiP_DiscordApplyButton.Content" xml:space="preserve">
+    <value>تطبيق</value>
+  </data>
+  <data name="MiP_DiscordNote.Text" xml:space="preserve">
+    <value>ℹ️ لمستويات الميزات المتاحة (أساسي، متقدم، صيانة)، يرجى مراجعة علامة تبويب تعليمات الاستفسار.</value>
+  </data>
+  <data name="MiP_InquiryTab.Header" xml:space="preserve">
+    <value>تعليمات الاستفسار</value>
+  </data>
+  <data name="MiP_InquiryTitle.Text" xml:space="preserve">
+    <value>تعليمات استفسار الدمج</value>
+  </data>
+  <data name="MiP_InquiryIntro.Text" xml:space="preserve">
+    <value>📧 لطلب الدمج مع تيليجرام أو واتساب أو ديسكورد، يرجى إرسال بريد إلكتروني إلينا.</value>
+  </data>
+  <data name="MiP_InquirySubjectLines.Text" xml:space="preserve">
+    <value>استخدم عناوين الموضوع التالية:</value>
+  </data>
+  <data name="MiP_InquiryTelegramSubject.Text" xml:space="preserve">
+    <value>• الموضوع: استفسار دمج تيليجرام</value>
+  </data>
+  <data name="MiP_InquiryTelegramSendMail.Content" xml:space="preserve">
+    <value>أرسل البريد الآن</value>
+  </data>
+  <data name="MiP_InquiryWhatsAppSubject.Text" xml:space="preserve">
+    <value>• الموضوع: استفسار دمج واتساب</value>
+  </data>
+  <data name="MiP_InquiryWhatsAppSendMail.Content" xml:space="preserve">
+    <value>أرسل البريد الآن</value>
+  </data>
+  <data name="MiP_InquiryDiscordSubject.Text" xml:space="preserve">
+    <value>• الموضوع: استفسار دمج ديسكورد</value>
+  </data>
+  <data name="MiP_InquiryDiscordSendMail.Content" xml:space="preserve">
+    <value>أرسل البريد الآن</value>
+  </data>
+  <data name="MiP_InquiryHelpText.Text" xml:space="preserve">
+    <value>يساعدنا هذا في تحديد طلبك بسرعة والرد بالتعليمات الصحيحة.</value>
+  </data>
+  <data name="MiP_InquiryEmailBodyTitle.Text" xml:space="preserve">
+    <value>📄 يرجى تضمين التفاصيل التالية في نص البريد الإلكتروني:</value>
+  </data>
+  <data name="MiP_InquiryBasicTitle.Text" xml:space="preserve">
+    <value>الخيار الأساسي</value>
+  </data>
+  <data name="MiP_InquiryBasicFeatures.Text" xml:space="preserve">
+    <value>الميزات:</value>
+  </data>
+  <data name="MiP_InquiryBasicFeature1.Text" xml:space="preserve">
+    <value>• إرسال الرسائل عبر API</value>
+  </data>
+  <data name="MiP_InquiryBasicFeature2.Text" xml:space="preserve">
+    <value>• حلقة قاعدة بيانات بسيطة (لكل العملاء)</value>
+  </data>
+  <data name="MiP_InquiryBasicFeature3.Text" xml:space="preserve">
+    <value>• جدولة أساسية (تذكيرات التاريخ/الوقت)</value>
+  </data>
+  <data name="MiP_InquiryBasicFeature4.Text" xml:space="preserve">
+    <value>• التحقق من الامتثال للاشتراك</value>
+  </data>
+  <data name="MiP_InquiryAdvancedTitle.Text" xml:space="preserve">
+    <value>الخيار المتقدم</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeatures.Text" xml:space="preserve">
+    <value>الميزات:</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeature1.Text" xml:space="preserve">
+    <value>• جميع ميزات الخيار الأساسي</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeature2.Text" xml:space="preserve">
+    <value>• إدارة القوالب المعتمدة</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeature3.Text" xml:space="preserve">
+    <value>• وسائط غنية (صور، ملفات PDF، أزرار)</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeature4.Text" xml:space="preserve">
+    <value>• معالجة الأخطاء وتسجيلها</value>
+  </data>
+  <data name="MiP_InquiryAdvancedFeature5.Text" xml:space="preserve">
+    <value>• دمج لوحة المعلومات/التحليلات</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceTitle.Text" xml:space="preserve">
+    <value>الصيانة الاختيارية</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceFeature1.Text" xml:space="preserve">
+    <value>• تحديثات القوالب</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceFeature2.Text" xml:space="preserve">
+    <value>• ترقيات إصدار API</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceFeature3.Text" xml:space="preserve">
+    <value>• إصلاحات الأخطاء والدعم</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceSupportText.Text" xml:space="preserve">
+    <value>للحصول على دعم الصيانة أرسل لنا بريدًا إلكترونيًا</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceHelpText.Text" xml:space="preserve">
+    <value>يرجى وصف مشكلتك بالتفصيل حتى نتمكن من تقديم تقدير دقيق للتكلفة.</value>
+  </data>
+  <data name="MiP_InquiryMaintenanceSendMail.Content" xml:space="preserve">
+    <value>أرسل البريد الآن</value>
+  </data>
+  <data name="MiP_StatusMessage_TokenEmpty" xml:space="preserve">
+    <value>⚠️ لا يمكن أن يكون الرمز فارغًا.</value>
+  </data>
+  <data name="MiP_StatusMessage_AdminOnly" xml:space="preserve">
+    <value>⚠️ فقط المدير يمكنه إضافة رموز البوت!</value>
+  </data>
+  <data name="MiP_StatusMessage_TokenInserted" xml:space="preserve">
+    <value>تمت إضافة رمز {0}.</value>
+  </data>
+  <data name="MiP_StatusMessage_TokenUpdated" xml:space="preserve">
+    <value>تم تحديث رمز {0}.</value>
+  </data>
+  <data name="MiP_StatusMessage_NoTelegramToken" xml:space="preserve">
+    <value>⚠️ لم يتم العثور على رمز تيليجرام.</value>
+  </data>
+  <data name="MiP_StatusMessage_TelegramBotValid" xml:space="preserve">
+    <value>✅ بوت تيليجرام صالح. اسم المستخدم: @{0}، المعرف: {1}</value>
+  </data>
+  <data name="MiP_StatusMessage_TelegramBotTestFailed" xml:space="preserve">
+    <value>❌ فشل اختبار بوت تيليجرام.</value>
+  </data>
+  <data name="MiP_TelegramStep8Title.Text" xml:space="preserve">
+    <value>الخطوة 8: أضف أوامر مخصصة إلى البوت باستخدام BotFather.</value>
+  </data>
+  <data name="MiP_TelegramStep8Intro.Text" xml:space="preserve">
+    <value>إذا كنت تريد أن يتعرف البوت على /admin و /doctor و /start، يجب تسجيلها في BotFather:</value>
+  </data>
+  <data name="MiP_TelegramStep8_1.Text" xml:space="preserve">
+    <value>1. افتح تيليجرام وابدأ محادثة مع BotFather.</value>
+  </data>
+  <data name="MiP_TelegramStep8_2.Text" xml:space="preserve">
+    <value>2. اكتب /mybots واختر البوت الخاص بك.</value>
+  </data>
+  <data name="MiP_TelegramStep8_3.Text" xml:space="preserve">
+    <value>3. اختر "تعديل البوت" → "تعديل الأوامر".</value>
+  </data>
+  <data name="MiP_TelegramStep8_4.Text" xml:space="preserve">
+    <value>4. أدخل الأوامر التي تريدها، كل أمر في سطر، مع وصف قصير:</value>
+  </data>
+  <data name="MiP_TelegramCmdAdminDesc.Text" xml:space="preserve">
+    <value>/admin - يعين دور المدير (المنشئ فقط)</value>
+  </data>
+  <data name="MiP_TelegramCmdDoctorDesc.Text" xml:space="preserve">
+    <value>/doctor - يسترجع معرف الطبيب من ملف TelegramLog</value>
+  </data>
+  <data name="MiP_TelegramCmdStartDesc.Text" xml:space="preserve">
+    <value>/start - الأمر الافتراضي لتسجيل معرف المرضى، ويمكن أيضًا استرجاعه من ملف TelegramLog</value>
+  </data>
+  <data name="MiP_TelegramStep8_5.Text" xml:space="preserve">
+    <value>5. احفظ التغييرات. الآن سيتعرف البوت رسميًا على هذه الأوامر.</value>
+  </data>
+  <data name="MiP_TelegramReminder.Text" xml:space="preserve">
+    <value>⚠️ تذكير: يمكن لكل مستخدم (مدير، طبيب، مريض) استخدام هذه الأوامر مرة واحدة فقط يوميًا لتجنب الإغراق. لن يستجيب البوت لأي أسئلة أو رسائل أخرى خارج هذه الأوامر.</value>
+  </data>
+  <data name="Ppg_PatientInfoTitle.Text" xml:space="preserve">
+    <value>معلومات المريض</value>
+  </data>
+  <data name="Ppg_FirstName.Header" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="Ppg_FirstName.PlaceholderText" xml:space="preserve">
+    <value>أدخل الاسم الأول</value>
+  </data>
+  <data name="Ppg_MiddleName.Header" xml:space="preserve">
+    <value>الاسم الأوسط</value>
+  </data>
+  <data name="Ppg_MiddleName.PlaceholderText" xml:space="preserve">
+    <value>أدخل الاسم الأوسط</value>
+  </data>
+  <data name="Ppg_LastName.Header" xml:space="preserve">
+    <value>اسم العائلة</value>
+  </data>
+  <data name="Ppg_LastName.PlaceholderText" xml:space="preserve">
+    <value>أدخل اسم العائلة</value>
+  </data>
+  <data name="Ppg_MotherName.Header" xml:space="preserve">
+    <value>اسم الأم الكامل</value>
+  </data>
+  <data name="Ppg_MotherName.PlaceholderText" xml:space="preserve">
+    <value>أدخل الاسم الكامل للأم</value>
+  </data>
+  <data name="Ppg_CivilRecord.Header" xml:space="preserve">
+    <value>السجل المدني</value>
+  </data>
+  <data name="Ppg_CivilRecord.PlaceholderText" xml:space="preserve">
+    <value>أدخل السجل المدني</value>
+  </data>
+  <data name="Ppg_Gender.Header" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="Ppg_GenderMale.Content" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="Ppg_GenderFemale.Content" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
+  <data name="Ppg_DateOfBirthLabel.Text" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="Ppg_Day.PlaceholderText" xml:space="preserve">
+    <value>اليوم</value>
+  </data>
+  <data name="Ppg_Month.PlaceholderText" xml:space="preserve">
+    <value>الشهر</value>
+  </data>
+  <data name="Ppg_Year.PlaceholderText" xml:space="preserve">
+    <value>السنة</value>
+  </data>
+  <data name="Ppg_ContactInfoTitle.Text" xml:space="preserve">
+    <value>معلومات الاتصال</value>
+  </data>
+  <data name="Ppg_PhoneNumber.Header" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="Ppg_PhoneNumber.PlaceholderText" xml:space="preserve">
+    <value>أدخل رقم الهاتف</value>
+  </data>
+  <data name="Ppg_Email.Header" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Ppg_Email.PlaceholderText" xml:space="preserve">
+    <value>أدخل البريد الإلكتروني</value>
+  </data>
+  <data name="Ppg_Address.Header" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="Ppg_Address.PlaceholderText" xml:space="preserve">
+    <value>أدخل العنوان</value>
+  </data>
+  <data name="Ppg_City.Header" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="Ppg_City.PlaceholderText" xml:space="preserve">
+    <value>أدخل المدينة</value>
+  </data>
+  <data name="Ppg_Country.Header" xml:space="preserve">
+    <value>الدولة</value>
+  </data>
+  <data name="Ppg_Country.PlaceholderText" xml:space="preserve">
+    <value>أدخل الدولة</value>
+  </data>
+  <data name="Ppg_MedicalInfoTitle.Text" xml:space="preserve">
+    <value>المعلومات الطبية</value>
+  </data>
+  <data name="Ppg_BloodType.Header" xml:space="preserve">
+    <value>فصيلة الدم</value>
+  </data>
+  <data name="Ppg_BloodTypeAPlus.Content" xml:space="preserve">
+    <value>A+</value>
+  </data>
+  <data name="Ppg_BloodTypeAMinus.Content" xml:space="preserve">
+    <value>A-</value>
+  </data>
+  <data name="Ppg_BloodTypeBPlus.Content" xml:space="preserve">
+    <value>B+</value>
+  </data>
+  <data name="Ppg_BloodTypeBMinus.Content" xml:space="preserve">
+    <value>B-</value>
+  </data>
+  <data name="Ppg_BloodTypeABPlus.Content" xml:space="preserve">
+    <value>AB+</value>
+  </data>
+  <data name="Ppg_BloodTypeABMinus.Content" xml:space="preserve">
+    <value>AB-</value>
+  </data>
+  <data name="Ppg_BloodTypeOPlus.Content" xml:space="preserve">
+    <value>O+</value>
+  </data>
+  <data name="Ppg_BloodTypeOMinus.Content" xml:space="preserve">
+    <value>O-</value>
+  </data>
+  <data name="Ppg_Allergies.Header" xml:space="preserve">
+    <value>الحساسية</value>
+  </data>
+  <data name="Ppg_Allergies.PlaceholderText" xml:space="preserve">
+    <value>أدخل الحساسية</value>
+  </data>
+  <data name="Ppg_MedicalHistory.Header" xml:space="preserve">
+    <value>السجل الطبي</value>
+  </data>
+  <data name="Ppg_MedicalHistory.PlaceholderText" xml:space="preserve">
+    <value>أدخل السجل الطبي</value>
+  </data>
+  <data name="Ppg_InsuranceTitle.Text" xml:space="preserve">
+    <value>التأمين والرقم الوطني</value>
+  </data>
+  <data name="Ppg_HasInsurance.Header" xml:space="preserve">
+    <value>هل لديك تأمين؟</value>
+  </data>
+  <data name="Ppg_InsuranceName.Header" xml:space="preserve">
+    <value>اسم التأمين</value>
+  </data>
+  <data name="Ppg_InsuranceName.PlaceholderText" xml:space="preserve">
+    <value>أدخل اسم التأمين</value>
+  </data>
+  <data name="Ppg_InsuranceNumber.Header" xml:space="preserve">
+    <value>رقم التأمين</value>
+  </data>
+  <data name="Ppg_InsuranceNumber.PlaceholderText" xml:space="preserve">
+    <value>أدخل رقم التأمين</value>
+  </data>
+  <data name="Ppg_HasNSN.Header" xml:space="preserve">
+    <value>هل لديك رقم وطني؟</value>
+  </data>
+  <data name="Ppg_NSNName.Header" xml:space="preserve">
+    <value>اسم/أسماء الرقم الوطني</value>
+  </data>
+  <data name="Ppg_NSNName.PlaceholderText" xml:space="preserve">
+    <value>أدخل أسماء الرقم الوطني</value>
+  </data>
+  <data name="Ppg_NSNNumber.Header" xml:space="preserve">
+    <value>الرقم الوطني</value>
+  </data>
+  <data name="Ppg_NSNNumber.PlaceholderText" xml:space="preserve">
+    <value>أدخل الرقم الوطني</value>
+  </data>
+  <data name="Ppg_Language.Header" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="Ppg_LanguageEnglish.Content" xml:space="preserve">
+    <value>الإنجليزية</value>
+  </data>
+  <data name="Ppg_LanguageFrench.Content" xml:space="preserve">
+    <value>الفرنسية</value>
+  </data>
+  <data name="Ppg_LanguageArabic.Content" xml:space="preserve">
+    <value>العربية</value>
+  </data>
+  <data name="Ppg_IsActive.Content" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="Ppg_AddButton.Content" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="Ppg_AddButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>حفظ/F1</value>
+  </data>
+  <data name="Ppg_EditButton.Content" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Ppg_EditButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تحديث/F2</value>
+  </data>
+  <data name="Ppg_DeactivateButton.Content" xml:space="preserve">
+    <value>إلغاء التفعيل</value>
+  </data>
+  <data name="Ppg_DeactivateButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>إلغاء التفعيل/F3</value>
+  </data>
+  <data name="Ppg_ClearButton.Content" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="Ppg_ClearButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>مسح البيانات (تحديث)/F4</value>
+  </data>
+  <data name="Ppg_PatientsListTitle.Text" xml:space="preserve">
+    <value>قائمة المرضى</value>
+  </data>
+  <data name="Ppg_SearchBox.PlaceholderText" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="Ppg_AddServiceButton.Content" xml:space="preserve">
+    <value>إضافة خدمة</value>
+  </data>
+  <data name="Ppg_ColumnAutoId.Header" xml:space="preserve">
+    <value>المعرف التلقائي</value>
+  </data>
+  <data name="Ppg_ColumnPatientId.Header" xml:space="preserve">
+    <value>معرف المريض</value>
+  </data>
+  <data name="Ppg_ColumnFirstName.Header" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="Ppg_ColumnMiddleName.Header" xml:space="preserve">
+    <value>الاسم الأوسط</value>
+  </data>
+  <data name="Ppg_ColumnLastName.Header" xml:space="preserve">
+    <value>اسم العائلة</value>
+  </data>
+  <data name="Ppg_ColumnMotherName.Header" xml:space="preserve">
+    <value>اسم الأم</value>
+  </data>
+  <data name="Ppg_ColumnCivilRecord.Header" xml:space="preserve">
+    <value>السجل المدني</value>
+  </data>
+  <data name="Ppg_ColumnGender.Header" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="Ppg_ColumnDOB.Header" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="Ppg_ColumnAge.Header" xml:space="preserve">
+    <value>العمر</value>
+  </data>
+  <data name="Ppg_ColumnPhoneNumber.Header" xml:space="preserve">
+    <value>الهاتف المحمول</value>
+  </data>
+  <data name="Ppg_ColumnEmail.Header" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Ppg_ColumnAddress.Header" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="Ppg_ColumnCity.Header" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="Ppg_ColumnGotInsurance.Header" xml:space="preserve">
+    <value>لديه تأمين</value>
+  </data>
+  <data name="Ppg_ColumnInsuranceName.Header" xml:space="preserve">
+    <value>اسم التأمين</value>
+  </data>
+  <data name="Ppg_ColumnInsuranceNumber.Header" xml:space="preserve">
+    <value>رقم التأمين</value>
+  </data>
+  <data name="Ppg_ColumnGotNSN.Header" xml:space="preserve">
+    <value>لديه رقم وطني</value>
+  </data>
+  <data name="Ppg_ColumnNSNName.Header" xml:space="preserve">
+    <value>اسم الرقم الوطني</value>
+  </data>
+  <data name="Ppg_ColumnNSNNumber.Header" xml:space="preserve">
+    <value>الرقم الوطني</value>
+  </data>
+  <data name="Ppg_ColumnBloodType.Header" xml:space="preserve">
+    <value>فصيلة الدم</value>
+  </data>
+  <data name="Ppg_ColumnAllergies.Header" xml:space="preserve">
+    <value>الحساسية</value>
+  </data>
+  <data name="Ppg_ColumnMedicalHistory.Header" xml:space="preserve">
+    <value>السجل الطبي</value>
+  </data>
+  <data name="Ppg_ColumnLanguage.Header" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="Ppg_ColumnActive.Header" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="Ppg_InfoAddShortcut.Text" xml:space="preserve">
+    <value>إضافة = F1</value>
+  </data>
+  <data name="Ppg_InfoEditShortcut.Text" xml:space="preserve">
+    <value>تعديل = F2</value>
+  </data>
+  <data name="Ppg_InfoDeactivateShortcut.Text" xml:space="preserve">
+    <value>إلغاء التفعيل = F3</value>
+  </data>
+  <data name="Ppg_InfoClearShortcut.Text" xml:space="preserve">
+    <value>مسح = F4</value>
+  </data>
+  <data name="Ppg_InfoDeactivatedUser.Text" xml:space="preserve">
+    <value>مستخدم غير مفعل</value>
+  </data>
+  <data name="StatusMessageLoaded" xml:space="preserve">
+    <value>تم تحميل {0} مريض.</value>
+  </data>
+  <data name="StatusMessageRequiredFields" xml:space="preserve">
+    <value>الحقول المطلوبة محددة بدائرة حمراء</value>
+  </data>
+  <data name="StatusMessagePatientAdded" xml:space="preserve">
+    <value>تمت إضافة المريض بنجاح.</value>
+  </data>
+  <data name="StatusMessagePatientAddedError" xml:space="preserve">
+    <value>فشل في إضافة المريض.</value>
+  </data>
+  <data name="StatusMessagePatientUpdated" xml:space="preserve">
+    <value>تم تحديث بيانات المريض بنجاح.</value>
+  </data>
+  <data name="StatusMessagePatientUpdatedError" xml:space="preserve">
+    <value>فشل في تحديث بيانات المريض. تحقق من سجل الأخطاء</value>
+  </data>
+  <data name="StatusMessagePatientDeactivated" xml:space="preserve">
+    <value>تم إلغاء تفعيل المريض بنجاح.</value>
+  </data>
+  <data name="StatusMessagePatientDeactivatedError" xml:space="preserve">
+    <value>فشل في إلغاء تفعيل المريض. تحقق من سجل الأخطاء</value>
+  </data>
+  <data name="StatusMessageErrorDate" xml:space="preserve">
+    <value>تم إدخال تاريخ غير صالح. تحقق من سجل الأخطاء</value>
+  </data>
+  <data name="HamburgerMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>القائمة</value>
+  </data>
+  <data name="Mm_DashboardMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>لوحة التحكم</value>
+  </data>
+  <data name="Mm_DoctorsMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>الأطباء</value>
+  </data>
+  <data name="Mm_PatientsMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>المرضى</value>
+  </data>
+  <data name="Mm_AppointmentsMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>المواعيد</value>
+  </data>
+  <data name="Mm_ReportsMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>التقارير</value>
+  </data>
+  <data name="Mm_UsersMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>المستخدمون</value>
+  </data>
+  <data name="Mm_SettingsMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="Mm_AboutMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>حول</value>
+  </data>
+  <data name="Mm_LogoutMenu.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
+  <data name="Rpg_Title.Text" xml:space="preserve">
+    <value>تقرير نشاط العيادة</value>
+  </data>
+  <data name="Rpg_ClinicSummary.Text" xml:space="preserve">
+    <value>ملخص العيادة</value>
+  </data>
+  <data name="Rpg_NoteZeroCounts.Text" xml:space="preserve">
+    <value>ملاحظة: ستبقى الأعداد 0 حتى يتم تحديد المواعيد كـ "حضر" أو "غاب" للمرضى والأطباء.</value>
+  </data>
+  <data name="Rpg_TotalLabel.Text" xml:space="preserve">
+    <value>المجموع</value>
+  </data>
+  <data name="Rpg_DoctorsLabel.Text" xml:space="preserve">
+    <value>الأطباء</value>
+  </data>
+  <data name="Rpg_TodayDoctors.Text" xml:space="preserve">
+    <value>اليوم:</value>
+  </data>
+  <data name="Rpg_WeekDoctors.Text" xml:space="preserve">
+    <value>هذا الأسبوع:</value>
+  </data>
+  <data name="Rpg_MonthDoctors.Text" xml:space="preserve">
+    <value>هذا الشهر:</value>
+  </data>
+  <data name="Rpg_YearDoctors.Text" xml:space="preserve">
+    <value>هذه السنة:</value>
+  </data>
+  <data name="Rpg_TotalLabelPatients.Text" xml:space="preserve">
+    <value>المجموع</value>
+  </data>
+  <data name="Rpg_PatientsLabel.Text" xml:space="preserve">
+    <value>المرضى</value>
+  </data>
+  <data name="Rpg_TodayPatients.Text" xml:space="preserve">
+    <value>اليوم:</value>
+  </data>
+  <data name="Rpg_WeekPatients.Text" xml:space="preserve">
+    <value>هذا الأسبوع:</value>
+  </data>
+  <data name="Rpg_MonthPatients.Text" xml:space="preserve">
+    <value>هذا الشهر:</value>
+  </data>
+  <data name="Rpg_YearPatients.Text" xml:space="preserve">
+    <value>هذه السنة:</value>
+  </data>
+  <data name="Rpg_MissedLabel.Text" xml:space="preserve">
+    <value>المواعيد الفائتة</value>
+  </data>
+  <data name="Rpg_AppointmentsLabel.Text" xml:space="preserve">
+    <value>المواعيد</value>
+  </data>
+  <data name="Rpg_TodayMissed.Text" xml:space="preserve">
+    <value>اليوم:</value>
+  </data>
+  <data name="Rpg_WeekMissed.Text" xml:space="preserve">
+    <value>هذا الأسبوع:</value>
+  </data>
+  <data name="Rpg_MonthMissed.Text" xml:space="preserve">
+    <value>هذا الشهر:</value>
+  </data>
+  <data name="Rpg_YearMissed.Text" xml:space="preserve">
+    <value>هذه السنة:</value>
+  </data>
+  <data name="Rpg_AuditSummary.Text" xml:space="preserve">
+    <value>ملخص التدقيق</value>
+  </data>
+  <data name="Rpg_Administrator.Text" xml:space="preserve">
+    <value>مدير النظام</value>
+  </data>
+  <data name="Rpg_HR.Text" xml:space="preserve">
+    <value>الموارد البشرية</value>
+  </data>
+  <data name="Rpg_Moderator.Text" xml:space="preserve">
+    <value>المشرف</value>
+  </data>
+  <data name="Rpg_DoctorRole.Text" xml:space="preserve">
+    <value>طبيب</value>
+  </data>
+  <data name="Rpg_Pharmacist.Text" xml:space="preserve">
+    <value>صيدلي</value>
+  </data>
+  <data name="Rpg_Nurse.Text" xml:space="preserve">
+    <value>ممرضة</value>
+  </data>
+  <data name="Rpg_Receptionist.Text" xml:space="preserve">
+    <value>موظف استقبال</value>
+  </data>
+  <data name="Rpg_Guest.Text" xml:space="preserve">
+    <value>ضيف</value>
+  </data>
+  <data name="Rpg_MostCommonRole.Text" xml:space="preserve">
+    <value>أكثر دور شائع</value>
+  </data>
+  <data name="Rpg_PatientsLabelCard.Text" xml:space="preserve">
+    <value>المرضى</value>
+  </data>
+  <data name="Rpg_TopDoctorTitle.Text" xml:space="preserve">
+    <value>أفضل الأطباء لسنة {0}</value>
+  </data>
+  <data name="Rpg_TopSpecializationsTitle.Text" xml:space="preserve">
+    <value>أفضل التخصصات لسنة {0}</value>
+  </data>
+  <data name="Rpg_DoctorsAxis.Header" xml:space="preserve">
+    <value>الأطباء</value>
+  </data>
+  <data name="Rpg_PatientsAxis.Header" xml:space="preserve">
+    <value>المرضى</value>
+  </data>
+  <data name="Rpg_SpecializationsAxis.Header" xml:space="preserve">
+    <value>التخصصات</value>
+  </data>
+  <data name="Rpg_PatientsAxisSpecializations.Header" xml:space="preserve">
+    <value>المرضى</value>
+  </data>
+<data name="SchDp_TimeStampCannotBeNull" xml:space="preserve">
+    <value>لا يمكن أن يكون التوقيت فارغًا. القيمة: {0}</value>
+</data>
+<data name="SchDp_TimeStampIsSameOrInvalid" xml:space="preserve">
+    <value>التوقيت متماثل أو غير صالح. من: {0} إلى: {1}</value>
+</data>
+<data name="SchDp_TimePickerFrom.Header" xml:space="preserve">
+    <value>من:</value>
+</data>
+<data name="SchDp_TimePickerTo.Header" xml:space="preserve">
+    <value>إلى:</value>
+</data>
+  <data name="SchDp_AddDoctorScheduled.Text" xml:space="preserve">
+    <value>إضافة جدول الطبيب</value>
+  </data>
+  <data name="SchDp_ChooseDoctor.Header" xml:space="preserve">
+    <value>اختر الطبيب</value>
+  </data>
+  <data name="SchDp_DayOfWeek.Header" xml:space="preserve">
+    <value>يوم الأسبوع</value>
+  </data>
+  <data name="SchDp_Monday.Content" xml:space="preserve">
+    <value>الاثنين</value>
+  </data>
+  <data name="SchDp_Tuesday.Content" xml:space="preserve">
+    <value>الثلاثاء</value>
+  </data>
+  <data name="SchDp_Wednesday.Content" xml:space="preserve">
+    <value>الأربعاء</value>
+  </data>
+  <data name="SchDp_Thursday.Content" xml:space="preserve">
+    <value>الخميس</value>
+  </data>
+  <data name="SchDp_Friday.Content" xml:space="preserve">
+    <value>الجمعة</value>
+  </data>
+  <data name="SchDp_Saturday.Content" xml:space="preserve">
+    <value>السبت</value>
+  </data>
+  <data name="SchDp_Week1.Content" xml:space="preserve">
+    <value>الأسبوع 1</value>
+  </data>
+  <data name="SchDp_Week2.Content" xml:space="preserve">
+    <value>الأسبوع 2</value>
+  </data>
+  <data name="SchDp_Week3.Content" xml:space="preserve">
+    <value>الأسبوع 3</value>
+  </data>
+  <data name="SchDp_Week4.Content" xml:space="preserve">
+    <value>الأسبوع 4</value>
+  </data>
+  <data name="SchDp_Week5.Content" xml:space="preserve">
+    <value>الأسبوع 5 (إن وجد)</value>
+  </data>
+  <data name="SchDp_Week5Note.Text" xml:space="preserve">
+    <value>يتم إرسال إشعارات الأسبوع الخامس فقط إذا تم تحديده وكان الشهر يحتوي على خامس يوم من أيام الأسبوع. ولتفادي أي تعارض قد يؤدي إلى عدم إرسال الإشعارات في الأسبوع الخامس، يُرجى دائمًا تحديد الأسبوع الخامس إذا كان متاحًا.</value>
+  </data>
+  <data name="SchDp_NotifyClinic.Content" xml:space="preserve">
+    <value>إشعار للعيادة</value>
+  </data>
+  <data name="SchDp_IsActive.Content" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="SchDp_AddButton.Content" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="SchDp_EditButton.Content" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="SchDp_DeactivateButton.Content" xml:space="preserve">
+    <value>إلغاء التفعيل</value>
+  </data>
+  <data name="SchDp_ClearButton.Content" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="SchDp_BackButton.Content" xml:space="preserve">
+    <value>العودة إلى صفحة الطبيب</value>
+  </data>
+  <data name="SchDp_AutoColumn.Header" xml:space="preserve">
+    <value>تلقائي</value>
+  </data>
+  <data name="SchDp_ScheduledIdColumn.Header" xml:space="preserve">
+    <value>معرّف الجدولة</value>
+  </data>
+  <data name="SchDp_DoctorIdColumn.Header" xml:space="preserve">
+    <value>معرّف الطبيب</value>
+  </data>
+  <data name="SchDp_DoctorNameColumn.Header" xml:space="preserve">
+    <value>اسم الطبيب</value>
+  </data>
+<data name="SchDp_SpecializationColumn.Header" xml:space="preserve">
+    <value>الاختصاص</value>
+</data>
+  <data name="SchDp_PhoneColumn.Header" xml:space="preserve">
+    <value>ا</value>
+  </data>
+  <data name="SchDp_DayOfWeekColumn.Header" xml:space="preserve">
+    <value>يوم الأسبوع</value>
+  </data>
+  <data name="SchDp_TimePickerFrom.Header" xml:space="preserve">
+    <value>من:</value>
+</data>
+<data name="SchDp_TimePickerTo.Header" xml:space="preserve">
+    <value>إلى:</value>
+</data>
+  <data name="SchDp_NotifyColumn.Header" xml:space="preserve">
+    <value>إشعار</value>
+  </data>
+  <data name="SchDp_ActiveColumn.Header" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="SchDp_WeeksColumn.Header" xml:space="preserve">
+    <value>أسابيع الشهر</value>
+  </data>
+  <data name="SchDp_AddLegend.Text" xml:space="preserve">
+    <value>إضافة = F1</value>
+  </data>
+  <data name="SchDp_EditLegend.Text" xml:space="preserve">
+    <value>تعديل = F2</value>
+  </data>
+  <data name="SchDp_DeactivateLegend.Text" xml:space="preserve">
+    <value>إلغاء التفعيل = F3</value>
+  </data>
+  <data name="SchDp_ClearLegend.Text" xml:space="preserve">
+    <value>مسح = F4</value>
+  </data>
+  <data name="SchDp_DeactivatedUserLegend.Text" xml:space="preserve">
+    <value>مستخدم غير مفعل</value>
+  </data>
+  <data name="SchDp_RequiredFieldsNote.Text" xml:space="preserve">
+    <value>الحقول المطلوبة مميزة بدائرة حمراء</value>
+  </data>
+  <data name="SchDp_StatusMessageSch" xml:space="preserve">
+    <value>خطأ في تحميل الجدول: {0}</value>
+  </data>
+  <data name="SchDp_StatusMessageSchLoaded" xml:space="preserve">
+    <value>تم تحميل {0} جدول.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchLoadedDisplay" xml:space="preserve">
+    <value>تم تحميل {0} جدول.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchDoctorsError" xml:space="preserve">
+    <value>خطأ في تحميل الأطباء: {0}</value>
+  </data>
+  <data name="SchDp_StatusMessageSchDoctorDayRequired" xml:space="preserve">
+    <value>يجب اختيار الطبيب ويوم الأسبوع.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleAdded" xml:space="preserve">
+    <value>تمت إضافة الجدول بنجاح.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleAddedError" xml:space="preserve">
+    <value>فشل في إضافة الجدول.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchNoScheduleForUpdate" xml:space="preserve">
+    <value>لم يتم اختيار جدول للتحديث.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchWeekRequired" xml:space="preserve">
+    <value>يرجى اختيار أسبوع واحد على الأقل (الأسبوع 1–4).</value>
+  </data>
+  <data name="SchDp_StatusMessageSchOverlap" xml:space="preserve">
+    <value>هذا الطبيب مجدول بالفعل في ذلك اليوم ضمن أسابيع متداخلة. معرّف الجدول {0}</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleUpdated" xml:space="preserve">
+    <value>تم تحديث الجدول بنجاح.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleUpdatedError" xml:space="preserve">
+    <value>فشل في تحديث الجدول.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchNoScheduleForDeactivation" xml:space="preserve">
+    <value>لم يتم اختيار جدول للتعطيل.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleDeactivated" xml:space="preserve">
+    <value>تم تعطيل الجدول بنجاح.</value>
+  </data>
+  <data name="SchDp_StatusMessageSchScheduleDeactivatedError" xml:space="preserve">
+    <value>فشل في تعطيل الجدول.</value>
+  </data>
+  <data name="SchDp_ScheduleDoctorNameBox.Header" xml:space="preserve">
+    <value>اختر الطبيب</value>
+  </data>
+  <data name="SchDp_ScheduleDayOfWeekBox.Header" xml:space="preserve">
+    <value>يوم الأسبوع</value>
+  </data>
+  <data name="SchDp_DoctorsManagerListTextBlock.Text" xml:space="preserve">
+    <value>قائمة إدارة الأطباء</value>
+  </data>
+  <data name="SchDp_ScheduleSearchBox.PlaceholderText" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="SchDp_Week5Ellipse.Margin" xml:space="preserve">
+    <value>36,0,0,0</value>
+  </data>
+  <data name="SIDp_SelectMessagingPlatformPatients.Text" xml:space="preserve">
+    <value>اختر منصة المراسلة - المرضى</value>
+  </data>
+  <data name="SIDp_AddServiceTitle.Text" xml:space="preserve">
+    <value>إضافة خدمة</value>
+  </data>
+  <data name="SIDp_PatientIdLabel.Text" xml:space="preserve">
+    <value>رقم المريض:</value>
+  </data>
+  <data name="SIDp_PatientIdTextBox.PlaceholderText" xml:space="preserve">
+    <value>أدخل رقم المريض</value>
+  </data>
+  <data name="SIDp_PatientCodeLabel.Text" xml:space="preserve">
+    <value>رمز المريض:</value>
+  </data>
+  <data name="SIDp_PatientCodeTextBox.PlaceholderText" xml:space="preserve">
+    <value>أدخل رمز المريض</value>
+  </data>
+  <data name="SIDp_ServiceNameLabel.Text" xml:space="preserve">
+    <value>اسم الخدمة:</value>
+  </data>
+  <data name="SIDp_ServiceNameTelegram.Content" xml:space="preserve">
+    <value>تيليجرام</value>
+  </data>
+  <data name="SIDp_ServiceNameWhatsApp.Content" xml:space="preserve">
+    <value>واتساب</value>
+  </data>
+  <data name="SIDp_ServiceNameDiscord.Content" xml:space="preserve">
+    <value>ديسكورد</value>
+  </data>
+  <data name="SIDp_ServiceNameEmail.Content" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="SIDp_ServiceNameSms.Content" xml:space="preserve">
+    <value>رسائل قصيرة</value>
+  </data>
+  <data name="SIDp_ServiceNameSlack.Content" xml:space="preserve">
+    <value>سلاك</value>
+  </data>
+  <data name="SIDp_ServiceNameViber.Content" xml:space="preserve">
+    <value>فايبر</value>
+  </data>
+  <data name="SIDp_ServiceNameTeams.Content" xml:space="preserve">
+    <value>مايكروسوفت تيمز</value>
+  </data>
+  <data name="SIDp_ServiceNameMessenger.Content" xml:space="preserve">
+    <value>ماسنجر فيسبوك</value>
+  </data>
+  <data name="SIDp_ServiceIdLabel.Text" xml:space="preserve">
+    <value>معرّف الخدمة:</value>
+  </data>
+  <data name="SIDp_ServiceIdTextBox.PlaceholderText" xml:space="preserve">
+    <value>أدخل معرف الدردشة / الرقم</value>
+  </data>
+  <data name="SIDp_IsActiveLabel.Text" xml:space="preserve">
+    <value>نشط:</value>
+  </data>
+  <data name="SIDp_SendNotificationLabel.Text" xml:space="preserve">
+    <value>إرسال إشعار باستخدام</value>
+  </data>
+  <data name="SIDp_NotifyEnglishLabel.Text" xml:space="preserve">
+    <value>الإنجليزية</value>
+  </data>
+  <data name="SIDp_NotifyArabicLabel.Text" xml:space="preserve">
+    <value>العربية</value>
+  </data>
+  <data name="SIDp_ApplyPatientServiceButton.Content" xml:space="preserve">
+    <value>تطبيق خدمة المريض</value>
+  </data>
+  <data name="SIDp_ClearButton.Content" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="SIDp_SearchBox.PlaceholderText" xml:space="preserve">
+    <value>بحث عن الخدمة/معرف المريض</value>
+  </data>
+  <data name="SIDp_HeaderServiceIdAuto.Header" xml:space="preserve">
+    <value>معرّف الخدمة التلقائي</value>
+  </data>
+  <data name="SIDp_HeaderPatientId.Header" xml:space="preserve">
+    <value>رقم المريض</value>
+  </data>
+  <data name="SIDp_HeaderCode.Header" xml:space="preserve">
+    <value>الرمز</value>
+  </data>
+  <data name="SIDp_HeaderServiceName.Header" xml:space="preserve">
+    <value>اسم الخدمة</value>
+  </data>
+  <data name="SIDp_HeaderServiceId.Header" xml:space="preserve">
+    <value>معرّف الخدمة</value>
+  </data>
+  <data name="SIDp_HeaderActive.Header" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="SIDp_HeaderNotifyEn.Header" xml:space="preserve">
+    <value>إشعار بالإنجليزية</value>
+  </data>
+  <data name="SIDp_HeaderNotifyAr.Header" xml:space="preserve">
+    <value>إشعار بالعربية</value>
+  </data>
+  <data name="SIDp_HeaderNotifyFr.Header" xml:space="preserve">
+  <value>إشعار بالفرنسية</value>
+</data>
+  <data name="SIDp_ApplyPatientServiceButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>حفظ/تحديث - F1</value>
+  </data>
+  <data name="SIDp_ClearButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>مسح الحقول - F4</value>
+  </data>
+  <data name="SIDp_StatusMessagePatientIdServiceRequired" xml:space="preserve">
+    <value>رقم المريض ومعرّف الخدمة مطلوبان.</value>
+  </data>
+  <data name="SIDp_StatusMessageNewPatientServiceAdded" xml:space="preserve">
+    <value>تمت إضافة خدمة مريض جديدة.</value>
+  </data>
+  <data name="SIDp_StatusMessageServiceAlreadyExists" xml:space="preserve">
+    <value>هذه الخدمة {0} موجودة بالفعل لرقم المريض: {1} - {2}</value>
+  </data>
+  <data name="SIDp_StatusMessagePatientServiceUpdated" xml:space="preserve">
+    <value>تم تحديث خدمة المريض.</value>
+  </data>
+  <data name="SIDp_StatusMessageErrorSavingPatientService" xml:space="preserve">
+    <value>خطأ في حفظ خدمة المريض.</value>
+  </data>
+  <data name="SIDp_StatusMessageClearingAndRefreshing" xml:space="preserve">
+    <value>جارٍ المسح والتحديث. يرجى الانتظار...</value>
+  </data>
+  <data name="SIDp_StatusMessageWarningWrongIdOrDeactivated" xml:space="preserve">
+    <value>تحذير!! رقم خاطئ أو أن المريض {0} غير مفعل.</value>
+  </data>
+  <data name="SIDp_NotifyFrenchLabel.Text" xml:space="preserve">
+  <value>الفرنسية</value>
+</data>
+  <data name="SIDp_StatusMessageWarningPatientIdNotFound" xml:space="preserve">
+    <value>تحذير! لم يتم العثور على رقم المريض.</value>
+  </data>
+  <data name="Stp_ThemeSelectionTitle.Text" xml:space="preserve">
+    <value>اختيار السمة</value>
+  </data>
+  <data name="Stp_ThemeSelectionItemText.Text" xml:space="preserve">
+    <value>سمة</value>
+  </data>
+  <data name="Stp_ShowGregorianDateCheckBox.Content" xml:space="preserve">
+    <value>عرض التاريخ الميلادي</value>
+  </data>
+  <data name="Stp_ShowHijriDateCheckBox.Content" xml:space="preserve">
+    <value>عرض التاريخ الهجري</value>
+  </data>
+  <data name="Stp_LanguageSelectionComboBox.Text" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="Stp_LanguageSelectionItemText.Text" xml:space="preserve">
+    <value>خيار اللغة</value>
+  </data>
+  <data name="Stp_WorkingDaysTitle.Text" xml:space="preserve">
+    <value>أيام العمل</value>
+  </data>
+  <data name="Stp_WorkingDaysMonday.Content" xml:space="preserve">
+    <value>الإثنين</value>
+  </data>
+  <data name="Stp_WorkingDaysTuesday.Content" xml:space="preserve">
+    <value>الثلاثاء</value>
+  </data>
+  <data name="Stp_WorkingDaysWednesday.Content" xml:space="preserve">
+    <value>الأربعاء</value>
+  </data>
+  <data name="Stp_WorkingDaysThursday.Content" xml:space="preserve">
+    <value>الخميس</value>
+  </data>
+  <data name="Stp_WorkingDaysFriday.Content" xml:space="preserve">
+    <value>الجمعة</value>
+  </data>
+  <data name="Stp_WorkingDaysSaturday.Content" xml:space="preserve">
+    <value>السبت</value>
+  </data>
+  <data name="Stp_WorkingDaysSunday.Content" xml:space="preserve">
+    <value>الأحد</value>
+  </data>
+  <data name="Stp_WorkingDaysApplyButton.Content" xml:space="preserve">
+    <value>تطبيق</value>
+  </data>
+  <data name="Stp_NotificationsTitle.Text" xml:space="preserve">
+    <value>الإشعارات</value>
+  </data>
+  <data name="Stp_NotifyPatient24hCheckBox.Content" xml:space="preserve">
+    <value>إرسال إشعار للمريض قبل 24 ساعة من الموعد</value>
+  </data>
+  <data name="Stp_NotifyPatient2hCheckBox.Content" xml:space="preserve">
+    <value>إرسال إشعار للمريض قبل ساعتين من الموعد</value>
+  </data>
+  <data name="Stp_NotifyDoctorCheckBox.Content" xml:space="preserve">
+    <value>تفعيل إشعارات الطبيب</value>
+  </data>
+  <data name="Stp_SendViaTelegramCheckBox.Content" xml:space="preserve">
+    <value>إرسال عبر تيليجرام</value>
+  </data>
+  <data name="Stp_NavigateConfigPageButton.Content" xml:space="preserve">
+    <value>الانتقال إلى صفحة المساعدة في الإعدادات</value>
+  </data>
+  <data name="Stp_BackupTitle.Text" xml:space="preserve">
+    <value>نسخ احتياطي</value>
+  </data>
+  <data name="Stp_BackupLocationTextBox.PlaceholderText" xml:space="preserve">
+    <value>اختر مجلد النسخ الاحتياطي</value>
+  </data>
+  <data name="Stp_BrowseBackupButton.Content" xml:space="preserve">
+    <value>تصفح...</value>
+  </data>
+  <data name="Stp_BackupDatabaseButton.Content" xml:space="preserve">
+    <value>نسخ قاعدة البيانات احتياطياً</value>
+  </data>
+  <data name="Stp_ClinicNameTitle.Text" xml:space="preserve">
+    <value>اسم العيادة</value>
+  </data>
+  <data name="Stp_ClinicNameTextBox.PlaceholderText" xml:space="preserve">
+    <value>أدخل اسم العيادة</value>
+  </data>
+  <data name="Stp_ClinicNameApplyButton.Content" xml:space="preserve">
+    <value>تطبيق</value>
+  </data>
+  <data name="Stp_LogsTitle.Text" xml:space="preserve">
+    <value>السجلات</value>
+  </data>
+  <data name="Stp_LogsDescription.Text" xml:space="preserve">
+    <value>عرض سجلات التشخيص والأخطاء</value>
+  </data>
+  <data name="Stp_OpenLogFolderButton.Content" xml:space="preserve">
+    <value>فتح مجلد السجلات</value>
+  </data>
+  <data name="Stp_StatusMessageThemeChangeSaved" xml:space="preserve">
+    <value>تم حفظ تغيير السمة. سيتم تطبيقه بعد تسجيل الخروج والدخول مرة أخرى، أو في المرة التالية التي تفتح فيها التطبيق.</value>
+  </data>
+  <data name="Stp_StatusMessageThemeSaveFailed" xml:space="preserve">
+    <value>فشل حفظ السمة بسبب خطأ في قاعدة البيانات.</value>
+  </data>
+  <data name="Stp_StatusMessageApplyingChanges" xml:space="preserve">
+    <value>يرجى الانتظار، جاري تطبيق التغييرات...</value>
+  </data>
+  <data name="Stp_StatusMessageChangesAppliedSuccessfully" xml:space="preserve">
+    <value>تم تطبيق التغييرات بنجاح.</value>
+  </data>
+  <data name="Stp_StatusMessageErrorLogCheck" xml:space="preserve">
+    <value>خطأ. يرجى التحقق من ملف error.log والبحث عن {0}.</value>
+  </data>
+  <data name="Stp_StatusMessageDatabaseFileNotFound" xml:space="preserve">
+    <value>ملف قاعدة البيانات غير موجود.</value>
+  </data>
+  <data name="Stp_StatusMessageBackupFolderInvalid" xml:space="preserve">
+    <value>مجلد النسخ الاحتياطي غير محدد أو غير صالح.</value>
+  </data>
+  <data name="Stp_StatusMessageBackupGenerating" xml:space="preserve">
+    <value>جاري إنشاء النسخة الاحتياطية، يرجى الانتظار...</value>
+  </data>
+  <data name="Stp_StatusMessageBackupCreatedZipped" xml:space="preserve">
+    <value>تم إنشاء النسخة الاحتياطية وضغطها: {0}</value>
+  </data>
+  <data name="Stp_StatusMessageBackupFailed" xml:space="preserve">
+    <value>فشل النسخ الاحتياطي! تحقق من سجل الأخطاء</value>
+  </data>
+  <data name="Stp_StatusMessageClinicNameAdminOnly" xml:space="preserve">
+    <value>فقط المسؤول يمكنه تغيير اسم العيادة!</value>
+  </data>
+  <data name="Stp_StatusMessageClinicNameEmpty" xml:space="preserve">
+    <value>لا يمكن أن يكون اسم العيادة فارغاً.</value>
+  </data>
+  <data name="Stp_StatusMessageClinicNameUpdated" xml:space="preserve">
+    <value>تم تحديث اسم العيادة</value>
+  </data>
+  <data name="Stp_StatusMessageErrorLogCheckGeneral" xml:space="preserve">
+    <value>حدث خطأ، تحقق من سجل الأخطاء!</value>
+  </data>
+  <data name="Stp_StatusMessageDateSettingsUpdated" xml:space="preserve">
+    <value>تم تحديث إعدادات عرض التاريخ.</value>
+  </data>
+  <data name="Stp_StatusMessageErrorOccurredCheckLog" xml:space="preserve">
+    <value>حدث خطأ، تحقق من سجل الأخطاء!</value>
+  </data>
+  <data name="Stp_StatusMessageLanguageUpdated" xml:space="preserve">
+    <value>تم تحديث إعداد اللغة. ستُطبق التغييرات بعد إغلاق التطبيق وإعادة فتحه.</value>
+  </data>
+<data name="Stp_CalendarSelectionTitle" xml:space="preserve">
+  <value>التقويم</value>
+</data>  
+<data name="Stp_StatusMessageLogFolderOpenFailed" xml:space="preserve">
+  <value>فشل في فتح مجلد السجلات</value>
+</data>
+  <data name="SPNV_Theme.Content" xml:space="preserve">
+    <value>السمات</value>
+  </data>
+  <data name="SPNV_Theme.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تغيير سمات التطبيق</value>
+  </data>
+  <data name="SPNV_Language.Content" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="SPNV_Language.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تغيير لغة التطبيق</value>
+  </data>
+  <data name="SPNV_Calendar.Content" xml:space="preserve">
+    <value>التقويم</value>
+  </data>
+  <data name="SPNV_Calendar.ToolTipService.ToolTip" xml:space="preserve">
+    <value>إدارة إعدادات التقويم</value>
+  </data>
+  <data name="SPNV_WorkingDays.Content" xml:space="preserve">
+    <value>أيام العمل</value>
+  </data>
+  <data name="SPNV_WorkingDays.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تكوين أيام عمل العيادة</value>
+  </data>
+  <data name="SPNV_Notifications.Content" xml:space="preserve">
+    <value>الإشعارات</value>
+  </data>
+  <data name="SPNV_Notifications.ToolTipService.ToolTip" xml:space="preserve">
+    <value>إدارة تفضيلات الإشعارات</value>
+  </data>
+  <data name="SPNV_ClinicName.Content" xml:space="preserve">
+    <value>اسم العيادة</value>
+  </data>
+  <data name="SPNV_ClinicName.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تعديل اسم العيادة والتفاصيل</value>
+  </data>
+  <data name="SPNV_Backup.Content" xml:space="preserve">
+    <value>نسخ احتياطي</value>
+  </data>
+  <data name="SPNV_Backup.ToolTipService.ToolTip" xml:space="preserve">
+    <value>نسخ بيانات العيادة احتياطياً</value>
+  </data>
+  <data name="SPNV_Logs.Content" xml:space="preserve">
+    <value>السجلات</value>
+  </data>
+  <data name="SPNV_Logs.ToolTipService.ToolTip" xml:space="preserve">
+    <value>عرض سجلات النظام وسجل النشاط</value>
+  </data>
+  <data name="UrLp_AddNewRole.Text" xml:space="preserve">
+    <value>إضافة دور جديد (صلاحية/وظيفة)</value>
+  </data>
+  <data name="UrLp_RoleNameLabel.Text" xml:space="preserve">
+    <value>اسم الصلاحية / الوظيفة:</value>
+  </data>
+  <data name="UrLp_RoleNameBox.PlaceholderText" xml:space="preserve">
+    <value>أدخل اسم الدور الجديد</value>
+  </data>
+  <data name="UrLp_PermissionsLabel.Text" xml:space="preserve">
+    <value>الصلاحيات:</value>
+  </data>
+  <data name="UrLp_CanManageDoctors.Content" xml:space="preserve">
+    <value>يمكنه إدارة الأطباء</value>
+  </data>
+  <data name="UrLp_CanManageUsers.Content" xml:space="preserve">
+    <value>يمكنه إدارة المستخدمين</value>
+  </data>
+  <data name="UrLp_UserAdd.Content" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="UrLp_UserEdit.Content" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="UrLp_UserDeactivate.Content" xml:space="preserve">
+    <value>تعطيل</value>
+  </data>
+  <data name="UrLp_CanAccessDashboard.Content" xml:space="preserve">
+    <value>يمكنه الوصول إلى لوحة التحكم</value>
+  </data>
+  <data name="UrLp_CanViewAppointments.Content" xml:space="preserve">
+    <value>يمكنه عرض المواعيد</value>
+  </data>
+  <data name="UrLp_CanManageRecords.Content" xml:space="preserve">
+    <value>يمكنه إدارة السجلات</value>
+  </data>
+  <data name="UrLp_CanEditRecords.Content" xml:space="preserve">
+    <value>يمكنه تعديل السجلات</value>
+  </data>
+  <data name="UrLp_Deactivated.Content" xml:space="preserve">
+    <value>معطل</value>
+  </data>
+  <data name="UrLp_ReportSectionLabel.Text" xml:space="preserve">
+    <value>قسم التقارير:</value>
+  </data>
+  <data name="UrLp_CanManageReports.Content" xml:space="preserve">
+    <value>يمكنه إدارة التقارير</value>
+  </data>
+  <data name="UrLp_CanViewReports.Content" xml:space="preserve">
+    <value>يمكنه عرض التقارير</value>
+  </data>
+  <data name="UrLp_SettingsLabel.Text" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="UrLp_CanManageSettings.Content" xml:space="preserve">
+    <value>يمكنه إدارة الإعدادات</value>
+  </data>
+  <data name="UrLp_CanViewSettings.Content" xml:space="preserve">
+    <value>يمكنه عرض الإعدادات</value>
+  </data>
+  <data name="UrLp_AddButton.Content" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="UrLp_EditButton.Content" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="UrLp_DeactivateButton.Content" xml:space="preserve">
+    <value>تعطيل</value>
+  </data>
+  <data name="UrLp_ClearButton.Content" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="UrLp_BackToUserPageButton.Content" xml:space="preserve">
+    <value>العودة إلى صفحة المستخدم</value>
+  </data>
+  <data name="UrLp_ExistingRolesLabel.Text" xml:space="preserve">
+    <value>قائمة الوظائف أو الصلاحيات</value>
+  </data>
+  <data name="UrLp_HeaderId.Text" xml:space="preserve">
+    <value>المعرف</value>
+  </data>
+  <data name="UrLp_HeaderRoleName.Text" xml:space="preserve">
+    <value>الصلاحية / الوظيفة</value>
+  </data>
+  <data name="UrLp_HeaderPermissions.Text" xml:space="preserve">
+    <value>الصلاحيات</value>
+  </data>
+  <data name="UrLp_AddShortcut.Text" xml:space="preserve">
+    <value>إضافة = F1</value>
+  </data>
+  <data name="UrLp_EditShortcut.Text" xml:space="preserve">
+    <value>تعديل = F2</value>
+  </data>
+  <data name="UrLp_DeactivateShortcut.Text" xml:space="preserve">
+    <value>تعطيل = F3</value>
+  </data>
+  <data name="UrLp_ClearShortcut.Text" xml:space="preserve">
+    <value>مسح = F4</value>
+  </data>
+  <data name="UrLp_DeactivatedUserLabel.Text" xml:space="preserve">
+    <value>المستخدم المعطل = </value>
+  </data>
+  <data name="UrLp_BackShortcut.Text" xml:space="preserve">
+    <value>العودة إلى صفحة المستخدم = F5</value>
+  </data>
+  <data name="UrLp_RolesHeader.Text" xml:space="preserve">
+    <value>المعرف</value>
+  </data>
+  <data name="UrLp_CanViewSettings.ToolTipService.ToolTip" xml:space="preserve">
+    <value>عرض فقط، لا يمكن التغيير</value>
+  </data>
+  <data name="UrLp_CanManageSettings.ToolTipService.ToolTip" xml:space="preserve">
+    <value>عرض وتغيير الإعدادات</value>
+  </data>
+  <data name="UrLp_CanManageRecords.ToolTipService.ToolTip" xml:space="preserve">
+    <value>إدارة السجل فقط: إضافة</value>
+  </data>
+  <data name="UrLp_CanEditRecords.ToolTipService.ToolTip" xml:space="preserve">
+    <value>إدارة السجلات: تعديل/تعطيل</value>
+  </data>
+  <data name="UrLp_StatusMessageFormat" xml:space="preserve">
+    <value>تم تحميل {0} دور.</value>
+  </data>
+  <data name="UrLp_NoPrivilegedRoleMessage" xml:space="preserve">
+    <value>ليس لديك إذن لإنشاء دور كامل الصلاحيات.</value>
+  </data>
+  <data name="UrLp_AdminManageUsersMessage" xml:space="preserve">
+    <value>فقط المسؤول يمكنه إدارة من يمكنه إدارة المستخدمين.</value>
+  </data>
+  <data name="UrLp_RoleNameRequiredMessage" xml:space="preserve">
+    <value>اسم الدور مطلوب.</value>
+  </data>
+  <data name="UrLp_RoleAddedMessage" xml:space="preserve">
+    <value>تمت إضافة الدور بنجاح.</value>
+  </data>
+  <data name="UrLp_NoRoleSelectedtoUpdateMessage" xml:space="preserve">
+    <value>لم يتم تحديد أي دور للتحديث.</value>
+  </data>
+  <data name="UrLp_RoleUpdatedMessage" xml:space="preserve">
+    <value>تم تحديث الدور بنجاح.</value>
+  </data>
+  <data name="UrLp_AdminDeactivateRoleMessage" xml:space="preserve">
+    <value>فقط المسؤول يمكنه تعطيل دور المسؤول.</value>
+  </data>
+  <data name="UrLp_NoRoleSelectedMessage" xml:space="preserve">
+    <value>لم يتم تحديد أي دور.</value>
+  </data>
+  <data name="UrLp_RoleActivatedMessage" xml:space="preserve">
+    <value>تم تفعيل الدور بنجاح.</value>
+  </data>
+  <data name="UrLp_RoleDeactivatedMessage" xml:space="preserve">
+    <value>تم تعطيل الدور بنجاح.</value>
+  </data>
+  <data name="UrLp_AdminEditRoleMessage" xml:space="preserve">
+    <value>فقط المسؤول يمكنه تعديل دور المسؤول.</value>
+  </data>
+  <data name="Usrp_UserManager.Text" xml:space="preserve">
+    <value>إدارة المستخدمين</value>
+  </data>
+  <data name="Usrp_UsernameBox.Header" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="Usrp_PasswordBox.Header" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="Usrp_ConfirmPasswordBox.Header" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="Usrp_FullNameBox.Header" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="Usrp_EmailBox.Header" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Usrp_PhoneBox.Header" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="Usrp_LandLineBox.Header" xml:space="preserve">
+    <value>رقم الهاتف الأرضي</value>
+  </data>
+  <data name="Usrp_LanguageBox.Header" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="Usrp_Language_enUS.Content" xml:space="preserve">
+    <value>الإنجليزية (أمريكا)</value>
+  </data>
+  <data name="Usrp_Language_ar.Content" xml:space="preserve">
+    <value>العربية</value>
+  </data>
+  <data name="Usrp_PermissionsLabel.Text" xml:space="preserve">
+    <value>الصلاحيات</value>
+  </data>
+  <data name="Usrp_RoleNameBox.Header" xml:space="preserve">
+    <value>اختر الدور</value>
+  </data>
+  <data name="Usrp_IsActiveCheckBox.Content" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="Usrp_AddButton.Content" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="Usrp_AddButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>حفظ/F1</value>
+  </data>
+  <data name="Usrp_EditButton.Content" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Usrp_EditButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تحديث/F2</value>
+  </data>
+  <data name="Usrp_DeactivateButton.Content" xml:space="preserve">
+    <value>إلغاء التفعيل</value>
+  </data>
+  <data name="Usrp_DeactivateButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>إلغاء التفعيل/F3</value>
+  </data>
+  <data name="Usrp_ClearButton.Content" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="Usrp_ClearButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>مسح البيانات (تحديث)/F4</value>
+  </data>
+  <data name="Usrp_UsersManagerListLabel.Text" xml:space="preserve">
+    <value>قائمة إدارة المستخدمين</value>
+  </data>
+  <data name="Usrp_AddUserRoleButton.Content" xml:space="preserve">
+    <value>إضافة وظيفة / صلاحية جديدة</value>
+  </data>
+  <data name="Usrp_Column_Auto.Header" xml:space="preserve">
+    <value>تلقائي</value>
+  </data>
+  <data name="Usrp_Column_UserId.Header" xml:space="preserve">
+    <value>معرّف المستخدم</value>
+  </data>
+  <data name="Usrp_Column_Username.Header" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="Usrp_Column_FullName.Header" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="Usrp_Column_Email.Header" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Usrp_Column_PhoneNumber.Header" xml:space="preserve">
+    <value>الهاتف المحمول</value>
+  </data>
+  <data name="Usrp_Column_LandLineNumber.Header" xml:space="preserve">
+    <value>الهاتف الأرضي</value>
+  </data>
+  <data name="Usrp_Column_Language.Header" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="Usrp_Column_Role.Header" xml:space="preserve">
+    <value>الدور</value>
+  </data>
+  <data name="Usrp_Column_RoleName.Header" xml:space="preserve">
+    <value>اسم الدور</value>
+  </data>
+  <data name="Usrp_Column_IsActive.Header" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="Usrp_Cell_IsActiveCheckBox.Content" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="Usrp_Cell_UserAutoId.Header" xml:space="preserve">
+    <value>معرّف المستخدم</value>
+  </data>
+  <data name="Usrp_UsernameBox.PlaceholderText" xml:space="preserve">
+    <value>أدخل اسم مستخدم جديد</value>
+  </data>
+  <data name="Usrp_PasswordBox.PlaceholderText" xml:space="preserve">
+    <value>أدخل كلمة المرور</value>
+  </data>
+  <data name="Usrp_ConfirmPasswordBox.PlaceholderText" xml:space="preserve">
+    <value>أدخل تأكيد كلمة المرور</value>
+  </data>
+  <data name="LoadedUsersMessage" xml:space="preserve">
+    <value>تم تحميل {0} مستخدم بنجاح.</value>
+  </data>
+  <data name="CopyRightMessage" xml:space="preserve">
+    <value>2025 - {0} لايت كلينك إصدار {1} © جميع الحقوق محفوظة.</value>
+  </data>
+  <data name="DDP_DoctorDirectory.Text" xml:space="preserve">
+  <value>دليل الأطباء</value>
+</data>
+<data name="DDP_SearchBox.PlaceholderText" xml:space="preserve">
+  <value>ابحث بالاسم أو التخصص</value>
+</data>
+<data name="DDP_SpecialtyComboBox.PlaceholderText" xml:space="preserve">
+  <value>التخصص</value>
+</data>
+<data name="DDP_TimeSlots.Text" xml:space="preserve">
+  <value>الفترات الزمنية:</value>
+</data>
+<data name="DDP_MorningToggle.Content" xml:space="preserve">
+  <value>الصباح</value>
+</data>
+<data name="DDP_AfternoonToggle.Content" xml:space="preserve">
+  <value>بعد الظهر</value>
+</data>
+<data name="DDP_EveningToggle.Content" xml:space="preserve">
+  <value>المساء</value>
+</data>
+<data name="DDP_AvailableTodayToggle.Content" xml:space="preserve">
+  <value>متاح اليوم</value>
+</data>
+<data name="DDP_ViewProfileButton.Content" xml:space="preserve">
+  <value>عرض الملف الشخصي</value>
+</data>
+<data name="DDP_BookAppointmentButton.Content" xml:space="preserve">
+  <value>حجز موعد</value>
+</data>
+<data name="DDP_RefreshButton.Content" xml:space="preserve">
+  <value>تحديث</value>
+</data>
+<data name="DDP_TodayDoctorsLegend.Text" xml:space="preserve">
+  <value>الأطباء المتاحون اليوم</value>
+</data>
+<data name="DDP_FilteredDoctorsLegend.Text" xml:space="preserve">
+  <value>الأطباء حسب التصفية</value>
+</data>
+<data name="DoctorsScheduled.Text" xml:space="preserve">
+  <value>الأطباء/المجدولون</value>
+  <comment>الانتقال إلى صفحة الأطباء المجدولين</comment>
+</data>
+<data name="DrServiceIdsPage.Text" xml:space="preserve">
+  <value>الأطباء/معرّف الخدمة</value>
+  <comment>الانتقال إلى صفحة معرّفات خدمة الطبيب</comment>
+</data>
+<data name="DashboardMenu.Text" xml:space="preserve">
+    <value>لوحة التحكم</value>
+    <comment>Dashboard Menu Item</comment>
+  </data>
+<data name="Dashboard.Text" xml:space="preserve">
+  <value>لوحة التحكم/جدول العيادة</value>
+  <comment>عنصر قائمة لوحة التحكم</comment>
+</data>  
+</root>

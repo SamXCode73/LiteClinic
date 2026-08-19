@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LiteClinic.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LiteClinic.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:LiteClinic.ViewModels"
+    xmlns:services="using:LiteClinic.Services"    
+    d:DataContext="{d:DesignInstance Type=viewmodels:LoginPageViewModel, IsDesignTimeCreatable=True}"
+    mc:Ignorable="d"
+    Background="#ececec">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Padding="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="300" />
+                <RowDefinition Height="150" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- App Name -->
+            <TextBlock Grid.ColumnSpan="3"
+                       x:Uid="LgnP_AppName"
+                       Text="LiteClinic"
+                       FontSize="32"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Bottom"
+                       Margin="0,0,0,10"
+                       Foreground="Gray"
+                       FontFamily="{StaticResource CurrentAppFont}"/>
+
+            <!-- Left Column: Image -->
+            <Image Grid.Row="1" Grid.Column="0"
+                   Source="/Assets/images/LoginVisual.png"
+                   Stretch="Uniform"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Width="250"
+                   Height="250" />
+
+            <!-- Middle Column: Login Form -->
+            <StackPanel Grid.Row="1" Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="300">
+
+                <TextBlock x:Uid="LgnP_LoginTitle" 
+                           Text="Login"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Margin="0,0,0,20" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Foreground="Gray"
+                           FontFamily="{StaticResource CurrentAppFont}"/>
+
+                <!-- Username Label with Icon -->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="25,0,0,5">
+                    <FontIcon Glyph="&#xE77B;" Margin="0,0,5,0" Foreground="Gray"/>
+                    <!-- Person icon -->
+                    <TextBlock x:Uid="LgnP_UsernameLabel"
+                               Text="Username" FontSize="14" FontWeight="SemiBold" Foreground="Gray"
+                               FontFamily="{StaticResource CurrentAppFont2}"/>
+                    <TextBlock x:Uid="LgnP_UsernameDefaultNote"
+                               Text="(default: admin)" 
+                               FontSize="12" 
+                               Foreground="DarkGray" 
+                               Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <TextBox Text="{Binding Username, Mode=TwoWay}"
+                     Margin="0,0,0,10"
+                     MaxWidth="250" />
+
+                <!-- Password Label with Icon -->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="25,0,0,5">
+                    <FontIcon Glyph="&#xE72E;" Margin="0,0,5,0" Foreground="Gray"/>
+                    <!-- Lock icon -->
+                    <TextBlock x:Uid="LgnP_PasswordLabel" 
+                               Text="Password" FontSize="14" FontWeight="SemiBold" Foreground="Gray"
+                               FontFamily="{StaticResource CurrentAppFont2}"/>
+                    <TextBlock x:Uid="LgnP_PasswordDefaultNote" 
+                               Text="(default: admin1234)" 
+                               FontSize="12" 
+                               Foreground="DarkGray" 
+                               Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <PasswordBox x:Name="PasswordBox"
+                         Margin="0,0,0,10"
+                             MaxWidth="250"
+                         PasswordChanged="PasswordBox_PasswordChanged"/>
+
+
+                <Button x:Uid="LgnP_LoginButton" 
+                        Content="Login"
+                        Margin="0,10,0,0"
+                        Width="300"
+                        Background="Teal"
+                        Foreground="WhiteSmoke" 
+                        Command="{Binding Btn_LoginCommand}"
+                        FontFamily="{StaticResource CurrentAppFont2}"
+                        FontWeight="Bold"/>
+
+                <TextBlock x:Uid="LgnP_StatusMessage" 
+                           Text="{Binding StatusMessage}"
+                           Foreground="{Binding StatusColor}"
+                           Margin="0,20,0,0" 
+                           FontFamily="{StaticResource CurrentAppFont}"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+            
+            <!-- Right Column: Optional -->
+            <StackPanel Grid.Row="1" Grid.Column="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="300"
+            Spacing="10">
+
+                <!-- Welcome Message -->
+
+                <!-- Feature Highlights -->
+                <StackPanel Orientation="Horizontal" Spacing="8" Margin="20,0,0,0">
+                    <TextBlock Text="🩺" FontSize="16"/>
+                    <TextBlock x:Uid="LgnP_FeatureAppointments" 
+                               Text="Manage appointments with ease" FontSize="14"
+                               FontFamily="{StaticResource CurrentAppFont}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Spacing="8" Margin="20,0,0,0">
+                    <TextBlock Text="📊" FontSize="16"/>
+                    <TextBlock x:Uid="LgnP_FeatureRecords" 
+                               Text="Track patient records securely" FontSize="14"
+                               FontFamily="{StaticResource CurrentAppFont}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Spacing="8" Margin="20,0,0,0">
+                    <TextBlock Text="🔔" FontSize="16"/>
+                    <TextBlock x:Uid="LgnP_FeatureAlerts" 
+                               Text="Real-time alerts and reminders" FontSize="14"
+                               FontFamily="{StaticResource CurrentAppFont}"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+        <!--#endregion-->
+        <!--Footer-->
+        <StackPanel Grid.Row="1" Width="650">
+            <TextBlock x:Uid="LgnP_FooterMessage" 
+                       Text="Designed for doctors, nurses, and clinic staff to work smarter, faster, and safer."
+                       FontSize="16"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="10, 5, 10, 15"
+                       FontFamily="{StaticResource CurrentAppFont}"
+                       VerticalAlignment="Top"
+                       FontWeight="Bold"
+                       Foreground="Gray"/>
+
+        </StackPanel>
+
+    </Grid>
+</Page>

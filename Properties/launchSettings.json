@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "LiteClinic (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "LiteClinic (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
