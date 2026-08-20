@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using LiteClinic.Models.Enums;
 using System;
 using System.Collections.Generic;
@@ -14,3 +15,21 @@ namespace LiteClinic.Models
         public string? PatientIdText { get; set; }
     }
 }
+=======
+﻿using LiteClinic.Models.Enums;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LiteClinic.Models
+{
+    public class PatientServiceIds : ServiceBase
+    {
+        public int PatientServiceId { get; set; }
+        public int PatientAutoId { get; set; }
+        public string? PatientIdText { get; set; }
+    }
+}
+>>>>>>> 9bd97308ed79d11fb3a9601f83e76357c193962c
