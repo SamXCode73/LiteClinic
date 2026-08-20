@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using LiteClinic.Repository;
+using LiteClinic.Services;
 using LiteClinic.Views;
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
@@ -30,13 +31,14 @@ namespace LiteClinic.ViewModels
         private readonly ResourceLoader _loader = new();
 
         public ICommand NavigateToConfigPageCommand { get; }
+        public IAsyncRelayCommand? ApplyNotificationsCommand { get; }
 
         public NotificationsPageViewModel() 
         {
             App.GlobalState.PropertyChanged += (s, e) =>
             {
 
-                //Status messge adn Status color
+                //Status messge and Status color
                 if (e.PropertyName == nameof(AppState.StatusMessage))
                     StatusMessage = App.GlobalState.StatusMessage;
 
@@ -62,6 +64,7 @@ namespace LiteClinic.ViewModels
             };
 
             NavigateToConfigPageCommand = new RelayCommand(NavigateToConfigPage);
+            ApplyNotificationsCommand = new AsyncRelayCommand(UpdateNotificationSettingsAsync);
 
         }
 
@@ -104,7 +107,7 @@ namespace LiteClinic.ViewModels
                     {
                         _notifyPatient24h = value;
                         App.GlobalState.NotifyPatient24h = value;
-                        _ = UpdateNotificationSettingsAsync();
+                        //_ = UpdateNotificationSettingsAsync();
                         if (ApplicationData.Current != null && ApplicationData.Current.LocalSettings != null && ApplicationData.Current.LocalSettings.Values != null)
                         {
                             ApplicationData.Current.LocalSettings.Values["NotifyPatient24h"] = value;
@@ -135,7 +138,7 @@ namespace LiteClinic.ViewModels
                     {
                         _notifyPatient2h = value;
                         App.GlobalState.NotifyPatient2h = value;
-                        _ = UpdateNotificationSettingsAsync();
+                        //_ = UpdateNotificationSettingsAsync();
                         if (ApplicationData.Current != null && ApplicationData.Current.LocalSettings != null && ApplicationData.Current.LocalSettings.Values != null)
                         {
                             ApplicationData.Current.LocalSettings.Values["NotifyPatient2h"] = value;
@@ -166,7 +169,7 @@ namespace LiteClinic.ViewModels
                     {
                         _notifyDoctor = value;
                         App.GlobalState.NotifyDoctor = value;
-                        _ = UpdateNotificationSettingsAsync();
+                        //_ = UpdateNotificationSettingsAsync();
                         if (ApplicationData.Current != null && ApplicationData.Current.LocalSettings != null && ApplicationData.Current.LocalSettings.Values != null)
                         {
                             ApplicationData.Current.LocalSettings.Values["NotifyDoctor"] = value;
@@ -194,7 +197,7 @@ namespace LiteClinic.ViewModels
                 {
                     _sendViaTelegram = value;
                     App.GlobalState.SendViaTelegram = value;
-                    _ = UpdateNotificationSettingsAsync();
+                    //_ = UpdateNotificationSettingsAsync();
                     if (ApplicationData.Current != null && ApplicationData.Current.LocalSettings != null && ApplicationData.Current.LocalSettings.Values != null)
                     {
                         ApplicationData.Current.LocalSettings.Values["SendViaTelegram"] = value;
@@ -224,21 +227,96 @@ namespace LiteClinic.ViewModels
         }
 
         public bool AreNotificationsEnabled => SendViaTelegram;
+
+        //private async Task UpdateNotificationSettingsAsync()
+        //{
+        //    try
+        //    {
+        //        await Task.Delay(500); // slight delay to ensure AppState is updated and DB
+        //        await SettingsRepository.UpdateNotificationSettingsAsync(
+        //            SendViaTelegram,
+        //            NotifyPatient24h,
+        //            NotifyPatient2h,
+        //            NotifyDoctor
+        //        );
+
+        //        App.GlobalState.NotifyDoctor = NotifyDoctor;
+        //        App.GlobalState.NotifyPatient2h = NotifyPatient2h;
+        //        App.GlobalState.NotifyPatient24h = NotifyPatient24h;
+        //        App.GlobalState.SendViaTelegram = SendViaTelegram;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        StatusMessage = _loader.GetString("ErrorUpdatingNotificationSettings");
+        //        StatusColor = new SolidColorBrush(Colors.Red);
+        //        // Log the exception if needed
+
+        //        const string errorTag = "[ERR_NOTIFICATION_UPDATE]";
+        //        Logger.LogError(ex, $"{errorTag} Error updating notification settings. UserId={App.GlobalState.LoggedUserId}");
+
+        //        App.GlobalState.StatusColor = StatusColor = new SolidColorBrush(Colors.Red);
+        //        App.GlobalState.StatusMessage = StatusMessage = string.Format(
+        //            _loader.GetString("Stp_StatusMessageErrorLogCheck"),
+        //            errorTag);
+        //    }
+        //}
+
+
         private async Task UpdateNotificationSettingsAsync()
         {
-            await Task.Delay(500); // slight delay to ensure AppState is updated and DB
-            await SettingsRepository.UpdateNotificationSettingsAsync(
-                SendViaTelegram,
-                NotifyPatient24h,
-                NotifyPatient2h,
-                NotifyDoctor
-            );
+            try
+            {
+                // Show "please wait" status
+                App.GlobalState.StatusColor = StatusColor = new SolidColorBrush(Colors.Orange);
+                App.GlobalState.StatusMessage = StatusMessage = _loader.GetString("Stp_StatusMessageApplyingChanges");
 
-            App.GlobalState.NotifyDoctor = NotifyDoctor;
-            App.GlobalState.NotifyPatient2h = NotifyPatient2h;
-            App.GlobalState.NotifyPatient24h = NotifyPatient24h;
-            App.GlobalState.SendViaTelegram = SendViaTelegram;
+                await Task.Delay(500); // slight delay to ensure AppState is updated and DB
+
+                await SettingsRepository.UpdateNotificationSettingsAsync(
+                    SendViaTelegram,
+                    NotifyPatient24h,
+                    NotifyPatient2h,
+                    NotifyDoctor,
+                    Models.Enums.ProviderType.Telegram
+                );
+
+                // Sync global state
+                App.GlobalState.NotifyDoctor = NotifyDoctor;
+                App.GlobalState.NotifyPatient2h = NotifyPatient2h;
+                App.GlobalState.NotifyPatient24h = NotifyPatient24h;
+                App.GlobalState.SendViaTelegram = SendViaTelegram;
+
+                // Success message
+                App.GlobalState.StatusColor = StatusColor = new SolidColorBrush(Colors.Teal);
+                App.GlobalState.StatusMessage = StatusMessage = _loader.GetString("Stp_StatusMessageChangesAppliedSuccessfully");
+
+                // Reset back to neutral after delay
+                await Task.Delay(2000, _cts.Token);
+                App.GlobalState.StatusColor = StatusColor = new SolidColorBrush(Colors.Black);
+                App.GlobalState.StatusMessage = StatusMessage = string.Empty;
+            }
+            catch (TaskCanceledException)
+            {
+                // Ignore cancellation
+                return;
+            }
+            catch (Exception ex)
+            {
+                // Localized error message
+                StatusMessage = _loader.GetString("Stp_ErrorUpdatingNotificationSettings");
+                StatusColor = new SolidColorBrush(Colors.Red);
+
+                const string errorTag = "[ERR_NOTIFICATION_UPDATE]";
+                Logger.LogError(ex, $"{errorTag} Error updating notification settings. UserId={App.GlobalState.LoggedUserId}");
+
+                App.GlobalState.StatusColor = StatusColor = new SolidColorBrush(Colors.Red);
+                App.GlobalState.StatusMessage = StatusMessage = string.Format(
+                    _loader.GetString("Stp_StatusMessageErrorLogCheck"),
+                    errorTag
+                );
+            }
         }
+
 
         private void NavigateToConfigPage()
         {

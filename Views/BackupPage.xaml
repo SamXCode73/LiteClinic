@@ -52,6 +52,7 @@
                     IsEnabled="{Binding CanViewSettingsMenu}"
                     Command="{Binding BackupDatabaseCommand}"/>
         </StackPanel>
+        
 
     </Grid>
 </Page>

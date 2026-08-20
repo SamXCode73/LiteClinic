@@ -197,18 +197,29 @@ namespace LiteClinic.ViewModels
             if (settings != null)
             {
                 if (settings.TryGetValue("SendViaTelegram", out object? value1)) { sendViaTelegram = value1 is bool b && b; hasLocalSettings = true; }
+                Debug.WriteLine($"Loaded SendViaTelegram: {sendViaTelegram}");
                 if (settings.TryGetValue("NotifyPatient24h", out object? value)) { notify24h = value is bool b && b; hasLocalSettings = true; }
+                Debug.WriteLine($"Loaded NotifyPatient24h: {notify24h}");
                 if (settings.TryGetValue("NotifyPatient2h", out object? value2)) { notify2h = value2 is bool b && b; hasLocalSettings = true; }
+                Debug.WriteLine($"Loaded NotifyPatient2h: {notify2h}");
                 if (settings.TryGetValue("NotifyDoctor", out object? value3)) { notifyDoctor = value3 is bool b && b; hasLocalSettings = true; }
+                Debug.WriteLine($"Loaded NotifyDoctor: {notifyDoctor}");
 
                 // Weekdays
                 if (settings.TryGetValue("NotifyOnMonday", out object? value4)) { monday = value4 is bool b && b; hasLocalSettings = true; }
+                Debug.WriteLine($"Loaded NotifyOnMonday: {monday}");
                 if (settings.TryGetValue("NotifyOnTuesday", out object? value5)) { tuesday = value5 is bool b && b; hasLocalSettings = true; }
+                Debug.WriteLine($"Loaded NotifyOnTuesday: {tuesday}");
                 if (settings.TryGetValue("NotifyOnWednesday", out object? value6)) { wednesday = value6 is bool b && b; hasLocalSettings = true; }
+                Debug.WriteLine($"Loaded NotifyOnWednesday: {wednesday}");
                 if (settings.TryGetValue("NotifyOnThursday", out object? value7)) { thursday = value7 is bool b && b; hasLocalSettings = true; }
+                Debug.WriteLine($"Loaded NotifyOnThursday: {thursday}");
                 if (settings.TryGetValue("NotifyOnFriday", out object? value8)) { friday = value8 is bool b && b; hasLocalSettings = true; }
+                Debug.WriteLine($"Loaded NotifyOnFriday: {friday}");
                 if (settings.TryGetValue("NotifyOnSaturday", out object? value9)) { saturday = value9 is bool b && b; hasLocalSettings = true; }
+                Debug.WriteLine($"Loaded NotifyOnSaturday: {saturday}");
                 if (settings.TryGetValue("NotifyOnSunday", out object? value10)) { sunday = value10 is bool b && b; hasLocalSettings = true; }
+                Debug.WriteLine($"Loaded NotifyOnSunday: {sunday}");
             }
 
             if (!hasLocalSettings)

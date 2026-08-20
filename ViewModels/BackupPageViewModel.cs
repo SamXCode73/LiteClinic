@@ -54,6 +54,7 @@ namespace LiteClinic.ViewModels
             };
 
             BrowseBackupFolderCommand = new AsyncRelayCommand(BrowseBackupFolderAsync);
+
             BackupDatabaseCommand = new AsyncRelayCommand(BackupDatabaseAsync);
 
             if (ApplicationData.Current.LocalSettings.Values.TryGetValue("BackupFolderPath", out object? value))

@@ -41,6 +41,18 @@
                     <CheckBox x:Uid="Stp_SendViaTelegramCheckBox"
                                   Content="Send via Telegram"
                                   IsChecked="{Binding SendViaTelegram, Mode=TwoWay}" Margin="5"/>
+
+                    <Button x:Uid="Stp_NotificationsApplyButton"
+                            Content="Apply"
+                            Margin="10,15,0,0"
+                            Background="Teal"
+                            Foreground="AntiqueWhite"
+                            FontFamily="{StaticResource CurrentAppFont}"
+                            FontWeight="Bold"
+                            IsEnabled="{Binding CanManageSettingsMenu}"
+                            Command="{Binding ApplyNotificationsCommand}"
+                            HorizontalAlignment="Center"/>
+
                 </StackPanel>
             </Border>
 

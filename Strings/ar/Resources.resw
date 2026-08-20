@@ -2451,6 +2451,10 @@
   <data name="Stp_StatusMessageChangesAppliedSuccessfully" xml:space="preserve">
     <value>تم تطبيق التغييرات بنجاح.</value>
   </data>
+  <data name="Stp_ErrorUpdatingNotificationSettings" xml:space="preserve">
+  <value>حدث خطأ أثناء تحديث إعدادات الإشعارات</value>
+  <comment>Displayed when saving notification settings fails - Arabic</comment>
+</data>
   <data name="Stp_StatusMessageErrorLogCheck" xml:space="preserve">
     <value>خطأ. يرجى التحقق من ملف error.log والبحث عن {0}.</value>
   </data>

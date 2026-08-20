@@ -11,7 +11,7 @@
   <Identity
     Name="SamXCode73.LiteClinic"
     Publisher="CN=C0EA6680-E234-4CAD-A2EC-F87E52240D0A"
-    Version="1.0.5.0" />
+    Version="1.0.6.0" />
 
   <mp:PhoneIdentity PhoneProductId="70357499-9ead-456e-99e3-049e792d1fec" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

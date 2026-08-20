@@ -2612,6 +2612,10 @@
   <data name="Stp_StatusMessageErrorLogCheckGeneral" xml:space="preserve">
     <value>An error occurred, check the error log!</value>
   </data>
+  <data name="Stp_ErrorUpdatingNotificationSettings" xml:space="preserve">
+  <value>Error updating notification settings</value>
+  <comment>Displayed when saving notification settings fails - en-US</comment>
+</data>
   <data name="Stp_StatusMessageDateSettingsUpdated" xml:space="preserve">
     <value>Date display settings have been updated.</value>
   </data>

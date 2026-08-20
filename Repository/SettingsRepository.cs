@@ -1,4 +1,5 @@
-﻿using LiteClinic.Services;
+﻿using LiteClinic.Models.Enums;
+using LiteClinic.Services;
 using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
@@ -100,11 +101,53 @@ namespace LiteClinic.Repository
             }
         }
 
+        //public static async Task UpdateNotificationSettingsAsync(
+        //    bool sendViaTelegram,
+        //    bool notify24h,
+        //    bool notify2h,
+        //    bool notifyDoctor)
+        //{
+        //    string UpdatedAt = $"{Environment.UserName} - {App.GlobalState.LoggedUserName} - {DateTime.Now:F} | Update Telegram Notification";
+        //    try
+        //    {
+        //        using var conn = DatabaseHelper.GetConnection();
+        //        await conn.OpenAsync();
+
+        //        using var transaction = conn.BeginTransaction();
+        //        using var cmd = conn.CreateCommand();
+        //        cmd.Transaction = transaction;
+
+        //        cmd.CommandText = @"
+        //    UPDATE NotificationSettings
+        //    SET SendViaProvider = @SendViaProvider,
+        //        NotifyPatient24h = @NotifyPatient24h,
+        //        NotifyPatient2h = @NotifyPatient2h,
+        //        NotifyDoctor = @NotifyDoctor,
+        //        UpdatedAt = @UpdatedAt
+        //    WHERE Id = 1;";
+
+        //        cmd.Parameters.AddWithValue("@SendViaProvider", sendViaTelegram);
+        //        cmd.Parameters.AddWithValue("@NotifyPatient24h", notify24h);
+        //        cmd.Parameters.AddWithValue("@NotifyPatient2h", notify2h);
+        //        cmd.Parameters.AddWithValue("@NotifyDoctor", notifyDoctor);
+        //        cmd.Parameters.AddWithValue("@UpdatedAt", UpdatedAt);
+
+        //        await cmd.ExecuteNonQueryAsync();
+        //        await transaction.CommitAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //Console.WriteLine($"Error updating notification settings in DB: {ex.Message}");
+        //        Logger.LogError(ex, "Failed to update notification settings");
+        //    }
+        //}
+
         public static async Task UpdateNotificationSettingsAsync(
             bool sendViaTelegram,
             bool notify24h,
             bool notify2h,
-            bool notifyDoctor)
+            bool notifyDoctor,
+            ProviderType providerType = ProviderType.Telegram)
         {
             string UpdatedAt = $"{Environment.UserName} - {App.GlobalState.LoggedUserName} - {DateTime.Now:F} | Update Telegram Notification";
             try
@@ -116,19 +159,40 @@ namespace LiteClinic.Repository
                 using var cmd = conn.CreateCommand();
                 cmd.Transaction = transaction;
 
-                cmd.CommandText = @"
-            UPDATE NotificationSettings
-            SET SendViaProvider = @SendViaProvider,
-                NotifyPatient24h = @NotifyPatient24h,
-                NotifyPatient2h = @NotifyPatient2h,
-                NotifyDoctor = @NotifyDoctor,
-                UpdatedAt = @UpdatedAt
-            WHERE Id = 1;";
+                // Check if row exists
+                cmd.CommandText = "SELECT COUNT(*) FROM NotificationSettings WHERE Id = 1;";
+                var result = await cmd.ExecuteScalarAsync();
+                var count = (result == null || result == DBNull.Value) ? 0 : Convert.ToInt64(result);
 
-                cmd.Parameters.AddWithValue("@SendViaProvider", sendViaTelegram);
-                cmd.Parameters.AddWithValue("@NotifyPatient24h", notify24h);
-                cmd.Parameters.AddWithValue("@NotifyPatient2h", notify2h);
-                cmd.Parameters.AddWithValue("@NotifyDoctor", notifyDoctor);
+                cmd.Parameters.Clear();
+
+                if (count == 0)
+                {
+                    // Insert new row
+                    cmd.CommandText = @"
+                INSERT INTO NotificationSettings
+                    (Id, ProviderType, SendViaProvider, NotifyPatient24h, NotifyPatient2h, NotifyDoctor, UpdatedAt)
+                VALUES
+                    (1, @ProviderType, @SendViaProvider, @NotifyPatient24h, @NotifyPatient2h, @NotifyDoctor, @UpdatedAt);";
+                }
+                else
+                {
+                    // Update existing row
+                    cmd.CommandText = @"
+                UPDATE NotificationSettings
+                SET SendViaProvider = @SendViaProvider,
+                    NotifyPatient24h = @NotifyPatient24h,
+                    NotifyPatient2h = @NotifyPatient2h,
+                    NotifyDoctor = @NotifyDoctor,
+                    UpdatedAt = @UpdatedAt
+                WHERE Id = 1;";
+                }
+
+                cmd.Parameters.AddWithValue("@ProviderType", (int)providerType);
+                cmd.Parameters.AddWithValue("@SendViaProvider", sendViaTelegram ? 1 : 0);
+                cmd.Parameters.AddWithValue("@NotifyPatient24h", notify24h ? 1 : 0);
+                cmd.Parameters.AddWithValue("@NotifyPatient2h", notify2h ? 1 : 0);
+                cmd.Parameters.AddWithValue("@NotifyDoctor", notifyDoctor ? 1 : 0);
                 cmd.Parameters.AddWithValue("@UpdatedAt", UpdatedAt);
 
                 await cmd.ExecuteNonQueryAsync();
@@ -136,9 +200,10 @@ namespace LiteClinic.Repository
             }
             catch (Exception ex)
             {
-                //Console.WriteLine($"Error updating notification settings in DB: {ex.Message}");
-                Logger.LogError(ex, "Failed to update notification settings");
+                const string errorTag = "[ERR_NOTIFICATION_UPDATE]";
+                Logger.LogError(ex, $"{errorTag} Failed to update notification settings. UserId={App.GlobalState.LoggedUserId}");
             }
         }
+
     }
 }

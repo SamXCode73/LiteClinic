@@ -200,7 +200,6 @@ namespace LiteClinic.ViewModels
 
         private async void ApplyWorkingDaysAsync()
         {
-            // TODO: Commit working days to AppState or persistence
             bool applyChanges = false;
 
             try
@@ -220,22 +219,47 @@ namespace LiteClinic.ViewModels
                 localSettings["NotifyOnSunday"] = NotifyOnSunday;
 
                 using var conn = DatabaseHelper.GetConnection();
+                await conn.OpenAsync();
+
                 using var transaction = conn.BeginTransaction();
                 using var cmd = conn.CreateCommand();
                 cmd.Transaction = transaction;
 
-                cmd.CommandText = @"
-            UPDATE NotificationSettings SET
-                NotifyOnMonday = @monday,
-                NotifyOnTuesday = @tuesday,
-                NotifyOnWednesday = @wednesday,
-                NotifyOnThursday = @thursday,
-                NotifyOnFriday = @friday,
-                NotifyOnSaturday = @saturday,
-                NotifyOnSunday = @sunday
-            WHERE ProviderType = @ProviderType;";
+                // Check if row exists
+                cmd.CommandText = "SELECT COUNT(*) FROM NotificationSettings WHERE ProviderType = @ProviderType;";
+                cmd.Parameters.AddWithValue("@ProviderType", (int)ProviderType.Telegram);
+                var result = await cmd.ExecuteScalarAsync();
+                var count = (result == null || result == DBNull.Value) ? 0 : Convert.ToInt64(result);
 
                 cmd.Parameters.Clear();
+
+                if (count == 0)
+                {
+                    // Insert new row
+                    cmd.CommandText = @"
+                INSERT INTO NotificationSettings
+                    (ProviderType, NotifyOnMonday, NotifyOnTuesday, NotifyOnWednesday,
+                     NotifyOnThursday, NotifyOnFriday, NotifyOnSaturday, NotifyOnSunday)
+                VALUES
+                    (@ProviderType, @monday, @tuesday, @wednesday,
+                     @thursday, @friday, @saturday, @sunday);";
+                }
+                else
+                {
+                    // Update existing row
+                    cmd.CommandText = @"
+                UPDATE NotificationSettings SET
+                    NotifyOnMonday = @monday,
+                    NotifyOnTuesday = @tuesday,
+                    NotifyOnWednesday = @wednesday,
+                    NotifyOnThursday = @thursday,
+                    NotifyOnFriday = @friday,
+                    NotifyOnSaturday = @saturday,
+                    NotifyOnSunday = @sunday
+                WHERE ProviderType = @ProviderType;";
+                }
+
+                cmd.Parameters.AddWithValue("@ProviderType", (int)ProviderType.Telegram);
                 cmd.Parameters.AddWithValue("@monday", NotifyOnMonday ? 1 : 0);
                 cmd.Parameters.AddWithValue("@tuesday", NotifyOnTuesday ? 1 : 0);
                 cmd.Parameters.AddWithValue("@wednesday", NotifyOnWednesday ? 1 : 0);
@@ -243,10 +267,9 @@ namespace LiteClinic.ViewModels
                 cmd.Parameters.AddWithValue("@friday", NotifyOnFriday ? 1 : 0);
                 cmd.Parameters.AddWithValue("@saturday", NotifyOnSaturday ? 1 : 0);
                 cmd.Parameters.AddWithValue("@sunday", NotifyOnSunday ? 1 : 0);
-                cmd.Parameters.AddWithValue("@ProviderType", (int)ProviderType.Telegram);
 
-                cmd.ExecuteNonQuery();
-                transaction.Commit();
+                await cmd.ExecuteNonQueryAsync();
+                await transaction.CommitAsync();
 
                 applyChanges = true;
 
@@ -254,7 +277,6 @@ namespace LiteClinic.ViewModels
 
                 if (applyChanges)
                 {
-                    // Success message
                     App.GlobalState.StatusColor = StatusColor = new SolidColorBrush(Colors.Teal);
                     App.GlobalState.StatusMessage = StatusMessage = _loader.GetString("Stp_StatusMessageChangesAppliedSuccessfully");
                 }
@@ -265,7 +287,6 @@ namespace LiteClinic.ViewModels
             }
             catch (TaskCanceledException)
             {
-                // Ignore if the task was canceled
                 return;
             }
             catch (Exception ex)
@@ -280,6 +301,7 @@ namespace LiteClinic.ViewModels
                 );
             }
         }
+
         public void ClearSettingsMemory()
         {
             // Reset transient UI state
