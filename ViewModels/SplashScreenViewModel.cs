@@ -98,6 +98,13 @@ namespace LiteClinic.ViewModels
                 StatusMessage = loader.GetString("Status_LoadingDB"); // Key From Resources.resw
                 await Task.Delay(700, _cts.Token); // Simulate delay for DB loading
 
+                // TODO: Add Language loading logic here
+
+                await LoadingLanguageAsync();
+                StatusMessage = loader.GetString("Status_LoadingLanguage"); // Key From Resources.resw
+                await Task.Delay(700, _cts.Token); // Simulate delay for DB loading
+
+
                 await LoadingNotificationSettingAsync();
 
                 StatusMessage = loader.GetString("Status_LoadingSettings"); // Key From Resources.resw
@@ -135,6 +142,9 @@ namespace LiteClinic.ViewModels
         public async Task LoadingLanguageAsync()
         {
             string language = LanguageManager.CurrentLanguage; // fallback default
+            bool showGregorianDate = true; // sensible default
+            bool showHijriDate = false;    // sensible default
+
 
             var localSettings = Windows.Storage.ApplicationData.Current!.LocalSettings;
 
@@ -142,6 +152,9 @@ namespace LiteClinic.ViewModels
             if (localSettings.Values.TryGetValue("Language", out object? value))
             {
                 language = value as string ?? language;
+                showGregorianDate = localSettings.Values["ShowGregorianDate"] as bool? ?? showGregorianDate;
+                showHijriDate = localSettings.Values["ShowHijriDate"] as bool? ?? showHijriDate;
+                Debug.WriteLine($"Loaded Language from LocalSettings: {language}, ShowGregorianDate: {showGregorianDate}, ShowHijriDate: {showHijriDate}");
             }
             else
             {
@@ -150,14 +163,18 @@ namespace LiteClinic.ViewModels
                     using var conn = await DatabaseHelper.GetConnectionAsync();
                     using var cmd = conn.CreateCommand();
                     cmd.CommandText = @"
-                SELECT Language
+                SELECT Language, ShowGregorianDate, ShowHijriDate
                 FROM AppSettings
-                WHERE Id = 1;";
+                WHERE Id = @ID;";
 
+                    cmd.Parameters.AddWithValue("@ID", 1);
                     using var reader = await cmd.ExecuteReaderAsync();
                     if (await reader.ReadAsync())
                     {
                         language = reader.GetString(0);
+                        showGregorianDate = reader.GetInt32(1) == 1; // assuming DB stores 0/1
+                        showHijriDate = reader.GetInt32(2) == 1;
+
                     }
                 }
                 catch (Exception ex)
@@ -171,11 +188,17 @@ namespace LiteClinic.ViewModels
 
                 // Save back to LocalSettings for next time
                 localSettings.Values["Language"] = language;
+                localSettings.Values["ShowGregorianDate"] = showGregorianDate;
+                localSettings.Values["ShowHijriDate"] = showHijriDate;
+
             }
 
             // Update GlobalState
             App.GlobalState.CurrentLanguage = language;
-            Debug.WriteLine($"Loaded Language: {language}");
+            App.GlobalState.ShowGregorianDate = showGregorianDate;
+            App.GlobalState.ShowHijriDate = showHijriDate;
+
+            //Debug.WriteLine($"Loaded Language: {language}");
 
             StatusMessage = App.GlobalState.CurrentLanguage switch
             {
@@ -185,6 +208,7 @@ namespace LiteClinic.ViewModels
                 _ => "Loading language settings...",
             };
         }
+
         public async Task LoadingNotificationSettingAsync()
         {
             bool sendViaTelegram = false, notify24h = false, notify2h = false, notifyDoctor = false;
@@ -197,29 +221,29 @@ namespace LiteClinic.ViewModels
             if (settings != null)
             {
                 if (settings.TryGetValue("SendViaTelegram", out object? value1)) { sendViaTelegram = value1 is bool b && b; hasLocalSettings = true; }
-                Debug.WriteLine($"Loaded SendViaTelegram: {sendViaTelegram}");
+                //Debug.WriteLine($"Loaded SendViaTelegram: {sendViaTelegram}");
                 if (settings.TryGetValue("NotifyPatient24h", out object? value)) { notify24h = value is bool b && b; hasLocalSettings = true; }
-                Debug.WriteLine($"Loaded NotifyPatient24h: {notify24h}");
+                //Debug.WriteLine($"Loaded NotifyPatient24h: {notify24h}");
                 if (settings.TryGetValue("NotifyPatient2h", out object? value2)) { notify2h = value2 is bool b && b; hasLocalSettings = true; }
-                Debug.WriteLine($"Loaded NotifyPatient2h: {notify2h}");
+                //Debug.WriteLine($"Loaded NotifyPatient2h: {notify2h}");
                 if (settings.TryGetValue("NotifyDoctor", out object? value3)) { notifyDoctor = value3 is bool b && b; hasLocalSettings = true; }
-                Debug.WriteLine($"Loaded NotifyDoctor: {notifyDoctor}");
+                //Debug.WriteLine($"Loaded NotifyDoctor: {notifyDoctor}");
 
                 // Weekdays
                 if (settings.TryGetValue("NotifyOnMonday", out object? value4)) { monday = value4 is bool b && b; hasLocalSettings = true; }
-                Debug.WriteLine($"Loaded NotifyOnMonday: {monday}");
+                //Debug.WriteLine($"Loaded NotifyOnMonday: {monday}");
                 if (settings.TryGetValue("NotifyOnTuesday", out object? value5)) { tuesday = value5 is bool b && b; hasLocalSettings = true; }
-                Debug.WriteLine($"Loaded NotifyOnTuesday: {tuesday}");
+                //Debug.WriteLine($"Loaded NotifyOnTuesday: {tuesday}");
                 if (settings.TryGetValue("NotifyOnWednesday", out object? value6)) { wednesday = value6 is bool b && b; hasLocalSettings = true; }
-                Debug.WriteLine($"Loaded NotifyOnWednesday: {wednesday}");
+                //Debug.WriteLine($"Loaded NotifyOnWednesday: {wednesday}");
                 if (settings.TryGetValue("NotifyOnThursday", out object? value7)) { thursday = value7 is bool b && b; hasLocalSettings = true; }
-                Debug.WriteLine($"Loaded NotifyOnThursday: {thursday}");
+                //Debug.WriteLine($"Loaded NotifyOnThursday: {thursday}");
                 if (settings.TryGetValue("NotifyOnFriday", out object? value8)) { friday = value8 is bool b && b; hasLocalSettings = true; }
-                Debug.WriteLine($"Loaded NotifyOnFriday: {friday}");
+                //Debug.WriteLine($"Loaded NotifyOnFriday: {friday}");
                 if (settings.TryGetValue("NotifyOnSaturday", out object? value9)) { saturday = value9 is bool b && b; hasLocalSettings = true; }
-                Debug.WriteLine($"Loaded NotifyOnSaturday: {saturday}");
+                //Debug.WriteLine($"Loaded NotifyOnSaturday: {saturday}");
                 if (settings.TryGetValue("NotifyOnSunday", out object? value10)) { sunday = value10 is bool b && b; hasLocalSettings = true; }
-                Debug.WriteLine($"Loaded NotifyOnSunday: {sunday}");
+                //Debug.WriteLine($"Loaded NotifyOnSunday: {sunday}");
             }
 
             if (!hasLocalSettings)
@@ -269,6 +293,7 @@ namespace LiteClinic.ViewModels
             App.GlobalState.NotifyDoctor = notifyDoctor;
             App.GlobalState.SendViaTelegram = sendViaTelegram;
 
+            // Update Working days
             App.GlobalState.NotifyOnMonday = monday;
             App.GlobalState.NotifyOnTuesday = tuesday;
             App.GlobalState.NotifyOnWednesday = wednesday;
@@ -283,8 +308,6 @@ namespace LiteClinic.ViewModels
         public async Task LoadingClinicNameAsync()
         {
             string clinicName = "Default LiteClinic"; // fallback default
-            bool showGregorianDate = true; // sensible default
-            bool showHijriDate = false;    // sensible default
 
             var localSettings = Windows.Storage.ApplicationData.Current!.LocalSettings;
 
@@ -292,8 +315,7 @@ namespace LiteClinic.ViewModels
             if (localSettings.Values.TryGetValue("ClinicName", out object? value))
             {
                 clinicName = value as string ?? clinicName;
-                showGregorianDate = localSettings.Values["ShowGregorianDate"] as bool? ?? showGregorianDate;
-                showHijriDate = localSettings.Values["ShowHijriDate"] as bool? ?? showHijriDate;
+
             }
             else
             {
@@ -302,18 +324,17 @@ namespace LiteClinic.ViewModels
                     using var conn = await DatabaseHelper.GetConnectionAsync();
                     using var cmd = conn.CreateCommand();
                     cmd.CommandText = @"
-                SELECT AppName, ShowGregorianDate, ShowHijriDate, AutoAppName
+                SELECT AppName,
                 FROM AppName
-                WHERE AutoAppName = 1;";
+                WHERE AutoAppName = @ID;";
 
+                    cmd.Parameters.AddWithValue("@ID", 1);
                     using var reader = await cmd.ExecuteReaderAsync();
                     if (await reader.ReadAsync())
                     {
                         clinicName = reader.GetString(0);
-                        showGregorianDate = reader.GetInt32(1) == 1; // assuming DB stores 0/1
-                        showHijriDate = reader.GetInt32(2) == 1;
-
                     }
+
                 }
                 catch (Exception ex)
                 {
@@ -326,14 +347,10 @@ namespace LiteClinic.ViewModels
 
                 // Save back to LocalSettings for next time
                 localSettings.Values["ClinicName"] = clinicName;
-                localSettings.Values["ShowGregorianDate"] = showGregorianDate;
-                localSettings.Values["ShowHijriDate"] = showHijriDate;
             }
 
             // Update GlobalState
             App.GlobalState.ClinicName = clinicName;
-            App.GlobalState.ShowGregorianDate = showGregorianDate;
-            App.GlobalState.ShowHijriDate = showHijriDate;
         }
 
         public async Task LoadThemeAndLanguageAsync()

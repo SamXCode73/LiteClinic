@@ -815,6 +815,10 @@
   <data name="Status_LoadingDB" xml:space="preserve">
     <value>Loading DB...</value>
   </data>
+  <data name="Status_LoadingLanguage" xml:space="preserve">
+  <value>Loading language settings...</value>
+  <comment>Splash screen status message - English</comment>
+</data>
   <data name="Status_LoadingSettings" xml:space="preserve">
     <value>Loading Settings...</value>
   </data>

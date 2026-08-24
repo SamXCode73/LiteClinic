@@ -684,6 +684,10 @@
   <data name="Status_LoadingDB" xml:space="preserve">
     <value>جاري تحميل قاعدة البيانات...</value>
   </data>
+  <data name="Status_LoadingLanguage" xml:space="preserve">
+  <value>جاري تحميل إعدادات اللغة...</value>
+  <comment>Splash screen status message - Arabic</comment>
+</data>
   <data name="Status_LoadingSettings" xml:space="preserve">
     <value>جاري تحميل الإعدادات...</value>
   </data>

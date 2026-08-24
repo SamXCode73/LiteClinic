@@ -205,7 +205,7 @@ namespace LiteClinic.ViewModels
             try
             {
                 // Show "please wait" status
-                App.GlobalState.StatusColor = StatusColor = new SolidColorBrush(Colors.Orange);
+                App.GlobalState.StatusColor = StatusColor = new SolidColorBrush(Colors.DarkOrange);
                 App.GlobalState.StatusMessage = StatusMessage = _loader.GetString("Stp_StatusMessageApplyingChanges");
 
                 // Update local settings

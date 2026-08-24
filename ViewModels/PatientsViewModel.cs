@@ -940,7 +940,7 @@ public partial class PatientsViewModel : INotifyPropertyChanged
         return $"PT{nextId:D6}"; // D4 for zero-padded to 4 digits like LC0001
     }
 
-    private void UpdateDateOfBirth()
+    void UpdateDateOfBirth()
     {
         if (!string.IsNullOrWhiteSpace(StringYear))
         {
@@ -950,20 +950,20 @@ public partial class PatientsViewModel : INotifyPropertyChanged
 
             if (day != null && month != null)
             {
-                DateOfBirth = $"{day}/{month}/{StringYear}";
+                DateOfBirth = $"{StringYear}-{month}-{day}";
             }
             else if (month != null)
             {
-                DateOfBirth = $"01/{month}/{StringYear}"; // Year + Month only
+                DateOfBirth = $"{StringYear}-{month}-01"; // Year + Month only
             }
             else
             {
-                DateOfBirth = $"01/01/{StringYear}"; // Year only
+                DateOfBirth = $"{StringYear}-01-01"; // Year only
             }
         }
         else
         {
-            DateOfBirth = DateTime.MinValue.ToString("dd/MM/yyyy");
+            DateOfBirth = DateTime.MinValue.ToString("yyyy-MM-dd");
         }
     }
 

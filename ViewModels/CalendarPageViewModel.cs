@@ -118,14 +118,15 @@ namespace LiteClinic.ViewModels
                 cmd.Transaction = transaction;
 
                 cmd.CommandText = @"
-            UPDATE AppName SET
+            UPDATE AppSettings SET
                 ShowGregorianDate = @ShowGregorianDate,
                 ShowHijriDate = @ShowHijriDate
-            WHERE AutoAppName = 1;";
+            WHERE ID = @ID;";
 
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@ShowGregorianDate", showGregorianDate ? 1 : 0);
                 cmd.Parameters.AddWithValue("@ShowHijriDate", showHijriDate ? 1 : 0);
+                cmd.Parameters.AddWithValue("@ID", 1);
 
                 await cmd.ExecuteNonQueryAsync();
                 transaction.Commit();

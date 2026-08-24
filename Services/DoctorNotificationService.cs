@@ -296,28 +296,58 @@ WHERE ScheduleId = @ScheduleId
                     break;
             }
 
-            // Week-of-month match (supports Week 1–5)
+            // Week-of-month match (supports Week 1–5 and sometimes Week 6)
             bool matchesWeek = false;
             try
             {
+                // Check if the schedule has week numbers defined (e.g., "1,3,5")
                 if (!string.IsNullOrEmpty(schedule.WeekNumbers))
                 {
+                    // Split the string by commas and convert each part into an integer list
                     var weeks = schedule.WeekNumbers.Split(',')
                                                     .Select(w => int.Parse(w.Trim()));
 
+                    // Get the first day of the current month (used for context, though not needed in this simplified formula)
                     var firstDayOfMonth = new DateTime(targetDate.Year, targetDate.Month, 1);
-                    int offset = (int)targetDate.DayOfWeek - (int)firstDayOfMonth.DayOfWeek;
-                    if (offset < 0) offset += 7;
 
-                    int weekOfMonth = ((targetDate.Day + offset) / 7) + 1;
+                    // Calculate which week of the month the target date falls into
+                    // Example: Day 1–7 → Week 1, Day 8–14 → Week 2, etc.
+                    // This can produce Week 6 if the month spills over
+                    int weekOfMonth = ((targetDate.Day - 1) / 7) + 1;
 
+                    // Check if the calculated week number is in the doctor’s allowed weeks
                     matchesWeek = weeks.Contains(weekOfMonth);
                 }
                 else
                 {
-                    matchesWeek = true; // no week restriction
+                    // If no week restriction is set, always match
+                    matchesWeek = true;
                 }
             }
+
+
+
+            //bool matchesWeek = false;
+            //try
+            //{
+            //    if (!string.IsNullOrEmpty(schedule.WeekNumbers))
+            //    {
+            //        var weeks = schedule.WeekNumbers.Split(',')
+            //                                        .Select(w => int.Parse(w.Trim()));
+
+            //        var firstDayOfMonth = new DateTime(targetDate.Year, targetDate.Month, 1);
+            //        int offset = (int)targetDate.DayOfWeek - (int)firstDayOfMonth.DayOfWeek;
+            //        if (offset < 0) offset += 7;
+
+            //        int weekOfMonth = ((targetDate.Day + offset) / 7) + 1;
+
+            //        matchesWeek = weeks.Contains(weekOfMonth);
+            //    }
+            //    else
+            //    {
+            //        matchesWeek = true; // no week restriction
+            //    }
+            //}
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Error parsing WeekNumbers in IsNotificationDue (tomorrow).");

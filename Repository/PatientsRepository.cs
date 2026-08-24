@@ -28,15 +28,34 @@ namespace LiteClinic.Repository
                 using var conn = DatabaseHelper.GetConnection();
                 using var cmd = conn.CreateCommand();
                 cmd.CommandText = @"
-                SELECT PatientAutoId, PatientId, FirstName, MiddleName, LastName, FullMotherName,
-                       CivilRecord, Gender, DateOfBirth, PatientAge, PhoneNumber, Email, Address, City, Country,
-                       GotInsurance, InsuranceName, InsuranceNumber, GotNSN, NSNName, NSNNumber, BloodType,
-                       Allergies, MedicalHistory, Language, IsActive, CreatedBy, CreatedAt, UpdatedAt, UpdatedBy
-                FROM PatientTable;";
+            SELECT PatientAutoId, PatientId, FirstName, MiddleName, LastName, FullMotherName,
+                   CivilRecord, Gender, DateOfBirth, PatientAge, PhoneNumber, Email, Address, City, Country,
+                   GotInsurance, InsuranceName, InsuranceNumber, GotNSN, NSNName, NSNNumber, BloodType,
+                   Allergies, MedicalHistory, Language, IsActive, CreatedBy, CreatedAt, UpdatedAt, UpdatedBy
+            FROM PatientTable;";
 
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    // Handle DateOfBirth parsing
+                    string? dob = null;
+                    if (!reader.IsDBNull(8))
+                    {
+                        string dbValue = reader.GetString(8);
+
+                        if (DateTime.TryParseExact(dbValue, "yyyy-MM-dd", CultureInfo.InvariantCulture,
+                                                   DateTimeStyles.None, out var parsedIso))
+                        {
+                            dob = parsedIso.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                        }
+                        else if (DateTime.TryParseExact(dbValue, "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                                                        DateTimeStyles.None, out var parsedLegacy))
+                        {
+                            dob = parsedLegacy.ToString("d", CultureInfo.InvariantCulture);
+                        }
+                    }
+
+
                     patients.Add(new PatientsModel
                     {
                         PatientAutoId = reader.GetInt32(0),
@@ -47,7 +66,7 @@ namespace LiteClinic.Repository
                         FullMotherName = reader.IsDBNull(5) ? null : reader.GetString(5),
                         CivilRecord = reader.IsDBNull(6) ? null : reader.GetString(6),
                         Gender = reader.IsDBNull(7) ? null : reader.GetString(7),
-                        DateOfBirth = reader.IsDBNull(8) ? null : reader.GetString(8),
+                        DateOfBirth = dob, // now a DateTime? instead of raw string
                         PatientAge = reader.IsDBNull(9) ? 0 : reader.GetInt32(9),
                         PhoneNumber = reader.IsDBNull(10) ? null : reader.GetString(10),
                         Email = reader.IsDBNull(11) ? null : reader.GetString(11),
@@ -55,7 +74,7 @@ namespace LiteClinic.Repository
                         City = reader.IsDBNull(13) ? null : reader.GetString(13),
                         Country = reader.IsDBNull(14) ? null : reader.GetString(14),
                         GotInsurance = !reader.IsDBNull(15) && reader.GetInt32(15) == 1,
-                        InsuranceName = reader.IsDBNull(16) ? null : reader.GetString(15),
+                        InsuranceName = reader.IsDBNull(16) ? null : reader.GetString(16),
                         InsuranceNumber = reader.IsDBNull(17) ? null : reader.GetString(17),
                         GotNSN = !reader.IsDBNull(18) && reader.GetInt32(18) == 1,
                         NSNName = reader.IsDBNull(19) ? null : reader.GetString(19),
@@ -65,7 +84,7 @@ namespace LiteClinic.Repository
                         MedicalHistory = reader.IsDBNull(23) ? null : reader.GetString(23),
                         Language = reader.IsDBNull(24) ? "en" : reader.GetString(24),
                         IsActive = !reader.IsDBNull(25) && reader.GetInt32(25) == 1,
-                        CreatedBy = !reader.IsDBNull(26) ? null : reader.GetString(26),
+                        CreatedBy = reader.IsDBNull(26) ? null : reader.GetString(26),
                         CreatedAt = reader.IsDBNull(27) ? null : (DateTime?)reader.GetDateTime(27),
                         UpdatedAt = reader.IsDBNull(28) ? null : (DateTime?)reader.GetDateTime(28),
                         UpdatedBy = reader.IsDBNull(29) ? null : reader.GetString(29)
@@ -83,6 +102,7 @@ namespace LiteClinic.Repository
 
             return patients;
         }
+
 
         public List<PatientsModel> GetAllActivePatients()
         {
@@ -103,6 +123,24 @@ namespace LiteClinic.Repository
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    // Handle DateOfBirth parsing
+                    string? dob = null;
+                    if (!reader.IsDBNull(8))
+                    {
+                        string dbValue = reader.GetString(8);
+
+                        if (DateTime.TryParseExact(dbValue, "yyyy-MM-dd", CultureInfo.InvariantCulture,
+                                                   DateTimeStyles.None, out var parsedIso))
+                        {
+                            dob = parsedIso.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                        }
+                        else if (DateTime.TryParseExact(dbValue, "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                                                        DateTimeStyles.None, out var parsedLegacy))
+                        {
+                            dob = parsedLegacy.ToString("d", CultureInfo.InvariantCulture);
+                        }
+                    }
+
                     patients.Add(new PatientsModel
                     {
                         PatientAutoId = reader.GetInt32(0),
@@ -113,7 +151,7 @@ namespace LiteClinic.Repository
                         FullMotherName = reader.IsDBNull(5) ? null : reader.GetString(5),
                         CivilRecord = reader.IsDBNull(6) ? null : reader.GetString(6),
                         Gender = reader.IsDBNull(7) ? null : reader.GetString(7),
-                        DateOfBirth = reader.IsDBNull(8) ? null : reader.GetString(8),
+                        DateOfBirth = dob,
                         PatientAge = reader.IsDBNull(9) ? 0 : reader.GetInt32(9),
                         PhoneNumber = reader.IsDBNull(10) ? null : reader.GetString(10),
                         Email = reader.IsDBNull(11) ? null : reader.GetString(11),

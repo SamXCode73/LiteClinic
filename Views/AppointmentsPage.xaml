@@ -253,7 +253,7 @@
 
                                 <!-- Column headers -->
                                 <ListView.Header>
-                                    <Grid ColumnDefinitions="100,200,220,220,220,150,150,150,150" 
+                                    <Grid ColumnDefinitions="100,200,270,240,240,240,250,150,150" 
                                               Background="LightGray" Height="35">
                                         <TextBlock Text="Auto" Grid.Column="0"
                                                        Style="{StaticResource CustomColumnHeaderStyle}"/>
@@ -279,7 +279,7 @@
                                 <!-- Row template -->
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid ColumnDefinitions="100,200,220,220,220,150,150,150,150" Height="40">
+                                        <Grid ColumnDefinitions="100,200,270,240,240,240,250,150,150" Height="40">
                                             <!-- Auto -->
                                             <TextBlock Text="{Binding PatientAutoId}"
                                                            Grid.Column="0"
@@ -409,7 +409,7 @@
 
                                     <!-- Column headers -->
                                     <ListView.Header>
-                                        <Grid ColumnDefinitions="200,130,130,200,150,150,100,100,200,150,250,150,150,150,150"
+                                        <Grid ColumnDefinitions="270,130,130,200,150,180,100,100,200,150,250,150,150,150,150"
                                               Background="LightGray" Height="35">
                                             <TextBlock Text="Patient Name" Grid.Column="0" Style="{StaticResource CustomColumnHeaderStyle}"/>
                                             <TextBlock Text="Date" Grid.Column="1" Style="{StaticResource CustomColumnHeaderStyle}"/>
@@ -431,7 +431,7 @@
                                     <!-- Row template -->
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid ColumnDefinitions="220,130,130,200,150,150,100,100,200,150,250,150,150,150" Height="50">
+                                            <Grid ColumnDefinitions="270,130,130,200,150,150,100,100,200,150,250,150,150,150" Height="50">
                                                 <!-- Patient Name -->
                                                 <TextBlock Text="{Binding PatientName, Mode=TwoWay}"
                                                            Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
@@ -458,7 +458,7 @@
                                                            Grid.Column="4" Style="{StaticResource CustomCellStyle}"/>
 
                                                 <!-- Appointment Type -->
-                                                <TextBlock Text="{Binding AppointmentType, Mode=TwoWay}"
+                                                <TextBlock Text="{Binding AppointmentTimeFormatted, Mode=TwoWay}"
                                                            Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
                                                            Grid.Column="5" Style="{StaticResource CustomCellStyle}"/>
 

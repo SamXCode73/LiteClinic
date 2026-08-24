@@ -814,6 +814,10 @@
   <data name="Status_LoadingDB" xml:space="preserve">
     <value>Chargement de la base de données...</value>
   </data>
+  <data name="Status_LoadingLanguage" xml:space="preserve">
+  <value>Chargement des paramètres de langue...</value>
+  <comment>Splash screen status message - French</comment>
+</data>
   <data name="Status_LoadingSettings" xml:space="preserve">
     <value>Chargement des paramètres...</value>
   </data>

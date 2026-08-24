@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,16 +27,16 @@ namespace LiteClinic.Models
         public string PatientName { get; set; } = string.Empty;
         public string PatientMotherName { get; set; } = string.Empty;
         public DateTime PatientDOB { get; set; }
-        public string PatientDOBFormatted => PatientDOB.ToString("dd/MM/yyyy") ?? "";
+        public string PatientDOBFormatted => PatientDOB.ToString("d", CultureInfo.InvariantCulture) ?? "";
 
         public int DoctorId { get; set; }
         public string DoctorName { get; set; } = string.Empty;
         public string Specialty { get; set; } = string.Empty;
 
         public DateTime AppointmentDate { get; set; }
-        public string AppointmentDateFormatted => AppointmentDate.ToString("dd/MM/yyyy");
+        public string AppointmentDateFormatted => AppointmentDate.ToString("d",CultureInfo.InvariantCulture);
         public TimeSpan AppointmentTime { get; set; }
-        public string AppointmentTimeFormatted => DateTime.Today.Add(AppointmentTime).ToString("hh:mm tt");
+        public string AppointmentTimeFormatted => DateTime.Today.Add(AppointmentTime).ToString("t", CultureInfo.CurrentCulture);
 
         public string? AppointmentType { get; set; }
         public string? Notes { get; set; }
