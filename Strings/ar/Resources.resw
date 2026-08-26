@@ -2873,6 +2873,18 @@
 <data name="DDP_FilteredDoctorsLegend.Text" xml:space="preserve">
   <value>الأطباء حسب التصفية</value>
 </data>
+<data name="DDP_Status_NoDoctorSelected" xml:space="preserve">
+  <value>لم يتم اختيار أي طبيب.</value>
+  <comment>Status message shown when no doctor is chosen for emergency alert</comment>
+</data>
+<data name="DDP_Status_EmergencyAlertSent" xml:space="preserve">
+  <value>تم إرسال تنبيه الطوارئ بنجاح.</value>
+  <comment>Status message shown when alert is delivered to doctor</comment>
+</data>
+<data name="DDP_Status_EmergencyAlertFailed" xml:space="preserve">
+  <value>فشل في إرسال تنبيه الطوارئ.</value>
+  <comment>Status message shown when alert could not be delivered to doctor</comment>
+</data>
 <data name="DoctorsScheduled.Text" xml:space="preserve">
   <value>الأطباء/المجدولون</value>
   <comment>الانتقال إلى صفحة الأطباء المجدولين</comment>

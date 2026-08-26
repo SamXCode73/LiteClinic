@@ -48,24 +48,5 @@ namespace LiteClinic
             //this.Closed  += MainWindow_Closed;         
         }
 
-        //private void MainWindow_Closed(object sender, WindowEventArgs e)
-        //{
-        //    try
-        //    {
-        //        Logger.LogUserEvent($"User session ended by closing window. " +
-        //            $"Role: {App.GlobalState.LoggedUserRoleId} | " +
-        //            $"ID: {App.GlobalState.LoggedUserId} | User: {App.GlobalState.LoggedUserName} | " +
-        //            $"Windows User: {Environment.UserName}, " +
-        //            $"Action: Main Window Closed", "LOG OUT AND EXIT");
-
-        //        // Clear Botlient when closing for safty.
-        //        ViewModel?.DisposeBotClient();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Logger.LogError(ex, $"Error occurred while closing the main window. | {GetType().Name}");
-        //    }
-        //}
-
     }
 }

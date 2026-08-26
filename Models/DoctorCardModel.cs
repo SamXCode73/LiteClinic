@@ -34,6 +34,10 @@ namespace LiteClinic.Models
 
         public string? Initials { get; set; }
 
+        public bool NotifyEn { get; set; }
+        public bool NotifyFr { get; set; }
+        public bool NotifyAr { get; set; }
+
         public Brush DayBackground { get; set; } = new SolidColorBrush(Colors.Transparent);  // #D0F0F2
 
         //public Brush DayBackground { get; set; } = new SolidColorBrush(ColorHelper.FromArgb(255, 208, 240, 242));  // #D0F0F2

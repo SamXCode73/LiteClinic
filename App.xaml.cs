@@ -4,6 +4,7 @@ using LiteClinic.Repository;
 using LiteClinic.Services;
 using LiteClinic.ViewModels;
 using LiteClinic.Views;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
@@ -28,20 +29,44 @@ namespace LiteClinic
         //internal static string? SelectedLanguage { get; set; }
         public static AppState GlobalState { get; } = new AppState();
 
+        public static IServiceProvider? ServiceProvider { get; private set; } = default!;
+        //public App()
+        //{
+        //    SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1JAaF5cXmNCd1p/TH5YfUNzdUVEY1ZUTXxaS1ZhSXxVdkJiXH9ddXVQQWRdU0d9XEY=");
+        //    var savedLang = ApplicationData.Current.LocalSettings.Values["SelectedLanguage"] as string;
+        //    if (!string.IsNullOrEmpty(savedLang))
+        //    {
+        //        Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = savedLang;
+        //        Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
+
+        //    }
+        //    InitializeComponent();
+
+
+        //}
 
         public App()
         {
             SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1JAaF5cXmNCd1p/TH5YfUNzdUVEY1ZUTXxaS1ZhSXxVdkJiXH9ddXVQQWRdU0d9XEY=");
+
             var savedLang = ApplicationData.Current.LocalSettings.Values["SelectedLanguage"] as string;
             if (!string.IsNullOrEmpty(savedLang))
             {
                 Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = savedLang;
                 Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
-                
             }
+
             InitializeComponent();
+
+            // --- NEW: Register services for DI ---
+            var services = new Microsoft.Extensions.DependencyInjection.ServiceCollection();
+            services.AddSingleton<LiteClinic.Services.IFolderPickerService, LiteClinic.Services.FolderPickerService>();
+            services.AddTransient<LiteClinic.ViewModels.BackupPageViewModel>();
+
+            ServiceProvider = services.BuildServiceProvider();
         }
 
+        // Make ServiceProvider accessible globally
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
             // Clear all saved values in LocalSettings

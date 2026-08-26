@@ -3003,6 +3003,18 @@
 <data name="DDP_FilteredDoctorsLegend.Text" xml:space="preserve">
   <value>Médecins filtrés</value>
 </data>
+<data name="DDP_Status_NoDoctorSelected" xml:space="preserve">
+  <value>Aucun médecin sélectionné.</value>
+  <comment>Status message shown when no doctor is chosen for emergency alert</comment>
+</data>
+<data name="DDP_Status_EmergencyAlertSent" xml:space="preserve">
+  <value>Alerte d'urgence envoyée avec succès.</value>
+  <comment>Status message shown when alert is delivered to doctor</comment>
+</data>
+<data name="DDP_Status_EmergencyAlertFailed" xml:space="preserve">
+  <value>Échec de l'envoi de l'alerte d'urgence.</value>
+  <comment>Status message shown when alert could not be delivered to doctor</comment>
+</data>
 <data name="DoctorsScheduled.Text" xml:space="preserve">
   <value>Médecins/Planifiés</value>
   <comment>Aller à la page des médecins planifiés</comment>

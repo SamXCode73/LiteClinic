@@ -306,10 +306,8 @@ namespace LiteClinic.Services
                     return;
                 }
 
-                // Step 2: Initialize bot client
-                //var botClient = new TelegramBotClient(token);
 
-                // Step 3: Build reminder texts based on NotifyEn / NotifyAr flags
+                // Step 2: Build reminder texts based on NotifyEn / NotifyAr flags
                 var messages = new List<string>();
 
                 if (appt.NotifyEn) // English notification

@@ -69,7 +69,7 @@ namespace LiteClinic.Services
             }
         }
 
-        public static bool CanExecuteCommand(string chatId, string command, out bool isBlockedForever)
+        public bool CanExecuteCommand(string chatId, string command, out bool isBlockedForever)
         {
             isBlockedForever = false;
             try
@@ -116,14 +116,14 @@ namespace LiteClinic.Services
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, $"Error checking command usage for ChatId={chatId}, Command={command}");
+                Logger.LogError(ex, $"Error checking command usage for ChatId={chatId}, Command={command} {GetType().Name}");
                 return false;
             }
         }
 
         private static readonly ConcurrentDictionary<string, int> _messageCounts = new();
 
-        public static bool CanProcessMessage(string chatId)
+        public bool CanProcessMessage(string chatId)
         {
             try
             {
@@ -150,14 +150,14 @@ namespace LiteClinic.Services
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Error in CanProcessMessage");
+                Logger.LogError(ex, $"Error in CanProcessMessage {GetType().Name}");
                 return false;
             }
         }
 
         Task IUpdateHandler.HandleErrorAsync(ITelegramBotClient botClient, Exception exception, HandleErrorSource source, CancellationToken cancellationToken)
         {
-            Logger.LogError(exception, $"Telegram error from {source}");
+            Logger.LogError(exception, $"Telegram error from {source} {GetType().Name}");
             return Task.CompletedTask;
         }
     }

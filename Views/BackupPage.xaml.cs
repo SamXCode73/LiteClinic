@@ -1,4 +1,5 @@
 using LiteClinic.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -29,7 +30,8 @@ public sealed partial class BackupPage : Page
     {
         
         InitializeComponent();
-        ViewModel = new BackupPageViewModel();
+        ViewModel = App.ServiceProvider!.GetRequiredService<BackupPageViewModel>()
+            ?? throw new InvalidOperationException("Failed to resolve BackupPageViewModel");
         DataContext = ViewModel;
 
     }

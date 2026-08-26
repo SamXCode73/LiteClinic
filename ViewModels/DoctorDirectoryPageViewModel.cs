@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using LiteClinic.Models;
+using LiteClinic.Models.Enums;
 using LiteClinic.Repository;
 using LiteClinic.Services;
 using LiteClinic.Views;
@@ -13,8 +14,12 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-
+using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
+using Telegram.Bot;
+using Telegram.Bot.Types;
+using Windows.ApplicationModel.Resources;
 
 namespace LiteClinic.ViewModels
 {
@@ -24,20 +29,27 @@ namespace LiteClinic.ViewModels
         // add delay time to unfreez the UI
         private readonly DispatcherTimer? _debounceTimer;  // private field because it’s not meant to be exposed or bound.
 
-        public IAsyncRelayCommand RefreshCommandAsync { get; }
+        private static readonly CancellationTokenSource _cts = new();
+
+        private readonly ResourceLoader _loader = new();
+
+        public TelegramBotClient? BotClient { get; private set; }
 
         public Visibility GregorianDateVisibility => App.GlobalState.ShowGregorianDate ? Visibility.Visible : Visibility.Collapsed;
         public Visibility HijriDateVisibility => App.GlobalState.ShowHijriDate ? Visibility.Visible : Visibility.Collapsed;
+
+        public bool CanSendAlertMessageToDoctor => PermissionHelper.CanManageDoctors; // Send alert message to Doctor with permission
 
         private string? _hijriDate;
         private string? _romanDate;
         private string? _statusMessage;
         private SolidColorBrush _statusColor = new(Colors.Black);
 
-
+        public IAsyncRelayCommand RefreshCommandAsync { get; }
         public IAsyncRelayCommand? Btn_OpenAppointmentPage { get; }
         public IAsyncRelayCommand? Btn_OpenProfilePage { get; }
         public IAsyncRelayCommand? Btn_CloseProfilePage { get; }
+        public IAsyncRelayCommand? Btn_SendEmergencycall { get; }
 
         public DoctorDirectoryPageViewModel()
         {
@@ -56,6 +68,7 @@ namespace LiteClinic.ViewModels
             Btn_OpenAppointmentPage = new AsyncRelayCommand(OpenAppointmentPageAsync);
             Btn_OpenProfilePage = new AsyncRelayCommand<DoctorCardModel>(OpenProfilePageAsync);
             Btn_CloseProfilePage = new AsyncRelayCommand(CloseProfilePageAsync);
+            Btn_SendEmergencycall = new AsyncRelayCommand<DoctorCardModel>(SendEmergencyCallAsync);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -98,7 +111,7 @@ namespace LiteClinic.ViewModels
             {
                 _selectedSpecialization = value;
                 OnPropertyChanged(nameof(SelectedSpecialization));
-                if(!_isResettingFilter)
+                if (!_isResettingFilter)
                     _ = ApplyFilter(); // trigger filtering logic
             }
         }
@@ -318,6 +331,20 @@ namespace LiteClinic.ViewModels
             }
         }
 
+        private string? _serviceId;
+        public string? ServiceId
+        {
+            get => _serviceId;
+            set
+            {
+                if (_serviceId != value)
+                {
+                    _serviceId = value;
+                    OnPropertyChanged(nameof(ServiceId));
+                }
+            }
+        }
+
 
         //----------------------------------
         // ## Calculate the Popup Keep them not static for ynamic changes
@@ -385,7 +412,12 @@ namespace LiteClinic.ViewModels
                         Gender = g.First().Gender,
                         PhoneNumber = g.First().PhoneNumber,
                         LandLineNumber = g.First().LandLineNumber,
-                        Initials = g.First().Initials
+                        Initials = g.First().Initials,
+                        ServiceId = g.First().ServiceId,
+                        NotifyEn = g.First().NotifyEn,
+                        NotifyAr = g.First().NotifyAr,
+                        NotifyFr = g.First().NotifyFr
+
                     })
                     .ToList();
 
@@ -478,7 +510,7 @@ namespace LiteClinic.ViewModels
                                 }
                             }
                             return result;
-                        });                        
+                        });
                     }
 
 
@@ -741,6 +773,88 @@ namespace LiteClinic.ViewModels
             IsDoctorProfilePopupOpen = false;
 
             await Task.CompletedTask; // optional
+        }
+
+        private async Task SendEmergencyCallAsync(DoctorCardModel? doctors)
+        {
+            try
+            {
+
+                var vm = new MessagingIntegrationPageViewModel();
+                // Get token + admin chatId from DB
+                var result = vm.DecryptFromBase64(ProviderType.Telegram);
+                string token = result.Token;
+
+                //if (doctors is null || string.IsNullOrEmpty(doctors.FullName) || string.IsNullOrEmpty(doctors.ServiceId))
+                if (doctors is null || string.IsNullOrEmpty(doctors.FullName) || string.IsNullOrEmpty(doctors.ServiceId))
+                {
+                    StatusMessage = _loader.GetString("DDP_Status_NoDoctorSelected");
+                    StatusColor = new SolidColorBrush(Colors.Red);
+                    return;
+                }
+
+                BotClient ??= new TelegramBotClient(token); // this how to replacce if i short 
+                var clinicName = App.GlobalState.ClinicName;
+
+                if (doctors.NotifyEn)
+                {
+                    // Addd slitly delay time before send for telegram limitation
+                    await Task.Delay(900, _cts.Token);
+                    await BotClient.SendMessage(chatId: doctors.ServiceId, text: BuildAlertMessage("en", doctors.FullName, clinicName));
+                    //await BotClient.SendMessage(chatId: doctors.ServiceId, text: $"🚨 ALERT:\nDr. {doctors.FullName}, we need you at {clinicName} ASAP or please call us soon.");
+                }
+                if (doctors.NotifyFr)
+                {
+                    // Addd slitly delay time before send for telegram limitation
+                    await Task.Delay(900, _cts.Token);
+                    //await BotClient.SendMessage(chatId: doctors.ServiceId, text: $"🚨 ALERTE:\nDr. {doctors.FullName}, nous avons besoin de vous à {clinicName} dès que possible ou veuillez nous appeler rapidement.");
+                    await BotClient.SendMessage(chatId: doctors.ServiceId, text: BuildAlertMessage("fr", doctors.FullName, clinicName));
+                }
+                if (doctors.NotifyAr)
+                {
+                    // Addd slitly delay time before send for telegram limitation
+                    await Task.Delay(900, _cts.Token);
+                    await BotClient.SendMessage(chatId: doctors.ServiceId, text: BuildAlertMessage("ar", doctors.FullName, clinicName));
+                    //await BotClient.SendMessage(chatId: doctors.ServiceId, text: $"🚨 إنذار:\nد. {doctors.FullName}, نحتاج إليك في {clinicName} فوراً أو يرجى الاتصال بنا في أقرب وقت.");
+                }
+
+
+                StatusMessage = "Emergency alert sent successfully.";
+                StatusColor = new SolidColorBrush(Colors.Green);
+            }
+            catch (TaskCanceledException)
+            {
+                return;
+            }
+            catch (Telegram.Bot.Exceptions.ApiRequestException apiEx)
+            {
+                Logger.LogError(apiEx, $"Telegram API request failed.{GetType().Name}");
+                StatusMessage = _loader.GetString("DDP_Status_EmergencyAlertSent");
+                StatusColor = new SolidColorBrush(Colors.Red);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, $"Failed to send emergency alert.{GetType().Name}");
+                StatusMessage = _loader.GetString("DDP_Status_EmergencyAlertFailed");
+                StatusColor = new SolidColorBrush(Colors.Red);
+            }
+            finally
+            {
+                await Task.Delay(3000); // Show the status message for 3 seconds
+                StatusMessage = string.Empty; // Clear the status message
+            }
+        }
+
+        private string BuildAlertMessage(string languageCode, string doctorName, string clinicName)
+        {
+            return languageCode switch
+            {
+                "en" => $"🚨 ALERT:\nDr. {doctorName}, we need you at {clinicName} ASAP or please call us soon.",
+                "fr" => $"🚨 ALERTE:\nDr. {doctorName}, nous avons besoin de vous à {clinicName} dès que possible ou veuillez nous appeler rapidement.",
+                "ar" => $"🚨 تنبيه:\nد. {doctorName}، نحتاجك في {clinicName} فوراً أو يرجى الاتصال بنا قريباً.",
+                _ => $"🚨 ALERT:\nDr. {doctorName}, we need you at {clinicName} ASAP or please call us soon."
+            };
+            
         }
 
     }

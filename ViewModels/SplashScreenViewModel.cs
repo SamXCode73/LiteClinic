@@ -721,6 +721,9 @@ namespace LiteClinic.ViewModels
                             ds.WeekNumbers AS WeekNumbers,
                             ds.TimeFromTo AS TimeFromTo,
                             s.ServiceId,
+							s.NotifyEn,
+							s.NotifyAr,
+							s.NotifyFr,
                             s.IsActive AS ServiceIsActive
                         FROM 
                             DoctorSchedule ds

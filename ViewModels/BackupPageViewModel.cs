@@ -21,6 +21,7 @@ namespace LiteClinic.ViewModels
 {
     public partial class BackupPageViewModel : INotifyPropertyChanged
     {
+        private readonly IFolderPickerService _folderPickerService;
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName) =>
@@ -32,7 +33,7 @@ namespace LiteClinic.ViewModels
         public ICommand BackupDatabaseCommand { get; }
         public ICommand BrowseBackupFolderCommand { get; }
 
-        public BackupPageViewModel()
+        public BackupPageViewModel(IFolderPickerService folderPickerService)
         {
             // Initialize properties from global state
             App.GlobalState.PropertyChanged += (s, e) =>
@@ -52,6 +53,8 @@ namespace LiteClinic.ViewModels
                 if (e.PropertyName == nameof(AppState.CanViewSettingsMenu))
                     OnPropertyChanged(nameof(CanViewSettingsMenu));
             };
+
+            _folderPickerService = folderPickerService;
 
             BrowseBackupFolderCommand = new AsyncRelayCommand(BrowseBackupFolderAsync);
 
@@ -99,21 +102,39 @@ namespace LiteClinic.ViewModels
             }
         }
 
+        //private async Task BrowseBackupFolderAsync()
+        //{
+        //    // TODO: Open folder picker dialog and update BackupLocation
+        //    // Check if a backup path was saved
+        //    var folderPicker = new Windows.Storage.Pickers.FolderPicker();
+        //    // You need to initialize the folder picker with a window handle in WinUI 3
+        //    var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.MainAppWindow);
+        //    WinRT.Interop.InitializeWithWindow.Initialize(folderPicker, hwnd);
+        //    folderPicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+        //    folderPicker.FileTypeFilter.Add("*");
+        //    StorageFolder? selectedFolder = await folderPicker.PickSingleFolderAsync();
+        //    if (selectedFolder != null)
+        //    {
+        //        BackupLocation = selectedFolder.Path;
+        //        ApplicationData.Current.LocalSettings.Values["BackupFolderPath"] = selectedFolder.Path;
+        //        await SettingsRepository.UpdateBackupPathAsync(BackupLocation);
+        //    }
+        //}
+
         private async Task BrowseBackupFolderAsync()
         {
-            // TODO: Open folder picker dialog and update BackupLocation
-            // Check if a backup path was saved
-            var folderPicker = new Windows.Storage.Pickers.FolderPicker();
-            // You need to initialize the folder picker with a window handle in WinUI 3
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.MainAppWindow);
-            WinRT.Interop.InitializeWithWindow.Initialize(folderPicker, hwnd);
-            folderPicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-            folderPicker.FileTypeFilter.Add("*");
-            StorageFolder? selectedFolder = await folderPicker.PickSingleFolderAsync();
-            if (selectedFolder != null)
+            string? selectedPath = await _folderPickerService.PickFolderAsync();
+
+            if (string.IsNullOrEmpty(selectedPath) || !Directory.Exists(BackupLocation))
             {
-                BackupLocation = selectedFolder.Path;
-                ApplicationData.Current.LocalSettings.Values["BackupFolderPath"] = selectedFolder.Path;
+                // TODO: Show error message in UI
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(selectedPath))
+            {
+                BackupLocation = selectedPath;
+                ApplicationData.Current.LocalSettings.Values["BackupFolderPath"] = selectedPath;
                 await SettingsRepository.UpdateBackupPathAsync(BackupLocation);
             }
         }

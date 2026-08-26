@@ -269,19 +269,6 @@ namespace LiteClinic.ViewModels
             _currentRole = new();
         }
 
-        //private static Windows.Graphics.SizeInt32 GetWindowSize(int screenWidth, int screenHeight)
-        //{
-        //    if (screenWidth <= 1600 && screenHeight <= 900)
-        //        return new Windows.Graphics.SizeInt32(1400, 800);
-        //    if (screenWidth <= 1200 && screenHeight <= 760)
-        //        return new Windows.Graphics.SizeInt32(1100, 700);
-        //    if (screenWidth <= 1366 && screenHeight <= 768)
-        //        return new Windows.Graphics.SizeInt32(1275, 700);
-        //    if (screenWidth <= 1920 && screenHeight <= 1080)
-        //        return new Windows.Graphics.SizeInt32(1700, 900);
-
-        //    return new Windows.Graphics.SizeInt32(800, 600); // default
-        //}
 
         private static Windows.Graphics.SizeInt32 GetWindowSize(int screenWidth, int screenHeight)
         {
@@ -296,8 +283,6 @@ namespace LiteClinic.ViewModels
             return new Windows.Graphics.SizeInt32(
                 Math.Max(targetWidth, minWidth),
                 Math.Max(targetHeight, minHeight)
-                //Math.Max(minWidth, minWidth),
-                //Math.Max(minHeight, minHeight)
             );
         }
 
@@ -487,11 +472,12 @@ namespace LiteClinic.ViewModels
                 await Task.Delay(500,_cts.Token);
 
 
-                BotClient?.StartReceiving(
-                        updateHandler: updateHandler,
-                        receiverOptions: receiverOptions,
-                        cancellationToken: CancellationToken.None
-                    );
+                //BotClient?.StartReceiving(
+                //        updateHandler: updateHandler,
+                //        receiverOptions: receiverOptions,
+                //        cancellationToken: CancellationToken.None
+                //    );
+                BotClient?.StartReceiving(updateHandler, receiverOptions, _cts.Token);
             }
             catch (TaskCanceledException)
             {
@@ -547,10 +533,7 @@ namespace LiteClinic.ViewModels
                     return;
                 }                
 
-                // Step 2: Initialize bot client
-                //var botClient = new TelegramBotClient(token);
-
-                // Step 3: Call GetMe to test
+                // Step 2: Call GetMe to test
                 await Task.Delay(500); // Small delay to simulate async operation
                 if (BotClient != null)
                 {

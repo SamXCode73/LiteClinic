@@ -253,7 +253,7 @@ WHERE ScheduleId = @ScheduleId
 
             if (alreadyNotifiedToday)
             {
-                Logger.LogInfo("Tomorrow reminder already sent today", "Skipping further notification.");
+                Logger.LogInfo($"Tomorrow reminder already sent today Skipping further notification. {this.GetType().Name}");
                 return false;
             }
 
@@ -382,9 +382,6 @@ WHERE ScheduleId = @ScheduleId
                     Logger.LogInfo("Token or ChatId missing, cannot send doctor notification.");
                     return;
                 }
-
-                // Step 2: Initialize bot client
-                //var botClient = new TelegramBotClient(token);
 
 
                 // Step 3: Build reminder texts based on NotifyEn / NotifyAr flags

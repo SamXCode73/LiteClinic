@@ -265,7 +265,7 @@ namespace LiteClinic.Repository
                 using var cmd = conn.CreateCommand();
                 cmd.CommandText = @"
             SELECT DoctorId, FullName, Specialization, DayOfWeek, TimeFromTo, Gender, ProfilePicturePath, 
-                    PhoneNumber, LandLineNumber, ServiceId
+                    PhoneNumber, LandLineNumber, ServiceId,	NotifyEn, NotifyAr, NotifyFr
             FROM DoctorScheduleView
             WHERE ScheduleIsActive = 1 AND DoctorIsActive = 1;";
 
@@ -286,6 +286,9 @@ namespace LiteClinic.Repository
                         PhoneNumber = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
                         LandLineNumber = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
                         ServiceId = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
+                        NotifyEn = !reader.IsDBNull(10) && reader.GetInt32(10) == 1,
+                        NotifyAr = !reader.IsDBNull(11) && reader.GetInt32(11) == 1,
+                        NotifyFr = !reader.IsDBNull(12) && reader.GetInt32(12) == 1,
 
                         // Compute initials directly here
                         Initials = ComputeInitials(fullName ?? "")
