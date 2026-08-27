@@ -42,4 +42,14 @@ This project is licensed under the MIT License.
 ## 📜 Disclaimer
 **LiteClinic** is an independent, open-source project developed by [Samer Hmouda] to solve real-world scheduling problems in healthcare. This software is a native Windows application built with WinUI 3 and is **not** affiliated with, endorsed by, or associated with any other companies, websites, or services operating under the "Lite Clinic" name (including liteclinic.com).
 
+⚠️ All human images used in LiteClinic are AI‑generated and do not represent real persons.
+
 This project is part of a journey to provide free, lightweight, and modern tools for the clinical community.
+
+## 💖 Support LiteClinic
+LiteClinic is built and maintained by a single developer with the help of  free AI tools.  
+If you enjoy this project and want to see it grow, please consider supporting future updates:
+
+- Crypto wallet (BTC, ETH, USDT): bc1qecv9dr9qeqhz7glz4u88a0nw3cxcrd4w3jfew4
+
+⚠️ Donations are voluntary, non‑refundable, and do not grant additional features or services.
