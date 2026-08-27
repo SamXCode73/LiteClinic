@@ -50,6 +50,8 @@ This project is part of a journey to provide free, lightweight, and modern tools
 LiteClinic is built and maintained by a single developer with the help of  free AI tools.  
 If you enjoy this project and want to see it grow, please consider supporting future updates:
 
-- Crypto wallet (BTC, ETH, USDT): bc1qecv9dr9qeqhz7glz4u88a0nw3cxcrd4w3jfew4
+- Crypto wallet (BTC, ETH, USDT): 
+- BTC:  bc1qecv9dr9qeqhz7glz4u88a0nw3cxcrd4w3jfew4
+- ETH, USDT:  0xCBA9A8b7595E0F9AfCF87A15cDa41B1Bb20F0e3E
 
 ⚠️ Donations are voluntary, non‑refundable, and do not grant additional features or services.
