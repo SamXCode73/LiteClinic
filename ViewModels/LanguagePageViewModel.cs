@@ -141,6 +141,7 @@ namespace LiteClinic.ViewModels
                 // Update local settings
                 var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
                 localSettings.Values["SelectedLanguage"] = language;
+                //localSettings.Values["Language"] = language;
                 App.GlobalState.CurrentLanguage = language;
 
 

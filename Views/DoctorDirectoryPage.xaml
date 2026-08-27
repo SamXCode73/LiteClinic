@@ -292,13 +292,13 @@
 
                         <!-- Details section -->
                         <StackPanel Spacing="8">
-                            <TextBlock Text="Gender:" FontWeight="Bold"/>
+                            <TextBlock x:Uid="DDP_GenderLabel" Text="Gender:" FontWeight="Bold"/>
                             <TextBlock Text="{Binding SelectedDoctor.Gender}" Margin="20,0,0,0"/>
 
-                            <TextBlock Text="Mobile Phone:" FontWeight="Bold"/>
+                            <TextBlock x:Uid="DDP_MobilePhoneLabel" Text="Mobile Phone:" FontWeight="Bold"/>
                             <TextBlock Text="{Binding SelectedDoctor.PhoneNumber}" Margin="20,0,0,0"/>
 
-                            <TextBlock Text="Landline:" FontWeight="Bold"/>
+                            <TextBlock x:Uid="DDP_LandlineLabel" Text="Landline:" FontWeight="Bold"/>
                             <TextBlock Text="{Binding SelectedDoctor.LandLineNumber}" Margin="20,0,0,0"/>
                         </StackPanel>
 
@@ -312,7 +312,7 @@
                                     Command="{Binding Btn_SendEmergencycall}"
                                     CommandParameter="{Binding SelectedDoctor}"/>
 
-                            <Button x:Uid="DDP_CloseBtn" 
+                            <Button x:Uid="DDP_CloseBtn"
                                     Content="Close" 
                                     Background="LightGray" 
                                     Foreground="Black" 

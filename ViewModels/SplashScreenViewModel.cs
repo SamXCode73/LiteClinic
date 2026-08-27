@@ -149,7 +149,7 @@ namespace LiteClinic.ViewModels
             var localSettings = Windows.Storage.ApplicationData.Current!.LocalSettings;
 
             // Try to load from LocalSettings first
-            if (localSettings.Values.TryGetValue("Language", out object? value))
+            if (localSettings.Values.TryGetValue("SelectedLanguage", out object? value))
             {
                 language = value as string ?? language;
                 showGregorianDate = localSettings.Values["ShowGregorianDate"] as bool? ?? showGregorianDate;
@@ -187,7 +187,7 @@ namespace LiteClinic.ViewModels
                 }
 
                 // Save back to LocalSettings for next time
-                localSettings.Values["Language"] = language;
+                localSettings.Values["SelectedLanguage"] = language;
                 localSettings.Values["ShowGregorianDate"] = showGregorianDate;
                 localSettings.Values["ShowHijriDate"] = showHijriDate;
 

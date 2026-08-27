@@ -582,10 +582,12 @@ namespace LiteClinic.ViewModels
                     PatientName = a.PatientName,
                     AppointmentDate = a.AppointmentDate,
                     AppointmentTime = a.AppointmentTime,
+                    AppointmentType = a.AppointmentType,
                     IsMissed = a.IsMissed,
                     IsAttending = a.IsAttending,
                     AttendStatus = a.AttendStatus,
-                    Visuals = new AttendDisplayViewModel { Status = a.AttendStatus } // ✅ This is the key
+                    Visuals = new AttendDisplayViewModel { Status = a.AttendStatus }, // This is the key
+                    
 
                     // Add only fields needed for display
 

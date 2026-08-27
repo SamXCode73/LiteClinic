@@ -608,9 +608,9 @@ namespace LiteClinic.ViewModels
         public async void SaveScheduledDoctor()
         {
 
-            string textARNotSpecified = "غير محدد";
-            string textENNotSpecified = "Not specified";
-            string textFRNotSpecified = "Non spécifié";
+            //string textARNotSpecified = "غير محدد";
+            //string textENNotSpecified = "Not specified";
+            //string textFRNotSpecified = "Non spécifié";
 
             if (DoctorId <= 0 || string.IsNullOrWhiteSpace(DayOfTheWeek))
             {

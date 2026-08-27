@@ -211,7 +211,7 @@
             <Grid Grid.Column="2">
 
                 <TabView>
-                    <TabViewItem Header="Patients" FontWeight="Bold">
+                    <TabViewItem x:Uid="AppP_PatientsTab" Header="Patients" FontWeight="Bold" FontSize="14">
 
                         <Grid>
                             <Grid.RowDefinitions>
@@ -332,7 +332,7 @@
                         </Grid>
                     </TabViewItem>
 
-                    <TabViewItem Header="Appointments" FontWeight="Bold">
+                    <TabViewItem x:Uid="AppP_AppointmentsTab" Header="Appointments" FontWeight="Bold" FontSize="14">
                         <!-- Appointments ListView -->
                         <Grid>
                             <Grid.RowDefinitions>

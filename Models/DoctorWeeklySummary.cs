@@ -16,7 +16,7 @@ namespace LiteClinic.Models
         public DateTime AppointmentTime { get; set; }
         public int PatientCount { get; set; }
 
-        public string AppointmentDateFormatted => AppointmentDate.ToString("MMMM dd");
+        public string AppointmentDateFormatted => AppointmentDate.ToString("dddd, MMMM dd");
 
     }
 }

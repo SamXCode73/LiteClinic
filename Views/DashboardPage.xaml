@@ -224,9 +224,8 @@
                     </StackPanel>                    
                 </StackPanel>
 
-                <!-- ListView -->
-                    <Grid Grid.Row="2">
-
+                <!-- Doctor Appointments ListView -->
+                <Grid Grid.Row="2">
                     <ListView ItemsSource="{Binding ScheduledAppointmentDisplay, Mode=OneWay}"
                               SelectedItem="{Binding SelectedDisplayPatient, Mode=TwoWay}"
                               ScrollViewer.HorizontalScrollMode="Enabled"
@@ -238,43 +237,58 @@
 
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="models:ScheduledAppointmentDisplay">
-                                <Grid>
-                                    <!-- Added here Doctor naem but itiwll show wiht each Patient-->
-                                        <StackPanel Orientation="Horizontal" Spacing="5">
-
-                                            <!-- Patient Name -->
-                                            <TextBlock Text="{Binding PatientName}" FontFamily="{StaticResource CurrentAppFont}" 
-                                                   FontWeight="SemiBold"
-                                                   MinWidth="100"
-                                                   Margin="5, 5, 5, 15"/>
-
-                                            <!-- Appointment Time -->
-                                            <TextBlock Text="{Binding AppointmentTimeFormatted}" FontFamily="{StaticResource CurrentAppFont}" 
-                                                   FontWeight="SemiBold"
-                                                   MinWidth="100"
-                                                   Margin="5"/>
-
+                                <Grid Margin="0,5,0,10">
+                                    <StackPanel Orientation="Vertical" Spacing="6">
+                                        <!-- Patient and Time -->
+                                        <StackPanel Orientation="Horizontal" Spacing="10">
+                                            <TextBlock Text="{Binding PatientName}"
+                                                       FontFamily="{StaticResource CurrentAppFont}"
+                                                       FontWeight="SemiBold"
+                                                       MinWidth="150"
+                                                       Margin="5"/>
+                                            <TextBlock Text="{Binding AppointmentTimeFormatted}"
+                                                       FontFamily="{StaticResource CurrentAppFont}"
+                                                       FontWeight="SemiBold"
+                                                       MinWidth="100"
+                                                       Margin="5"/>
                                         </StackPanel>
 
-                                    <StackPanel Orientation="Vertical" Spacing="10" Margin="0,20,0,0">
+                                        <!-- Visit Reason -->
+                                        <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+                                            <TextBlock x:Uid="Db_AppointmentTypeLabel"
+                                                       Text="Appointment Type:"
+                                                       FontFamily="{StaticResource CurrentAppFont}"
+                                                       FontWeight="SemiBold"
+                                                       Padding="0,0,0,10"/>
+                                            <TextBlock Text="{Binding AppointmentType}"
+                                                       FontFamily="{StaticResource CurrentAppFont}"
+                                                       FontWeight="Bold"
+                                                       Padding="0,0,0,10"
+                                                       Foreground="#9B59B6"/>
+                                        </StackPanel>
+                                    </StackPanel>
 
-                                        <!-- Is Attending Row -->
+                                    <!-- Attendance Status -->
+                                    <StackPanel Orientation="Vertical" Spacing="10" Margin="0,60,0,0">
+
+                                        <!-- Attending -->
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
 
-                                            <RadioButton x:Uid="Db_AttendingRadio" 
+                                            <RadioButton x:Uid="Db_AttendingRadio"
                                                          Content="Attending"
                                                          GroupName="AttendanceStatus"
                                                          IsChecked="{Binding AttendStatus, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=CurrentlyAttending, Mode=TwoWay}"
                                                          Tapped="RadioButton_Tapped"
                                                          VerticalAlignment="Center"
-                                                         Grid.Column="0"
                                                          IsEnabled="{Binding CanEditAppoitment}"
-                                                         FontFamily="{StaticResource CurrentAppFont}" FontWeight="SemiBold"
-                                                         Foreground="Teal"/>
+                                                         FontFamily="{StaticResource CurrentAppFont}"
+                                                         FontWeight="SemiBold"
+                                                         Foreground="Teal"
+                                                         Grid.Column="0"/>
 
                                             <Ellipse Width="15" Height="15"
                                                      Margin="18,0,0,0"
@@ -286,7 +300,7 @@
                                                      Grid.Column="1"/>
                                         </Grid>
 
-                                        <!-- Is Attended Row -->
+                                        <!-- Attended -->
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
@@ -299,10 +313,11 @@
                                                          IsChecked="{Binding AttendStatus, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Attended, Mode=TwoWay}"
                                                          Tapped="RadioButton_Tapped"
                                                          VerticalAlignment="Center"
-                                                         Grid.Column="0"
                                                          IsEnabled="{Binding CanEditAppoitment}"
-                                                         FontFamily="{StaticResource CurrentAppFont}" FontWeight="SemiBold"
-                                                         Foreground="RoyalBlue"/>
+                                                         FontFamily="{StaticResource CurrentAppFont}"
+                                                         FontWeight="SemiBold"
+                                                         Foreground="RoyalBlue"
+                                                         Grid.Column="0"/>
 
                                             <Ellipse Width="15" Height="15"
                                                      Margin="18,0,0,0"
@@ -311,10 +326,10 @@
                                                      StrokeThickness="1"
                                                      VerticalAlignment="Center"
                                                      Visibility="{Binding Visuals.AttendedVisibility}"
-                                                     Grid.Column="1"/>
+                                                     Grid.Column="1"/>  
                                         </Grid>
 
-                                        <!-- Is Missed Row -->
+                                        <!-- Missed -->
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
@@ -327,10 +342,11 @@
                                                          IsChecked="{Binding AttendStatus, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Missed, Mode=TwoWay}"
                                                          Tapped="RadioButton_Tapped"
                                                          VerticalAlignment="Center"
-                                                         Grid.Column="0"
                                                          IsEnabled="{Binding CanEditAppoitment}"
-                                                         FontFamily="{StaticResource CurrentAppFont}" FontWeight="SemiBold"
-                                                         Foreground="IndianRed"/>
+                                                         FontFamily="{StaticResource CurrentAppFont}"
+                                                         FontWeight="SemiBold"
+                                                         Foreground="IndianRed"
+                                                         Grid.Column="0"/>
 
                                             <Ellipse Width="15" Height="15"
                                                      Margin="18,0,0,0"
@@ -340,15 +356,14 @@
                                                      VerticalAlignment="Center"
                                                      Visibility="{Binding Visuals.MissedVisibility}"
                                                      Grid.Column="1"/>
-
                                         </Grid>
                                     </StackPanel>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-
                 </Grid>
+
 
                 <StackPanel Grid.Row="3" Margin="10" Orientation="Vertical" Spacing="5">
                     <!-- Header -->

@@ -33,14 +33,15 @@
                 
             <Border BorderBrush="#CCC" BorderThickness="3" CornerRadius="3" Padding="10">
                 <ComboBox ItemsSource="{Binding AvailableLanguages}"
-                      SelectedValue="{Binding SelectedLanguage, Mode=TwoWay}"
-                      SelectedValuePath="Code"
-                      Width="250"
-                      Height="70"
-                      Margin="0,0,0,5"
-                      FontFamily="{StaticResource CurrentAppFont}"
-                      FontWeight="Bold"
-                      FontSize="16">
+                          SelectedValue="{Binding SelectedLanguage, Mode=TwoWay}"
+                          SelectedValuePath="Code"
+                          Width="250"
+                          Height="70"
+                          Margin="0,0,0,5"
+                          FontFamily="{StaticResource CurrentAppFont}"
+                          FontWeight="Bold"
+                          FontSize="16">
+                    
                     <ComboBox.ItemTemplate>
                         <DataTemplate x:DataType="models:LanguageOption">
                             <StackPanel Orientation="Horizontal" Spacing="5">

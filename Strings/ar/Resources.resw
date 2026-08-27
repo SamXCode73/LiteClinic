@@ -341,6 +341,51 @@
   <value>الإصدار 1.0.4.0</value>
   <comment>AboutPage What's New section - Arabic</comment>
 </data>
+<data name="AP_Version107Title.Text" xml:space="preserve">
+  <value>الإصدار 1.0.7.0</value>
+</data>
+<data name="AP_DateHandling.Text" xml:space="preserve">
+  <value>• معالجة التواريخ بشكل عام</value>
+</data>
+<data name="AP_DateStorage.Text" xml:space="preserve">
+  <value>- تنسيق تخزين قاعدة البيانات موحد كـ yyyy-MM-dd (ISO)</value>
+</data>
+<data name="AP_DateDisplay.Text" xml:space="preserve">
+  <value>- نماذج العرض تستخدم CultureInfo.CurrentCulture / ToShortDateString()</value>
+</data>
+<data name="AP_DateUI.Text" xml:space="preserve">
+  <value>- تواريخ واجهة المستخدم تتبع إعدادات المنطقة في ويندوز تلقائياً</value>
+</data>
+<data name="AP_EmergencyAlert.Text" xml:space="preserve">
+  <value>• تمت إضافة زر التنبيه الطارئ</value>
+</data>
+<data name="AP_EmergencyAlertDetails.Text" xml:space="preserve">
+  <value>- زر 'إرسال تنبيه طارئ للطبيب' يقوم بتشغيل سير عمل الإشعارات مع دعم الترجمة والتسجيل</value>
+</data>
+<data name="AP_FolderBrowsing.Text" xml:space="preserve">
+  <value>• إعادة هيكلة منطق تصفح المجلدات</value>
+</data>
+<data name="AP_FolderService.Text" xml:space="preserve">
+  <value>- تم نقل منطق FolderPicker إلى IFolderPickerService</value>
+</data>
+<data name="AP_FolderMVVM.Text" xml:space="preserve">
+  <value>- تم حقن الخدمة في ViewModel لفصل نظيف باستخدام MVVM</value>
+</data>
+<data name="AP_FolderInterop.Text" xml:space="preserve">
+  <value>- ViewModel يستقبل فقط مسار المجلد بدون أي تكامل مع WinUI</value>
+</data>
+<data name="AP_ClinicCalendar.Text" xml:space="preserve">
+  <value>• تحسينات في تقويم العيادة</value>
+</data>
+<data name="AP_ReasonProperty.Text" xml:space="preserve">
+  <value>- تم توسيع AppointmentModel بإضافة خاصية 'السبب'</value>
+</data>
+<data name="AP_ReasonBinding.Text" xml:space="preserve">
+  <value>- تم ربط خاصية السبب في قائمة المواعيد بلوحة التحكم (تحت اسم المريض أو في التلميح)</value>
+</data>
+<data name="AP_ReasonDisplay.Text" xml:space="preserve">
+  <value>- عرض المريض + الوقت + السبب معاً لزيادة الوضوح</value>
+</data>
 <data name="AP104_AddArabicLocalization.Text" xml:space="preserve">
   <value>• تمت إضافة الترجمة الكاملة للعربية (واجهة المستخدم، الرسائل، الإشعارات)</value>
   <comment>AboutPage What's New section v1.0.4.0 - Arabic</comment>
@@ -787,6 +832,14 @@
   <data name="AppP_IsMissedColumn.Header" xml:space="preserve">
     <value>تم التغيب</value>
   </data>
+  <data name="AppP_PatientsTab.Header" xml:space="preserve">
+  <value>المرضى</value>
+  <comment>Tab header for patients list in Arabic</comment>
+</data>
+<data name="AppP_AppointmentsTab.Header" xml:space="preserve">
+  <value>المواعيد</value>
+  <comment>Tab header for appointments list in Arabic</comment>
+</data>
   <data name="AppV_Status_PatientDoctorRequired" xml:space="preserve">
     <value>يجب اختيار المريض والطبيب.</value>
   </data>
@@ -988,6 +1041,9 @@
   <data name="Db_StatusGreetingMessage" xml:space="preserve">
     <value>{0}</value>
   </data>
+  <data name="Db_AppointmentTypeLabel.Text" xml:space="preserve">
+  <value>سبب الزيارة:</value>
+</data>
   <data name="DrP_AddimageforDoctor.ToolTipService.ToolTip" xml:space="preserve">
     <value>إضافة - تغيير الصورة. فقط .PNG أو .JPG</value>
   </data>
@@ -2859,7 +2915,7 @@
   <value>متاح اليوم</value>
 </data>
 <data name="DDP_ViewProfileButton.Content" xml:space="preserve">
-  <value>عرض الملف الشخصي</value>
+  <value>الملف الشخصي</value>
 </data>
 <data name="DDP_BookAppointmentButton.Content" xml:space="preserve">
   <value>حجز موعد</value>
@@ -2884,6 +2940,26 @@
 <data name="DDP_Status_EmergencyAlertFailed" xml:space="preserve">
   <value>فشل في إرسال تنبيه الطوارئ.</value>
   <comment>Status message shown when alert could not be delivered to doctor</comment>
+</data>
+<data name="DDP_GenderLabel.Text" xml:space="preserve">
+  <value>الجنس:</value>
+  <comment>Label for patient gender in Arabic</comment>
+</data>
+<data name="DDP_MobilePhoneLabel.Text" xml:space="preserve">
+  <value>الهاتف المحمول:</value>
+  <comment>Label for mobile phone number in Arabic</comment>
+</data>
+<data name="DDP_LandlineLabel.Text" xml:space="preserve">
+  <value>الهاتف الأرضي:</value>
+  <comment>Label for landline phone number in Arabic</comment>
+</data>
+<data name="DDP_SendEmergencyCallBtn.Content" xml:space="preserve">
+  <value>إرسال تنبيه طارئ</value>
+  <comment>Button to send emergency alert in Arabic</comment>
+</data>
+<data name="DDP_CloseBtn.Content" xml:space="preserve">
+  <value>إغلاق</value>
+  <comment>Button to close dialog in Arabic</comment>
 </data>
 <data name="DoctorsScheduled.Text" xml:space="preserve">
   <value>الأطباء/المجدولون</value>

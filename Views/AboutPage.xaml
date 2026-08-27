@@ -59,6 +59,77 @@
 
                             <StackPanel>
 
+                                <TextBlock x:Uid="AP_Version107Title"
+                                           Text="Version 1.0.7.0" 
+                                           FontSize="16" 
+                                           FontWeight="SemiBold" 
+                                           Margin="0,10,0,2"/>
+
+                                <!-- Generalized Date Handling -->
+                                <TextBlock x:Uid="AP_DateHandling"
+                                           Text="• Generalized date handling" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP_DateStorage"
+                                           Text="   - DB storage format standardized as yyyy-MM-dd (ISO)" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+                                <TextBlock x:Uid="AP_DateDisplay"
+                                           Text="   - Display models use CultureInfo.CurrentCulture / ToShortDateString()" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+                                <TextBlock x:Uid="AP_DateUI"
+                                           Text="   - UI dates respect Windows regional settings automatically" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+
+                                <!-- Emergency Alert -->
+                                <TextBlock x:Uid="AP_EmergencyAlert"
+                                           Text="• Emergency alert button added" 
+                                           FontSize="16" 
+                                           Margin="0,5,0,2"/>
+                                <TextBlock x:Uid="AP_EmergencyAlertDetails"
+                                           Text="   - Send Emergency Alert to Doctor' button triggers notification workflow with localization and logging" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+
+                                <!-- Folder Browsing Refactor -->
+                                <TextBlock x:Uid="AP_FolderBrowsing"
+                                           Text="• Refactored folder browsing logic" 
+                                           FontSize="16" 
+                                           Margin="0,5,0,2"/>
+                                <TextBlock x:Uid="AP_FolderService"
+                                           Text="   - FolderPicker logic moved into IFolderPickerService" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+                                <TextBlock x:Uid="AP_FolderMVVM"
+                                           Text="   - Service injected into ViewModel for clean MVVM separation" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+                                <TextBlock x:Uid="AP_FolderInterop"
+                                           Text="   - ViewModel only receives folder path, no WinUI interop" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+
+                                <!-- Clinic Calendar -->
+                                <TextBlock x:Uid="AP_ClinicCalendar"
+                                           Text="• Clinic Calendar enhancements" 
+                                           FontSize="16" 
+                                           Margin="0,5,0,2"/>
+                                <TextBlock x:Uid="AP_ReasonProperty"
+                                           Text="   - AppointmentModel extended with 'Reason' property" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+                                <TextBlock x:Uid="AP_ReasonBinding"
+                                           Text="   - Bound Reason in dashboard appointment list (under patient name or tooltip)" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+                                <TextBlock x:Uid="AP_ReasonDisplay"
+                                           Text="   - Display patient + time + reason together for clarity" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+
+
                                 <TextBlock x:Uid="AP_Version106Title"
                                            Text="Version 1.0.6.0" 
                                            FontSize="16" 

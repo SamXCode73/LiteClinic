@@ -378,6 +378,51 @@
   <value>Version 1.0.4.0</value>
   <comment>AboutPage What's New section - French</comment>
 </data>
+<data name="AP_Version107Title.Text" xml:space="preserve">
+  <value>Version 1.0.7.0</value>
+</data>
+<data name="AP_DateHandling.Text" xml:space="preserve">
+  <value>• Gestion généralisée des dates</value>
+</data>
+<data name="AP_DateStorage.Text" xml:space="preserve">
+  <value>- Format de stockage de la base de données standardisé en yyyy-MM-dd (ISO)</value>
+</data>
+<data name="AP_DateDisplay.Text" xml:space="preserve">
+  <value>- Les modèles d'affichage utilisent CultureInfo.CurrentCulture / ToShortDateString()</value>
+</data>
+<data name="AP_DateUI.Text" xml:space="preserve">
+  <value>- Les dates de l'interface respectent automatiquement les paramètres régionaux de Windows</value>
+</data>
+<data name="AP_EmergencyAlert.Text" xml:space="preserve">
+  <value>• Bouton d'alerte d'urgence ajouté</value>
+</data>
+<data name="AP_EmergencyAlertDetails.Text" xml:space="preserve">
+  <value>- Le bouton 'Envoyer une alerte d'urgence au médecin' déclenche le flux de notification avec localisation et journalisation</value>
+</data>
+<data name="AP_FolderBrowsing.Text" xml:space="preserve">
+  <value>• Logique de navigation des dossiers refactorisée</value>
+</data>
+<data name="AP_FolderService.Text" xml:space="preserve">
+  <value>- La logique FolderPicker déplacée dans IFolderPickerService</value>
+</data>
+<data name="AP_FolderMVVM.Text" xml:space="preserve">
+  <value>- Service injecté dans le ViewModel pour une séparation MVVM propre</value>
+</data>
+<data name="AP_FolderInterop.Text" xml:space="preserve">
+  <value>- Le ViewModel reçoit uniquement le chemin du dossier, sans interop WinUI</value>
+</data>
+<data name="AP_ClinicCalendar.Text" xml:space="preserve">
+  <value>• Améliorations du calendrier de la clinique</value>
+</data>
+<data name="AP_ReasonProperty.Text" xml:space="preserve">
+  <value>- AppointmentModel étendu avec la propriété 'Reason'</value>
+</data>
+<data name="AP_ReasonBinding.Text" xml:space="preserve">
+  <value>- Propriété Reason liée dans la liste des rendez-vous du tableau de bord (sous le nom du patient ou en info-bulle)</value>
+</data>
+<data name="AP_ReasonDisplay.Text" xml:space="preserve">
+  <value>- Afficher patient + heure + raison ensemble pour plus de clarté</value>
+</data>
 <data name="AP104_AddArabicLocalization.Text" xml:space="preserve">
   <value>• Ajout de la localisation complète en arabe (UI, messages, notifications)</value>
   <comment>AboutPage What's New section v1.0.4.0 - French</comment>
@@ -917,6 +962,14 @@
   <data name="AppP_IsMissedColumn.Header" xml:space="preserve">
     <value>Marquer comme manqué</value>
   </data>
+  <data name="AppP_PatientsTab.Header" xml:space="preserve">
+  <value>Patients</value>
+  <comment>Tab header for patients list in French</comment>
+</data>
+<data name="AppP_AppointmentsTab.Header" xml:space="preserve">
+  <value>Rendez-vous</value>
+  <comment>Tab header for appointments list in French</comment>
+</data>
   <data name="AppV_Status_PatientDoctorRequired" xml:space="preserve">
     <value>Le patient et le médecin doivent être sélectionnés.</value>
   </data>
@@ -1118,6 +1171,10 @@
   <data name="Db_StatusGreetingMessage" xml:space="preserve">
     <value>{0}</value>
   </data>
+  <data name="Db_AppointmentTypeLabel.Text" xml:space="preserve">
+  <value>Type de rendez-vous :</value>
+  <comment>Label for appointment type - French</comment>
+</data>
   <data name="DrP_AddimageforDoctor.ToolTipService.ToolTip" xml:space="preserve">
     <value>Ajouter - Changer l'image. Uniquement .PNG ou .JPG</value>
   </data>
@@ -2989,10 +3046,10 @@
   <value>Disponible aujourd'hui</value>
 </data>
 <data name="DDP_ViewProfileButton.Content" xml:space="preserve">
-  <value>Voir le profil</value>
+  <value>Profil</value>
 </data>
 <data name="DDP_BookAppointmentButton.Content" xml:space="preserve">
-  <value>Réserver un rendez-vous</value>
+  <value>Réserver</value>
 </data>
 <data name="DDP_RefreshButton.Content" xml:space="preserve">
   <value>Actualiser</value>
@@ -3014,6 +3071,26 @@
 <data name="DDP_Status_EmergencyAlertFailed" xml:space="preserve">
   <value>Échec de l'envoi de l'alerte d'urgence.</value>
   <comment>Status message shown when alert could not be delivered to doctor</comment>
+</data>
+<data name="DDP_GenderLabel.Text" xml:space="preserve">
+  <value>Sexe :</value>
+  <comment>Label for patient gender in French</comment>
+</data>
+<data name="DDP_MobilePhoneLabel.Text" xml:space="preserve">
+  <value>Téléphone portable :</value>
+  <comment>Label for mobile phone number in French</comment>
+</data>
+<data name="DDP_LandlineLabel.Text" xml:space="preserve">
+  <value>Téléphone fixe :</value>
+  <comment>Label for landline phone number in French</comment>
+</data>
+<data name="DDP_SendEmergencyCallBtn.Content" xml:space="preserve">
+  <value>Alerte urgente</value>
+  <comment>Button to send emergency alert in French</comment>
+</data>
+<data name="DDP_CloseBtn.Content" xml:space="preserve">
+  <value>Fermer</value>
+  <comment>Button to close dialog in French</comment>
 </data>
 <data name="DoctorsScheduled.Text" xml:space="preserve">
   <value>Médecins/Planifiés</value>
