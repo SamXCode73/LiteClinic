@@ -30,7 +30,7 @@ namespace LiteClinic.Services
          private DateTime DueDate { get; set; }
         string DueDateString => DueDate.ToString("d", CultureInfo.CurrentCulture);
 
-
+        
         private async Task<bool> CheckInternetAsync()
         {
             try
