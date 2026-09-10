@@ -59,6 +59,36 @@
 
                             <StackPanel>
 
+                                <TextBlock x:Uid="AP_Version108Title"
+                                           Text="Version 1.0.8.0" 
+                                           FontSize="16" 
+                                           FontWeight="SemiBold" 
+                                           Margin="0,10,0,2"/>
+
+                                <!-- Appointment Page -->
+                                <TextBlock x:Uid="AP_AppointmentUpdate"
+                                           Text="• Appointment page updates" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+                                <TextBlock x:Uid="AP_TimeCorrection"
+                                           Text="   - Corrected time update method" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+                                <TextBlock x:Uid="AP_TimeValidation"
+                                           Text="   - Validation prevents overlapping changes (e.g., 02:15PM–04:00PM cannot be updated to 02:00PM–04:00PM)" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+
+                                <!-- Emergency Alert Logging -->
+                                <TextBlock x:Uid="AP_AlertLogger"
+                                           Text="• Added logging for doctor alerts" 
+                                           FontSize="16" 
+                                           Margin="0,5,0,2"/>
+                                <TextBlock x:Uid="AP_AlertLoggerDetails"
+                                           Text="   - Alert workflow now writes to info log file for auditing" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+
                                 <TextBlock x:Uid="AP_Version107Title"
                                            Text="Version 1.0.7.0" 
                                            FontSize="16" 

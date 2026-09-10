@@ -733,6 +733,110 @@ namespace LiteClinic.ViewModels
             }
         }
 
+        //public async void UpdateScheduledDoctor()
+        //{
+        //    if (SelectedScheduledDisplay == null)
+        //    {
+        //        StatusColor = new SolidColorBrush(Colors.Red);
+        //        StatusMessageSch = _loader.GetString("SchDp_StatusMessageSchNoScheduleForUpdate");
+        //        return;
+        //    }
+
+        //    // Validate weeks
+        //    var weekCsv = BuildWeekNumbersCsv();
+        //    if (string.IsNullOrWhiteSpace(weekCsv))
+        //    {
+        //        StatusColor = new SolidColorBrush(Colors.OrangeRed);
+        //        StatusMessageSch = _loader.GetString("SchDp_StatusMessageSchWeekRequired");
+        //        return;
+        //    }
+
+        //    // Parse selected weeks
+        //    var selectedWeeks = weekCsv
+        //        .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+        //        .Select(w => w.Trim())
+        //        .ToList();
+
+        //    // 1. Validation: Doctor + DayOfWeek + overlapping weeks (exclude current schedule)
+        //    var existingSchedule = ScheduledDisplayList.FirstOrDefault(s =>
+        //        s.DoctorIdDis == DoctorId &&
+        //        !string.IsNullOrWhiteSpace(s.DayOfWeekDis) &&
+        //        s.DayOfWeekDis.Equals(DayOfTheWeek, StringComparison.OrdinalIgnoreCase) &&
+        //        s.ScheduleAutoIdDis != SelectedScheduledDisplay.ScheduleAutoIdDis && // exclude current
+        //        (s.WeekNumbersDis ?? string.Empty)
+        //            .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+        //            .Select(w => w.Trim())
+        //            .Intersect(selectedWeeks)
+        //            .Any()
+        //    );
+
+        //    if (existingSchedule != null)
+        //    {
+        //        StatusColor = new SolidColorBrush(Colors.OrangeRed);
+        //        StatusMessageSch = string.Format(_loader.GetString("SchDp_StatusMessageSchOverlap"),existingSchedule.ScheduleAutoIdDis);
+        //        return;
+        //    }
+
+
+        //    // 2. check if null first and update Get the time for each schudel
+        //    if (DisTimeFrom == null || DisTimeTo == null) // in case this value is 'Not Set"
+        //    {
+        //        StatusColor = new SolidColorBrush(Colors.OrangeRed);
+        //        StatusMessageSch = string.Format(_loader.GetString("SchDp_TimeStampCannotBeNull"), $"From {DisTimeFrom} - To {DisTimeTo}");
+        //        return;
+
+        //    }
+        //    // 3. Check if the time is invalid
+        //    if (DisTimeFrom >= DisTimeTo)
+        //    {
+        //        StatusColor = new SolidColorBrush(Colors.OrangeRed);
+        //        StatusMessageSch = string.Format(_loader.GetString("SchDp_TimeStampIsSameOrInvalid"), $"From {DisTimeFrom} - To {DisTimeTo}");
+        //        return;
+        //    }
+
+        //    var fromDate = DateTime.Today.Add(DisTimeFrom.Value);
+        //    var toDate = DateTime.Today.Add(DisTimeTo.Value);
+        //    DisTime = $"{fromDate:hh\\:mm tt}-{toDate:hh\\:mm tt}";
+
+        //    // Map display → entity
+        //    SelectedScheduled = MapToScheduledDoctor(SelectedScheduledDisplay);
+
+        //    // Update with current ViewModel values
+        //    SelectedScheduled!.DoctorId = (int)DoctorId!;
+        //    SelectedScheduled.DayOfWeek = DayOfTheWeek;
+        //    SelectedScheduled.Notify = CanNotify;
+        //    SelectedScheduled.IsActive = IsScheduleActiveDis;
+        //    SelectedScheduled.WeekNumbers = weekCsv;
+        //    SelectedScheduled.DisTime = DisTime;
+
+        //    // Update Value
+        //    var success = _scheduledDoctorRepository.UpdateScheduledDoctor(SelectedScheduled);
+        //    if (success)
+        //    {
+        //        StatusColor = new SolidColorBrush(Colors.RoyalBlue);
+        //        StatusMessageSch = _loader.GetString("SchDp_StatusMessageSchScheduleUpdated");
+        //    }
+
+        //    try
+        //    {
+        //        await Task.Delay(2000, _cts.Token);
+        //        ClearScheduledFields();
+        //    }
+        //    catch (TaskCanceledException) { return; }
+        //    catch (Exception ex)
+        //    {
+        //        Logger.LogError(ex, "Error updating schedule.");
+        //        StatusColor = new SolidColorBrush(Colors.Red);
+        //        StatusMessageSch = _loader.GetString("SchDp_StatusMessageSchScheduleUpdatedError");
+        //    }
+        //    finally
+        //    {
+        //        _cts.TryReset();
+        //    }
+
+        //    OnPropertyChanged(nameof(StatusMessageSch));
+        //}
+
         public async void UpdateScheduledDoctor()
         {
             if (SelectedScheduledDisplay == null)
@@ -757,35 +861,49 @@ namespace LiteClinic.ViewModels
                 .Select(w => w.Trim())
                 .ToList();
 
-            // 1. Validation: Doctor + DayOfWeek + overlapping weeks (exclude current schedule)
+            // 1. Validation: Doctor + DayOfWeek + overlapping weeks + overlapping time (exclude current schedule)
             var existingSchedule = ScheduledDisplayList.FirstOrDefault(s =>
-                s.DoctorIdDis == DoctorId &&
-                !string.IsNullOrWhiteSpace(s.DayOfWeekDis) &&
-                s.DayOfWeekDis.Equals(DayOfTheWeek, StringComparison.OrdinalIgnoreCase) &&
-                s.ScheduleAutoIdDis != SelectedScheduledDisplay.ScheduleAutoIdDis && // exclude current
-                (s.WeekNumbersDis ?? string.Empty)
+            {
+                if (s.DoctorIdDis != DoctorId) return false;
+                if (string.IsNullOrWhiteSpace(s.DayOfWeekDis)) return false;
+                if (!s.DayOfWeekDis.Equals(DayOfTheWeek, StringComparison.OrdinalIgnoreCase)) return false;
+                if (s.ScheduleAutoIdDis == SelectedScheduledDisplay.ScheduleAutoIdDis) return false;
+
+                // Week overlap check
+                var weeks = (s.WeekNumbersDis ?? string.Empty)
                     .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(w => w.Trim())
-                    .Intersect(selectedWeeks)
-                    .Any()
-            );
+                    .Select(w => w.Trim());
+                bool weekOverlap = weeks.Intersect(selectedWeeks).Any();
+                if (!weekOverlap) return false;
+
+                // Time overlap check
+                if (string.IsNullOrWhiteSpace(s.TimeDis)) return false; // No time to compare
+                var (existingFrom, existingTo) = ParseTimeRange(s.TimeDis);
+                if (DisTimeFrom == null || DisTimeTo == null || existingFrom == null || existingTo == null)
+                    return false;
+
+                // Standard overlap condition
+                return DisTimeFrom < existingTo && DisTimeTo > existingFrom;
+            });
 
             if (existingSchedule != null)
             {
                 StatusColor = new SolidColorBrush(Colors.OrangeRed);
-                StatusMessageSch = string.Format(_loader.GetString("SchDp_StatusMessageSchOverlap"),existingSchedule.ScheduleAutoIdDis);
+                StatusMessageSch = string.Format(
+                    _loader.GetString("SchDp_StatusMessageSchOverlap"),
+                    existingSchedule.ScheduleAutoIdDis
+                );
                 return;
             }
 
-
-            // 2. check if null first and update Get the time for each schudel
-            if (DisTimeFrom == null || DisTimeTo == null) // in case this value is 'Not Set"
+            // 2. check if null first and update Get the time for each schedule
+            if (DisTimeFrom == null || DisTimeTo == null)
             {
                 StatusColor = new SolidColorBrush(Colors.OrangeRed);
                 StatusMessageSch = string.Format(_loader.GetString("SchDp_TimeStampCannotBeNull"), $"From {DisTimeFrom} - To {DisTimeTo}");
                 return;
-
             }
+
             // 3. Check if the time is invalid
             if (DisTimeFrom >= DisTimeTo)
             {
@@ -987,6 +1105,24 @@ namespace LiteClinic.ViewModels
             }
 
             return false; // No conflict
+        }
+
+        // Helper: parse "hh:mm tt-hh:mm tt" into TimeSpan range
+        private (TimeSpan? from, TimeSpan? to) ParseTimeRange(string timeFromTo)
+        {
+            if (string.IsNullOrWhiteSpace(timeFromTo) || timeFromTo.Equals("Not Set", StringComparison.OrdinalIgnoreCase))
+                return (null, null);
+
+            var parts = timeFromTo.Split('-');
+            if (parts.Length != 2) return (null, null);
+
+            if (DateTime.TryParse(parts[0].Trim(), out var fromDate) &&
+                DateTime.TryParse(parts[1].Trim(), out var toDate))
+            {
+                return (fromDate.TimeOfDay, toDate.TimeOfDay);
+            }
+
+            return (null, null);
         }
 
         public async Task GetHiriRomanDate()

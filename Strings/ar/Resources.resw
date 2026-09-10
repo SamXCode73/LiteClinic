@@ -386,6 +386,30 @@
 <data name="AP_ReasonDisplay.Text" xml:space="preserve">
   <value>- عرض المريض + الوقت + السبب معاً لزيادة الوضوح</value>
 </data>
+<data name="AP_Version108Title.Text" xml:space="preserve">
+  <value>الإصدار 1.0.8.0</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_AppointmentUpdate.Text" xml:space="preserve">
+  <value>• تحديثات صفحة المواعيد</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_TimeCorrection.Text" xml:space="preserve">
+  <value>   - تصحيح طريقة تحديث الوقت</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_TimeValidation.Text" xml:space="preserve">
+  <value>   - التحقق يمنع التغييرات المتداخلة (مثال: لا يمكن تعديل 02:15م–04:00م إلى 02:00م–04:00م)</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_AlertLogger.Text" xml:space="preserve">
+  <value>• إضافة تسجيل لتنبيهات الأطباء</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
+<data name="AP_AlertLoggerDetails.Text" xml:space="preserve">
+  <value>   - سير عمل التنبيه يكتب الآن في ملف السجل للمراجعة</value>
+  <comment>AboutPage What's New section - Arabic</comment>
+</data>
 <data name="AP104_AddArabicLocalization.Text" xml:space="preserve">
   <value>• تمت إضافة الترجمة الكاملة للعربية (واجهة المستخدم، الرسائل، الإشعارات)</value>
   <comment>AboutPage What's New section v1.0.4.0 - Arabic</comment>

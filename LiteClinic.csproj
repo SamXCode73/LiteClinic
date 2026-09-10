@@ -20,7 +20,7 @@
 		<DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 
 		<PublishTrimmed>false</PublishTrimmed>
-		<SelfContained>true</SelfContained>
+		<SelfContained>false</SelfContained>
 		<RunAOTCompilation>false</RunAOTCompilation>
 		<PublishReadyToRun>false</PublishReadyToRun>
 

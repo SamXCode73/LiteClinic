@@ -696,8 +696,12 @@ namespace LiteClinic.ViewModels
                 // Add new culumns to Doctores Table for Profile
                 await EnsureColumnExistsAsync(conn, "Doctors", "Gender", "TEXT");
                 await EnsureColumnExistsAsync(conn, "Doctors", "ProfilePicturePath", "TEXT");
+
                 // I forget to add default image for SQLite limitation ( or maybe i did not knwo how to use correctly)
                 await EnsureColumnDefaultAsync(conn, "Doctors", "ProfilePicturePath", "");
+
+                // add Column in DoctorNotificationHistory for tomrrow notification Date to preent looping
+                await EnsureColumnExistsAsync(conn, "DoctorNotificationHistory", "targetDate", "TEXT");
 
                 // --- Ensure Doctor Schedule With day and time ---
                 await EnsureView(conn,
@@ -734,6 +738,8 @@ namespace LiteClinic.ViewModels
                         WHERE 
                             ds.IsActive = 1 
                             AND d.IsActive = 1;", "Gender", "ProfilePicturePath, ServiceId, ServiceIsActive");
+
+                await NormalizeDatesAsync();
 
             }
 
@@ -863,6 +869,70 @@ namespace LiteClinic.ViewModels
             CopyRightText = string.Format(template, newdate, fullVersion);
 
             await Task.CompletedTask;
+        }
+
+
+        private static async Task NormalizeDatesAsync()
+        {
+            try
+            {
+                using var conn = DatabaseHelper.GetConnection();
+                await conn.OpenAsync();
+
+                // Check if any SentAt values are still ISO "o"
+                using (var checkCmd = conn.CreateCommand())
+                {
+                    checkCmd.CommandText = @"
+                SELECT COUNT(*) 
+                FROM DoctorNotificationHistory
+                WHERE SentAt IS NOT NULL
+                  AND SentAt LIKE '%T%'
+                  AND SentAt LIKE '%Z';";
+
+                    var count = Convert.ToInt32(await checkCmd.ExecuteScalarAsync());
+                    if (count > 0)
+                    {
+                        using var cmd = conn.CreateCommand();
+                        cmd.CommandText = @"
+                    UPDATE DoctorNotificationHistory
+                    SET SentAt = replace(substr(SentAt, 1, 19), 'T', ' ')
+                    WHERE SentAt IS NOT NULL
+                      AND SentAt LIKE '%T%'
+                      AND SentAt LIKE '%Z';";
+                        int sentUpdated = await cmd.ExecuteNonQueryAsync();
+                        Logger.LogInfo($"NormalizeDatesAsync: SentAt rows updated: {sentUpdated}");
+                    }
+                }
+
+                // Check if any LogDate values are still ISO "o"
+                using (var checkCmd = conn.CreateCommand())
+                {
+                    checkCmd.CommandText = @"
+                SELECT COUNT(*) 
+                FROM DoctorNotificationHistory
+                WHERE LogDate IS NOT NULL
+                  AND LogDate LIKE '%T%'
+                  AND LogDate LIKE '%Z';";
+
+                    var count = Convert.ToInt32(await checkCmd.ExecuteScalarAsync());
+                    if (count > 0)
+                    {
+                        using var cmd = conn.CreateCommand();
+                        cmd.CommandText = @"
+                    UPDATE DoctorNotificationHistory
+                    SET LogDate = substr(LogDate, 1, 10)
+                    WHERE LogDate IS NOT NULL
+                      AND LogDate LIKE '%T%'
+                      AND LogDate LIKE '%Z';";
+                        int logUpdated = await cmd.ExecuteNonQueryAsync();
+                        Logger.LogInfo($"NormalizeDatesAsync: LogDate rows updated: {logUpdated}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Error while normalizing SentAt/LogDate.");
+            }
         }
 
     }

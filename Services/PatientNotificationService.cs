@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Windows.ApplicationModel;
@@ -20,6 +21,8 @@ namespace LiteClinic.Services
         private readonly LoginPageViewModel? _loginPageViewModel = loginPageViewModel;
         private readonly PatientsRepository _patientRepo = patientRepo;
         private readonly AppState? _appState = App.GlobalState; // inject or pass in your AppState
+
+        private CancellationTokenSource _cts = new();
         private bool Due2h { get; set; }
         private bool Due24h { get; set; }
 
@@ -42,6 +45,7 @@ namespace LiteClinic.Services
 
         public async Task RunNotifications()
         {
+
             // Validation logic for patient notifications:
             // We check both 24h and 2h flags separately instead of a single combined flag.
             // Reason: Users may want to disable only one type of reminder (e.g., 2h) while keeping the other active.
@@ -49,91 +53,95 @@ namespace LiteClinic.Services
             // - If only one is disabled, we continue running but inform the user which reminder type is inactive.
             // This ensures flexibility and clear communication to the user.
 
-            if (!App.GlobalState.NotifyPatient24h && !App.GlobalState.NotifyPatient2h)
-            {
-                NotificationHelper.ShowNotification(
-                    "Patient Notifications Stopped",
-                    "All patient notifications have been stopped. You can restart them anytime from the Settings page."
-                );
-                Logger.LogInfo($"{this.GetType().Name} - All patient notifications stopped by user settings.");
-                return;
-            }
-            else if (!App.GlobalState.NotifyPatient24h)
-            {
-                NotificationHelper.ShowNotification(
-                    "24h Notifications Disabled",
-                    "24-hour patient reminders have been disabled. Only 2-hour reminders will be sent."
-                );
-                Logger.LogInfo($"{this.GetType().Name} - 24h patient notifications disabled by user settings.");
-                return;
-            }
-            else if (!App.GlobalState.NotifyPatient2h)
-            {
-                NotificationHelper.ShowNotification(
-                    "2h Notifications Disabled",
-                    "2-hour patient reminders have been disabled. Only 24-hour reminders will be sent."
-                );
-                Logger.LogInfo($"{this.GetType().Name} - 2h patient notifications disabled by user settings.");
-                return;
-            }
 
-            // Sater the Notifiation service loop
-            int counter = 0;
-            DateTime lastRestDate = DateTime.Now;
-
-            while (true)
+            try
             {
-                // Reset flags at midnight
-                var now = DateTime.Now;
-                if (now.Date > lastRestDate)
+
+                if (!App.GlobalState.NotifyPatient24h && !App.GlobalState.NotifyPatient2h)
                 {
-                    Due2h = false;
-                    Due24h = false;
-                    lastRestDate = now.Date;
-                    Logger.LogInfo($"{this.GetType().Name} cycle counter reset, midnight reached.", "Run Patient Notifications");
+                    NotificationHelper.ShowNotification(
+                        "Patient Notifications Stopped",
+                        "All patient notifications have been stopped. You can restart them anytime from the Settings page."
+                    );
+                    Logger.LogInfo($"{this.GetType().Name} - All patient notifications stopped by user settings.");
+                    return;
+                }
+                else if (!App.GlobalState.NotifyPatient24h)
+                {
+                    NotificationHelper.ShowNotification(
+                        "24h Notifications Disabled",
+                        "24-hour patient reminders have been disabled. Only 2-hour reminders will be sent."
+                    );
+                    Logger.LogInfo($"{this.GetType().Name} - 24h patient notifications disabled by user settings.");
+                    return;
+                }
+                else if (!App.GlobalState.NotifyPatient2h)
+                {
+                    NotificationHelper.ShowNotification(
+                        "2h Notifications Disabled",
+                        "2-hour patient reminders have been disabled. Only 24-hour reminders will be sent."
+                    );
+                    Logger.LogInfo($"{this.GetType().Name} - 2h patient notifications disabled by user settings.");
+                    return;
                 }
 
-                counter++;
+                // Sater the Notifiation service loop
+                int counter = 0;
+                DateTime lastRestDate = DateTime.Now;
 
-                NotificationHelper.ShowNotification("Patient Notifications", "Patient notification service is running.");
-                bool online = await CheckInternetAsync();
-
-                if (online)
+                while (true)
                 {
-                    var appointments = await _patientRepo.GetAppointmentsWithServices();
-
-                    try
+                    // Reset flags at midnight
+                    var now = DateTime.Now;
+                    if (now.Date > lastRestDate)
                     {
-                        foreach (var appt in appointments)
+                        Due2h = false;
+                        Due24h = false;
+                        lastRestDate = now.Date;
+                        Logger.LogInfo($"{this.GetType().Name} cycle counter reset, midnight reached.", "Run Patient Notifications");
+                    }
+
+                    counter++;
+
+                    NotificationHelper.ShowNotification("Patient Notifications", "Patient notification service is running.");
+                    bool online = await CheckInternetAsync();
+
+                    if (online)
+                    {
+                        var appointments = await _patientRepo.GetAppointmentsWithServices();
+
+                        try
                         {
-                            if (IsNotificationDue(appt))
+                            foreach (var appt in appointments)
                             {
-                                try
+                                if (IsNotificationDue(appt))
                                 {
-                                    await SendNotificationAsync(appt);
+                                    try
+                                    {
+                                        await SendNotificationAsync(appt);
 
-                                    using var conn = DatabaseHelper.GetConnection();
-                                    conn.Open();
+                                        using var conn = DatabaseHelper.GetConnection();
+                                        conn.Open();
 
-                                    // Step 1: Check if record already exists
-                                    using var checkCmd = conn.CreateCommand();
-                                    checkCmd.CommandText = @"
+                                        // Step 1: Check if record already exists
+                                        using var checkCmd = conn.CreateCommand();
+                                        checkCmd.CommandText = @"
                                 SELECT COUNT(*) 
                                 FROM NotificationHistory
                                 WHERE ScheduleId = @ScheduleId 
                                   AND PatientId = @PatientId
                                   AND date(LogDate) = date('now')
                                   AND NotifyFlag = 1";
-                                    checkCmd.Parameters.AddWithValue("@ScheduleId", appt.ScheduleId);
-                                    checkCmd.Parameters.AddWithValue("@PatientId", appt.PatientAutoId);
+                                        checkCmd.Parameters.AddWithValue("@ScheduleId", appt.ScheduleId);
+                                        checkCmd.Parameters.AddWithValue("@PatientId", appt.PatientAutoId);
 
-                                    int existingCount = Convert.ToInt32(checkCmd.ExecuteScalar());
+                                        int existingCount = Convert.ToInt32(checkCmd.ExecuteScalar());
 
-                                    // Step 2: Update if exists, otherwise insert
-                                    using var cmd = conn.CreateCommand();
-                                    if (existingCount > 0)
-                                    {
-                                        cmd.CommandText = @"
+                                        // Step 2: Update if exists, otherwise insert
+                                        using var cmd = conn.CreateCommand();
+                                        if (existingCount > 0)
+                                        {
+                                            cmd.CommandText = @"
                                     UPDATE NotificationHistory
                                     SET Notify2h = @Notify2h,
                                         Notify24h = @Notify24h,
@@ -143,58 +151,67 @@ namespace LiteClinic.Services
                                     WHERE ScheduleId = @ScheduleId 
                                       AND PatientId = @PatientId 
                                       AND NotifyFlag = 1";
-                                    }
-                                    else
-                                    {
-                                        cmd.CommandText = @"
+                                        }
+                                        else
+                                        {
+                                            cmd.CommandText = @"
                                     INSERT INTO NotificationHistory 
                                         (ScheduleId, PatientId, ProviderType, NotifyFlag, Notify2h, Notify24h, SentAt, LogDate, LoggedInUser)
                                     VALUES 
                                         (@ScheduleId, @PatientId, @ProviderType, @NotifyFlag, @Notify2h, @Notify24h, @SentAt, @LogDate, @LoggedInUser)";
-                                        cmd.Parameters.AddWithValue("@ProviderType", ProviderType.Telegram.ToString()); // store as text
-                                        cmd.Parameters.AddWithValue("@NotifyFlag", (int)NotifyFlag.SentForPatient); // 1 = Patient, 2 = Doctor
+                                            cmd.Parameters.AddWithValue("@ProviderType", ProviderType.Telegram.ToString()); // store as text
+                                            cmd.Parameters.AddWithValue("@NotifyFlag", (int)NotifyFlag.SentForPatient); // 1 = Patient, 2 = Doctor
+                                        }
+
+                                        cmd.Parameters.AddWithValue("@ScheduleId", appt.ScheduleId);
+                                        cmd.Parameters.AddWithValue("@PatientId", appt.PatientAutoId);
+                                        cmd.Parameters.AddWithValue("@Notify2h", Due2h ? 1 : 0);
+                                        cmd.Parameters.AddWithValue("@Notify24h", Due24h ? 1 : 0);
+                                        cmd.Parameters.AddWithValue("@SentAt", DateTime.UtcNow.ToString("o"));
+                                        cmd.Parameters.AddWithValue("@LogDate", DateTime.UtcNow.ToString("o"));
+                                        cmd.Parameters.AddWithValue("@LoggedInUser", $"{_appState?.LoggedUserName} - {Environment.UserName}" ?? Environment.UserName);
+
+                                        cmd.ExecuteNonQuery();
+
+                                        Logger.LogInfo($"Notification history saved/updated for {appt.PatientFullName}");
+
+                                        await Task.Delay(800);
                                     }
-
-                                    cmd.Parameters.AddWithValue("@ScheduleId", appt.ScheduleId);
-                                    cmd.Parameters.AddWithValue("@PatientId", appt.PatientAutoId);
-                                    cmd.Parameters.AddWithValue("@Notify2h", Due2h ? 1 : 0);
-                                    cmd.Parameters.AddWithValue("@Notify24h", Due24h ? 1 : 0);
-                                    cmd.Parameters.AddWithValue("@SentAt", DateTime.UtcNow.ToString("o"));
-                                    cmd.Parameters.AddWithValue("@LogDate", DateTime.UtcNow.ToString("o"));
-                                    cmd.Parameters.AddWithValue("@LoggedInUser", $"{_appState?.LoggedUserName} - {Environment.UserName}" ?? Environment.UserName);
-
-                                    cmd.ExecuteNonQuery();
-
-                                    Logger.LogInfo($"Notification history saved/updated for {appt.PatientFullName}");
-
-                                    await Task.Delay(800);
-                                }
-                                catch (Exception ex)
-                                {
-                                    Logger.LogError(ex, $"Failed to insert/update notification history for {appt.PatientFullName}");
-                                }
-                                finally
-                                {
-                                    // Reset due flags for next appointment
-                                    Due2h = false;
-                                    Due24h = false;
-                                    DatabaseHelper.CloseConnection();
+                                    catch (Exception ex)
+                                    {
+                                        Logger.LogError(ex, $"Failed to insert/update notification history for {appt.PatientFullName}");
+                                    }
+                                    finally
+                                    {
+                                        // Reset due flags for next appointment
+                                        Due2h = false;
+                                        Due24h = false;
+                                        DatabaseHelper.CloseConnection();
+                                    }
                                 }
                             }
                         }
+                        catch (Exception ex)
+                        {
+                            Logger.LogError(ex, $"Failed to send patient notifications, {this.GetType().Name}");
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        Logger.LogError(ex, $"Failed to send patient notifications, {this.GetType().Name}");
+                        Logger.LogInfo($"Internet offline, will retry later. Counter = {counter}, {this.GetType().Name}");
                     }
-                }
-                else
-                {
-                    Logger.LogInfo($"Internet offline, will retry later. Counter = {counter}, {this.GetType().Name}");
-                }
 
-                Logger.LogInfo($"{this.GetType().Name} cycle {counter} complete. Sleeping for 10 minutes {this.GetType().Name}.");
-                await Task.Delay(TimeSpan.FromMinutes(10));
+                    Logger.LogInfo($"{this.GetType().Name} cycle {counter} complete. Sleeping for 10 minutes {this.GetType().Name}.");
+                    await Task.Delay(TimeSpan.FromMinutes(10), _cts.Token);
+                }
+            }
+            catch (TaskCanceledException)
+            {
+                Logger.LogInfo($"{this.GetType().Name} - Notification service task was canceled.");
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, $"Unexpected error in {this.GetType().Name} notification service.");
             }
         }
 

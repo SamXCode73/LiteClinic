@@ -307,7 +307,7 @@
                             <Button x:Uid="DDP_SendEmergencyCallBtn" 
                                     Content="Send Emergency Alert"
                                     Background="Red"
-                                    Foreground="WhiteSmoke"
+                                    Foreground="White"
                                     IsEnabled="{Binding CanSendAlertMessageToDoctor}"
                                     Command="{Binding Btn_SendEmergencycall}"
                                     CommandParameter="{Binding SelectedDoctor}"/>

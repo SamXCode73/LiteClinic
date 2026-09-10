@@ -427,6 +427,30 @@
   <value>• Ajout de la localisation complète en arabe (UI, messages, notifications)</value>
   <comment>AboutPage What's New section v1.0.4.0 - French</comment>
 </data>
+<data name="AP_Version108Title.Text" xml:space="preserve">
+  <value>Version 1.0.8.0</value>
+  <comment>AboutPage What's New section - French</comment>
+</data>
+<data name="AP_AppointmentUpdate.Text" xml:space="preserve">
+  <value>• Mises à jour de la page des rendez-vous</value>
+  <comment>AboutPage What's New section - French</comment>
+</data>
+<data name="AP_TimeCorrection.Text" xml:space="preserve">
+  <value>   - Méthode de mise à jour de l’heure corrigée</value>
+  <comment>AboutPage What's New section - French</comment>
+</data>
+<data name="AP_TimeValidation.Text" xml:space="preserve">
+  <value>   - La validation empêche les modifications qui se chevauchent (ex. : 14h15–16h00 ne peut pas être modifié en 14h00–16h00)</value>
+  <comment>AboutPage What's New section - French</comment>
+</data>
+<data name="AP_AlertLogger.Text" xml:space="preserve">
+  <value>• Ajout de la journalisation pour les alertes aux médecins</value>
+  <comment>AboutPage What's New section - French</comment>
+</data>
+<data name="AP_AlertLoggerDetails.Text" xml:space="preserve">
+  <value>   - Le flux d’alerte écrit désormais dans le fichier journal pour l’audit</value>
+  <comment>AboutPage What's New section - French</comment>
+</data>
 <data name="AP104_AddFrenchLocalization.Text" xml:space="preserve">
   <value>• Ajout de la localisation complète en français (UI, messages, notifications)</value>
   <comment>AboutPage What's New section v1.0.4.0 - French</comment>

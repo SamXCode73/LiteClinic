@@ -424,6 +424,30 @@
 <data name="AP_ReasonDisplay.Text" xml:space="preserve">
   <value>- Display patient + time + reason together for clarity</value>
 </data>
+<data name="AP_Version108Title.Text" xml:space="preserve">
+  <value>Version 1.0.8.0</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_AppointmentUpdate.Text" xml:space="preserve">
+  <value>• Appointment page updates</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_TimeCorrection.Text" xml:space="preserve">
+  <value>   - Corrected time update method</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_TimeValidation.Text" xml:space="preserve">
+  <value>   - Validation prevents overlapping changes (e.g., 02:15PM–04:00PM cannot be updated to 02:00PM–04:00PM)</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_AlertLogger.Text" xml:space="preserve">
+  <value>• Added logging for doctor alerts</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
+<data name="AP_AlertLoggerDetails.Text" xml:space="preserve">
+  <value>   - Alert workflow now writes to info log file for auditing</value>
+  <comment>AboutPage What's New section - en-US</comment>
+</data>
 <data name="AP104_AddArabicLocalization.Text" xml:space="preserve">
   <value>• Added full Arabic localization (UI, messages, notifications)</value>
   <comment>AboutPage What's New section v1.0.4.0 - en-US</comment>

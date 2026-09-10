@@ -12,6 +12,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Windows.ApplicationModel;
@@ -26,8 +27,10 @@ namespace LiteClinic.Services
         private readonly DoctorsRepository _doctorRepo = doctorRepo;
         private readonly AppState? _appState = App.GlobalState;
 
+        private CancellationTokenSource _cts = new();
+
         private bool NotifyDoctor { get; set; }
-         private DateTime DueDate { get; set; }
+        private DateTime DueDate { get; set; }
         string DueDateString => DueDate.ToString("d", CultureInfo.CurrentCulture);
 
         
@@ -51,169 +54,189 @@ namespace LiteClinic.Services
 
         public async Task RunNotifications()
         {
-            if (!App.GlobalState.NotifyDoctor)
+            try
             {
-                NotificationHelper.ShowNotification(
-                    "Doctors Notifications Stopped",
-                    "Doctors notifications have been stopped. You can restart them anytime from the Settings page."
-                );
-                Logger.LogInfo($"{this.GetType().Name} - Doctor notifications are disabled in settings. Service will not run.");
-                return;
-            }
-
-            int counter = 0;
-            DateTime lastRestDate = DateTime.Now;
-
-            while (true)
-            {
-                // Reset flags at midnight
-                var now = DateTime.Now;
-                if (now.Date > lastRestDate)
+                if (!App.GlobalState.NotifyDoctor)
                 {
-                    NotifyDoctor = false;
-                    lastRestDate = now.Date;
-                    Logger.LogInfo($"{this.GetType().Name} cycle counter reset, midnight reached.");
+                    NotificationHelper.ShowNotification(
+                        "Doctors Notifications Stopped",
+                        "Doctors notifications have been stopped. You can restart them anytime from the Settings page."
+                    );
+                    Logger.LogInfo($"{this.GetType().Name} - Doctor notifications are disabled in settings. Service will not run.");
+                    return;
                 }
 
-                counter++;
-                NotificationHelper.ShowNotification("Doctor Notification Service", $"Doctor notification service is running.");
+                int counter = 0;
+                DateTime lastRestDate = DateTime.Now;
 
-                bool online = await CheckInternetAsync();
-                if (online)
+                while (true)
                 {
-                    var schedules = await _doctorRepo.GetSchedulesWithServices();
-
-                    // Group schedules by Doctor + DayOfWeek + WeekNumbers
-                    var groupedSchedules = schedules
-                        .GroupBy(s => new { s.DoctorId, s.DayOfWeek, s.WeekNumbers });
-
-                    foreach (var group in groupedSchedules)
+                    // Reset flags at midnight
+                    var now = DateTime.Now;
+                    if (now.Date > lastRestDate)
                     {
-                        // Combine all intervals for this doctor/day/week
-                        string allIntervals = string.Join(Environment.NewLine,
-                            group.Select(g =>
-                            {
-                                var parts = (g.TimeFromTo ?? string.Empty).Split('-');
-                                if (parts.Length >= 2)
-                                    return $"From {parts[0].Trim()} To {parts[1].Trim()}";
-                                return g.TimeFromTo;
-                            })
-                            .Where(t => !string.IsNullOrWhiteSpace(t)));
+                        NotifyDoctor = false;
+                        lastRestDate = now.Date;
+                        Logger.LogInfo($"{this.GetType().Name} cycle counter reset, midnight reached.");
+                    }
 
-                        // Use one schedule as representative, overwrite TimeFromTo with combined string
-                        var representative = group.First();
-                        representative.TimeFromTo = allIntervals;
+                    counter++;
+                    NotificationHelper.ShowNotification("Doctor Notification Service", $"Doctor notification service is running.");
 
-                        if (IsNotificationDue(representative))
+                    bool online = await CheckInternetAsync();                   
+
+                    var targetDate = now.AddDays(1); // notify for tomorrow
+                    if (online)
+                    {
+                        var schedules = await _doctorRepo.GetSchedulesWithServices();
+
+                        // Group schedules by Doctor + DayOfWeek + WeekNumbers
+                        var groupedSchedules = schedules
+                            .GroupBy(s => new { s.DoctorId, s.DayOfWeek, s.WeekNumbers });
+
+                        foreach (var group in groupedSchedules)
                         {
-                            try
+                            // Combine all intervals for this doctor/day/week
+                            string allIntervals = string.Join(Environment.NewLine,
+                                group.Select(g =>
+                                {
+                                    var parts = (g.TimeFromTo ?? string.Empty).Split('-');
+                                    if (parts.Length >= 2)
+                                        return $"From {parts[0].Trim()} To {parts[1].Trim()}";
+                                    return g.TimeFromTo;
+                                })
+                                .Where(t => !string.IsNullOrWhiteSpace(t)));
+
+                            // Use one schedule as representative, overwrite TimeFromTo with combined string
+                            var representative = group.First();
+                            representative.TimeFromTo = allIntervals;
+
+                            if (IsNotificationDue(representative))
                             {
-                                // 1. Send Telegram message once per doctor/day/week
-                                await SendNotificationAsync(representative);
+                                try
+                                {
+                                    // 1. Send Telegram message once per doctor/day/week
+                                    await SendNotificationAsync(representative);
 
-                                // 2. Open database connection to log history
-                                using var conn = DatabaseHelper.GetConnection();
-                                conn.Open();
+                                    // 2. Open database connection to log history
+                                    using var conn = DatabaseHelper.GetConnection();
+                                    conn.Open();
 
-                                // Step 1: Check if record already exists for today
-                                using var checkCmd = conn.CreateCommand();
-                                checkCmd.CommandText = @"
+                                    // Step 1: Check if record already exists for today
+                                    using var checkCmd = conn.CreateCommand();
+                                    checkCmd.CommandText = @"
                             SELECT COUNT(*) 
                             FROM DoctorNotificationHistory
-                            WHERE ScheduleId = @ScheduleId
+                            WHERE ScheduleId = @ScheduleId 
                               AND DoctorId = @DoctorId
-                              AND date(LogDate) = date('now')
+                              AND targetDate = @targetDate
                               AND NotifyFlag = 2;";
-                                checkCmd.Parameters.AddWithValue("@ScheduleId", representative.ScheduleAutoId);
-                                checkCmd.Parameters.AddWithValue("@DoctorId", representative.DoctorId);
 
-                                var scalarResult = checkCmd.ExecuteScalar();
-                                long existsCount = (scalarResult == null || scalarResult == DBNull.Value) ? 0 : Convert.ToInt64(scalarResult);
-                                bool exists = existsCount > 0;
+                                    checkCmd.Parameters.AddWithValue("@ScheduleId", representative.ScheduleAutoId);
+                                    checkCmd.Parameters.AddWithValue("@DoctorId", representative.DoctorId);
+                                    checkCmd.Parameters.AddWithValue("@targetDate", targetDate);
 
-                                if (exists)
-                                {
-                                    try
+                                    var scalarResult = checkCmd.ExecuteScalar();
+                                    long existsCount = (scalarResult == null || scalarResult == DBNull.Value) ? 0 : Convert.ToInt64(scalarResult);
+                                    bool exists = existsCount > 0;
+
+                                    if (exists)
                                     {
-                                        // Step 2: Update existing record
-                                        using var updateCmd = conn.CreateCommand();
-                                        updateCmd.CommandText = @"
+                                        
+                                        try
+                                        {
+                                            // Step 2: Update existing record in cse of somthign wrong is happen adn recored idnot updte proberly
+                                            // example power outage or something else, we will update the record for today  
+                                            using var updateCmd = conn.CreateCommand();
+                                            updateCmd.CommandText = @"
                                     UPDATE DoctorNotificationHistory
                                     SET ProviderType = @ProviderType,
                                         NotifyFlag = @NotifyFlag,
                                         NotifyDoctor = @NotifyDoctor,
                                         SentAt = @SentAt,
-                                        LoggedInUser = @LoggedInUser
+                                        LoggedInUser = @LoggedInUser,
+                                        targetDate = @targetDate
                                     WHERE ScheduleId = @ScheduleId
                                       AND DoctorId = @DoctorId
-                                      AND date(LogDate) = date('now');";
+                                      AND strftime('%Y-%m-%d', LogDate) = strftime('%Y-%m-%d','now');";
 
-                                        updateCmd.Parameters.AddWithValue("@ScheduleId", representative.ScheduleAutoId);
-                                        updateCmd.Parameters.AddWithValue("@DoctorId", representative.DoctorId);
-                                        updateCmd.Parameters.AddWithValue("@ProviderType", ProviderType.Telegram.ToString());
-                                        updateCmd.Parameters.AddWithValue("@NotifyFlag", (int)NotifyFlag.SentForDoctor);
-                                        updateCmd.Parameters.AddWithValue("@NotifyDoctor", NotifyDoctor ? 1 : 0);
-                                        updateCmd.Parameters.AddWithValue("@SentAt", DateTime.UtcNow.ToString("o"));
-                                        updateCmd.Parameters.AddWithValue("@LoggedInUser", $"{_appState?.LoggedUserName} - {Environment.UserName}" ?? Environment.UserName);
+                                            updateCmd.Parameters.AddWithValue("@ScheduleId", representative.ScheduleAutoId);
+                                            updateCmd.Parameters.AddWithValue("@DoctorId", representative.DoctorId);
+                                            updateCmd.Parameters.AddWithValue("@ProviderType", ProviderType.Telegram.ToString());
+                                            updateCmd.Parameters.AddWithValue("@NotifyFlag", (int)NotifyFlag.SentForDoctor);
+                                            updateCmd.Parameters.AddWithValue("@NotifyDoctor", NotifyDoctor ? 1 : 0);
+                                            updateCmd.Parameters.AddWithValue("@SentAt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                                            updateCmd.Parameters.AddWithValue("@LoggedInUser", $"Logged Username: {_appState?.LoggedUserName} - Window Username: {Environment.UserName}" ?? Environment.UserName);
+                                            updateCmd.Parameters.AddWithValue("@targetDate", targetDate.ToString("yyyy-MM-dd"));
 
-                                        updateCmd.ExecuteNonQuery();
+                                            updateCmd.ExecuteNonQuery();
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            string key = "FAILED_TO_UPDATE_DOCTOR_NOTIFICATION_SETTING_TABLE";
+                                            Logger.LogError(ex, $" {key} | Failed to update logging for Dr. {representative.DoctorFullName} | {this.GetType().Name}");
+                                        }
                                     }
-                                    catch (Exception ex)
+                                    else
                                     {
-                                        string key = "FAILED_TO_UPDATE_DOCTOR_NOTIFICATION_SETTING_TABLE";
-                                        Logger.LogError(ex, $" {key} | Failed to update logging for Dr. {representative.DoctorFullName} | {this.GetType().Name}");
-                                    }
-                                }
-                                else
-                                {
-                                    try
-                                    {
-                                        // Step 3: Insert new record
-                                        using var insertCmd = conn.CreateCommand();
-                                        insertCmd.CommandText = @"
+                                        try
+                                        {
+                                            // Step 3: Insert new record
+                                            using var insertCmd = conn.CreateCommand();
+                                            insertCmd.CommandText = @"
                                     INSERT INTO DoctorNotificationHistory
-                                        (ScheduleId, DoctorId, ProviderType, NotifyFlag, NotifyDoctor, SentAt, LogDate, LoggedInUser)
+                                        (ScheduleId, DoctorId, ProviderType, NotifyFlag, NotifyDoctor, SentAt, LogDate, LoggedInUser, targetDate)
                                     VALUES
-                                        (@ScheduleId, @DoctorId, @ProviderType, @NotifyFlag, @NotifyDoctor, @SentAt, @LogDate, @LoggedInUser);";
+                                        (@ScheduleId, @DoctorId, @ProviderType, @NotifyFlag, @NotifyDoctor, @SentAt, @LogDate, @LoggedInUser, @targetDate);";
 
-                                        insertCmd.Parameters.AddWithValue("@ScheduleId", representative.ScheduleAutoId);
-                                        insertCmd.Parameters.AddWithValue("@DoctorId", representative.DoctorId);
-                                        insertCmd.Parameters.AddWithValue("@ProviderType", ProviderType.Telegram.ToString());
-                                        insertCmd.Parameters.AddWithValue("@NotifyFlag", (int)NotifyFlag.SentForDoctor);
-                                        insertCmd.Parameters.AddWithValue("@NotifyDoctor", NotifyDoctor ? 1 : 0);
-                                        insertCmd.Parameters.AddWithValue("@SentAt", DateTime.UtcNow.ToString("o"));
-                                        insertCmd.Parameters.AddWithValue("@LogDate", DateTime.UtcNow.ToString("o"));
-                                        insertCmd.Parameters.AddWithValue("@LoggedInUser", $"{_appState?.LoggedUserName} - {Environment.UserName}" ?? Environment.UserName);
+                                            insertCmd.Parameters.AddWithValue("@ScheduleId", representative.ScheduleAutoId);
+                                            insertCmd.Parameters.AddWithValue("@DoctorId", representative.DoctorId);
+                                            insertCmd.Parameters.AddWithValue("@ProviderType", ProviderType.Telegram.ToString());
+                                            insertCmd.Parameters.AddWithValue("@NotifyFlag", (int)NotifyFlag.SentForDoctor);
+                                            insertCmd.Parameters.AddWithValue("@NotifyDoctor", NotifyDoctor ? 1 : 0);
+                                            insertCmd.Parameters.AddWithValue("@SentAt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                                            insertCmd.Parameters.AddWithValue("@LogDate", DateTime.Now.ToString("yyyy-MM-dd"));
+                                            insertCmd.Parameters.AddWithValue("@LoggedInUser", $"Logged Username: {_appState?.LoggedUserName} - Window Username: {Environment.UserName}" ?? Environment.UserName);
+                                            insertCmd.Parameters.AddWithValue("@targetDate", targetDate.ToString("yyyy-MM-dd"));
 
-                                        insertCmd.ExecuteNonQuery();
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        string key = "FAILED_TO_INSERT_DOCTOR_NOTIFICATION_SETTING_TABLE";
-                                        Logger.LogError(ex, $" {key} | Failed to insert logging for Dr. {representative.DoctorFullName} | {this.GetType().Name}");
+                                            insertCmd.ExecuteNonQuery();
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            string key = "FAILED_TO_INSERT_DOCTOR_NOTIFICATION_SETTING_TABLE";
+                                            Logger.LogError(ex, $" {key} | Failed to insert logging for Dr. {representative.DoctorFullName} | {this.GetType().Name}");
+                                        }
                                     }
                                 }
-                            }
-                            catch (Exception ex)
-                            {
-                                Logger.LogError(ex, $"Failed to send notification for Dr. {representative.DoctorFullName} | {this.GetType().Name}");
-                            }
-                            finally
-                            {
-                                NotifyDoctor = false;
-                                DatabaseHelper.CloseConnection();
-                                await Task.Delay(800);
+                                catch (Exception ex)
+                                {
+                                    Logger.LogError(ex, $"Failed to send notification for Dr. {representative.DoctorFullName} | {this.GetType().Name}");
+                                }
+                                finally
+                                {
+                                    NotifyDoctor = false;
+                                    DatabaseHelper.CloseConnection();
+                                    await Task.Delay(800);
+                                }
                             }
                         }
                     }
-                }
-                else
-                {
-                    Logger.LogInfo($"{this.GetType().Name} - Internet offline, skipping notification cycle. {counter}");
-                }
+                    else
+                    {
+                        Logger.LogInfo($"{this.GetType().Name} - Internet offline, skipping notification cycle. {counter}");
+                    }
 
-                Logger.LogInfo($"{this.GetType().Name} cycle {counter} complete. Sleeping for 15 minutes (Doctors).");
-                await Task.Delay(TimeSpan.FromMinutes(12));
+                    Logger.LogInfo($"{this.GetType().Name} cycle {counter} complete. Sleeping for 15 minutes (Doctors).");
+                    await Task.Delay(TimeSpan.FromMinutes(12), _cts.Token);
+                }
+            }
+            catch (TaskCanceledException)
+            {
+                Logger.LogInfo($"{this.GetType().Name} - Doctor notification service task canceled.");
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, $"Unexpected error in DoctorNotificationService.RunNotifications. {this.GetType().Name}");
             }
         }
 
@@ -223,27 +246,40 @@ namespace LiteClinic.Services
             var now = DateTime.Now;
             var targetDate = now.Date.AddDays(1); // notify for tomorrow
             DueDate = targetDate;
+            string sentAt = string.Empty;
+            int doctorId = 0;
+            int notifyDoctor = 0;
 
             bool alreadyNotifiedToday = false;
 
             // Check if we already sent a "tomorrow" reminder today
             try
             {
+
                 using var conn = DatabaseHelper.GetConnection();
                 conn.Open();
                 using var cmd = conn.CreateCommand();
                 cmd.CommandText = @"
-SELECT NotifyDoctor
+SELECT NotifyDoctor, DoctorId, strftime('%Y-%m-%d', SentAt), targetDate
 FROM DoctorNotificationHistory
-WHERE ScheduleId = @ScheduleId
-  AND NotifyFlag = 2;";
+WHERE ScheduleId = @ScheduleId 
+AND NotifyFlag = 2
+AND targetDate = @targetDate;";
+
                 cmd.Parameters.AddWithValue("@ScheduleId", schedule.ScheduleAutoId);
+                cmd.Parameters.AddWithValue("@targetDate", targetDate.ToString("yyyy-MM-dd"));
 
                 using var reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    int notifyDoctorFlag = reader.GetInt32(0);
-                    alreadyNotifiedToday = notifyDoctorFlag == 1;
+                    notifyDoctor = reader.GetInt32(0);
+                    doctorId = reader.GetInt32(1);
+                    sentAt = reader.GetString(2);
+
+                    alreadyNotifiedToday = notifyDoctor == 1;
+
+                    var thisTRGETDate = reader.GetString(3);
+
                 }
             }
             catch (Exception ex)
@@ -325,29 +361,6 @@ WHERE ScheduleId = @ScheduleId
                 }
             }
 
-
-
-            //bool matchesWeek = false;
-            //try
-            //{
-            //    if (!string.IsNullOrEmpty(schedule.WeekNumbers))
-            //    {
-            //        var weeks = schedule.WeekNumbers.Split(',')
-            //                                        .Select(w => int.Parse(w.Trim()));
-
-            //        var firstDayOfMonth = new DateTime(targetDate.Year, targetDate.Month, 1);
-            //        int offset = (int)targetDate.DayOfWeek - (int)firstDayOfMonth.DayOfWeek;
-            //        if (offset < 0) offset += 7;
-
-            //        int weekOfMonth = ((targetDate.Day + offset) / 7) + 1;
-
-            //        matchesWeek = weeks.Contains(weekOfMonth);
-            //    }
-            //    else
-            //    {
-            //        matchesWeek = true; // no week restriction
-            //    }
-            //}
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Error parsing WeekNumbers in IsNotificationDue (tomorrow).");
@@ -395,7 +408,7 @@ Hello Dr. {schedule.DoctorFullName},
 You have a scheduled appointment:
 • Day: {schedule.DayOfWeek}
 • Date: {DueDateString}
-Clinic hours for you today:
+Clinic hours for you tomorrow:
 {schedule.TimeFromTo}
 
 LiteClinic V{fullVersion}
@@ -412,7 +425,7 @@ LiteClinic is free — download it today from the Microsoft Store!";
 لديك موعد مجدول:
 • اليوم: {schedule.DayOfWeek}
 • التاريخ: {DueDateString}
-ساعات دوامك اليوم:
+ساعات دوامك غداً:
 {schedule.TimeFromTo}
 
 لايت كلينك نسخة رقم {fullVersion}
@@ -429,7 +442,7 @@ Bonjour Dr. {schedule.DoctorFullName},
 Vous avez un rendez-vous prévu :
 • Jour : {schedule.DayOfWeek}
 • Date : {DueDateString}
-Vos horaires de présence aujourd'hui :
+Vos horaires de présence demain :
 {schedule.TimeFromTo}
 
 LiteClinic V{fullVersion}

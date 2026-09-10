@@ -801,13 +801,12 @@ namespace LiteClinic.ViewModels
                     // Addd slitly delay time before send for telegram limitation
                     await Task.Delay(900, _cts.Token);
                     await BotClient.SendMessage(chatId: doctors.ServiceId, text: BuildAlertMessage("en", doctors.FullName, clinicName));
-                    //await BotClient.SendMessage(chatId: doctors.ServiceId, text: $"🚨 ALERT:\nDr. {doctors.FullName}, we need you at {clinicName} ASAP or please call us soon.");
+
                 }
                 if (doctors.NotifyFr)
                 {
                     // Addd slitly delay time before send for telegram limitation
-                    await Task.Delay(900, _cts.Token);
-                    //await BotClient.SendMessage(chatId: doctors.ServiceId, text: $"🚨 ALERTE:\nDr. {doctors.FullName}, nous avons besoin de vous à {clinicName} dès que possible ou veuillez nous appeler rapidement.");
+                    await Task.Delay(900, _cts.Token);                    
                     await BotClient.SendMessage(chatId: doctors.ServiceId, text: BuildAlertMessage("fr", doctors.FullName, clinicName));
                 }
                 if (doctors.NotifyAr)
@@ -815,9 +814,9 @@ namespace LiteClinic.ViewModels
                     // Addd slitly delay time before send for telegram limitation
                     await Task.Delay(900, _cts.Token);
                     await BotClient.SendMessage(chatId: doctors.ServiceId, text: BuildAlertMessage("ar", doctors.FullName, clinicName));
-                    //await BotClient.SendMessage(chatId: doctors.ServiceId, text: $"🚨 إنذار:\nد. {doctors.FullName}, نحتاج إليك في {clinicName} فوراً أو يرجى الاتصال بنا في أقرب وقت.");
                 }
 
+                Logger.LogInfo($"Emergency alert sent to Dr. {doctors.FullName}, from Clinic: {clinicName}, at {DateTime.Now.ToString("F")}.");
 
                 StatusMessage = "Emergency alert sent successfully.";
                 StatusColor = new SolidColorBrush(Colors.Green);

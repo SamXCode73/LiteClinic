@@ -82,11 +82,11 @@
                     <TextBlock x:Uid="AppP_AppointmentDateLabel" Text="Appointment Date" FontFamily="{StaticResource CurrentAppFont}" FontWeight="Bold"/>
 
                     <CalendarDatePicker x:Uid="AppP_AppointmentDatePicker"
-                        Date="{Binding AppointmentDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        PlaceholderText="Select appointment date" Width="200"
-                        x:Name="CalendarDatePickerAppointment"
-                        GettingFocus="CalendarDatePickerAppointment_GettingFocus"
-                        LosingFocus="CalendarDatePickerAppointment_LosingFocus"/>
+                                        Date="{Binding AppointmentDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        PlaceholderText="Select appointment date" Width="200"
+                                        x:Name="CalendarDatePickerAppointment"
+                                        GettingFocus="CalendarDatePickerAppointment_GettingFocus"
+                                        LosingFocus="CalendarDatePickerAppointment_LosingFocus"/>
 
                     <TextBlock x:Uid="AppP_DoctorNameLabel" Text="Doctor Name" FontFamily="{StaticResource CurrentAppFont}" FontWeight="Bold"/>
                     <ComboBox x:Uid="AppP_DoctorComboBox"

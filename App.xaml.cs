@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.Storage;
@@ -67,10 +68,47 @@ namespace LiteClinic
         }
 
         // Make ServiceProvider accessible globally
+        //protected override void OnLaunched(LaunchActivatedEventArgs args)
+        //{
+        //    // Clear all saved values in LocalSettings
+        //    //ApplicationData.Current.LocalSettings.Values.Clear();
+
+        //    // --- 2. Initialize Window & Splash Screen ---
+        //    _window = new MainWindow();
+        //    var rootFrame = new Frame();
+        //    rootFrame.Content = new SplashScreen();
+        //    _window.Content = rootFrame;
+        //    MainAppWindow = _window;
+        //    _window.Activate();
+
+
+        //    // --- 3. Single Instance Wake-Up Logic ---
+        //    // Listen for when a second instance tries to start and redirect focus here
+        //    Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().Activated += (sender, e) =>
+        //    {
+        //        _window.DispatcherQueue.TryEnqueue(() =>
+        //        {
+        //            if (_window != null)
+        //            {
+        //                _window.Activate(); // Bring existing LiteClinic to front
+        //            }
+        //        });
+        //    };
+
+        //}
+
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            // Clear all saved values in LocalSettings
-            //ApplicationData.Current.LocalSettings.Values.Clear();
+            // --- 1. Global exception tracing ---
+            //AppDomain.CurrentDomain.FirstChanceException += (s, e) =>
+            //{
+            //    if (e.Exception is IOException)
+            //    {
+            //        // Correct usage: pass the Exception object first, then the message string
+            //        Logger.LogError(e.Exception,
+            //            $"FirstChance IOException in {e.Exception.Source}: {e.Exception.Message}\n{e.Exception.StackTrace}");
+            //    }
+            //};
 
             // --- 2. Initialize Window & Splash Screen ---
             _window = new MainWindow();
@@ -79,7 +117,6 @@ namespace LiteClinic
             _window.Content = rootFrame;
             MainAppWindow = _window;
             _window.Activate();
-
 
             // --- 3. Single Instance Wake-Up Logic ---
             // Listen for when a second instance tries to start and redirect focus here
@@ -93,8 +130,8 @@ namespace LiteClinic
                     }
                 });
             };
-
         }
+
 
     }
 
