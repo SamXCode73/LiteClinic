@@ -1,3 +1,4 @@
+using LiteClinic.Services;
 using LiteClinic.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -28,7 +29,7 @@ public sealed partial class LogsPage : Page
     public LogsPage()
     {
         InitializeComponent();
-        ViewModel = new LogsPageViewModel();
+        ViewModel = new LogsPageViewModel(new LogFolderService());
         DataContext = ViewModel;
     }
 

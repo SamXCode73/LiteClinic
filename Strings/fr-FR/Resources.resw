@@ -451,6 +451,21 @@
   <value>   - Le flux d’alerte écrit désormais dans le fichier journal pour l’audit</value>
   <comment>AboutPage What's New section - French</comment>
 </data>
+<data name="AP_Version109Title.Text" xml:space="preserve">
+  <value>Version 1.0.9.0</value>
+</data>
+<data name="AP_DoctorReminderFix.Text" xml:space="preserve">
+  <value>• Correction de la logique de rappel des médecins pour les horaires de clinique</value>
+</data>
+<data name="AP_DoctorReminderDetails.Text" xml:space="preserve">
+  <value>   - Correction de la gestion du rappel de demain lorsque plusieurs jours consécutifs sont planifiés (ex. lundi–mercredi)</value>
+</data>
+<data name="AP_LogFolderMVVM.Text" xml:space="preserve">
+  <value>• Ajout de l’ouverture du dossier des journaux avec le modèle MVVM</value>
+</data>
+<data name="AP_LogFolderMVVMDetails.Text" xml:space="preserve">
+  <value>   - Refactorisation de la logique d’ouverture de dossier en service + ViewModel pour une séparation claire et une meilleure testabilité</value>
+</data>
 <data name="AP104_AddFrenchLocalization.Text" xml:space="preserve">
   <value>• Ajout de la localisation complète en français (UI, messages, notifications)</value>
   <comment>AboutPage What's New section v1.0.4.0 - French</comment>

@@ -448,6 +448,21 @@
   <value>   - Alert workflow now writes to info log file for auditing</value>
   <comment>AboutPage What's New section - en-US</comment>
 </data>
+<data name="AP_Version109Title.Text" xml:space="preserve">
+  <value>Version 1.0.9.0</value>
+</data>
+<data name="AP_DoctorReminderFix.Text" xml:space="preserve">
+  <value>• Fixed doctor reminder logic for clinic schedules</value>
+</data>
+<data name="AP_DoctorReminderDetails.Text" xml:space="preserve">
+  <value>   - Corrected tomorrow reminder handling when multiple consecutive days are scheduled (e.g., Monday–Wednesday)</value>
+</data>
+<data name="AP_LogFolderMVVM.Text" xml:space="preserve">
+  <value>• Added Open Log Folder using MVVM pattern</value>
+</data>
+<data name="AP_LogFolderMVVMDetails.Text" xml:space="preserve">
+  <value>   - Refactored folder opening logic into service + ViewModel for clean separation and testability</value>
+</data>
 <data name="AP104_AddArabicLocalization.Text" xml:space="preserve">
   <value>• Added full Arabic localization (UI, messages, notifications)</value>
   <comment>AboutPage What's New section v1.0.4.0 - en-US</comment>

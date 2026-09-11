@@ -24,13 +24,18 @@ namespace LiteClinic.ViewModels
         protected void OnPropertyChanged(string propertyName) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
+
+        private readonly ILogFolderService _logFolderService;
+
         private CancellationTokenSource _cts = new();
         private readonly ResourceLoader _loader = new();
 
         public ICommand OpenLogFolderCommand { get; }
 
-        public LogsPageViewModel()
+        public LogsPageViewModel(ILogFolderService logFolderService)
         {
+            _logFolderService = logFolderService;
+
             // Initialize properties from global state
             App.GlobalState.PropertyChanged += (s, e) =>
             {
@@ -88,22 +93,44 @@ namespace LiteClinic.ViewModels
             }
         }
 
+        //private async Task OpenLogFolderAsync()
+        //{
+        //    string logFolder = Path.Combine(ApplicationData.Current.LocalFolder.Path, "AppLogs");
+
+        //    try
+        //    {
+        //        if (!Directory.Exists(logFolder))
+        //            Directory.CreateDirectory(logFolder); // Ensure it exists
+
+        //        StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(logFolder);
+        //        await Launcher.LaunchFolderAsync(folder);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string key = "ERROR_OPEN_LOG_FOLDER";
+        //        Logger.LogError(ex, $"{key}: Failed to open log folder");
+        //        App.GlobalState.StatusColor = StatusColor = new SolidColorBrush(Colors.IndianRed);
+        //        App.GlobalState.StatusMessage = StatusMessage = _loader.GetString("Stp_StatusMessageLogFolderOpenFailed");
+        //    }
+        //}
+
+
         private async Task OpenLogFolderAsync()
         {
-            string logFolder = Path.Combine(ApplicationData.Current.LocalFolder.Path, "AppLogs");
-
             try
             {
-                if (!Directory.Exists(logFolder))
-                    Directory.CreateDirectory(logFolder); // Ensure it exists
 
-                StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(logFolder);
-                await Launcher.LaunchFolderAsync(folder);
+                bool success = await _logFolderService.OpenLogFolderAsync();
+                if (!success)
+                {
+                    //App.GlobalState.StatusColor = StatusColor = new SolidColorBrush(Colors.IndianRed);
+                    //App.GlobalState.StatusMessage = StatusMessage = _loader.GetString("Stp_StatusMessageLogFolderOpenFailed");
+                    return;
+                }
             }
             catch (Exception ex)
             {
-                string key = "ERROR_OPEN_LOG_FOLDER";
-                Logger.LogError(ex, $"{key}: Failed to open log folder");
+                Logger.LogError(ex, "ERROR_OPEN_LOG_FOLDER: Failed to open log folder");
                 App.GlobalState.StatusColor = StatusColor = new SolidColorBrush(Colors.IndianRed);
                 App.GlobalState.StatusMessage = StatusMessage = _loader.GetString("Stp_StatusMessageLogFolderOpenFailed");
             }

@@ -410,6 +410,21 @@
   <value>   - سير عمل التنبيه يكتب الآن في ملف السجل للمراجعة</value>
   <comment>AboutPage What's New section - Arabic</comment>
 </data>
+<data name="AP_Version109Title.Text" xml:space="preserve">
+  <value>الإصدار 1.0.9.0</value>
+</data>
+<data name="AP_DoctorReminderFix.Text" xml:space="preserve">
+  <value>• إصلاح منطق تذكير الطبيب لمواعيد العيادة</value>
+</data>
+<data name="AP_DoctorReminderDetails.Text" xml:space="preserve">
+  <value>   - تصحيح معالجة تذكير الغد عند وجود أيام متتالية مجدولة (مثل الإثنين–الأربعاء)</value>
+</data>
+<data name="AP_LogFolderMVVM.Text" xml:space="preserve">
+  <value>• إضافة فتح مجلد السجلات باستخدام نمط MVVM</value>
+</data>
+<data name="AP_LogFolderMVVMDetails.Text" xml:space="preserve">
+  <value>   - إعادة هيكلة منطق فتح المجلد إلى خدمة + ViewModel لفصل نظيف وقابلية الاختبار</value>
+</data>
 <data name="AP104_AddArabicLocalization.Text" xml:space="preserve">
   <value>• تمت إضافة الترجمة الكاملة للعربية (واجهة المستخدم، الرسائل، الإشعارات)</value>
   <comment>AboutPage What's New section v1.0.4.0 - Arabic</comment>
