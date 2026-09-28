@@ -49,6 +49,10 @@ namespace LiteClinic.ViewModels
             Btn_refresh = new AsyncRelayCommand(RefreshDashboardAsync);
             _backgroundService.GreetingStarted += OnGreetingStarted;
             //_backgroundService.GreetingFinished += OnGreetingFinished;
+
+            _dotTimer = new DispatcherTimer();
+            _dotTimer.Interval = TimeSpan.FromMilliseconds(500);
+            _dotTimer.Tick += DotTimer_Tick!;
         }
 
         private readonly AppointmentsRepository _appointmentsRepository = new();
@@ -84,6 +88,13 @@ namespace LiteClinic.ViewModels
         private string? _hijriDate;
         private string? _romanDate;
 
+        private DispatcherTimer _dotTimer = new DispatcherTimer();
+        private int _dotCount = 0; // Counter for the animated dots
+
+        private string _dotText = string.Empty; // String to hold the animated dots
+
+        private bool _isLoadingPatients;
+
         public int SelectedDoctorId { get; set; }
         public DateTimeOffset SelectedDoctorDate { get; set; }
         public SolidColorBrush? CircleColor { get; set; }
@@ -110,7 +121,7 @@ namespace LiteClinic.ViewModels
                 UpdatedAt = display.UpdatedAt ?? DateTimeOffset.Now,
                 IsAttending = display.IsAttending,
                 IsMissed = display.IsMissed,
-                AttendStatus = display.AttendStatus // ✅ Add this line
+                AttendStatus = display.AttendStatus 
             };
         }
         public ScheduledAppointmentDisplay? SelectedDisplayPatient
@@ -341,6 +352,26 @@ namespace LiteClinic.ViewModels
                     OnPropertyChanged(nameof(ShowHijriDate));
 
                 }
+            }
+        }
+
+        public bool IsLoadingPatients
+        {
+            get => _isLoadingPatients;
+            set
+            {
+                _isLoadingPatients = value;
+                OnPropertyChanged(nameof(IsLoadingPatients));
+            }
+        }
+
+        public string DotText
+        {
+            get => _dotText;
+            set
+            {
+                _dotText = value;
+                OnPropertyChanged(nameof(DotText));
             }
         }
         public Visibility GregorianDateVisibility => App.GlobalState.ShowGregorianDate ? Visibility.Visible : Visibility.Collapsed;
@@ -610,6 +641,8 @@ namespace LiteClinic.ViewModels
             
             IsBusy = true;            
             IsListVisible = false; // Collapse before refresh
+            IsLoadingPatients = true;
+            StartDots(); // Start the dot animation
             await LoadAppointmentsAsync();
             await LoadDisplayAppointmentsAsync();
             await LoadDoctorsAsync();
@@ -617,6 +650,8 @@ namespace LiteClinic.ViewModels
             SelectedDoctorName = string.Empty;
             SelectedDoctorSpecialty = string.Empty;
             IsBusy = false;
+            IsLoadingPatients = false;
+            StopDots(); // Stop the dot animation   
         }
 
         public async Task InitializeAsync()
@@ -740,6 +775,26 @@ namespace LiteClinic.ViewModels
             RomanDate = DateHelper.GetRomanDate();
             HijriDate = DateHelper.GetHijriDate();
             await Task.CompletedTask;
+        }
+
+        private void DotTimer_Tick(object sender, object e)
+        {
+            _dotCount = (_dotCount + 1) % 4; // cycle 0–3
+            DotText = new string('.', _dotCount);
+        }
+
+        public void StartDots()
+        {
+            _dotCount = 0;
+            DotText = string.Empty;
+            _dotTimer.Start();
+        }
+
+        public void StopDots()
+        {
+            _dotTimer.Stop();
+            _dotCount = 0;
+            DotText = string.Empty;
         }
 
     }

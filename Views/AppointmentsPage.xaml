@@ -21,6 +21,8 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="Margin" Value="5,0,5,0"/>
+            <Setter Property="Width" Value="Auto"/>
         </Style>
 
         <Style x:Key="CustomCellStyle" TargetType="TextBlock">
@@ -32,10 +34,10 @@
             <Setter Property="Foreground" Value="DarkSlateGray"/>
         </Style>
 
-
-
         <services:TimeFormatterConverter x:Key="TimeFormatterConverter"/>
         <services:BoolToBrushConverter x:Key="BoolToBrushConverter"/>
+        <services:AttendStatusToColorConverter x:Key="AttendStatusToColorConverter"/>
+        <services:AttendStatusToColorConverterToolTip x:Key="AttendStatusToColorConverterToolTip"/>
     </Page.Resources>
 
     <Page.KeyboardAccelerators>
@@ -241,7 +243,6 @@
 
                             <ListView Grid.Row="1" 
                                       x:Name="ListViewPatientInAppointment"
-                                      Margin="10"
                                       SelectionMode="Single"
                                       ItemsSource="{Binding PatientsList}"
                                       SelectedItem="{Binding SelectedPatient, Mode=TwoWay}"
@@ -254,7 +255,7 @@
                                 <!-- Column headers -->
                                 <ListView.Header>
                                     <Grid ColumnDefinitions="100,200,270,240,240,240,250,150,150" 
-                                              Background="LightGray" Height="35">
+                                              Background="LightGray" Height="35" HorizontalAlignment="Center">
                                         <TextBlock Text="Auto" Grid.Column="0"
                                                        Style="{StaticResource CustomColumnHeaderStyle}"/>
                                         <TextBlock Text="Patient Code" Grid.Column="1"
@@ -279,51 +280,52 @@
                                 <!-- Row template -->
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid ColumnDefinitions="100,200,270,240,240,240,250,150,150" Height="40">
+                                        <Grid ColumnDefinitions="100,200,270,240,240,240,250,150,150" Height="40"
+                                              HorizontalAlignment="Center" Margin="0,1,0,9">
                                             <!-- Auto -->
                                             <TextBlock Text="{Binding PatientAutoId}"
                                                            Grid.Column="0"
-                                                           Style="{StaticResource CustomCellStyle}"/>
+                                                           Style="{StaticResource CustomCellStyle}" Margin="0,0,0,10"/>
 
                                             <!-- Patient Code -->
                                             <TextBlock Text="{Binding PatientId, Mode=TwoWay}"
                                                            Grid.Column="1"
-                                                           Style="{StaticResource CustomCellStyle}"/>
+                                                           Style="{StaticResource CustomCellStyle}" Margin="0,0,0,10"/>
 
                                             <!-- Full Name -->
                                             <TextBlock Text="{Binding PatientFullName, Mode=TwoWay}"
                                                            Grid.Column="2"
-                                                           Style="{StaticResource CustomCellStyle}"/>
+                                                           Style="{StaticResource CustomCellStyle}" Margin="0,0,0,10"/>
 
                                             <!-- First Name -->
                                             <TextBlock Text="{Binding FirstName, Mode=TwoWay}"
                                                            Grid.Column="3"
-                                                           Style="{StaticResource CustomCellStyle}"/>
+                                                           Style="{StaticResource CustomCellStyle}" Margin="0,0,0,10"/>
 
                                             <!-- Middle Name -->
                                             <TextBlock Text="{Binding MiddleName, Mode=TwoWay}"
                                                            Grid.Column="4"
-                                                           Style="{StaticResource CustomCellStyle}"/>
+                                                           Style="{StaticResource CustomCellStyle}" Margin="0,0,0,10"/>
 
                                             <!-- Last Name -->
                                             <TextBlock Text="{Binding LastName, Mode=TwoWay}"
                                                            Grid.Column="5"
-                                                           Style="{StaticResource CustomCellStyle}"/>
+                                                           Style="{StaticResource CustomCellStyle}" Margin="0,0,0,10"/>
 
                                             <!-- Mother's Name -->
                                             <TextBlock Text="{Binding FullMotherName, Mode=TwoWay}"
                                                            Grid.Column="6"
-                                                           Style="{StaticResource CustomCellStyle}"/>
+                                                           Style="{StaticResource CustomCellStyle}" Margin="0,0,0,10"/>
 
                                             <!-- Date of Birth -->
                                             <TextBlock Text="{Binding DateOfBirth, Mode=TwoWay}"
                                                            Grid.Column="7"
-                                                           Style="{StaticResource CustomCellStyle}"/>
+                                                           Style="{StaticResource CustomCellStyle}" Margin="0,0,0,10"/> 
 
                                             <!-- Age -->
                                             <TextBlock Text="{Binding PatientAge, Mode=TwoWay}"
                                                            Grid.Column="8"
-                                                           Style="{StaticResource CustomCellStyle}"/>
+                                                           Style="{StaticResource CustomCellStyle}" Margin="0,0,0,10"/>
                                         </Grid>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
@@ -355,7 +357,7 @@
 
 
                                 <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center" 
-                                            VerticalAlignment="Center">
+                                            VerticalAlignment="Center" Margin="0,0,0,10">
 
                                     <!-- Doctor Filter ComboBox -->
                                     <ComboBox x:Uid="AppP_DoctorFilterComboBox"
@@ -397,7 +399,6 @@
 
                                 <ListView x:Name="ListViewAppointment"
                                           Grid.Row="4"
-                                          Margin="10"
                                           SelectionMode="Single"
                                           ItemsSource="{Binding DisplayedScheduledAppointmentsList}"
                                           SelectedItem="{Binding SelectedScheduledAppointmentDisplay, Mode=TwoWay}"
@@ -409,8 +410,9 @@
 
                                     <!-- Column headers -->
                                     <ListView.Header>
-                                        <Grid ColumnDefinitions="270,130,130,200,150,180,100,100,200,150,250,150,150,150,150"
-                                              Background="LightGray" Height="35">
+                                        <Grid ColumnDefinitions="270,150,150,200,150,150,150,150,150,150,150,150,150"
+                                              Background="LightGray" Height="35" HorizontalAlignment="Center">
+                                            
                                             <TextBlock Text="Patient Name" Grid.Column="0" Style="{StaticResource CustomColumnHeaderStyle}"/>
                                             <TextBlock Text="Date" Grid.Column="1" Style="{StaticResource CustomColumnHeaderStyle}"/>
                                             <TextBlock Text="Time" Grid.Column="2" Style="{StaticResource CustomColumnHeaderStyle}"/>
@@ -420,22 +422,22 @@
                                             <TextBlock Text="Dr. ID" Grid.Column="6" Style="{StaticResource CustomColumnHeaderStyle}"/>
                                             <TextBlock Text="Auto" Grid.Column="7" Style="{StaticResource CustomColumnHeaderStyle}"/>
                                             <TextBlock Text="Appointment ID" Grid.Column="8" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                            <TextBlock Text="Patient ID" Grid.Column="9" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                            <TextBlock Text="Mother's Name" Grid.Column="10" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                            <TextBlock Text="DOB" Grid.Column="11" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                        <TextBlock Text="Is Active" Grid.Column="12" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                        <TextBlock Text="Status" Grid.Column="13" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                        <TextBlock Text="Patient ID" Grid.Column="9" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                        <TextBlock Text="Is Active" Grid.Column="10" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                        <TextBlock Text="Status" Grid.Column="11" Style="{StaticResource CustomColumnHeaderStyle}"/>
                                         </Grid>
                                     </ListView.Header>
 
                                     <!-- Row template -->
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid ColumnDefinitions="270,130,130,200,150,150,100,100,200,150,250,150,150,150" Height="50">
+                                            <Grid ColumnDefinitions="270,150,150,200,150,150,150,150,150,150,150,150,150" Height="50"
+                                                  HorizontalAlignment="Center" Margin="0,1,0,9">
                                                 <!-- Patient Name -->
                                                 <TextBlock Text="{Binding PatientName, Mode=TwoWay}"
-                                                           Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
-                                                           Grid.Column="0" Style="{StaticResource CustomCellStyle}"/>
+                                                           Foreground="{Binding AttendStatus, Converter={StaticResource AttendStatusToColorConverter}}"
+                                                           Grid.Column="0" Style="{StaticResource CustomCellStyle}"
+                                                           ToolTipService.ToolTip="{Binding AttendStatus, Converter={StaticResource AttendStatusToColorConverterToolTip}}"/>
 
                                                 <!-- Date -->
                                                 <TextBlock Text="{Binding AppointmentDateFormatted, Mode=TwoWay}"
@@ -458,7 +460,7 @@
                                                            Grid.Column="4" Style="{StaticResource CustomCellStyle}"/>
 
                                                 <!-- Appointment Type -->
-                                                <TextBlock Text="{Binding AppointmentTimeFormatted, Mode=TwoWay}"
+                                                <TextBlock Text="{Binding AppointmentType, Mode=TwoWay}"
                                                            Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
                                                            Grid.Column="5" Style="{StaticResource CustomCellStyle}"/>
 
@@ -478,31 +480,21 @@
                                                            Grid.Column="8" Style="{StaticResource CustomCellStyle}"/>
 
                                                 <!-- Patient ID -->
-                                                <TextBlock Text="{Binding PatientId, Mode=TwoWay}"
+                                            <TextBlock Text="{Binding PatientId, Mode=TwoWay}"
                                                            Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
-                                                           Grid.Column="9" Style="{StaticResource CustomCellStyle}"/>
+                                                           Grid.Column="9" Style="{StaticResource CustomCellStyle}" Margin="25,0,25,0"/>
 
-                                                <!-- Mother's Name -->
-                                                <TextBlock Text="{Binding PatientMotherName, Mode=TwoWay}"
-                                                           Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
-                                                           Grid.Column="10" Style="{StaticResource CustomCellStyle}"/>
-
-                                                <!-- DOB -->
-                                                <TextBlock Text="{Binding PatientDOBFormatted, Mode=TwoWay}"
-                                                           Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
-                                                           Grid.Column="11" Style="{StaticResource CustomCellStyle}"/>
-
-                                                <!-- Is Active -->
+                                            <!-- Is Active -->
                                                 <CheckBox IsChecked="{Binding IsActive, Mode=TwoWay}"
                                                           Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
-                                                          Margin="25,0,0,0"
-                                                          Grid.Column="12"/>
-
+                                                          Margin="50,0,0,0"
+                                                          Grid.Column="10"/>
 
                                                 <!-- Status -->
                                                 <TextBlock Text="{Binding AttendStatus}"
+                                                           Foreground="{Binding AttendStatus, Converter={StaticResource AttendStatusToColorConverter}}"
                                                            Margin="25,0,0,0"
-                                                           Grid.Column="13" Style="{StaticResource CustomCellStyle}"/>
+                                                           Grid.Column="11" Style="{StaticResource CustomCellStyle}"/>
                                             </Grid>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>

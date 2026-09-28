@@ -68,7 +68,11 @@ namespace LiteClinic.Models;
 
     // Computed property
     public string PatientFullName => $"{FirstName} {MiddleName} {LastName}".Trim();
-    
+
+    public string? ProfilePicturePath { get; set; }
+
+    public string? Initials { get; set; }
+
 
 }
 

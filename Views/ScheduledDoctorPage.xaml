@@ -329,8 +329,8 @@
 
                     <!-- Column headers -->
                     <ListView.Header>
-                        <Grid ColumnDefinitions="120,220,220,150,150,150,150,150,120,120"
-                              Background="LightGray" Height="30">
+                        <Grid ColumnDefinitions="120,220,220,150,150,150,150,150,120,120,120"
+                              Background="LightGray" Height="30" HorizontalAlignment="Center">
                             <TextBlock Text="Doctor's ID" Grid.Column="0" Style="{StaticResource CustomColumnHeaderStyle}"/>
                             <TextBlock Text="Doctor's Name" Grid.Column="1" Style="{StaticResource CustomColumnHeaderStyle}"/>
                             <TextBlock Text="Day of the Week" Grid.Column="2" Style="{StaticResource CustomColumnHeaderStyle}"/>
@@ -348,7 +348,8 @@
                     <!-- Row template -->
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid ColumnDefinitions="120,220,220,150,150,150,150,150,120,120,120" Height="40">
+                            <Grid ColumnDefinitions="120,220,220,150,150,150,150,150,120,120,120" 
+                                  Height="40" HorizontalAlignment="Center">
                                 <!-- Doctor's ID -->
                                 <TextBlock Text="{Binding DoctorIdDis, Mode=TwoWay}"
                                            Foreground="{Binding IsScheduleActiveDis, Converter={StaticResource BoolToBrushConverter}}"
@@ -409,6 +410,7 @@
                                 <TextBlock Text="{Binding ScheduleIdDis, Mode=TwoWay}"
                                            Foreground="{Binding IsScheduleActiveDis, Converter={StaticResource BoolToBrushConverter}}"
                                            Grid.Column="10" Style="{StaticResource CustomCellStyle}"/>
+                                
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>

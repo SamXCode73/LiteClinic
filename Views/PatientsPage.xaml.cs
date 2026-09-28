@@ -65,6 +65,7 @@ namespace LiteClinic.Views
                 vm.FullMotherName = vm.SelectedPatient.FullMotherName;
                 vm.CivilRecord = vm.SelectedPatient.CivilRecord;
                 vm.Gender = vm.SelectedPatient.Gender;
+                vm.ProfilePicturePath = vm.SelectedPatient.ProfilePicturePath;
 
                 // add the Dateofbirth code here
 
@@ -74,10 +75,6 @@ namespace LiteClinic.Views
                     vm.StringMonth = dob.Month.ToString("00"); // e.g., "12"
                     vm.StringYear = dob.Year.ToString();       // e.g., "1960"
                 }
-
-                //vm.StringDay = vm.SelectedPatient.StringDay;
-                //vm.StringMonth = vm.SelectedPatient.StringMonth;
-                //vm.StringYear = vm.SelectedPatient.StringYear;
 
                 vm.PhoneNumber = vm.SelectedPatient.PhoneNumber;
                 vm.Email = vm.SelectedPatient.Email;

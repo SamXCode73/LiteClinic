@@ -1010,6 +1010,21 @@
   <value>Appointments</value>
   <comment>Tab header for appointments list</comment>
 </data>
+<data name="AppP_AttendStatus_None" xml:space="preserve">
+  <value>Not Attended</value>
+</data>
+<data name="AppP_AttendStatus_Missed" xml:space="preserve">
+  <value>Missed</value>
+</data>
+<data name="AppP_AttendStatus_Attended" xml:space="preserve">
+  <value>Attended</value>
+</data>
+<data name="AppP_AttendStatus_CurrentlyAttending" xml:space="preserve">
+  <value>Currently Attending</value>
+</data>
+<data name="AppP_AttendStatus_Unknown" xml:space="preserve">
+  <value>Unknown Attending Status</value>
+</data>
   <data name="AppV_Status_PatientDoctorRequired" xml:space="preserve">
     <value>Patient and Doctor must be selected.</value>
   </data>
@@ -2079,6 +2094,9 @@
   <data name="Ppg_InfoDeactivatedUser.Text" xml:space="preserve">
     <value>Deactivated User</value>
   </data>
+    <data name="Ppg_AddimageforPatients.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Add - Change picture. Only .PNG or .JPG</value>
+  </data>  
   <data name="StatusMessageLoaded" xml:space="preserve">
     <value>Loaded {0} patients.</value>
   </data>
@@ -3150,7 +3168,26 @@
   </data>
       <data name="Dashboard.Text" xml:space="preserve">
     <value>Dashboard/Clinic Calendar</value>
-    <comment>Dashboard Menu Item</comment>
-	
+    <comment>Dashboard Menu Item</comment>	
   </data>
+  <data name="AP_Version110Title.Text" xml:space="preserve">
+  <value>Version 1.0.10.0</value>
+  <comment>Help page version title - en-US</comment>
+</data>
+<data name="AP_DateLocalization.Text" xml:space="preserve">
+  <value>• Localized date and date of birth with system locales</value>
+  <comment>Help page v1.0.10.0 - en-US</comment>
+</data>
+<data name="AP_PatientStatusColoring.Text" xml:space="preserve">
+  <value>• Patient list font colored by status</value>
+  <comment>Help page v1.0.10.0 - en-US</comment>
+</data>
+<data name="AP_PatientStatusDetails.Text" xml:space="preserve">
+  <value>   - Missed, Attending, Attended statuses now visually distinguished</value>
+  <comment>Help page v1.0.10.0 - en-US</comment>
+</data>
+<data name="AP_MinorFixes.Text" xml:space="preserve">
+  <value>• Minor fixes for code and layout</value>
+  <comment>Help page v1.0.10.0 - en-US</comment>
+</data>
 </root>

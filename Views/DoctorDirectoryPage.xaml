@@ -149,13 +149,13 @@
                                                     <DataTemplate>
                                                         <StackPanel Margin="0,4,0,0">
                                                             <!-- Day name in bold -->
-                                                            <TextBlock Text="{Binding DaySelected}" 
+                                                        <TextBlock Text="{Binding DaySelected}" 
                                                                    FontSize="13"
                                                                    Padding="15,0,0,0"
                                                                    Foreground="{Binding DayForeground, FallbackValue=Black}"
                                                                    FontWeight="{Binding DayFontWeight}"/>
 
-                                                            <!-- Time slots under the day -->
+                                                        <!-- Time slots under the day -->
                                                             <ItemsControl ItemsSource="{Binding SlotsSelected}">
                                                                 <ItemsControl.ItemTemplate>
                                                                     <DataTemplate>

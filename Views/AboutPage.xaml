@@ -59,6 +59,36 @@
 
                             <StackPanel>
 
+                                <TextBlock x:Uid="AP_Version110Title"
+                                           Text="Version 1.0.10.0" 
+                                           FontSize="16" 
+                                           FontWeight="SemiBold" 
+                                           Margin="0,10,0,2"/>
+
+                                <!-- Date Localization -->
+                                <TextBlock x:Uid="AP_DateLocalization"
+                                           Text="• Localized date and date of birth with system locales" 
+                                           FontSize="16" 
+                                           Margin="0,0,0,2"/>
+
+                                <!-- Patient Status Coloring -->
+                                <TextBlock x:Uid="AP_PatientStatusColoring"
+                                           Text="• Patient list font colored by status" 
+                                           FontSize="16" 
+                                           Margin="0,5,0,2"/>
+                                <TextBlock x:Uid="AP_PatientStatusDetails"
+                                           Text="   - Missed, Attending, Attended statuses now visually distinguished" 
+                                           FontSize="16" 
+                                           Margin="20,0,0,2"/>
+
+                                <!-- Minor Fixes -->
+                                <TextBlock x:Uid="AP_MinorFixes"
+                                           Text="• Minor fixes for code and layout" 
+                                           FontSize="16" 
+                                           Margin="0,5,0,2"/>
+
+
+
                                 <TextBlock x:Uid="AP_Version109Title"
                                            Text="Version 1.0.9.0" 
                                            FontSize="16" 

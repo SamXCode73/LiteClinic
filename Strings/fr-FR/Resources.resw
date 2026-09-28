@@ -1009,6 +1009,21 @@
   <value>Rendez-vous</value>
   <comment>Tab header for appointments list in French</comment>
 </data>
+<data name="AppP_AttendStatus_None" xml:space="preserve">
+  <value>Non présent</value>
+</data>
+<data name="AppP_AttendStatus_Missed" xml:space="preserve">
+  <value>Manqué</value>
+</data>
+<data name="AppP_AttendStatus_Attended" xml:space="preserve">
+  <value>Présent</value>
+</data>
+<data name="AppP_AttendStatus_CurrentlyAttending" xml:space="preserve">
+  <value>En cours de présence</value>
+</data>
+<data name="AppP_AttendStatus_Unknown" xml:space="preserve">
+  <value>Statut de présence inconnu</value>
+</data>
   <data name="AppV_Status_PatientDoctorRequired" xml:space="preserve">
     <value>Le patient et le médecin doivent être sélectionnés.</value>
   </data>
@@ -2078,6 +2093,9 @@
   <data name="Ppg_InfoDeactivatedUser.Text" xml:space="preserve">
     <value>Utilisateur désactivé</value>
   </data>
+    <data name="Ppg_AddimageforPatients.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Ajouter - Changer l'image. Uniquement .PNG ou .JPG</value>
+  </data>  
   <data name="StatusMessageLoaded" xml:space="preserve">
     <value>{0} patients chargés.</value>
   </data>
@@ -3146,5 +3164,25 @@
 <data name="Dashboard.Text" xml:space="preserve">
   <value>Tableau de bord/Calendrier de la clinique</value>
   <comment>Élément de menu du tableau de bord</comment>
+</data>
+<data name="AP_Version110Title.Text" xml:space="preserve">
+  <value>Version 1.0.10.0</value>
+  <comment>Help page version title - French</comment>
+</data>
+<data name="AP_DateLocalization.Text" xml:space="preserve">
+  <value>• Localisation de la date et de la date de naissance avec les paramètres système</value>
+  <comment>Help page v1.0.10.0 - French</comment>
+</data>
+<data name="AP_PatientStatusColoring.Text" xml:space="preserve">
+  <value>• Police de la liste des patients colorée selon le statut</value>
+  <comment>Help page v1.0.10.0 - French</comment>
+</data>
+<data name="AP_PatientStatusDetails.Text" xml:space="preserve">
+  <value>   - Les statuts Manqué, En cours, Présent sont désormais différenciés visuellement</value>
+  <comment>Help page v1.0.10.0 - French</comment>
+</data>
+<data name="AP_MinorFixes.Text" xml:space="preserve">
+  <value>• Corrections mineures du code et de la mise en page</value>
+  <comment>Help page v1.0.10.0 - French</comment>
 </data>  
 </root>

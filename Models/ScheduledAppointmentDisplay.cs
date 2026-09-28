@@ -34,7 +34,7 @@ namespace LiteClinic.Models
         public string Specialty { get; set; } = string.Empty;
 
         public DateTime AppointmentDate { get; set; }
-        public string AppointmentDateFormatted => AppointmentDate.ToString("d",CultureInfo.InvariantCulture);
+        public string AppointmentDateFormatted => AppointmentDate.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern) ?? "";
         public TimeSpan AppointmentTime { get; set; }
         public string AppointmentTimeFormatted => DateTime.Today.Add(AppointmentTime).ToString("t", CultureInfo.CurrentCulture);
 

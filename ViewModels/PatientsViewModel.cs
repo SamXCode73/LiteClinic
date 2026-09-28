@@ -43,6 +43,8 @@ public partial class PatientsViewModel : INotifyPropertyChanged
     public ICommand? Btn_ClearCommand { get; }
     public ICommand? Btn_DeactivatePatientCommand { get; }
 
+    public IAsyncRelayCommand? Btn_BrowsPatientPicture { get; }
+
     public bool CanAddPatient => PermissionHelper.CanManageRecords; // Add New Record
     public bool CanEditPatient => PermissionHelper.CanEditRecords; // Edit existing Record
     public bool CanDeactivatePatient => PermissionHelper.CanEditRecords; // Deactivate Record
@@ -55,7 +57,8 @@ public partial class PatientsViewModel : INotifyPropertyChanged
         Btn_UpdatePatientCommand = new RelayCommand(UpdatePatient);
         Btn_DeactivatePatientCommand = new RelayCommand(DeactivatePatient);
         Btn_ClearCommand = new RelayCommand(ClearPatientFields);
-        
+        Btn_BrowsPatientPicture = new AsyncRelayCommand(ChangePictureAsync);
+
 
     }
 
@@ -587,6 +590,31 @@ public partial class PatientsViewModel : INotifyPropertyChanged
         }
     }
 
+    private string? _profilePicturePath;
+    public string? ProfilePicturePath
+    {
+        get => _profilePicturePath;
+        set
+        {
+            if (_profilePicturePath != value)
+            {
+                _profilePicturePath = value;
+                OnPropertyChanged(nameof(ProfilePicturePath));
+            }
+        }
+    }
+
+    private string? _initials;
+    public string? Initials
+    {
+        get => _initials;
+        set
+        {
+            _initials = value;
+            OnPropertyChanged(nameof(Initials));
+        }
+    }
+
     public Visibility GregorianDateVisibility => App.GlobalState.ShowGregorianDate ? Visibility.Visible : Visibility.Collapsed;
     public Visibility HijriDateVisibility => App.GlobalState.ShowHijriDate ? Visibility.Visible : Visibility.Collapsed;
 
@@ -712,6 +740,7 @@ public partial class PatientsViewModel : INotifyPropertyChanged
             IsActive = this.IsActive,
             CreatedBy = $"Windows User: {Environment.UserName} - Active User: {App.GlobalState.LoggedUserName}",
             CreatedAt = DateTime.Now,
+            ProfilePicturePath = this.ProfilePicturePath ?? "ms-appx:///Assets/Profiles/Defaults/default_avatar.png"
         };
 
         bool success = _patientsRepository.SavePatient(patientsModel);
@@ -791,6 +820,7 @@ public partial class PatientsViewModel : INotifyPropertyChanged
         SelectedPatient.IsActive = IsActive;
         SelectedPatient.UpdatedAt = DateTime.Now;
         SelectedPatient.UpdatedBy = $"Windows User: {Environment.UserName} - Active User: {App.GlobalState.LoggedUserName}";
+        SelectedPatient.ProfilePicturePath = ProfilePicturePath ?? "ms-appx:///Assets/Profiles/Defaults/default_avatar.png";
 
         bool success = _patientsRepository.UpdatePatient(SelectedPatient);
         if (success)
@@ -923,6 +953,7 @@ public partial class PatientsViewModel : INotifyPropertyChanged
         SelectedPatient = new PatientsModel();
         StatusMessage = string.Empty;
         SearchQuery = string.Empty;
+        ProfilePicturePath = string.Empty;
         LoadPatients();
     }
 
@@ -1068,12 +1099,71 @@ public partial class PatientsViewModel : INotifyPropertyChanged
         StatusMessage = string.Empty;
         StatusColor = new SolidColorBrush(Colors.Black);
         SearchQuery = string.Empty;
+        ProfilePicturePath = string.Empty;
 
         SelectedPatient = null;
         PatientsList.Clear();
         _allPatients.Clear();
 
         _cts.Cancel();   // stop any pending delays
+    }
+
+    private async Task ChangePictureAsync()
+    {
+        try
+        {
+            string uniqueName = string.Empty;
+            var picker = new Windows.Storage.Pickers.FileOpenPicker
+            {
+                ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail,
+                SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary
+            };
+            picker.FileTypeFilter.Add(".jpg");
+            picker.FileTypeFilter.Add(".png");
+
+            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(App.MainAppWindow);
+            WinRT.Interop.InitializeWithWindow.Initialize(picker, hWnd);
+
+            var file = await picker.PickSingleFileAsync();
+            if (file == null) return;
+
+            // Generate folders in Local Folder
+            var localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            var profilesFolder = await localFolder.CreateFolderAsync("Profiles", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            var doctorsFolder = await profilesFolder.CreateFolderAsync("Patients", Windows.Storage.CreationCollisionOption.OpenIfExists);
+
+
+            Windows.Storage.StorageFile copiedFile;
+
+            // Adding images
+            if (SelectedPatient == null || string.IsNullOrWhiteSpace(SelectedPatient.ProfilePicturePath))
+            {
+                // New patient OR patient without image → generate new GUID filename
+                uniqueName = $"{Guid.NewGuid()}{file.FileType}";
+                copiedFile = await file.CopyAsync(doctorsFolder, uniqueName, Windows.Storage.NameCollisionOption.ReplaceExisting);
+            }
+            else
+            {
+                // Existing patient with image → reuse filename
+                uniqueName = System.IO.Path.GetFileName(SelectedPatient.ProfilePicturePath);
+
+                // If old image was a default avatar, generate new GUID
+                if (uniqueName.Contains("avatar", StringComparison.OrdinalIgnoreCase))
+                    uniqueName = $"{Guid.NewGuid()}{file.FileType}";
+
+                copiedFile = await file.CopyAsync(doctorsFolder, uniqueName, Windows.Storage.NameCollisionOption.ReplaceExisting);
+
+            }
+
+            // rebuild image pathe again from fressh update. Force UI
+            ProfilePicturePath = string.Empty;
+            ProfilePicturePath = copiedFile.Path;
+            OnPropertyChanged(nameof(ProfilePicturePath)); // Force UI refresh
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error PatientsViewModel - Patient Brows Picture Error");
+        }
     }
 
 }

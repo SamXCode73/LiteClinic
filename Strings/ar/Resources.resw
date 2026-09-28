@@ -882,6 +882,21 @@
   <data name="AppV_Status_PatientDoctorRequired" xml:space="preserve">
     <value>يجب اختيار المريض والطبيب.</value>
   </data>
+<data name="AppP_AttendStatus_None" xml:space="preserve">
+  <value>غير حاضر</value>
+</data>
+<data name="AppP_AttendStatus_Missed" xml:space="preserve">
+  <value>فات الموعد</value>
+</data>
+<data name="AppP_AttendStatus_Attended" xml:space="preserve">
+  <value>حضر</value>
+</data>
+<data name="AppP_AttendStatus_CurrentlyAttending" xml:space="preserve">
+  <value>يحضر حالياً</value>
+</data>
+<data name="AppP_AttendStatus_Unknown" xml:space="preserve">
+  <value>حالة حضور غير معروفة</value>
+</data>  
   <data name="AppV_Status_LoadedPatients" xml:space="preserve">
     <value>تم تحميل {0} مريض.</value>
   </data>
@@ -1947,6 +1962,9 @@
   <data name="Ppg_InfoDeactivatedUser.Text" xml:space="preserve">
     <value>مستخدم غير مفعل</value>
   </data>
+  <data name="Ppg_AddimageforPatients.ToolTipService.ToolTip" xml:space="preserve">
+    <value>إضافة - تغيير الصورة. فقط .PNG أو .JPG</value>
+  </data>  
   <data name="StatusMessageLoaded" xml:space="preserve">
     <value>تم تحميل {0} مريض.</value>
   </data>
@@ -3016,4 +3034,24 @@
   <value>لوحة التحكم/جدول العيادة</value>
   <comment>عنصر قائمة لوحة التحكم</comment>
 </data>  
+<data name="AP_Version110Title.Text" xml:space="preserve">
+  <value>الإصدار 1.0.10.0</value>
+  <comment>Help page version title - Arabic</comment>
+</data>
+<data name="AP_DateLocalization.Text" xml:space="preserve">
+  <value>• تم توطين التاريخ وتاريخ الميلاد باستخدام إعدادات النظام</value>
+  <comment>Help page v1.0.10.0 - Arabic</comment>
+</data>
+<data name="AP_PatientStatusColoring.Text" xml:space="preserve">
+  <value>• تلوين خط قائمة المرضى حسب الحالة</value>
+  <comment>Help page v1.0.10.0 - Arabic</comment>
+</data>
+<data name="AP_PatientStatusDetails.Text" xml:space="preserve">
+  <value>   - الحالات (فات، يحضر، حضر) أصبحت مميزة بصرياً</value>
+  <comment>Help page v1.0.10.0 - Arabic</comment>
+</data>
+<data name="AP_MinorFixes.Text" xml:space="preserve">
+  <value>• إصلاحات طفيفة في الكود والتخطيط</value>
+  <comment>Help page v1.0.10.0 - Arabic</comment>
+</data>
 </root>

@@ -21,33 +21,10 @@ namespace LiteClinic.Models
         public string? UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; } // Stored as TEXT in SQLite
         public string FullNameWithSpecialty => $"{FullName} - {Specialization}";
-        private string? _profilePicturePath { get; set; }
         public string? ProfilePicturePath { get; set; }
-
-        private string? _nitials => FullName;
 
         // Property to get initials (first + last only)
         public string? Initials { get; set; }        
 
-
-        //// UI-only property
-        //public string? DisplayProfilePicturePath
-        //{
-        //    get => string.IsNullOrEmpty(ProfilePicturePath)
-        //        ? GetRandomDefaultAvatar()
-        //        : ProfilePicturePath;
-        //}
-
-        //private string GetRandomDefaultAvatar()
-        //{
-        //    var random = new Random();
-        //    string[] defaults =
-        //    {
-        //        "ms-appx:///Assets/Profiles/Defaults/male_avatar.png",
-        //        "ms-appx:///Assets/Profiles/Defaults/female_avatar.png",
-        //        "ms-appx:///Assets/Profiles/Defaults/female_avatar_hejab.png"
-        //    };
-        //    return defaults[random.Next(defaults.Length)];
-        //}
     }
 }

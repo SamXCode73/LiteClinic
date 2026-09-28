@@ -344,7 +344,7 @@ namespace LiteClinic.ViewModels
                 }
             }
         }
-        public string AppointmentDateFormatted => AppointmentDate.ToString("dd/MM/yyyy") ?? "";
+        public string AppointmentDateFormatted => AppointmentDate.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern) ?? "";
 
         public TimeSpan AppointmentTime
         {
@@ -459,7 +459,7 @@ namespace LiteClinic.ViewModels
 
                     // Apply today's date as search query or clear it
                     SearchQueryAppointment = value
-                        ? DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)
+                        ? DateTime.Today.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern)
                         : string.Empty;
 
                     ApplySearchFilterforAppointment();
@@ -1155,7 +1155,7 @@ namespace LiteClinic.ViewModels
                     (schedule.PatientName?.ToLower().Contains(query, StringComparison.CurrentCultureIgnoreCase) ?? false) ||
                     (schedule.PatientMotherName?.ToLower().Contains(query, StringComparison.CurrentCultureIgnoreCase) ?? false) ||
                     schedule.PatientId.ToString().Contains(query, StringComparison.CurrentCultureIgnoreCase) ||
-                    schedule.PatientDOB.ToString("dd/MM/yyyy").Contains(query, StringComparison.CurrentCultureIgnoreCase) ||
+                    schedule.PatientDOB.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern).Contains(query, StringComparison.CurrentCultureIgnoreCase) ||
                     schedule.DoctorName.Contains(query, StringComparison.CurrentCultureIgnoreCase) ||
                     schedule.AppointmentDateFormatted.Contains(query, StringComparison.CurrentCultureIgnoreCase);
 

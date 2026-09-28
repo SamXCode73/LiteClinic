@@ -547,7 +547,7 @@ namespace LiteClinic.ViewModels
                 {
                     // Reset all slots first
                     daySlot.DayForeground = new SolidColorBrush(Colors.Black);
-                    daySlot.DayFontWeight = FontWeights.Normal;
+                    daySlot.DayFontWeight = FontWeights.Bold;
 
                     foreach (var timeSlot in daySlot.SlotsSelected)
                     {

@@ -340,20 +340,19 @@
                 </Grid>
 
                 <ListView Grid.Row="2" 
-                              Margin="15" 
-                              SelectionMode="Single"
-                              ItemsSource="{Binding DisplayDoctorList}"
-                              SelectedItem="{Binding SelectedDisplayDoctor, Mode=TwoWay}"
-                              DoubleTapped="ListView_DoubleTapped"
-                              ScrollViewer.HorizontalScrollMode="Enabled"
-                              ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                              ScrollViewer.VerticalScrollMode="Enabled"
-                              ScrollViewer.VerticalScrollBarVisibility="Auto">
+                          SelectionMode="Single"
+                          ItemsSource="{Binding DisplayDoctorList}"
+                          SelectedItem="{Binding SelectedDisplayDoctor, Mode=TwoWay}"
+                          DoubleTapped="ListView_DoubleTapped"
+                          ScrollViewer.HorizontalScrollMode="Enabled"
+                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                          ScrollViewer.VerticalScrollMode="Enabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto">
 
                     <!-- Column headers -->
                     <ListView.Header>
                         <Grid ColumnDefinitions="110,120,100,220,220,150,150,150"
-                                  Background="LightGray" Height="35">
+                                  Background="LightGray" Height="35" HorizontalAlignment="Center">
                             <TextBlock Text="Auto" Grid.Column="0"
                                        Style="{StaticResource CustomColumnHeaderStyle}"/>
                             <TextBlock Text="Dr. ID" Grid.Column="1"
@@ -376,7 +375,8 @@
                     <!-- Row template -->
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid ColumnDefinitions="110,120,100,220,220,150,150,150" Height="50">
+                            <Grid ColumnDefinitions="110,120,100,220,220,150,150,150" Height="50"  Margin="0,1,0,10"
+                                  HorizontalAlignment="Center">
                                 <!-- Auto -->
                                 <TextBlock Text="{Binding DoctorId}"
                                            Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"

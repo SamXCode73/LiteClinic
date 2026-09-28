@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Sockets;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
@@ -38,15 +39,32 @@ namespace LiteClinic.Services
         {
             try
             {
-                using var client = new HttpClient();
-                var response = await client.GetAsync("https://api.telegram.org");
-                
-                Logger.LogInfo($"{this.GetType().Name} - Internet connectivity check successful in Doctor Notification.", $"Status Code: {{{response.StatusCode}}}");
-                return response.IsSuccessStatusCode;
+                //using var client = new HttpClient();
+                //var response = await client.GetAsync("https://api.telegram.org");
+
+                int timeoutMs = 3000; // 3 seconds timeout  
+
+                using var client = new TcpClient();
+                var connectTask = client.ConnectAsync("1.1.1.1", 53); // Cloudflare DNS over TCP
+                var timeoutTask = Task.Delay(timeoutMs);
+
+                var completedTask = await Task.WhenAny(connectTask, timeoutTask);
+
+                if (completedTask == connectTask && client.Connected)
+                {
+                    Logger.LogInfo($"{this.GetType().Name} - Internet connectivity check successful in Patients Notification. TCP connection established to 1.1.1.1:53");
+                    return true;
+                }
+                else
+                {
+                    Logger.LogInfo($"{this.GetType().Name} - Internet connectivity check failed in Patients Notification. TCP connection timed out or failed.");
+                    NotificationHelper.ShowNotification("Connectivity Error", "Internet connectivity check failed. \"TCP connection timed out or failed.\"");
+                    return false;
+                }
+
             }
             catch (Exception ex)
-            {
-                NotificationHelper.ShowNotification("Connectivity Error", "Internet connectivity check failed. Please check your connection.");
+            {                
                 Logger.LogError(ex, $"Internet connectivity check failed in Doctor Notification. {this.GetType().Name}");
                 return false;
             }
@@ -216,6 +234,8 @@ namespace LiteClinic.Services
                                 {
                                     NotifyDoctor = false;
                                     DatabaseHelper.CloseConnection();
+
+                                    //Slightly Delay to avoid overwhelming the system if multiple notifications are sent in quick succession
                                     await Task.Delay(800);
                                 }
                             }

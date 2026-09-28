@@ -37,6 +37,7 @@
         <services:BoolToBrushConverter x:Key="BoolToBrushConverter"/>
         <services:DateOnlyConverter x:Key="DateOnlyConverter"/>
         <services:StringToDateTimeConverter x:Key="StringToDateTimeConverter"/>
+        <services:ProfilePictureConverter x:Key="ProfilePictureConverter"/>
         
     </Page.Resources>
 
@@ -78,7 +79,47 @@
 
                     <TextBlock x:Uid="Ppg_PatientInfoTitle"
                                Text="Patient Information" FontSize="20" FontWeight="Bold" FontFamily="{StaticResource CurrentAppFont}"/>
-                    
+
+                    <!-- Profile Picture Section -->
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <!--profile picture -->
+                        <PersonPicture ProfilePicture="{Binding ProfilePicturePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
+                            Converter={StaticResource ProfilePictureConverter}}"
+                                       Width="120" Height="120"
+                                       BorderBrush="Gray"
+                                       BorderThickness="1"
+                                       CacheMode="BitmapCache"
+                                       Initials="{Binding Initials, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <!-- Edit icon button -->
+                        <Button x:Uid="Ppg_AddimageforPatients" 
+                                Width="40" Height="40"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Margin="0,0,-5,-5" 
+                                Background="#FF4169E1"   
+                                Foreground="#FFFFFFFF"                            
+                                BorderThickness="1"
+                                CornerRadius="50"
+                                ToolTipService.ToolTip="Addc - Change picture. Only '.PNG' or '.JPG'"
+                                Command="{Binding Btn_BrowsPatientPicture}">
+                            <Button.Resources>
+                                <!-- Hover state -->
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#FF5A7BE1"/>
+                                <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+
+                                <!-- Pressed state -->
+                                <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#FF27408B"/>
+                                <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White"/>
+                            </Button.Resources>
+                            <FontIcon Glyph="&#xE104;"
+                                      FontFamily="Segoe MDL2 Assets"
+                                      Foreground="White"
+                                      FontSize="14" />
+                        </Button>
+                    </Grid>
+
+
                     <StackPanel Orientation="Horizontal">
 
                         <TextBox x:Uid="Ppg_FirstName"
@@ -400,7 +441,6 @@
                     <!-- Patients ListView -->
                     <ListView x:Name="ListViewPatients"
                               Grid.Row="1"
-                              Margin="10"
                               SelectionMode="Single"
                               ItemsSource="{Binding PatientsList}"
                               SelectedItem="{Binding SelectedPatient, Mode=TwoWay}"
@@ -413,41 +453,44 @@
 
                         <!-- Column headers -->
                         <ListView.Header>
-                            <Grid ColumnDefinitions="120,150,200,200,200,200,200,200,200,200,150,250,250,100,120,120,120,120,120,120,120,200,130,100"
-                                  Background="LightGray" Height="30">
+                            <Grid ColumnDefinitions="120,150,150,200,200,200,200,200,200,200,200,150,
+                                  250,250,100,120,120,120,120,120,120,120,200,130,100,100"
+                                  Background="LightGray" Height="30" HorizontalAlignment="Center">
                                 <TextBlock Text="Auto ID" Grid.Column="0" Style="{StaticResource CustomColumnHeaderStyle}"/>
                                 <TextBlock Text="Patient ID" Grid.Column="1" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="First Name" Grid.Column="2" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Middle Name" Grid.Column="3" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Last Name" Grid.Column="4" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Mother's Name" Grid.Column="5" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Civil Record" Grid.Column="6" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Gender" Grid.Column="7" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="DOB" Grid.Column="8" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Age" Grid.Column="9" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Mobile Phone" Grid.Column="10" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Email" Grid.Column="11" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Address" Grid.Column="12" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="City" Grid.Column="13" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="GotInsurance" Grid.Column="14" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Insurance Name" Grid.Column="15" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Insurance #" Grid.Column="16" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="GOTNSN" Grid.Column="17" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="NSN Name" Grid.Column="18" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="NSN #" Grid.Column="19" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="BloodType" Grid.Column="20" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Allergies" Grid.Column="21" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="MedicalHistory" Grid.Column="22" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Language" Grid.Column="23" Style="{StaticResource CustomColumnHeaderStyle}"/>
-                                <TextBlock Text="Active" Grid.Column="24" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Photo" Grid.Column="2" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="First Name" Grid.Column="3" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Middle Name" Grid.Column="4" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Last Name" Grid.Column="5" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Mother's Name" Grid.Column="6" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Civil Record" Grid.Column="7" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Gender" Grid.Column="8" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="DOB" Grid.Column="9" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Age" Grid.Column="10" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Mobile Phone" Grid.Column="11" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Email" Grid.Column="12" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Address" Grid.Column="13" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="City" Grid.Column="14" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="GotInsurance" Grid.Column="15" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Insurance Name" Grid.Column="16" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Insurance #" Grid.Column="17" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="GOTNSN" Grid.Column="18" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="NSN Name" Grid.Column="19" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="NSN #" Grid.Column="20" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="BloodType" Grid.Column="21" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Allergies" Grid.Column="22" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="MedicalHistory" Grid.Column="23" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Language" Grid.Column="24" Style="{StaticResource CustomColumnHeaderStyle}"/>
+                                <TextBlock Text="Active" Grid.Column="25" Style="{StaticResource CustomColumnHeaderStyle}"/>
                             </Grid>
                         </ListView.Header>
 
                         <!-- Row template -->
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Grid ColumnDefinitions="120,150,200,200,200,200,200,200,200,200,150,
-                                      250,250,100,120,120,120,120,120,120,120,200,130,100" Height="35">
+                                <Grid ColumnDefinitions="120,150,150,200,200,200,200,200,200,200,200,150,
+                                      250,250,100,120,120,120,120,120,120,120,200,130,100,100" Height="50"
+                                      HorizontalAlignment="Center" Margin="0,1,0,10">
                                     <!-- Auto ID -->
                                     <TextBlock Text="{Binding PatientAutoId}" Grid.Column="0"
                                                Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
@@ -458,102 +501,116 @@
                                                Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
                                                Style="{StaticResource CustomCellStyle}"/>
 
+                                    <!-- Photo -->
+                                    <Ellipse Width="40" Height="40" Grid.Column="2"
+                                         Stroke="Gray" StrokeThickness="1"
+                                         HorizontalAlignment="Center">
+                                        <Ellipse.Fill>
+                                            <ImageBrush Stretch="UniformToFill">
+                                                <ImageBrush.ImageSource>
+                                                    <BitmapImage UriSource="{Binding ProfilePicturePath, Mode=TwoWay, Converter={StaticResource ProfilePictureConverter}}"
+                                                             CreateOptions="IgnoreImageCache"/>
+                                                </ImageBrush.ImageSource>
+                                            </ImageBrush>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+
                                     <!-- First Name -->
-                                    <TextBlock Text="{Binding FirstName}" Grid.Column="2"
+                                    <TextBlock Text="{Binding FirstName}" Grid.Column="3"
                                                Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Middle Name -->
-                                    <TextBlock Text="{Binding MiddleName}" Grid.Column="3"
+                                    <TextBlock Text="{Binding MiddleName}" Grid.Column="4"
                                                Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Last Name -->
-                                    <TextBlock Text="{Binding LastName}" Grid.Column="4"
+                                    <TextBlock Text="{Binding LastName}" Grid.Column="5"
                                                Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Mother's Name -->
-                                    <TextBlock Text="{Binding FullMotherName}" Grid.Column="5"
+                                    <TextBlock Text="{Binding FullMotherName}" Grid.Column="6"
                                                Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
                                                FontWeight="Bold" Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Civil Record -->
-                                    <TextBlock Text="{Binding CivilRecord}" Grid.Column="6" 
+                                    <TextBlock Text="{Binding CivilRecord}" Grid.Column="7" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Gender -->
-                                    <TextBlock Text="{Binding Gender}" Grid.Column="7" 
+                                    <TextBlock Text="{Binding Gender}" Grid.Column="8" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- DOB -->
-                                    <TextBlock Text="{Binding DateOfBirth}" Grid.Column="8" 
+                                    <TextBlock Text="{Binding DateOfBirth}" Grid.Column="9" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Age -->
-                                    <TextBlock Text="{Binding PatientAge}" Grid.Column="9" 
+                                    <TextBlock Text="{Binding PatientAge}" Grid.Column="10" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Mobile Phone -->
-                                    <TextBlock Text="{Binding PhoneNumber}" Grid.Column="10" 
+                                    <TextBlock Text="{Binding PhoneNumber}" Grid.Column="11" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Email -->
-                                    <TextBlock Text="{Binding Email}" Grid.Column="11" 
+                                    <TextBlock Text="{Binding Email}" Grid.Column="12" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Address -->
-                                    <TextBlock Text="{Binding Address}" Grid.Column="12" 
+                                    <TextBlock Text="{Binding Address}" Grid.Column="13" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- City -->
-                                    <TextBlock Text="{Binding City}" Grid.Column="13" 
+                                    <TextBlock Text="{Binding City}" Grid.Column="14" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- GotInsurance -->
-                                    <TextBlock Text="{Binding GotInsurance}" Grid.Column="14"
+                                    <TextBlock Text="{Binding GotInsurance}" Grid.Column="15"
                                                Style="{StaticResource CustomCellStyle}" Visibility="Collapsed"/>
 
                                     <!-- Insurance Name -->
-                                    <TextBlock Text="{Binding InsuranceName}" Grid.Column="15" 
+                                    <TextBlock Text="{Binding InsuranceName}" Grid.Column="16" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Insurance # -->
-                                    <TextBlock Text="{Binding InsuranceNumber}" Grid.Column="16" 
+                                    <TextBlock Text="{Binding InsuranceNumber}" Grid.Column="17" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- GOTNSN -->
-                                    <TextBlock Text="{Binding GotNSN}" Grid.Column="17"
+                                    <TextBlock Text="{Binding GotNSN}" Grid.Column="18"
                                                Style="{StaticResource CustomCellStyle}" Visibility="Collapsed"/>
 
                                     <!-- NSN Name -->
-                                    <TextBlock Text="{Binding NSNName}" Grid.Column="18" 
+                                    <TextBlock Text="{Binding NSNName}" Grid.Column="19" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- NSN # -->
-                                    <TextBlock Text="{Binding NSNNumber}" Grid.Column="19" 
+                                    <TextBlock Text="{Binding NSNNumber}" Grid.Column="20" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- BloodType -->
-                                    <TextBlock Text="{Binding BloodType}" Grid.Column="20" 
+                                    <TextBlock Text="{Binding BloodType}" Grid.Column="21" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Allergies -->
-                                    <TextBlock Text="{Binding Allergies}" Grid.Column="21" 
+                                    <TextBlock Text="{Binding Allergies}" Grid.Column="22" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- MedicalHistory -->
-                                    <TextBlock Text="{Binding MedicalHistory}" Grid.Column="22" 
-                                               Style="{StaticResource CustomCellStyle}"/>
+                                    <TextBlock Text="{Binding MedicalHistory}" Grid.Column="23" 
+                                               Style="{StaticResource CustomCellStyle}" TextWrapping="Wrap"/>
 
                                     <!-- Language -->
-                                    <TextBlock Text="{Binding Language}" Grid.Column="23" 
+                                    <TextBlock Text="{Binding Language}" Grid.Column="24" 
                                                Style="{StaticResource CustomCellStyle}"/>
 
                                     <!-- Active -->
-                                    <CheckBox IsChecked="{Binding IsActive}" Grid.Column="24"
+                                    <CheckBox IsChecked="{Binding IsActive}" Grid.Column="25"
                                               Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
-                                              FontWeight="Bold"/>
+                                              FontWeight="Bold" Margin="25,0,0,0"/>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>

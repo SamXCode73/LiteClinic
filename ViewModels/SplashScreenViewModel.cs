@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -154,7 +155,6 @@ namespace LiteClinic.ViewModels
                 language = value as string ?? language;
                 showGregorianDate = localSettings.Values["ShowGregorianDate"] as bool? ?? showGregorianDate;
                 showHijriDate = localSettings.Values["ShowHijriDate"] as bool? ?? showHijriDate;
-                Debug.WriteLine($"Loaded Language from LocalSettings: {language}, ShowGregorianDate: {showGregorianDate}, ShowHijriDate: {showHijriDate}");
             }
             else
             {
@@ -697,11 +697,15 @@ namespace LiteClinic.ViewModels
                 await EnsureColumnExistsAsync(conn, "Doctors", "Gender", "TEXT");
                 await EnsureColumnExistsAsync(conn, "Doctors", "ProfilePicturePath", "TEXT");
 
-                // I forget to add default image for SQLite limitation ( or maybe i did not knwo how to use correctly)
+                // I forget to add default image for SQLite limitation ( or maybe i did not know how to use correctly)
                 await EnsureColumnDefaultAsync(conn, "Doctors", "ProfilePicturePath", "");
 
                 // add Column in DoctorNotificationHistory for tomrrow notification Date to preent looping
                 await EnsureColumnExistsAsync(conn, "DoctorNotificationHistory", "targetDate", "TEXT");
+
+                // Adding Profile Picture Path to Patients Table
+                await EnsureColumnExistsAsync(conn, "PatientTable", "ProfilePicturePath", "TEXT");
+
 
                 // --- Ensure Doctor Schedule With day and time ---
                 await EnsureView(conn,
@@ -740,6 +744,9 @@ namespace LiteClinic.ViewModels
                             AND d.IsActive = 1;", "Gender", "ProfilePicturePath, ServiceId, ServiceIsActive");
 
                 await NormalizeDatesAsync();
+
+
+                await NormalizePatientDobAsync();
 
             }
 
@@ -934,6 +941,57 @@ namespace LiteClinic.ViewModels
                 Logger.LogError(ex, "Error while normalizing SentAt/LogDate.");
             }
         }
+
+        private static async Task NormalizePatientDobAsync()
+        {
+            try
+            {
+                using var conn = DatabaseHelper.GetConnection();
+                await conn.OpenAsync();
+
+                // Select all patients with a DOB that looks like dd/MM/yyyy
+                using var selectCmd = conn.CreateCommand();
+                selectCmd.CommandText = @"
+            SELECT PatientAutoId, DateOfBirth
+            FROM PatientTable
+            WHERE DateOfBirth LIKE '%/%';"; // crude filter: only legacy formats
+
+                using var reader = await selectCmd.ExecuteReaderAsync();
+                var updates = new List<(int Id, string NewDob)>();
+
+                while (await reader.ReadAsync())
+                {
+                    var id = reader.GetInt32(0);
+                    var dobString = reader.GetString(1);
+
+                    // Try to parse legacy formats
+                    if (DateTime.TryParseExact(dobString, new[] { "dd/MM/yyyy", "d/M/yyyy" },
+                        CultureInfo.InvariantCulture, DateTimeStyles.None, out var legacyDate))
+                    {
+                        // Convert to ISO yyyy-MM-dd
+                        var normalized = legacyDate.ToString("yyyy-MM-dd");
+                        updates.Add((id, normalized));
+                    }
+                }
+
+                reader.Close();
+
+                // Apply updates
+                foreach (var (id, newDob) in updates)
+                {
+                    using var updateCmd = conn.CreateCommand();
+                    updateCmd.CommandText = "UPDATE PatientTable SET DateOfBirth = @NewDob WHERE PatientAutoId = @Id;";
+                    updateCmd.Parameters.AddWithValue("@NewDob", newDob);
+                    updateCmd.Parameters.AddWithValue("@Id", id);
+                    await updateCmd.ExecuteNonQueryAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Error normalizing Patient DOBs in splash screen.");
+            }
+        }
+
 
     }
 }

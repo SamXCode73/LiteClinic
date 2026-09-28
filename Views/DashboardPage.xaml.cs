@@ -36,6 +36,8 @@ namespace LiteClinic.Views
     public sealed partial class DashboardPage : Page
     {
         public DashboardViewModel ViewModel { get; set; }
+        //private DispatcherTimer _dotTimer;
+        //private int _dotCount = 0;
 
         public DashboardPage()
         {
@@ -46,6 +48,14 @@ namespace LiteClinic.Views
             {
                 await ViewModel.InitializeAsync();
             };
+            //_dotTimer = new DispatcherTimer();
+            //_dotTimer.Interval = TimeSpan.FromMilliseconds(500);
+            //_dotTimer.Tick += (s, e) =>
+            //{
+            //    // Update the animated dots
+            //    _dotCount = (_dotCount + 1) % 4; // Cycle through 0, 1, 2, 3
+            //    DotsText.Text = new string('.', _dotCount);
+            //};
 
         }
 
@@ -75,8 +85,16 @@ namespace LiteClinic.Views
         {
             if (sender is FrameworkElement fe && fe.DataContext is DoctorWeeklySummary doctor)
             {
+                ViewModel.IsLoadingPatients = true;
+                //_dotTimer.Start();
+                ViewModel.StartDots();   // Start the dot animation
 
                 await ChangePatientStatus(doctor);
+                //_dotTimer.Stop();
+                ViewModel.StopDots(); // Stop the dot animation
+                //_dotCount = 0; // Reset the dot count
+                //DotsText.Text = string.Empty; // Clear the dots
+                ViewModel.IsLoadingPatients = false;
 
             }
         }
@@ -120,8 +138,10 @@ namespace LiteClinic.Views
             {
                 if (DataContext is DashboardViewModel vm)
                 {
-
-                    vm.SelectedDisplayPatient = patient;
+                    vm.IsLoadingPatients = true;
+                    vm.SelectedDisplayPatient = patient; // Needed to get selected Patient
+                    //_dotTimer.Start(); 
+                    vm.StartDots();   // Start the dot animation
                     await vm.SetAppointmentStatus();
 
                     // Refresh the patient list to reflect changes
@@ -130,6 +150,13 @@ namespace LiteClinic.Views
                     if (vm.IsListVisible) vm.IsListVisible = false;
                     await vm.FilterAppointmentsByDoctor(vm.SelectedDoctorId, vm.SelectedDoctorDate);
                     vm.IsListVisible = true;
+                    //_dotTimer.Stop(); 
+                    vm.StopDots();
+                    // Stop the dot animation
+                    //_dotCount = 0; // Reset the dot count
+                    //DotsText.Text = string.Empty; // Clear the dots
+                    vm.IsLoadingPatients = false;
+                    
 
                     //   TODO:Recalculate the Summery in the DashBoardPage
 

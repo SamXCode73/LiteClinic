@@ -31,7 +31,7 @@ namespace LiteClinic.Repository
             SELECT PatientAutoId, PatientId, FirstName, MiddleName, LastName, FullMotherName,
                    CivilRecord, Gender, DateOfBirth, PatientAge, PhoneNumber, Email, Address, City, Country,
                    GotInsurance, InsuranceName, InsuranceNumber, GotNSN, NSNName, NSNNumber, BloodType,
-                   Allergies, MedicalHistory, Language, IsActive, CreatedBy, CreatedAt, UpdatedAt, UpdatedBy
+                   Allergies, MedicalHistory, Language, IsActive, CreatedBy, CreatedAt, UpdatedAt, UpdatedBy, ProfilePicturePath
             FROM PatientTable;";
 
                 using var reader = cmd.ExecuteReader();
@@ -46,13 +46,14 @@ namespace LiteClinic.Repository
                         if (DateTime.TryParseExact(dbValue, "yyyy-MM-dd", CultureInfo.InvariantCulture,
                                                    DateTimeStyles.None, out var parsedIso))
                         {
-                            dob = parsedIso.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                            dob = parsedIso.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern);
                         }
                         else if (DateTime.TryParseExact(dbValue, "dd/MM/yyyy", CultureInfo.InvariantCulture,
                                                         DateTimeStyles.None, out var parsedLegacy))
                         {
-                            dob = parsedLegacy.ToString("d", CultureInfo.InvariantCulture);
+                            dob = parsedLegacy.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern);
                         }
+                        
                     }
 
 
@@ -87,7 +88,8 @@ namespace LiteClinic.Repository
                         CreatedBy = reader.IsDBNull(26) ? null : reader.GetString(26),
                         CreatedAt = reader.IsDBNull(27) ? null : (DateTime?)reader.GetDateTime(27),
                         UpdatedAt = reader.IsDBNull(28) ? null : (DateTime?)reader.GetDateTime(28),
-                        UpdatedBy = reader.IsDBNull(29) ? null : reader.GetString(29)
+                        UpdatedBy = reader.IsDBNull(29) ? null : reader.GetString(29),
+                        ProfilePicturePath = reader.IsDBNull(30) ? null : reader.GetString(30)
                     });
                 }
             }
@@ -132,12 +134,12 @@ namespace LiteClinic.Repository
                         if (DateTime.TryParseExact(dbValue, "yyyy-MM-dd", CultureInfo.InvariantCulture,
                                                    DateTimeStyles.None, out var parsedIso))
                         {
-                            dob = parsedIso.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                            dob = parsedIso.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern);
                         }
                         else if (DateTime.TryParseExact(dbValue, "dd/MM/yyyy", CultureInfo.InvariantCulture,
                                                         DateTimeStyles.None, out var parsedLegacy))
                         {
-                            dob = parsedLegacy.ToString("d", CultureInfo.InvariantCulture);
+                            dob = parsedLegacy.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern);
                         }
                     }
 
@@ -237,13 +239,13 @@ namespace LiteClinic.Repository
                     CivilRecord, Gender, DateOfBirth, PatientAge, PhoneNumber, Email, Address,
                     City, Country, GotInsurance, InsuranceName, InsuranceNumber, GotNSN, NSNName,
                     NSNNumber, BloodType, Allergies, MedicalHistory, Language,
-                    IsActive, CreatedBy, CreatedAt, UpdatedBy
+                    IsActive, CreatedBy, CreatedAt, UpdatedBy, ProfilePicturePath
                 ) VALUES (
                     @PatientId, @FirstName, @MiddleName, @LastName, @FullMotherName,
                     @CivilRecord, @Gender, @DateOfBirth, @PatientAge, @PhoneNumber, @Email, @Address,
                     @City, @Country, @GotInsurance, @InsuranceName, @InsuranceNumber, @GotNSN, @NSNName,
                     @NSNNumber, @BloodType, @Allergies, @MedicalHistory, @Language,
-                    @IsActive, @CreatedBy, @CreatedAt, @UpdatedBy
+                    @IsActive, @CreatedBy, @CreatedAt, @UpdatedBy, @ProfilePicturePath
                 );";
 
                 cmd.Parameters.Clear();
@@ -275,6 +277,7 @@ namespace LiteClinic.Repository
                 cmd.Parameters.AddWithValue("@CreatedBy", patient.CreatedBy);
                 cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("F"));
                 cmd.Parameters.AddWithValue("@UpdatedBy", patient.UpdatedBy ?? "");
+                cmd.Parameters.AddWithValue("@ProfilePicturePath", patient.ProfilePicturePath ?? "");
 
                 cmd.ExecuteNonQuery();
                 transaction.Commit();
@@ -326,7 +329,8 @@ namespace LiteClinic.Repository
                     Language = @Language,
                     IsActive = @IsActive,
                     UpdatedAt = @UpdatedAt,
-                    UpdatedBy = @UpdatedBy
+                    UpdatedBy = @UpdatedBy,
+                    ProfilePicturePath = @ProfilePicturePath
                 WHERE PatientAutoId = @PatientAutoId;";
 
                 cmd.Parameters.Clear();
@@ -357,6 +361,7 @@ namespace LiteClinic.Repository
                 cmd.Parameters.AddWithValue("@IsActive", patient.IsActive ? 1 : 0);
                 cmd.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("F"));
                 cmd.Parameters.AddWithValue("@UpdatedBy", patient.UpdatedBy ?? "");
+                cmd.Parameters.AddWithValue("@ProfilePicturePath", patient.ProfilePicturePath ?? "");
 
                 cmd.ExecuteNonQuery();
                 transaction.Commit();

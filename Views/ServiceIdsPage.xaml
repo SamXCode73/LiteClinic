@@ -308,8 +308,8 @@
 
                     <!-- Column headers -->
                     <ListView.Header>
-                        <Grid ColumnDefinitions="120,150,150,200,150,100,100,100,100"
-              Background="LightGray" Height="30">
+                        <Grid ColumnDefinitions="120,150,150,200,150,100,120,120,120" 
+                              Background="LightGray" Height="30" HorizontalAlignment="Center">
                             <TextBlock Text="Service ID Auto" Grid.Column="0" Style="{StaticResource CustomColumnHeaderStyle}"/>
                             <TextBlock Text="Patient ID" Grid.Column="1" Style="{StaticResource CustomColumnHeaderStyle}"/>
                             <TextBlock Text="Code" Grid.Column="2" Style="{StaticResource CustomColumnHeaderStyle}"/>
@@ -325,7 +325,7 @@
                     <!-- Row template -->
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="models:PatientServiceIdsDisplay">
-                            <Grid ColumnDefinitions="120,150,150,200,150,100,100,100,100" Height="30">
+                            <Grid ColumnDefinitions="120,150,150,200,150,100,120,120,120" Height="30" HorizontalAlignment="Center">
                                 <!-- Service ID Auto -->
                                 <TextBlock Text="{Binding PatientServiceId}"
                                            Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
@@ -359,26 +359,26 @@
                                 <!-- Active -->
                                 <CheckBox IsChecked="{Binding IsActive}"
                                           Foreground="{Binding IsActive, Converter={StaticResource BoolToBrushConverter}}"
-                                          Margin="25,0,0,0"
-                                          FontStyle="Italic" FontWeight="SemiBold"
+                                          Margin="20,0,0,0"
+                                          FontStyle="Italic" FontWeight="SemiBold" HorizontalAlignment="Center"
                                           Grid.Column="5"/>
 
                                 <!-- Notify En -->
                                 <CheckBox IsChecked="{Binding NotifyEn}"
-                                          Margin="25,0,0,0"
-                                          FontStyle="Italic" FontWeight="SemiBold"
+                                          Margin="20,0,0,0"
+                                          FontStyle="Italic" FontWeight="SemiBold" HorizontalAlignment="Center"
                                           Grid.Column="6"/>
 
                                 <!-- Notify Fr -->
                                 <CheckBox IsChecked="{Binding NotifyFr}"
-                                          Margin="25,0,0,0"
-                                          FontStyle="Italic" FontWeight="SemiBold"
+                                          Margin="20,0,0,0"
+                                          FontStyle="Italic" FontWeight="SemiBold" HorizontalAlignment="Center"
                                           Grid.Column="7"/>
 
                                 <!-- Notify Ar -->
                                 <CheckBox IsChecked="{Binding NotifyAr}"
-                                          Margin="25,0,0,0"
-                                          FontStyle="Italic" FontWeight="SemiBold"
+                                          Margin="20,0,0,0"
+                                          FontStyle="Italic" FontWeight="SemiBold" HorizontalAlignment="Center"
                                           Grid.Column="8"/>
                             </Grid>
                         </DataTemplate>

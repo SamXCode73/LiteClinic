@@ -46,6 +46,21 @@ This project is licensed under the MIT License.
 
 This project is part of a journey to provide free, lightweight, and modern tools for the clinical community.
 
+
+⚠️ Donations are voluntary, non‑refundable, and do not grant additional features or services.
+
+## 📧 Contact & Feature Requests
+The best way to request new features or report bugs is through the GitHub **Issues** section.  
+Please use clear titles and apply the right labels:
+
+- `Feature Request` – for new ideas or enhancements  
+- `Bug` – for problems or unexpected behavior  
+- `Enhancement` – for small improvements or refinements  
+
+👉 [Open a new issue](https://github.com/SamXCode73/LiteClinic/issues) to share your feedback.
+
+Additional community channels (e.g., Telegram groups) will be announced here in future updates.
+
 ## 💖 Support LiteClinic
 LiteClinic is built and maintained by a single developer with the help of  free AI tools.  
 If you enjoy this project and want to see it grow, please consider supporting future updates:
@@ -54,4 +69,3 @@ If you enjoy this project and want to see it grow, please consider supporting fu
 - BTC:  bc1qecv9dr9qeqhz7glz4u88a0nw3cxcrd4w3jfew4
 - ETH, USDT:  0xCBA9A8b7595E0F9AfCF87A15cDa41B1Bb20F0e3E
 
-⚠️ Donations are voluntary, non‑refundable, and do not grant additional features or services.

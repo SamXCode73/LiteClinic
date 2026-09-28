@@ -109,56 +109,6 @@ namespace LiteClinic.Repository
             return new AppointmentModel { ScheduleId = 0 };
         }
 
-        //public List<ScheduledAppointmentDisplay> GetDisplayedAppointments()
-        //{
-        //    var displayList = new List<ScheduledAppointmentDisplay>();
-        //    try
-        //    {
-        //        using var conn = DatabaseHelper.GetConnection();
-        //        using var cmd = conn.CreateCommand();
-        //        cmd.CommandText = @"SELECT ScheduleId, AppointmentID, PatientId, PatientName, 
-        //                            PatientMotherName, PatientDOB, DoctorId, DoctorName, 
-        //                            Specialty, AppointmentDate, AppointmentTime, 
-        //                            AppointmentType, Notes, IsActive, IsMissed, IsAttending, AttendStatus
-        //                            FROM ViewScheduledAppointments
-        //                            WHERE IsActive = 1 
-        //                            ORDER BY AppointmentDate ASC, AppointmentTime ASC;";
-
-        //        using var reader = cmd.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            displayList.Add(new ScheduledAppointmentDisplay
-        //            {
-        //                ScheduleId = reader.GetInt32(0),
-        //                AppointmentID = reader.GetString(1),
-        //                PatientId = reader.GetInt32(2),
-        //                PatientName = reader.GetString(3),
-        //                PatientMotherName = reader.GetString(4),
-        //                PatientDOB = DateTime.ParseExact(reader.GetString(5), "dd/MM/yyyy", CultureInfo.InvariantCulture),
-        //                DoctorId = reader.GetInt32(6),
-        //                DoctorName = reader.GetString(7),
-        //                Specialty = reader.GetString(8),
-        //                AppointmentDate = DateTime.ParseExact(reader.GetString(9), "yyyy-MM-dd", CultureInfo.InvariantCulture),
-        //                AppointmentTime = TimeSpan.Parse(reader.GetString(10)),
-        //                AppointmentType = reader.IsDBNull(10) ? null : reader.GetString(11),
-        //                Notes = reader.IsDBNull(11) ? null : reader.GetString(12),
-        //                IsActive = reader.GetBoolean(13),
-        //                IsMissed = reader.GetBoolean(14),
-        //                IsAttending = reader.GetBoolean(15),
-        //                AttendStatus = (AttendStatus)reader.GetInt32(16)
-        //            });
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Logger.LogError(ex, "Error retrieving displayed appointments.");
-        //    }
-        //    finally
-        //    {
-        //        DatabaseHelper.CloseConnection();
-        //    }
-        //    return displayList;
-        //}
 
         public List<ScheduledAppointmentDisplay> GetDisplayedAppointments()
         {
@@ -281,7 +231,7 @@ namespace LiteClinic.Repository
                         AttendStatus = (AttendStatus)reader.GetInt32(11),
                         PatientName = reader.GetString(12),
                         PatientMotherName = reader.GetString(13),
-                        PatientDOB = DateTime.ParseExact(reader.GetString(14), "dd/MM/yyyy", CultureInfo.InvariantCulture)
+                        PatientDOB = DateTime.ParseExact(reader.GetString(14), "yyyy-MM-dd", CultureInfo.InvariantCulture)
                     });
                 }
             }

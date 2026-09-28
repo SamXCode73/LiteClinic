@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Text;
-
+using Windows.ApplicationModel.Resources;
 
 namespace LiteClinic.Services
 {
@@ -244,7 +244,7 @@ namespace LiteClinic.Services
         }
     }
 
-    public class StringToProviderTypeConverter : IValueConverter
+    public partial class StringToProviderTypeConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
@@ -261,7 +261,7 @@ namespace LiteClinic.Services
         }
     }
 
-    public class BoolToFontWeightConverter : IValueConverter
+    public partial class BoolToFontWeightConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
@@ -274,7 +274,7 @@ namespace LiteClinic.Services
         }
     }
 
-    public class BoolToBrushConverterForRed : IValueConverter
+    public partial class BoolToBrushConverterForRed : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
@@ -295,7 +295,7 @@ namespace LiteClinic.Services
             throw new NotImplementedException();
         }
     }
-    public class ThemeTypeToColorConverter : IValueConverter
+    public partial class ThemeTypeToColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
@@ -324,7 +324,7 @@ namespace LiteClinic.Services
             => throw new NotImplementedException();
     }
 
-    public class ProfilePictureConverter : IValueConverter
+    public partial class ProfilePictureConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
@@ -342,8 +342,83 @@ namespace LiteClinic.Services
         }
 
     }
+    public partial class AttendStatusToColorConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is AttendStatus status)
+            {
+                return status switch
+                {
+                    AttendStatus.None => new SolidColorBrush(Colors.Gray),
+                    AttendStatus.Missed => new SolidColorBrush(Colors.IndianRed),
+                    AttendStatus.Attended => new SolidColorBrush(Colors.RoyalBlue),
+                    AttendStatus.CurrentlyAttending => new SolidColorBrush(Colors.Teal),
+                    _ => new SolidColorBrush(Colors.Gray),
+                };
+            }
+            return new SolidColorBrush(Colors.Gray);
+        }
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
 
+    }
+
+    //public partial class AttendStatusToColorConverterToolTip : IValueConverter
+    //{
+    //    public object Convert(object value, Type targetType, object parameter, string language)
+    //    {
+    //        if (value is AttendStatus status)
+    //        {
+    //            return status switch
+    //            {
+    //                AttendStatus.None => "Not Attended",
+    //                AttendStatus.Missed => "Missed",
+    //                AttendStatus.Attended => "Attended",
+    //                AttendStatus.CurrentlyAttending => "Currently Attending",
+    //                _ => "Unknown",
+    //            };
+    //        }
+    //        return new SolidColorBrush(Colors.Gray);
+    //    }
+    //    public object ConvertBack(object value, Type targetType, object parameter, string language)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //}
+
+    public partial class AttendStatusToColorConverterToolTip : IValueConverter
+    {
+        private readonly ResourceLoader _resourceLoader = new();
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is AttendStatus status)
+            {
+                string key = status switch
+                {
+                    AttendStatus.None => "AppP_AttendStatus_None",
+                    AttendStatus.Missed => "AppP_AttendStatus_Missed",
+                    AttendStatus.Attended => "AppP_AttendStatus_Attended",
+                    AttendStatus.CurrentlyAttending => "AppP_AttendStatus_CurrentlyAttending",
+                    _ => "AppP_AttendStatus_Unknown"
+                };
+
+                // Look up localized string from Resources.resw
+                return _resourceLoader.GetString(key);
+            }
+            return _resourceLoader.GetString("AppP_AttendStatus_Unknown");
+        }
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+
+    }
 }
+
 
 
 

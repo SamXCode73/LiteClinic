@@ -608,10 +608,6 @@ namespace LiteClinic.ViewModels
         public async void SaveScheduledDoctor()
         {
 
-            //string textARNotSpecified = "غير محدد";
-            //string textENNotSpecified = "Not specified";
-            //string textFRNotSpecified = "Non spécifié";
-
             if (DoctorId <= 0 || string.IsNullOrWhiteSpace(DayOfTheWeek))
             {
                 StatusColor = new SolidColorBrush(Colors.Red);
@@ -633,18 +629,30 @@ namespace LiteClinic.ViewModels
                 .Select(w => w.Trim())
                 .ToList();
 
-            // Validation: Doctor + DayOfWeek + overlapping weeks with different time
+
+            // Validation: Doctor + DayOfWeek + overlapping weeks with overlapping time
             var existingSchedule = ScheduledDisplayList.FirstOrDefault(s =>
-                s.DoctorIdDis == DoctorId &&
-                s.TimeDis != DisTime &&
-                !string.IsNullOrWhiteSpace(s.DayOfWeekDis) &&
-                s.DayOfWeekDis.Equals(DayOfTheWeek, StringComparison.OrdinalIgnoreCase) &&
-                (s.WeekNumbersDis ?? string.Empty)
-                    .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(w => w.Trim())
-                    .Intersect(selectedWeeks)
-                    .Any()
-            );
+            {
+                if (string.IsNullOrWhiteSpace(s.DayOfWeekDis)) return false;
+
+                // Parse existing schedule time safely
+                
+                 var existingRange = ParseTimeRange(s.TimeDis!);
+                if (!existingRange.from.HasValue || !existingRange.to.HasValue) return false;
+
+                // Parse current time safely
+                if (!DisTimeFrom.HasValue || !DisTimeTo.HasValue) return false;
+
+                return s.DoctorIdDis == DoctorId &&
+                       s.DayOfWeekDis.Equals(DayOfTheWeek, StringComparison.OrdinalIgnoreCase) &&
+                       (s.WeekNumbersDis ?? string.Empty)
+                           .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                           .Select(w => w.Trim())
+                           .Intersect(selectedWeeks)
+                           .Any() &&
+                       TimesOverlap(existingRange, (DisTimeFrom, DisTimeTo));
+            });
+
 
             if (existingSchedule != null)
             {
@@ -732,110 +740,6 @@ namespace LiteClinic.ViewModels
                 _cts.TryReset();
             }
         }
-
-        //public async void UpdateScheduledDoctor()
-        //{
-        //    if (SelectedScheduledDisplay == null)
-        //    {
-        //        StatusColor = new SolidColorBrush(Colors.Red);
-        //        StatusMessageSch = _loader.GetString("SchDp_StatusMessageSchNoScheduleForUpdate");
-        //        return;
-        //    }
-
-        //    // Validate weeks
-        //    var weekCsv = BuildWeekNumbersCsv();
-        //    if (string.IsNullOrWhiteSpace(weekCsv))
-        //    {
-        //        StatusColor = new SolidColorBrush(Colors.OrangeRed);
-        //        StatusMessageSch = _loader.GetString("SchDp_StatusMessageSchWeekRequired");
-        //        return;
-        //    }
-
-        //    // Parse selected weeks
-        //    var selectedWeeks = weekCsv
-        //        .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-        //        .Select(w => w.Trim())
-        //        .ToList();
-
-        //    // 1. Validation: Doctor + DayOfWeek + overlapping weeks (exclude current schedule)
-        //    var existingSchedule = ScheduledDisplayList.FirstOrDefault(s =>
-        //        s.DoctorIdDis == DoctorId &&
-        //        !string.IsNullOrWhiteSpace(s.DayOfWeekDis) &&
-        //        s.DayOfWeekDis.Equals(DayOfTheWeek, StringComparison.OrdinalIgnoreCase) &&
-        //        s.ScheduleAutoIdDis != SelectedScheduledDisplay.ScheduleAutoIdDis && // exclude current
-        //        (s.WeekNumbersDis ?? string.Empty)
-        //            .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-        //            .Select(w => w.Trim())
-        //            .Intersect(selectedWeeks)
-        //            .Any()
-        //    );
-
-        //    if (existingSchedule != null)
-        //    {
-        //        StatusColor = new SolidColorBrush(Colors.OrangeRed);
-        //        StatusMessageSch = string.Format(_loader.GetString("SchDp_StatusMessageSchOverlap"),existingSchedule.ScheduleAutoIdDis);
-        //        return;
-        //    }
-
-
-        //    // 2. check if null first and update Get the time for each schudel
-        //    if (DisTimeFrom == null || DisTimeTo == null) // in case this value is 'Not Set"
-        //    {
-        //        StatusColor = new SolidColorBrush(Colors.OrangeRed);
-        //        StatusMessageSch = string.Format(_loader.GetString("SchDp_TimeStampCannotBeNull"), $"From {DisTimeFrom} - To {DisTimeTo}");
-        //        return;
-
-        //    }
-        //    // 3. Check if the time is invalid
-        //    if (DisTimeFrom >= DisTimeTo)
-        //    {
-        //        StatusColor = new SolidColorBrush(Colors.OrangeRed);
-        //        StatusMessageSch = string.Format(_loader.GetString("SchDp_TimeStampIsSameOrInvalid"), $"From {DisTimeFrom} - To {DisTimeTo}");
-        //        return;
-        //    }
-
-        //    var fromDate = DateTime.Today.Add(DisTimeFrom.Value);
-        //    var toDate = DateTime.Today.Add(DisTimeTo.Value);
-        //    DisTime = $"{fromDate:hh\\:mm tt}-{toDate:hh\\:mm tt}";
-
-        //    // Map display → entity
-        //    SelectedScheduled = MapToScheduledDoctor(SelectedScheduledDisplay);
-
-        //    // Update with current ViewModel values
-        //    SelectedScheduled!.DoctorId = (int)DoctorId!;
-        //    SelectedScheduled.DayOfWeek = DayOfTheWeek;
-        //    SelectedScheduled.Notify = CanNotify;
-        //    SelectedScheduled.IsActive = IsScheduleActiveDis;
-        //    SelectedScheduled.WeekNumbers = weekCsv;
-        //    SelectedScheduled.DisTime = DisTime;
-
-        //    // Update Value
-        //    var success = _scheduledDoctorRepository.UpdateScheduledDoctor(SelectedScheduled);
-        //    if (success)
-        //    {
-        //        StatusColor = new SolidColorBrush(Colors.RoyalBlue);
-        //        StatusMessageSch = _loader.GetString("SchDp_StatusMessageSchScheduleUpdated");
-        //    }
-
-        //    try
-        //    {
-        //        await Task.Delay(2000, _cts.Token);
-        //        ClearScheduledFields();
-        //    }
-        //    catch (TaskCanceledException) { return; }
-        //    catch (Exception ex)
-        //    {
-        //        Logger.LogError(ex, "Error updating schedule.");
-        //        StatusColor = new SolidColorBrush(Colors.Red);
-        //        StatusMessageSch = _loader.GetString("SchDp_StatusMessageSchScheduleUpdatedError");
-        //    }
-        //    finally
-        //    {
-        //        _cts.TryReset();
-        //    }
-
-        //    OnPropertyChanged(nameof(StatusMessageSch));
-        //}
 
         public async void UpdateScheduledDoctor()
         {
@@ -1124,6 +1028,17 @@ namespace LiteClinic.ViewModels
 
             return (null, null);
         }
+
+        private bool TimesOverlap((TimeSpan? from, TimeSpan? to) existing, (TimeSpan? from, TimeSpan? to) current)
+        {
+            if (!existing.from.HasValue || !existing.to.HasValue ||
+                !current.from.HasValue || !current.to.HasValue)
+                return false;
+
+            // overlap if ranges intersect
+            return current.from.Value < existing.to.Value && existing.from.Value < current.to.Value;
+        }
+
 
         public async Task GetHiriRomanDate()
         {

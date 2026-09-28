@@ -388,7 +388,7 @@
 
                                 <!-- Active -->
                                 <CheckBox IsChecked="{Binding IsActive}"
-                                          Margin="25,0,0,0"
+                                          Margin="10,0,0,0"
                                           FontStyle="Italic"
                                           FontWeight="SemiBold"
                                           FontFamily="{StaticResource CurrentAppFont}"
@@ -396,7 +396,7 @@
 
                                 <!-- En Notify -->
                                 <CheckBox IsChecked="{Binding NotifyEn}"
-                                          Margin="25,0,0,0"
+                                          Margin="10,0,0,0"
                                           FontStyle="Italic"
                                           FontWeight="SemiBold"
                                           FontFamily="{StaticResource CurrentAppFont}"
@@ -404,7 +404,7 @@
 
                                 <!-- Fr Notify -->
                                 <CheckBox IsChecked="{Binding NotifyFr}"
-                                          Margin="25,0,0,0"
+                                          Margin="10,0,0,0"
                                           FontStyle="Italic"
                                           FontWeight="SemiBold"
                                           FontFamily="{StaticResource CurrentAppFont}"
@@ -412,7 +412,7 @@
 
                                 <!-- Ar Notify -->
                                 <CheckBox IsChecked="{Binding NotifyAr}"
-                                          Margin="25,0,0,0"
+                                          Margin="10,0,0,0"
                                           FontStyle="Italic"
                                           FontWeight="SemiBold"
                                           FontFamily="{StaticResource CurrentAppFont}"

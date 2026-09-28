@@ -27,7 +27,7 @@ namespace LiteClinic.Models
         //public Brush DayForeground { get; set; } = new SolidColorBrush(ColorHelper.FromArgb(255, 208, 240, 242));  // #D0F0F2
 
         // Font weight for the day text
-        public FontWeight DayFontWeight { get; set; } = FontWeights.Normal;
+        public FontWeight DayFontWeight { get; set; } = FontWeights.Bold;
         //public List<string> SlotsSelected { get; set; } = new();
         public ObservableCollection<SlotModel> SlotsSelected { get; set; } = new();
     }
